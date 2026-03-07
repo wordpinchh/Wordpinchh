@@ -1,0 +1,52 @@
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: {
+    default: "WordPinch - Modern Marketing Agency",
+    template: "%s | WordPinch",
+  },
+  description: "High-end marketing agency delivering exceptional digital experiences that drive results and transform your online presence.",
+  keywords: ["marketing agency", "digital marketing", "brand development", "SEO", "content marketing"],
+  authors: [{ name: "WordPinch" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://wordpinch.com",
+    siteName: "WordPinch",
+    title: "WordPinch - Modern Marketing Agency",
+    description: "High-end marketing agency delivering exceptional digital experiences",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "WordPinch - Modern Marketing Agency",
+    description: "High-end marketing agency delivering exceptional digital experiences",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body 
+        className={`${inter.variable} font-sans antialiased bg-background text-foreground`}
+        suppressHydrationWarning
+      >
+        {children}
+      </body>
+    </html>
+  );
+}
