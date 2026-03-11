@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/container";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -39,19 +40,40 @@ export function Hero() {
             Wordpinchh helps founders, consultants, and growing businesses transform their ideas into strategic blogs, LinkedIn thought leadership, and high-converting website content.
           </motion.p>
 
-          {/* CTA Buttons */}
+          {/* Metrics */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            initial={{ opacity: 0, y: 30 }}
+            className="flex flex-wrap justify-center gap-8 mb-12"
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
           >
-            <button className="w-full sm:w-auto bg-linear-to-r from-[#6C5CE7] to-[#A29BFE] text-white px-8 py-4 rounded-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 font-semibold text-lg">
+            <div className="text-center">
+              <p className="text-4xl font-bold text-foreground">5000+</p>
+              <p className="text-sm text-muted-foreground">Articles Written</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-bold text-foreground">50+</p>
+              <p className="text-sm text-muted-foreground">Brands Supported</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-bold text-foreground">7+</p>
+              <p className="text-sm text-muted-foreground">Years Experience</p>
+            </div>
+          </motion.div>
+
+          {/* CTAs */}
+          <motion.div
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+          >
+            <Link href="#content-report" className="w-full sm:w-auto bg-linear-to-r from-[#6C5CE7] to-[#A29BFE] text-white px-8 py-4 rounded-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 font-semibold text-lg text-center block">
               Get Free Content Opportunity Report
-            </button>
-            <button className="w-full sm:w-auto border border-border text-foreground px-8 py-4 rounded-lg hover:bg-muted hover:border-[#6C5CE7]/50 transition-all duration-300 font-semibold text-lg">
+            </Link>
+            <a href="mailto:hello@wordpinchh.com?subject=Strategy Call Request&body=I'd like to book a strategy call to discuss how Wordpinchh can help with our content strategy." className="w-full sm:w-auto border border-border text-foreground px-8 py-4 rounded-lg hover:bg-muted hover:border-[#6C5CE7]/50 transition-all duration-300 font-semibold text-lg text-center block">
               Book a Strategy Call
-            </button>
+            </a>
           </motion.div>
 
           {/* Additional visual elements */}

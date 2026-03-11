@@ -9,6 +9,8 @@ import { Insights } from "@/components/sections/insights";
 import { Services } from "@/components/sections/services";
 import { Cta } from "@/components/sections/cta";
 import { Navbar } from "@/components/layout/navbar";
+import { ProblemSolution } from "@/components/sections/problem-solution";
+import { WhyWordpinchh } from "@/components/sections/why-wordpinchh";
 
 export default function HomePage() {
   return (
@@ -16,11 +18,13 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <TrustedBy />
+      <ProblemSolution />
       <HowItWorks />
       <Results />
       <Portfolio />
       <Insights />
       <Services />
+      <WhyWordpinchh />
       <Cta />
     </div>
   );

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/container";
 import { useState } from "react";
+import Link from "next/link";
 
 export function Cta() {
   const [formData, setFormData] = useState({
@@ -31,7 +32,7 @@ export function Cta() {
     });
   };
   return (
-    <section className="py-24 relative overflow-hidden">
+    <section id="content-report" className="py-24 relative overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-linear-to-br from-[#6C5CE7]/20 via-[#A29BFE]/10 to-[#6C5CE7]/20" />
       <div className="absolute inset-0 bg-linear-to-t from-background via-background/95 to-background" />
@@ -212,6 +213,21 @@ export function Cta() {
                   >
                     {isSubmitted ? "✓ Report Requested!" : "Get My Free Content Report"}
                   </motion.button>
+                </motion.div>
+
+                {/* Secondary CTA */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 1.2 }}
+                >
+                  <a 
+                    href="mailto:hello@wordpinchh.com?subject=Strategy Call Request&body=I'd like to book a strategy call to discuss how Wordpinchh can help with our content strategy."
+                    className="w-full border border-border text-foreground px-8 py-4 rounded-lg hover:bg-muted hover:border-[#6C5CE7]/50 transition-all duration-300 font-semibold text-lg text-center block"
+                  >
+                    Book a Strategy Call
+                  </a>
                 </motion.div>
                 
                 {isSubmitted && (

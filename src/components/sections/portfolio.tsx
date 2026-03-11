@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/container";
+import Link from "next/link";
 
 export function Portfolio() {
   const portfolioItems = [
@@ -9,16 +10,19 @@ export function Portfolio() {
       title: "SEO Blog Example",
       topic: "How Consulting Firms Generate Leads Through Content Marketing",
       description: "A long-form SEO article designed to rank on search engines and position consulting firms as industry experts.",
+      href: "/portfolio/seo-blog-example"
     },
     {
       title: "LinkedIn Thought Leadership",
       topic: "Why Most Business Blogs Fail",
       description: "A LinkedIn post designed to teach founders how content strategy impacts authority and growth.",
+      href: "/portfolio/linkedin-thought-leadership"
     },
     {
       title: "Landing Page Copy",
       topic: "Website Copy for a Consulting Firm",
       description: "Messaging designed to clearly communicate services and convert visitors into leads.",
+      href: "/portfolio/landing-page-copy"
     },
   ];
 
@@ -57,8 +61,9 @@ export function Portfolio() {
               }}
               whileHover={{ y: -5 }}
             >
-              {/* Card */}
-              <div className="relative bg-muted border border-border rounded-xl p-6 h-full transition-all duration-300 group-hover:border-[#6C5CE7]/50 group-hover:shadow-lg group-hover:shadow-[#6C5CE7]/10">
+              <Link href={item.href}>
+                {/* Card */}
+                <div className="relative bg-muted border border-border rounded-xl p-6 h-full transition-all duration-300 group-hover:border-[#6C5CE7]/50 group-hover:shadow-lg group-hover:shadow-[#6C5CE7]/10 cursor-pointer">
                 
                 {/* Glow Effect */}
                 <div className="absolute inset-0 bg-linear-to-br from-[#6C5CE7]/5 via-transparent to-[#A29BFE]/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -81,6 +86,7 @@ export function Portfolio() {
                   </p>
                 </div>
               </div>
+              </Link>
             </motion.div>
           ))}
         </div>

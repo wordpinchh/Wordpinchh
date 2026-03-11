@@ -2,20 +2,24 @@
 
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/container";
+import Link from "next/link";
 
 export function Insights() {
   const articles = [
     {
       title: "Why Most Business Blogs Fail",
       description: "A breakdown of the most common mistakes companies make when publishing blog content.",
+      href: "/insights/why-business-blogs-fail"
     },
     {
       title: "How Founders Can Build Authority on LinkedIn",
       description: "Practical strategies for turning insights into consistent thought leadership posts.",
+      href: "/insights/linkedin-authority"
     },
     {
       title: "The Role of SEO Blogs in Long-Term Growth",
       description: "Why strategic blog content is one of the most powerful long-term growth assets.",
+      href: "/insights/seo-blog-growth"
     },
   ];
 
@@ -54,8 +58,9 @@ export function Insights() {
               }}
               whileHover={{ y: -5 }}
             >
-              {/* Card */}
-              <div className="relative bg-muted border border-border rounded-xl p-6 h-full transition-all duration-300 group-hover:border-[#6C5CE7]/50 group-hover:shadow-lg group-hover:shadow-[#6C5CE7]/10">
+              <Link href={article.href}>
+                {/* Card */}
+                <div className="relative bg-muted border border-border rounded-xl p-6 h-full transition-all duration-300 group-hover:border-[#6C5CE7]/50 group-hover:shadow-lg group-hover:shadow-[#6C5CE7]/10 cursor-pointer">
                 
                 {/* Glow Effect */}
                 <div className="absolute inset-0 bg-linear-to-br from-[#6C5CE7]/5 via-transparent to-[#A29BFE]/5 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -86,6 +91,7 @@ export function Insights() {
                   </div>
                 </div>
               </div>
+              </Link>
             </motion.div>
           ))}
         </div>

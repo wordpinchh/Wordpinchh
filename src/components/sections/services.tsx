@@ -7,40 +7,40 @@ export function Services() {
   const services = [
     {
       title: "SEO Blog Writing",
-      description: "Long-form blog articles designed to rank on search engines and attract consistent organic traffic.",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=300&h=300&fit=crop&crop=center",
+      bulletPoints: [
+        "Long-form articles that rank",
+        "Strategic keyword research",
+        "Authority-building content"
+      ]
     },
     {
       title: "LinkedIn Ghostwriting",
-      description: "Thought leadership posts that help founders and experts build authority on LinkedIn.",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
-        </svg>
-      ),
-    },
-    {
-      title: "Website Content",
-      description: "Clear and compelling website messaging that explains what you do and why clients should trust you.",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=300&h=300&fit=crop&crop=center",
+      bulletPoints: [
+        "Thought leadership posts",
+        "Founder-focused content",
+        "Engagement optimization"
+      ]
     },
     {
       title: "Landing Page Copywriting",
-      description: "Conversion-focused landing pages designed to turn visitors into leads.",
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-        </svg>
-      ),
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=300&fit=crop&crop=center",
+      bulletPoints: [
+        "Conversion-focused copy",
+        "Clear value propositions",
+        "Compelling messaging"
+      ]
     },
+    {
+      title: "Website Content",
+      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=300&h=300&fit=crop&crop=center",
+      bulletPoints: [
+        "Clear website messaging",
+        "Service descriptions",
+        "Trust-building content"
+      ]
+    }
   ];
 
   return (
@@ -86,11 +86,13 @@ export function Services() {
                 
                 {/* Content */}
                 <div className="relative z-10">
-                  {/* Icon */}
-                  <div className="w-14 h-14 bg-linear-to-r from-[#6C5CE7] to-[#A29BFE] rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <div className="text-white">
-                      {service.icon}
-                    </div>
+                  {/* Image */}
+                  <div className="w-full h-32 mb-4 rounded-lg overflow-hidden group-hover:scale-105 transition-transform duration-300">
+                    <img 
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
 
                   {/* Title */}
@@ -98,10 +100,15 @@ export function Services() {
                     {service.title}
                   </h3>
 
-                  {/* Description */}
-                  <p className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </p>
+                  {/* Bullet Points */}
+                  <ul className="space-y-2">
+                    {service.bulletPoints.map((point, index) => (
+                      <li key={index} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <span className="text-[#6C5CE7] mt-0.5">•</span>
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </motion.div>
