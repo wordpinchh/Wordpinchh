@@ -2,105 +2,85 @@
 
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/container";
-import Link from "next/link";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Gradient Glow here */}
-      <div className="absolute inset-0 bg-background">
+    <section className="sticky top-0 h-screen z-0 bg-[#0A0A0A] overflow-hidden">
+      {/* Background Gradient Glow */}
+      <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/15 rounded-full blur-3xl" />
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-linear-to-r from-purple-500/10 to-purple-600/10 rounded-full blur-3xl" />
       </div>
 
-      {/* Content */}
-      <Container className="relative z-10">
-        <div className="text-center max-w-5xl mx-auto">
-          {/* Headline */}
-          <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            Turn Your Expertise Into{" "}
-            <span className="bg-linear-to-r from-[#6C5CE7] to-[#A29BFE] bg-clip-text text-transparent">
-              Content That Attracts Clients
-            </span>
-          </motion.h1>
+      {/* 3-Tile Cinematic Slider - Full Screen */}
+      <div className="relative h-screen w-full flex items-center justify-center">
+        <div className="relative w-full h-full overflow-hidden">
+          <div className="flex items-center h-full gap-3 pl-[220px]">
+            
+            {/* Left Tile - Half Cut */}
+            <motion.div
+              initial={{ opacity: 0, x: -150 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+              className="relative w-[520px] h-[80vh] rounded-[150px] overflow-hidden cursor-pointer group shrink-0"
+              style={{ marginLeft: "-360px" }}
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=1200&q=80"
+                alt="Strategic Content"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 text-white">
+                <h3 className="text-2xl font-bold mb-2">Strategic Content</h3>
+                <p className="text-gray-300 text-sm">Authority-building blog content</p>
+              </div>
+            </motion.div>
 
-          {/* Subheading */}
-          <motion.p
-            className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-10 max-w-4xl mx-auto leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          >
-            Wordpinchh helps founders, consultants, and growing businesses transform their ideas into strategic blogs, LinkedIn thought leadership, and high-converting website content.
-          </motion.p>
+            {/* Center Tile - Wider, Less Height */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+              className="relative w-[1100px] h-[80vh] rounded-[150px] overflow-hidden cursor-pointer group shrink-0 shadow-2xl shadow-purple-500/20"
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800&q=80"
+                alt="Authority Building"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6 text-white">
+                <h3 className="text-2xl font-bold mb-2">Authority Building</h3>
+                <p className="text-gray-300 text-sm">Transform expertise into thought leadership</p>
+              </div>
+            </motion.div>
 
-          {/* Metrics */}
-          <motion.div
-            className="flex flex-wrap justify-center gap-8 mb-12"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
-          >
-            <div className="text-center">
-              <p className="text-4xl font-bold text-foreground">5000+</p>
-              <p className="text-sm text-muted-foreground">Articles Written</p>
-            </div>
-            <div className="text-center">
-              <p className="text-4xl font-bold text-foreground">50+</p>
-              <p className="text-sm text-muted-foreground">Brands Supported</p>
-            </div>
-            <div className="text-center">
-              <p className="text-4xl font-bold text-foreground">7+</p>
-              <p className="text-sm text-muted-foreground">Years Experience</p>
-            </div>
-          </motion.div>
+            {/* Right Tile - Half Cut */}
+            <motion.div
+              initial={{ opacity: 0, x: 150 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+              className="relative w-[520px] h-[80vh] rounded-[150px] overflow-hidden cursor-pointer group shrink-0"
+              style={{ marginRight: "-300px" }}
+            >
+              <img 
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=1200&q=80"
+                alt="Growth Focused"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
+              <div className="absolute bottom-6 right-6 text-white text-right">
+                <h3 className="text-2xl font-bold mb-2">Growth Focused</h3>
+                <p className="text-gray-300 text-sm">Content that drives results</p>
+              </div>
+            </motion.div>
 
-          {/* CTAs */}
-          <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
-          >
-            <Link href="#content-report" className="w-full sm:w-auto bg-linear-to-r from-[#6C5CE7] to-[#A29BFE] text-white px-8 py-4 rounded-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 font-semibold text-lg text-center block">
-              Get Free Content Opportunity Report
-            </Link>
-            <a href="mailto:hello@wordpinchh.com?subject=Strategy Call Request&body=I'd like to book a strategy call to discuss how Wordpinchh can help with our content strategy." className="w-full sm:w-auto border border-border text-foreground px-8 py-4 rounded-lg hover:bg-muted hover:border-[#6C5CE7]/50 transition-all duration-300 font-semibold text-lg text-center block">
-              Book a Strategy Call
-            </a>
-          </motion.div>
-
-          {/* Additional visual elements */}
-          <motion.div
-            className="mt-16 flex justify-center space-x-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.6 }}
-          >
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#6C5CE7]">200+</div>
-              <div className="text-sm text-muted-foreground mt-1">Articles Written</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#6C5CE7]">50+</div>
-              <div className="text-sm text-muted-foreground mt-1">Brands Supported</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold text-[#6C5CE7]">3+</div>
-              <div className="text-sm text-muted-foreground mt-1">Years Experience</div>
-            </div>
-          </motion.div>
+          </div>
         </div>
-      </Container>
+      </div>
 
-      {/* Bottom gradient fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-background to-transparent" />
     </section>
   );
 }
