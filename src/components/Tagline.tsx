@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 export default function Tagline() {
 
-  const words = ["clients", "founders", "consultants"];
+  const words = ["CLIENTS", "FOUNDERS", "CONSULTANTS"];
   const [index, setIndex] = useState(0);
 
   // Number counting animation
@@ -17,7 +17,7 @@ export default function Tagline() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % words.length);
-    }, 2500);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
@@ -86,13 +86,14 @@ export default function Tagline() {
   };
 
   return (
-    <section className="relative bg-white min-h-[120vh] z-10 pt-24 transition-colors duration-500">
-      <div className="sticky top-24 flex items-center justify-center h-[70vh]">
+    <section className="sticky top-[80px] min-h-screen bg-white z-20 flex items-center justify-center px-6">
 
-        {/* Main Tagline */}
-        <div className="max-w-5xl mb-24 text-center">
+      <div className="max-w-6xl w-full text-center">
 
-          <h2 className="text-5xl md:text-7xl font-light text-black leading-tight max-w-[900px] mx-auto">
+        {/* Heading */}
+        <div className="mb-16 md:mb-24">
+
+          <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-light text-black leading-tight max-w-[900px] mx-auto">
             Turn Your Expertise Into <br />
             Content That Attracts{" "}
             <motion.span
@@ -108,9 +109,10 @@ export default function Tagline() {
 
         </div>
 
-        {/* Stats Section - Horizontal Cards */}
-        <div className="max-w-6xl mx-auto mt-24 grid grid-cols-1 md:grid-cols-3 gap-10">
+        {/* Stats */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10 max-w-5xl mx-auto">
 
+          {/* Card 1 */}
           <motion.div
             variants={statAnimation}
             initial="hidden"
@@ -118,57 +120,69 @@ export default function Tagline() {
             viewport={{ once: true }}
             onViewportEnter={() => setIsVisible(true)}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl p-10 border text-center
+            className="bg-white rounded-2xl p-6 md:p-10 border text-center
               transition-all duration-300
               hover:-translate-y-2
               hover:shadow-xl
               hover:bg-gray-50
-              hover:border-black/20">
-            <h3 className="text-6xl font-bold text-black tracking-tight">
+              hover:border-black/20"
+          >
+            <h3 className="text-4xl md:text-6xl font-bold text-black tracking-tight">
               {count5000}+
             </h3>
-            <p className="mt-3 text-gray-500">Articles Written</p>
+            <p className="mt-2 md:mt-3 text-gray-500 text-sm md:text-base">
+              Articles Written
+            </p>
           </motion.div>
 
+          {/* Card 2 */}
           <motion.div
             variants={statAnimation}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="bg-white rounded-2xl p-10 border text-center
+            className="bg-white rounded-2xl p-6 md:p-10 border text-center
               transition-all duration-300
               hover:-translate-y-2
               hover:shadow-xl
               hover:bg-gray-50
-              hover:border-black/20">
-            <h3 className="text-6xl font-bold text-black tracking-tight">
+              hover:border-black/20"
+          >
+            <h3 className="text-4xl md:text-6xl font-bold text-black tracking-tight">
               {count50}+
             </h3>
-            <p className="mt-3 text-gray-500">Brands Supported</p>
+            <p className="mt-2 md:mt-3 text-gray-500 text-sm md:text-base">
+              Brands Supported
+            </p>
           </motion.div>
 
+          {/* Card 3 */}
           <motion.div
             variants={statAnimation}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-white rounded-2xl p-10 border text-center
+            className="bg-white rounded-2xl p-6 md:p-10 border text-center
               transition-all duration-300
               hover:-translate-y-2
               hover:shadow-xl
               hover:bg-gray-50
-              hover:border-black/20">
-            <h3 className="text-6xl font-bold text-black tracking-tight">
+              hover:border-black/20"
+          >
+            <h3 className="text-4xl md:text-6xl font-bold text-black tracking-tight">
               {count7}+
             </h3>
-            <p className="mt-3 text-gray-500">Years Experience</p>
+            <p className="mt-2 md:mt-3 text-gray-500 text-sm md:text-base">
+              Years Experience
+            </p>
           </motion.div>
 
         </div>
 
       </div>
+
     </section>
   );
 }
