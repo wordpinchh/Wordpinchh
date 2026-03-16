@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <rect width="400" height="300" fill="#f5f5f5"/>
+  <rect x="50" y="50" width="300" height="200" rx="20" fill="#cfe4df"/>
+  <text x="200" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#333">CONTACT US</text>
+  <circle cx="120" cy="120" r="30" fill="#6C5CE7" opacity="0.3"/>
+  <circle cx="280" cy="120" r="30" fill="#A29BFE" opacity="0.3"/>
+  <path d="M150 180 L200 180 L250 180" stroke="#333" stroke-width="2" fill="none"/>
+</svg>
