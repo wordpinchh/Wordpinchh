@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import PageTransition from "@/components/PageTransition";
+import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -45,7 +48,15 @@ export default function RootLayout({
         className={`${inter.variable} font-sans antialiased bg-background text-foreground`}
         suppressHydrationWarning
       >
-        {children}
+        <CustomCursor />
+        {/* <SmoothScroll>
+          <PageTransition>
+            {children}
+          </PageTransition>
+        </SmoothScroll> */}
+        <PageTransition>
+          {children}
+        </PageTransition>
       </body>
     </html>
   );
