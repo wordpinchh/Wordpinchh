@@ -186,7 +186,7 @@ export default function ServicesPage() {
                     </span>
                   </div>
                   {/* Divider */}
-                  <div className="h-[1px] bg-white/20 group-hover:bg-white transition duration-300" />
+                  <div className="h-px bg-white/20 group-hover:bg-white transition duration-300" />
                 </div>
               ))}
             </div>
