@@ -35,18 +35,6 @@ export default function HomePage() {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return (
-      <div className="min-h-screen bg-background">
-        <div className="animate-pulse">
-          <div className="h-20 bg-gray-200 mb-8"></div>
-          <div className="h-96 bg-gray-200 mb-8"></div>
-          <div className="h-32 bg-gray-200 mb-8"></div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-background" suppressHydrationWarning>
       <Navbar />

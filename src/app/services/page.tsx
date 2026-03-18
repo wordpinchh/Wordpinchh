@@ -208,7 +208,7 @@ export default function ServicesPage() {
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
-                  className="text-center lg:text-left flex flex-col justify-center min-h-[160px] p-5"
+                  className="text-center lg:text-left"
                 >
                   <h2 
                     className="text-3xl md:text-4xl lg:text-[50px] font-light tracking-tight mb-4 md:mb-6 text-black"
@@ -226,7 +226,7 @@ export default function ServicesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                   animate={{ scale: [1, 1.05] }}
-                  className="order-first lg:order-last flex items-center justify-center"
+                  className="order-first lg:order-last"
                 >
                   <img
                     src={service.image}
