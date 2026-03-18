@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 
 export default function Tagline() {
   return (
-    <section className="w-full px-4 sm:px-6 md:px-10 py-16 md:py-20 bg-white relative z-20 border-2 border-red-500 min-h-[400px]">
+    <section className="w-full px-4 sm:px-6 md:px-10 py-16 md:py-20 bg-white relative z-20 min-h-[400px]">
       <div className="max-w-[1300px] mx-auto text-center">
         {/* HEADING */}
         <h2 className="
           text-[26px] sm:text-[32px] md:text-[40px] lg:text-[48px]
           xl:text-[56px]
-          font-light
+          font-heading
           tracking-[-0.02em]
           text-black
           whitespace-normal
@@ -25,8 +25,9 @@ export default function Tagline() {
           max-w-[750px]
           mx-auto
           text-sm sm:text-base md:text-lg
-          text-neutral-600
+          font-sans
           leading-relaxed
+          text-neutral-600
         ">
           Wordpinchh writes SEO blogs, LinkedIn thought leadership, and website copy for founders, SaaS startups, and consulting firms — so you show up where your buyers are already looking. In Google search, in AI-generated answers, and in the minds of every decision-maker in your space.
         </p>
@@ -53,10 +54,10 @@ export default function Tagline() {
               min-h-[120px]
             "
           >
-            <h3 className="text-[22px] sm:text-[26px] md:text-[30px] font-semibold leading-tight text-black">
+            <h3 className="text-[22px] sm:text-[26px] md:text-[30px] font-heading leading-tight text-black">
               5000+
             </h3>
-            <p className="mt-1 text-xs sm:text-sm text-neutral-500">
+            <p className="mt-1 text-xs sm:text-sm font-sans text-neutral-500">
               Articles Written
             </p>
           </motion.div>
@@ -75,10 +76,10 @@ export default function Tagline() {
               min-h-[120px]
             "
           >
-            <h3 className="text-[22px] sm:text-[26px] md:text-[30px] font-semibold leading-tight text-black">
+            <h3 className="text-[22px] sm:text-[26px] md:text-[30px] font-heading leading-tight text-black">
               50+
             </h3>
-            <p className="mt-1 text-xs sm:text-sm text-neutral-500">
+            <p className="mt-1 text-xs sm:text-sm font-sans text-neutral-500">
               Brands Supported
             </p>
           </motion.div>
@@ -97,10 +98,10 @@ export default function Tagline() {
               min-h-[120px]
             "
           >
-            <h3 className="text-[22px] sm:text-[26px] md:text-[30px] font-semibold leading-tight text-black">
+            <h3 className="text-[22px] sm:text-[26px] md:text-[30px] font-heading leading-tight text-black">
               7+
             </h3>
-            <p className="mt-1 text-xs sm:text-sm text-neutral-500">
+            <p className="mt-1 text-xs sm:text-sm font-sans text-neutral-500">
               Years Experience
             </p>
           </motion.div>

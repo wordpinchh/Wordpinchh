@@ -17,12 +17,12 @@ export function ProblemSolution() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-[28px] sm:text-[36px] md:text-[48px] font-light tracking-tight text-black"
+            className="text-[28px] sm:text-[36px] md:text-[44px] font-heading tracking-[-0.02em] text-black"
           >
             Content challenges & solutions
           </motion.h2>
           
-          <p className="mt-4 text-sm text-neutral-600 leading-relaxed max-w-2xl mx-auto">
+          <p className="mt-4 text-sm sm:text-base md:text-lg font-sans leading-relaxed text-neutral-600 max-w-2xl mx-auto">
             Every business faces content challenges. We transform these obstacles into opportunities for growth and authority building.
           </p>
           
@@ -40,7 +40,6 @@ export function ProblemSolution() {
             className="
               p-6 sm:p-8
               rounded-2xl
-              border border-black/10
               bg-white
               flex flex-col
               min-h-[460px]
@@ -48,7 +47,7 @@ export function ProblemSolution() {
             "
           >
             {/* LABEL */}
-            <span className="text-xs uppercase tracking-widest text-red-500 mb-3">
+            <span className="text-xs uppercase tracking-widest text-red-500 mb-3 font-sans">
               Problem
             </span>
 
@@ -60,15 +59,15 @@ export function ProblemSolution() {
               style={{ height: '344px' }}
             />
 
-            <h3 className="text-lg font-semibold mb-4 text-black">
+            <h3 className="text-[20px] sm:text-[24px] md:text-[28px] font-heading mb-4 text-black">
               You're great at what you do. But nobody can find you.
             </h3>
             
-            <p className="text-sm text-neutral-600 leading-relaxed mb-4">
+            <p className="text-sm sm:text-base md:text-lg font-sans leading-relaxed text-neutral-600 mb-4">
               You've built something worth talking about. The problem? Content keeps falling to the bottom of the list.
             </p>
             
-            <ul className="text-sm text-neutral-600 space-y-2 mb-4">
+            <ul className="text-sm sm:text-base md:text-lg font-sans leading-relaxed text-neutral-600 space-y-2 mb-4">
               <li>– Your blog has three posts — all from 18 months ago</li>
               <li>– Your LinkedIn is quiet while competitors build audiences daily</li>
               <li>– Your website copy reads like every other agency</li>
@@ -76,7 +75,7 @@ export function ProblemSolution() {
               <li>– Freelancers slow down execution</li>
             </ul>
             
-            <p className="text-sm text-neutral-600">
+            <p className="text-sm sm:text-base md:text-lg font-sans leading-relaxed text-neutral-600">
               Your buyers now search via Google, ChatGPT, and AI tools. If you're not visible, you're invisible twice.
             </p>
           </motion.div>
@@ -89,7 +88,6 @@ export function ProblemSolution() {
             className="
               p-6 sm:p-8
               rounded-2xl
-              border border-black/10
               bg-black text-white
               flex flex-col
               min-h-[460px]
@@ -97,7 +95,7 @@ export function ProblemSolution() {
             "
           >
             {/* LABEL */}
-            <span className="text-xs uppercase tracking-widest text-green-400 mb-3">
+            <span className="text-xs uppercase tracking-widest text-green-400 mb-3 font-sans">
               Solution
             </span>
 
@@ -109,19 +107,19 @@ export function ProblemSolution() {
               style={{ height: '344px' }}
             />
 
-            <h3 className="text-lg font-semibold mb-4">
+            <h3 className="text-[20px] sm:text-[24px] md:text-[28px] font-heading mb-4">
               We don't just write. We build your content engine.
             </h3>
             
-            <p className="text-sm text-white/80 leading-relaxed mb-4">
+            <p className="text-sm sm:text-base md:text-lg font-sans leading-relaxed text-white/80 mb-4">
               Wordpinchh is a content partner for founders and B2B teams who want their expertise to work harder — in Google search, AI answers, LinkedIn, and their website.
             </p>
             
-            <p className="text-sm text-white/80">
+            <p className="text-sm sm:text-base md:text-lg font-sans leading-relaxed text-white/80">
               Every piece we write is built to bring the right person closer to working with you.
             </p>
             
-            <p className="mt-4 text-sm text-white/60">
+            <p className="mt-4 text-sm sm:text-base md:text-lg font-sans leading-relaxed text-white/60">
               No fluff. No filler. No keyword-stuffed nonsense.
             </p>
           </motion.div>

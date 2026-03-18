@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Fahkwang } from "next/font/google";
 import "./globals.css";
 import PageTransition from "@/components/PageTransition";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -8,6 +8,13 @@ import CustomCursor from "@/components/CustomCursor";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
+const fahkwang = Fahkwang({
+  variable: "--font-fahkwang",
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
 });
 
 export const metadata: Metadata = {
@@ -45,7 +52,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body 
-        className={`${inter.variable} font-sans antialiased bg-background text-foreground`}
+        className={`${inter.variable} ${fahkwang.variable} font-sans antialiased bg-background text-foreground`}
         suppressHydrationWarning
       >
         <CustomCursor />
