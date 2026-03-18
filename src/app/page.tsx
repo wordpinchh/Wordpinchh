@@ -9,7 +9,6 @@ import { Insights } from "@/components/sections/insights";
 import { Services } from "@/components/sections/services";
 import { Navbar } from "@/components/layout/navbar";
 import { ProblemSolution } from "@/components/sections/problem-solution";
-import { ProblemCards } from "@/components/sections/problem-cards";
 import { WhyWordpinchh } from "@/components/sections/why-wordpinchh";
 import { useEffect, useState } from "react";
 import LeadMagnet from "@/components/LeadMagnet";
@@ -41,7 +40,6 @@ export default function HomePage() {
       <Hero />
       <Tagline />
       <ProblemSolution />
-      <ProblemCards />
       <Services />
       <LeadMagnet />
       <LetsWorkTogether />
