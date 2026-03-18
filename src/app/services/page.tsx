@@ -193,109 +193,92 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* 3️⃣ SERVICE DETAIL BLOCKS - CINEMATIC UPGRADE */}
-        <section className="py-32 bg-white">
-          <div className="max-w-[1320px] mx-auto px-6 space-y-32">
-
+        {/* 3️⃣ SERVICE DETAIL BLOCKS - RESPONSIVE UPGRADE */}
+        <section className="py-16 md:py-32 bg-white">
+          <div className="max-w-[1320px] mx-auto px-4 md:px-6 space-y-16 md:space-y-32">
             {serviceDetails.map((service, i) => (
               <div
                 key={i}
-                className={`grid lg:grid-cols-2 gap-20 items-center ${
+                className={`grid lg:grid-cols-2 gap-8 md:gap-16 lg:gap-20 items-center ${
                   i % 2 !== 0 ? "lg:grid-flow-col-dense" : ""
                 }`}
               >
-
                 {/* TEXT */}
                 <motion.div
-                  initial={{ opacity: 0, y: 60 }}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
+                  className="text-center lg:text-left"
                 >
                   <h2 
-                    className="text-[50px] font-light tracking-tight mb-6 text-black"
+                    className="text-3xl md:text-4xl lg:text-[50px] font-light tracking-tight mb-4 md:mb-6 text-black"
                     style={{ fontFamily: "'Fahkwang', sans-serif" }}
                   >
                     {service.title}
                   </h2>
-
-                  <p className="text-neutral-600 text-lg max-w-[500px]">
+                  <p className="text-neutral-600 text-base md:text-lg max-w-none lg:max-w-[500px]">
                     {service.description}
                   </p>
                 </motion.div>
-
                 {/* IMAGE */}
                 <motion.div
-                  initial={{ opacity: 0, y: 60 }}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                   animate={{ scale: [1, 1.05] }}
+                  className="order-first lg:order-last"
                 >
                   <img
                     src={service.image}
-                    className="w-full h-[500px] object-cover rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
+                    className="w-full h-auto max-h-[300px] md:max-h-[400px] lg:max-h-[500px] object-cover rounded-xl md:rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.15)]"
                   />
                 </motion.div>
-
               </div>
             ))}
-
           </div>
-
         </section>
 
-        {/* 4️⃣ PROCESS SECTION - PREMIUM UPGRADE */}
-        <section className="py-32 bg-black text-white">
-
-          <div className="max-w-[1200px] mx-auto px-6">
-
+        {/* 4️⃣ PROCESS SECTION - RESPONSIVE UPGRADE */}
+        <section className="py-16 md:py-32 bg-black text-white">
+          <div className="max-w-[1200px] mx-auto px-4 md:px-6">
             {/* Heading */}
             <motion.h2
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-[70px] font-light mb-20 text-center"
+              className="text-4xl md:text-5xl lg:text-[70px] font-light mb-12 md:mb-20 text-center"
               style={{ fontFamily: "'Fahkwang', sans-serif" }}
             >
               HOW WE <span className="font-semibold">WORK</span>
             </motion.h2>
-
             {/* Divider */}
-            <div className="border-t border-neutral-800 mb-16" />
-
+            <div className="border-t border-neutral-800 mb-8 md:mb-16" />
             {/* Steps */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-16">
-
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-16">
               {steps.map((step, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 60 }}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.2 }}
-                  className="group hover:-translate-y-2 transition duration-300"
+                  className="text-center group hover:-translate-y-2 transition duration-300"
                 >
-
                   {/* Number */}
-                  <p className="text-5xl text-neutral-600 mb-4 group-hover:text-white transition">
+                  <p className="text-3xl md:text-5xl text-neutral-600 mb-3 md:mb-4 group-hover:text-white transition">
                     {step.number}
                   </p>
-
                   {/* Title */}
-                  <h3 className="text-xl font-semibold mb-3">
+                  <h3 className="text-lg md:text-xl font-semibold mb-2 md:mb-3">
                     {step.title}
                   </h3>
-
                   {/* Description */}
-                  <p className="text-neutral-400 text-sm leading-relaxed">
+                  <p className="text-neutral-400 text-sm md:text-base leading-relaxed">
                     {step.desc}
                   </p>
-
                 </motion.div>
               ))}
-
             </div>
-
           </div>
-
         </section>
 
         {/* 5️⃣ EDITORIAL BREAK - PREMIUM UPGRADE */}
@@ -319,9 +302,8 @@ export default function ServicesPage() {
 
         </section>
 
-        {/* 6️⃣ CTA SECTION - CONVERSION UPGRADE */}
-        <section className="relative py-32 text-white text-center via-[#0f172a] to-black overflow-hidden">
-
+        {/* 6️⃣ CTA SECTION - RESPONSIVE UPGRADE */}
+        <section className="relative py-16 md:py-32 text-white text-center via-[#0f172a] to-black overflow-hidden">
           {/* Motion Glow */}
           <motion.div
             className="absolute inset-0 opacity-20"
@@ -330,27 +312,24 @@ export default function ServicesPage() {
           >
             <div className="w-full h-full bg-linear-to-r from-purple-500 via-blue-500 to-transparent blur-3xl" />
           </motion.div>
-
           <motion.h3
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative text-[40px] md:text-[60px] font-light mb-10"
+            className="relative text-2xl md:text-3xl lg:text-[40px] md:text-[60px] font-light mb-6 md:mb-10"
             style={{ fontFamily: "'Fahkwang', sans-serif" }}
           >
             Ready to build something meaningful?
           </motion.h3>
-
           <motion.a
             href="/contact"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="relative inline-flex items-center gap-2 bg-white text-black px-10 py-5 rounded-full text-lg shadow-[0_10px_40px_rgba(0,0,0,0.3)] hover:gap-4 hover:scale-105 transition-all duration-300"
+            className="relative inline-flex items-center gap-2 md:gap-4 bg-white text-black px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg shadow-[0_5px_20px_rgba(0,0,0,0.3)] hover:gap-4 md:hover:gap-6 hover:scale-105 transition-all duration-300"
           >
             Start a Project →
           </motion.a>
-
         </section>
 
       </main>

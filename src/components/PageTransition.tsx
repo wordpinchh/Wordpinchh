@@ -14,6 +14,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.98 }}
         transition={{ duration: 0.6, ease: "easeInOut" }}
+        suppressHydrationWarning
       >
         {children}
       </motion.div>
