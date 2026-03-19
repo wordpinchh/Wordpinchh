@@ -6,7 +6,7 @@ import { HowItWorks } from "@/components/sections/how-it-works";
 import { Results } from "@/components/sections/results";
 import { Portfolio } from "@/components/sections/portfolio";
 import { Insights } from "@/components/sections/insights";
-import { Services } from "@/components/sections/services";
+import { Services, AIVisibility } from "@/components/sections/services";
 import { Navbar } from "@/components/layout/navbar";
 import { ProblemSolution } from "@/components/sections/problem-solution";
 import { WhyWordpinchh } from "@/components/sections/why-wordpinchh";
@@ -45,6 +45,7 @@ export default function HomePage() {
       <Tagline />
       <ProblemSolution />
       <Services />
+      <AIVisibility />
       <LeadMagnet />
       <LetsWorkTogether />
       <Footer />

@@ -380,7 +380,91 @@ export function Services() {
                 </ul>
               </div>
             </motion.div>
+
+            {/* CTA BUTTON */}
+            <div className="flex justify-center mt-16">
+              <button className="
+                px-8 py-4
+                bg-black text-white
+                font-medium text-[16px]
+                tracking-wide
+                rounded-lg
+                hover:bg-gray-800
+                transition-colors duration-300
+                shadow-lg hover:shadow-xl
+              ">
+                See All Services →
+              </button>
+            </div>
         </motion.div>
+      </div>
+    </section>
+  );
+}
+
+export function AIVisibility() {
+  return (
+    <section className="relative h-[90vh] min-h-[700px] w-full overflow-hidden bg-black z-50">
+
+      {/* 🎥 BACKGROUND VIDEO */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover opacity-70 z-0"
+      >
+        <source src="/ai-bg.mp4" type="video/mp4" />
+      </video>
+
+      {/* 🖤 DARK OVERLAY */}
+      <div className="absolute inset-0 bg-black/10 z-10" />
+
+      {/* ✨ GRADIENT */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-black z-20" />
+
+      {/* CONTENT */}
+      <div className="relative z-30 max-w-[1100px] mx-auto px-6 h-full flex items-center">
+
+        <div className="max-w-[800px]">
+
+          {/* LABEL */}
+          <p className="text-sm uppercase tracking-[0.3em] text-white/60 mb-6">
+            AI VISIBILITY
+          </p>
+
+          {/* HEADING */}
+          <h2 className="font-heading text-[36px] sm:text-[48px] md:text-[60px] text-white leading-[1.1] tracking-tight mb-8">
+            Search Changed.
+            <br />
+            Your Content Strategy Should Too.
+          </h2>
+
+          {/* TEXT */}
+          <p className="text-[16px] sm:text-[18px] text-white/80 leading-relaxed mb-6">
+            Google, ChatGPT, and Perplexity are no longer just search engines.
+            They’re <span className="text-white font-medium">recommendation engines</span>.
+          </p>
+
+          <p className="text-[16px] sm:text-[18px] text-white/70 leading-relaxed mb-6">
+            Your buyers are asking AI tools which agencies to consider, which tools to use,
+            which consultants to hire. These platforms answer with citations — and the brands they cite
+            show up in every conversation, every evaluation, every shortlist.
+          </p>
+
+          <p className="text-[16px] sm:text-[18px] text-white/70 leading-relaxed mb-10">
+            At <span className="text-white font-medium">Wordpinchh</span>, we write content that works for both worlds:
+            content that ranks in traditional search and earns citations in AI-generated answers.
+            Because in 2025, visibility means both.
+          </p>
+
+          {/* CTA */}
+          <button className="group inline-flex items-center text-white text-[15px] font-medium border-b border-white/40 pb-1 hover:border-white transition">
+            See Our AI Visibility Services
+            <span className="ml-2 group-hover:translate-x-1 transition-transform">→</span>
+          </button>
+
+        </div>
       </div>
     </section>
   );
