@@ -5,60 +5,111 @@ import { motion } from "framer-motion";
 export function Services() {
   return (
     <section className="relative bg-white py-32 z-40">
+      {/* ================= SINGLE GRID WRAPPER ================= */}
       <div className="max-w-[1500px] mx-auto grid grid-cols-1 md:grid-cols-[120px_1fr] gap-[6vw] px-[6vw]">
-        
-        {/* Mobile heading */}
-        <h2 className="block md:hidden text-6xl font-semibold text-black mb-10 text-center">
-          Our Services
-        </h2>
 
-        {/* LEFT STICKY TEXT */}
+        {/* LEFT STICKY */}
         <div className="hidden md:flex justify-center">
           <div className="sticky top-[120px] h-fit">
-            <h2 className="vertical-services text-black">
-              OUR SERVICES
+            <h2 className="
+              font-heading
+              text-black
+              text-[32px] lg:text-[40px]
+              font-medium
+              tracking-[0.22em]
+              leading-[1.4]
+              uppercase
+              -rotate-180
+              [writing-mode:vertical-rl]
+            ">
+              SERVICES OVERVIEW
             </h2>
           </div>
         </div>
 
         {/* RIGHT CONTENT */}
-        <div className="space-y-32">
+        <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: {},
+              visible: {
+                transition: {
+                  staggerChildren: 0.2,
+                },
+              },
+            }}
+            className="space-y-28"
+          >
+
+          {/* INTRO */}
+          <div className="max-w-[750px]">
+
+            {/* MOBILE VERSION */}
+            <div className="md:hidden mb-6">
+              <h2 className="font-heading text-[32px] tracking-tight text-black">
+                SERVICES OVERVIEW
+              </h2>
+            </div>
+
+            {/* INTRO TEXT */}
+            <p className="
+              text-[16px] sm:text-[18px]
+              text-neutral-600
+              leading-relaxed
+            ">
+              We offer two tiers of services — core content that has always worked, and AI visibility services built for the search landscape of right now.
+            </p>
+
+            {/* SECTION HEADING */}
+            <h3 className="
+              mt-10
+              font-heading
+              text-[22px] sm:text-[26px] md:text-[30px]
+              text-black
+            ">
+              CORE CONTENT SERVICES
+            </h3>
+
+          </div>
 
           {/* SERVICE 1 */}
           <motion.div
             className="grid md:grid-cols-2 gap-[6vw] items-center"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            variants={{
+              hidden: { opacity: 0, y: 60 },
+              visible: { opacity: 1, y: 0 },
+            }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <img
               src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&h=420&fit=crop&crop=center"
               alt="SEO Blog Writing"
-              className="w-full h-[420px] object-cover rounded-lg shadow-lg"
+              className="w-full h-[420px] object-cover rounded-lg shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition duration-500 hover:scale-[1.04]"
             />
 
             <div>
-              <h3 className="text-5xl font-semibold mb-4 text-black">
+              <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black">
                 SEO Blog Writing
               </h3>
 
-              <p className="text-gray-600 leading-relaxed text-lg">
+              <p className="text-neutral-600 leading-relaxed text-[17px]">
                 Long-form blog content designed to rank on search engines while
                 positioning founders and businesses as industry authorities.
               </p>
 
               <ul className="mt-6 space-y-3">
-                <li className="flex items-start gap-3 text-gray-600">
-                  <span className="text-purple-600 mt-1">•</span>
+                <li className="flex items-start gap-3 text-neutral-600">
+                  <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Strategic keyword research</span>
                 </li>
-                <li className="flex items-start gap-3 text-gray-600">
-                  <span className="text-purple-600 mt-1">•</span>
+                <li className="flex items-start gap-3 text-neutral-600">
+                  <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Authority-building content</span>
                 </li>
-                <li className="flex items-start gap-3 text-gray-600">
-                  <span className="text-purple-600 mt-1">•</span>
+                <li className="flex items-start gap-3 text-neutral-600">
+                  <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Long-form articles that rank</span>
                 </li>
               </ul>
@@ -74,35 +125,35 @@ export function Services() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div>
-              <h3 className="text-5xl font-semibold mb-4 text-black">
+              <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black">
                 LinkedIn Ghostwriting
               </h3>
 
-              <p className="text-gray-600 leading-relaxed text-lg">
+              <p className="text-neutral-600 leading-relaxed text-[17px]">
                 Founder-focused LinkedIn content that builds credibility,
                 attracts the right audience and drives meaningful engagement.
               </p>
 
               <ul className="mt-6 space-y-3">
-                <li className="flex items-start gap-3 text-gray-600">
-                  <span className="text-purple-600 mt-1">•</span>
+                <li className="flex items-start gap-3 text-neutral-600">
+                  <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Thought leadership posts</span>
                 </li>
-                <li className="flex items-start gap-3 text-gray-600">
-                  <span className="text-purple-600 mt-1">•</span>
+                <li className="flex items-start gap-3 text-neutral-600">
+                  <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Founder-focused content</span>
                 </li>
-                <li className="flex items-start gap-3 text-gray-600">
-                  <span className="text-purple-600 mt-1">•</span>
+                <li className="flex items-start gap-3 text-neutral-600">
+                  <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Engagement optimization</span>
                 </li>
               </ul>
             </div>
-            
+
             <img
               src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=420&fit=crop&crop=center"
               alt="LinkedIn Ghostwriting"
-              className="w-full h-[420px] object-cover rounded-lg shadow-lg"
+              className="w-full h-[420px] object-cover rounded-lg shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition duration-500 hover:scale-[1.04]"
             />
           </motion.div>
 
@@ -117,30 +168,30 @@ export function Services() {
             <img
               src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=420&fit=crop&crop=center"
               alt="Landing Page Copywriting"
-              className="w-full h-[420px] object-cover rounded-lg shadow-lg"
+              className="w-full h-[420px] object-cover rounded-lg shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition duration-500 hover:scale-[1.04]"
             />
 
             <div>
-              <h3 className="text-5xl font-semibold mb-4 text-black">
+              <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black">
                 Landing Page Copywriting
               </h3>
 
-              <p className="text-gray-600 leading-relaxed text-lg">
+              <p className="text-neutral-600 leading-relaxed text-[17px]">
                 Conversion-focused copy that turns visitors into customers with
                 clear value propositions and compelling messaging.
               </p>
 
               <ul className="mt-6 space-y-3">
-                <li className="flex items-start gap-3 text-gray-600">
-                  <span className="text-purple-600 mt-1">•</span>
+                <li className="flex items-start gap-3 text-neutral-600">
+                  <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Conversion-focused copy</span>
                 </li>
-                <li className="flex items-start gap-3 text-gray-600">
-                  <span className="text-purple-600 mt-1">•</span>
+                <li className="flex items-start gap-3 text-neutral-600">
+                  <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Clear value propositions</span>
                 </li>
-                <li className="flex items-start gap-3 text-gray-600">
-                  <span className="text-purple-600 mt-1">•</span>
+                <li className="flex items-start gap-3 text-neutral-600">
+                  <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Compelling messaging</span>
                 </li>
               </ul>
@@ -156,26 +207,26 @@ export function Services() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <div>
-              <h3 className="text-5xl font-semibold mb-4 text-black">
+              <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black">
                 Website Content
               </h3>
 
-              <p className="text-gray-600 leading-relaxed text-lg">
+              <p className="text-neutral-600 leading-relaxed text-[17px]">
                 Clear website messaging that builds trust and effectively
                 communicates your value to potential clients.
               </p>
 
               <ul className="mt-6 space-y-3">
-                <li className="flex items-start gap-3 text-gray-600">
-                  <span className="text-purple-600 mt-1">•</span>
+                <li className="flex items-start gap-3 text-neutral-600">
+                  <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Clear website messaging</span>
                 </li>
-                <li className="flex items-start gap-3 text-gray-600">
-                  <span className="text-purple-600 mt-1">•</span>
+                <li className="flex items-start gap-3 text-neutral-600">
+                  <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Service descriptions</span>
                 </li>
-                <li className="flex items-start gap-3 text-gray-600">
-                  <span className="text-purple-600 mt-1">•</span>
+                <li className="flex items-start gap-3 text-neutral-600">
+                  <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Trust-building content</span>
                 </li>
               </ul>
@@ -184,11 +235,152 @@ export function Services() {
             <img
               src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=420&fit=crop&crop=center"
               alt="Website Content"
-              className="w-full h-[420px] object-cover rounded-lg shadow-lg"
+              className="w-full h-[420px] object-cover rounded-lg shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition duration-500 hover:scale-[1.04]"
             />
           </motion.div>
 
-        </div>
+          <div className="my-28 flex justify-center">
+            <div className="w-full max-w-[900px] h-px bg-linear-to-r from-transparent via-black/20 to-transparent" />
+          </div>
+
+          <div className="max-w-[750px]">
+            <h3 className="
+              font-heading
+              text-[26px] sm:text-[30px] md:text-[34px]
+              text-black
+            ">
+              AI VISIBILITY SERVICES
+            </h3>
+
+            <p className="
+              mt-3
+              text-sm sm:text-base md:text-lg
+              
+              text-neutral-600
+              leading-relaxed
+            ">
+              Built for the way people search today — across Google, AI tools, and answer engines.
+            </p>
+          </div>
+
+          {/* AI SERVICES SECTIONS */}
+          <motion.div
+            className="grid md:grid-cols-2 gap-[6vw] items-center"
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+              <img
+                src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=420&fit=crop&crop=center"
+                alt="GEO"
+                className="w-full h-[420px] object-cover rounded-lg shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition duration-500 hover:scale-[1.04]"
+              />
+
+              <div>
+                <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black">
+                  GEO
+                </h3>
+
+                <p className="text-neutral-600 leading-relaxed text-[17px]">
+                  Get cited by ChatGPT, Perplexity, and Google AI — where your buyers are actively searching for answers.
+                </p>
+
+                <ul className="mt-6 space-y-3">
+                  <li className="flex items-start gap-3 text-neutral-600">
+                    <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
+                    <span>ChatGPT visibility</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-neutral-600">
+                    <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
+                    <span>Perplexity citations</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-neutral-600">
+                    <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
+                    <span>Google AI inclusion</span>
+                  </li>
+                </ul>
+              </div>
+          </motion.div>
+
+            <motion.div
+              className="grid md:grid-cols-2 gap-[6vw] items-center"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <div>
+                <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black">
+                  AEO
+                </h3>
+
+                <p className="text-neutral-600 leading-relaxed text-[17px]">
+                  Win zero-click answer boxes, featured snippets, and voice search results before users even click.
+                </p>
+
+                <ul className="mt-6 space-y-3">
+                  <li className="flex items-start gap-3 text-neutral-600">
+                    <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
+                    <span>Featured snippets</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-neutral-600">
+                    <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
+                    <span>Voice search optimization</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-neutral-600">
+                    <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
+                    <span>Answer-first content</span>
+                  </li>
+                </ul>
+              </div>
+
+              <img
+                src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=420&fit=crop&crop=center"
+                alt="AEO"
+                className="w-full h-[420px] object-cover rounded-lg shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition duration-500 hover:scale-[1.04]"
+              />
+            </motion.div>
+
+            <motion.div
+              className="grid md:grid-cols-2 gap-[6vw] items-center"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=420&fit=crop&crop=center"
+                alt="AI Strategy"
+                className="w-full h-[420px] object-cover rounded-lg shadow-[0_20px_60px_rgba(0,0,0,0.08)] transition duration-500 hover:scale-[1.04]"
+              />
+
+              <div>
+                <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black">
+                  AI Content Strategy
+                </h3>
+
+                <p className="text-neutral-600 leading-relaxed text-[17px]">
+                  Scale content production without losing your brand voice, quality, or strategic direction.
+                </p>
+
+                <ul className="mt-6 space-y-3">
+                  <li className="flex items-start gap-3 text-neutral-600">
+                    <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
+                    <span>AI-assisted workflows</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-neutral-600">
+                    <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
+                    <span>Brand voice consistency</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-neutral-600">
+                    <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
+                    <span>Scalable content systems</span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+        </motion.div>
       </div>
     </section>
   );

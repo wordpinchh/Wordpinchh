@@ -34,8 +34,12 @@ export default function HomePage() {
     setMounted(true);
   }, []);
 
+  if (!mounted) {
+    return null;
+  }
+
   return (
-    <div className="min-h-screen bg-background" suppressHydrationWarning>
+    <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
       <Tagline />
