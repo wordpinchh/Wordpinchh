@@ -9,12 +9,12 @@ export default function LeadMagnet() {
         <div className="relative bg-[#0a0a0f] rounded-[24px] p-[80px] text-center border border-white/10">
 
           {/* Glow */}
-          <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/30 to-indigo-600/30 blur-[120px] opacity-40 -z-10"></div>
+          <div className="absolute -inset-1 bg-linear-to-r from-purple-600/30 to-indigo-600/30 blur-[120px] opacity-40 -z-10"></div>
 
           {/* Heading */}
           <h2 className="text-[36px] md:text-[48px] lg:text-[56px] leading-[1.1] font-semibold mb-6 text-white" style={{ fontSize: '51px' }}>
             Free Content Audit :{" "}
-            <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
               See exactly where your content is leaving money on the table
             </span>
           </h2>
@@ -63,7 +63,7 @@ export default function LeadMagnet() {
           </div>
 
           {/* Button */}
-          <button className="bg-gradient-to-r from-purple-500 to-indigo-500 px-8 py-3 rounded-full text-white font-medium hover:opacity-90 transition">
+          <button className="bg-linear-to-r from-purple-500 to-indigo-500 px-8 py-3 rounded-full text-white font-medium hover:opacity-90 transition">
             Get Free Report
           </button>
 
