@@ -46,6 +46,7 @@ export default function HomePage() {
       <ProblemSolution />
       <Services />
       <AIVisibility />
+      <WhyWordpinchh />
       <LeadMagnet />
       <LetsWorkTogether />
       <Footer />

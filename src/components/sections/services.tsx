@@ -421,7 +421,7 @@ export function AIVisibility() {
       <div className="absolute inset-0 bg-black/10 z-10" />
 
       {/* ✨ GRADIENT */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-black z-20" />
+      <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/70 to-black z-20" />
 
       {/* CONTENT */}
       <div className="relative z-30 max-w-[1100px] mx-auto px-6 h-full flex items-center">
