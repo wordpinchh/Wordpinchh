@@ -16,7 +16,7 @@ export default function LetsWorkTogether() {
           viewport={{ once: true }}
           className="text-[36px] md:text-[60px] lg:text-[90px] leading-none mb-8 Family Fahkwang Category  sans-serif Styles  Weights 200 Subsets latin Formats woff2 text-white" style={{ fontFamily: "'Fahkwang', sans-serif", fontStyle: 'italic', fontWeight: 200 }}
         >
-          Let's Work Together
+          The best time to start was a year ago. The second best time is now.
         </motion.h2>
 
         {/* Divider */}

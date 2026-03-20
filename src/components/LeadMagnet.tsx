@@ -12,10 +12,10 @@ export default function LeadMagnet() {
           <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/30 to-indigo-600/30 blur-[120px] opacity-40 -z-10"></div>
 
           {/* Heading */}
-          <h2 className="text-[36px] md:text-[48px] lg:text-[56px] leading-[1.1] font-semibold mb-6 text-white">
-            Get Your Free{" "}
+          <h2 className="text-[36px] md:text-[48px] lg:text-[56px] leading-[1.1] font-semibold mb-6 text-white" style={{ fontSize: '51px' }}>
+            Free Content Audit :{" "}
             <span className="bg-gradient-to-r from-purple-400 to-indigo-400 bg-clip-text text-transparent">
-              Content Opportunity Report
+              See exactly where your content is leaving money on the table
             </span>
           </h2>
 
@@ -26,10 +26,11 @@ export default function LeadMagnet() {
 
           {/* Bullet Points */}
           <ul className="text-gray-300 space-y-3 mb-12 text-left max-w-[520px] mx-auto">
-            <li>• 5 blog topics your company should publish</li>
-            <li>• SEO opportunities you're missing</li>
-            <li>• Content gaps on your website</li>
-            <li>• LinkedIn post ideas to build authority</li>
+            <li>• 5 high-value blog topics your business should own</li>
+            <li>• An honest look at what's wrong with your current website copy</li>
+            <li>• 3 LinkedIn post angles that work for your specific expertise</li>
+            <li>• Your top 2 competitors' content strategy, reverse-engineered</li>
+            <li>• Whether your content is being cited by AI tools</li>
           </ul>
 
           {/* Form */}
