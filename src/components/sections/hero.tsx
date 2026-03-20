@@ -24,7 +24,7 @@ export function Hero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
               className="hidden md:block relative w-[520px] h-[80vh] rounded-[150px] overflow-hidden cursor-pointer group shrink-0"
-              style={{ marginLeft: "-500px" }}
+              style={{ marginLeft: "-500px", fontFamily: "var(--font-fahkwang)" }}
             >
               <img 
                 src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=1200&q=80"
@@ -33,8 +33,8 @@ export function Hero() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 text-white">
-                <h3 className="text-2xl font-bold mb-2"></h3>
-                <p className="text-gray-300 text-sm"></p>
+                <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black"></h3>
+                <p className="text-neutral-600 leading-relaxed text-[17px]"></p>
               </div>
             </motion.div>
 
@@ -52,8 +52,8 @@ export function Hero() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
-                <h3 className="text-2xl font-bold mb-2"></h3>
-                <p className="text-gray-300 text-sm"></p>
+                <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black"></h3>
+                <p className="text-neutral-600 leading-relaxed text-[17px]"></p>
               </div>
             </motion.div>
 
@@ -63,7 +63,7 @@ export function Hero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
               className="hidden md:block relative w-[520px] h-[80vh] rounded-[150px] overflow-hidden cursor-pointer group shrink-0"
-              style={{ marginRight: "-300px" }}
+              style={{ marginRight: "-300px", fontFamily: "var(--font-barlow)" }}
             >
               <img 
                 src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&h=1200&q=80"
@@ -72,8 +72,8 @@ export function Hero() {
               />
               <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute bottom-6 right-6 text-white text-right">
-                <h3 className="text-2xl font-bold mb-2"></h3>
-                <p className="text-gray-300 text-sm"></p>
+                <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black"></h3>
+                <p className="text-neutral-600 leading-relaxed text-[17px]"></p>
               </div>
             </motion.div>
 

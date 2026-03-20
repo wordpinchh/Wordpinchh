@@ -14,7 +14,13 @@ export default function LetsWorkTogether() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="text-[36px] md:text-[60px] lg:text-[90px] leading-none mb-8 Family Fahkwang Category  sans-serif Styles  Weights 200 Subsets latin Formats woff2 text-white" style={{ fontFamily: "'Fahkwang', sans-serif", fontStyle: 'italic', fontWeight: 200 }}
+          className="font-heading text-white leading-none mb-8 tracking-wide" style={{ 
+            fontFamily: "var(--font-fahkwang)", 
+            fontStyle: 'italic', 
+            fontWeight: 300,
+            letterSpacing: "-0.02em",
+            fontSize: '59px' 
+          }}
         >
           The best time to start was a year ago. The second best time is now.
         </motion.h2>
@@ -39,11 +45,15 @@ export default function LetsWorkTogether() {
 
           {/* Left */}
           <div>
-            <p className="text-gray-400 mb-6">
+            <p className="text-neutral-600 leading-relaxed text-[16px] sm:text-[18px] mb-6" style={{ 
+              fontFamily: "Inter, sans-serif"
+            }}>
               Follow our journey
             </p>
 
-            <ul className="space-y-3 text-lg">
+            <ul className="space-y-3 text-lg" style={{ 
+              fontFamily: "Inter, sans-serif"
+            }}>
               <li className="group cursor-pointer hover:text-white transition">
                 Instagram
                 <span className="block h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full"></span>

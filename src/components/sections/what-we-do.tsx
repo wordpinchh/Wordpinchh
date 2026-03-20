@@ -30,14 +30,23 @@ export function WhatWeDo() {
           {/* LEFT - Static */}
           <div className="relative z-10">
             <div className="inline-block">
-              <span className="text-sm font-semibold tracking-widest uppercase text-amber-500/70 bg-amber-500/10 px-3 py-1 rounded-full mb-8 inline-block">
+              <span className="font-label text-white mb-8 inline-block" style={{ color: "var(--accent)" }}>
                 What We Do
               </span>
             </div>
-            <h2 className="font-heading text-6xl lg:text-8xl font-black leading-none tracking-tight text-white mb-8">
+            <h3 className="font-heading text-white mb-4 text-[22px] sm:text-[26px] md:text-[30px]" style={{
+              fontFamily: "var(--font-fahkwang)",
+              fontWeight: 500,
+              letterSpacing: "-0.01em"
+            }}>
               We Build<br/>Brands Through<br/>Content
-            </h2>
-            <a href="#" className="inline-flex items-center gap-2 text-xs font-bold tracking-wider uppercase text-amber-500 border border-amber-500/30 px-4 py-2 rounded-lg transition-all duration-300 hover:bg-amber-500/10 hover:border-amber-500/50">
+            </h3>
+            <a href="#" className="inline-flex items-center gap-2 font-body text-white bg-accent px-4 py-2 rounded-lg font-bold uppercase tracking-wider transition-all hover:opacity-90" style={{ 
+              fontFamily: "var(--font-inter)",
+              fontWeight: 700,
+              letterSpacing: "0.1em",
+              fontSize: "clamp(12px, 1.3vw, 13px)"
+            }}>
               See Full Services
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -47,21 +56,28 @@ export function WhatWeDo() {
 
           {/* RIGHT - Interactive */}
           <div className="relative z-10 lg:pt-1">
-            <ul className="border-t border-amber-500/20">
+            <ul className="border-t border-divider">
               {services.map((service, index) => (
-                <li key={service.name} className="border-b border-amber-500/20 overflow-hidden opacity-0 animate-fade-up service-item" style={{ animationDelay: `${0.2 + index * 0.1}s`, animationFillMode: 'forwards' }}>
+                <li key={service.name} className="border-b border-divider overflow-hidden opacity-0 animate-fade-up service-item" style={{ animationDelay: `${0.2 + index * 0.1}s`, animationFillMode: 'forwards' }}>
                   <div className="group flex items-center gap-5 py-6 pr-2 lg:pr-0 cursor-pointer transition-all duration-300 hover:pl-2">
                     {/* Premium Arrow */}
                     <div className="shrink-0 w-8 h-3 relative overflow-hidden">
-                      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-8 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-[130%] group-hover:translate-x-1"></div>
+                      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-8 h-0.5 bg-accent transition-all duration-300 group-hover:w-[130%] group-hover:translate-x-1" style={{ backgroundColor: "var(--accent)" }}></div>
                       <div className="absolute right-0 top-1/2 w-2 h-2 border-t-2 border-r-2 border-yellow-400 transform -translate-y-1/2 rotate-45 transition-transform duration-300 group-hover:translate-x-1" style={{ borderColor: 'rgb(245, 130, 10)' }}></div>
                     </div>
-                    <span className="text-2xl lg:text-3xl font-bold tracking-tight text-gray-400 group-hover:text-white transition-colors duration-300">
+                    <span className="text-2xl lg:text-3xl font-medium tracking-tight text-muted group-hover:text-white transition-colors duration-300" style={{ 
+                      fontFamily: "var(--font-fahkwang)",
+                      fontWeight: 500,
+                      letterSpacing: "-0.01em"
+                    }}>
                       {service.name}
                     </span>
                   </div>
                   <div className="service-desc max-h-0 overflow-hidden opacity-0 pb-0 pl-12 pr-4 transition-all duration-500 ease-out">
-                    <p className="text-sm leading-relaxed text-gray-400 max-w-md">
+                    <p className="text-base leading-relaxed text-muted max-w-md" style={{ 
+                      fontFamily: "Inter, sans-serif",
+                      fontSize: "16px"
+                    }}>
                       {service.description}
                     </p>
                   </div>

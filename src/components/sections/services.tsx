@@ -21,7 +21,9 @@ export function Services() {
               uppercase
               -rotate-180
               [writing-mode:vertical-rl]
-            ">
+            " style={{
+              fontFamily: "var(--font-fahkwang)"
+            }}>
               SERVICES OVERVIEW
             </h2>
           </div>
@@ -48,7 +50,9 @@ export function Services() {
 
             {/* MOBILE VERSION */}
             <div className="md:hidden mb-6">
-              <h2 className="font-heading text-[32px] tracking-tight text-black">
+              <h2 className="font-heading text-[32px] tracking-tight text-black" style={{
+                fontFamily: "var(--font-fahkwang)"
+              }}>
                 SERVICES OVERVIEW
               </h2>
             </div>
@@ -58,7 +62,9 @@ export function Services() {
               text-[16px] sm:text-[18px]
               text-neutral-600
               leading-relaxed
-            ">
+            " style={{
+              fontFamily: "Inter, sans-serif"
+            }}>
               We offer two tiers of services — core content that has always worked, and AI visibility services built for the search landscape of right now.
             </p>
 
@@ -68,7 +74,11 @@ export function Services() {
               font-heading
               text-[22px] sm:text-[26px] md:text-[30px]
               text-black
-            ">
+            " style={{
+              fontFamily: "var(--font-fahkwang)",
+              fontWeight: 500,
+              letterSpacing: "-0.01em"
+            }}>
               CORE CONTENT SERVICES
             </h3>
 
@@ -90,25 +100,37 @@ export function Services() {
             />
 
             <div>
-              <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black">
+              <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black" style={{
+                fontFamily: "var(--font-fahkwang)",
+                fontWeight: 500,
+                letterSpacing: "-0.01em"
+              }}>
                 SEO Blog Writing
               </h3>
 
-              <p className="text-neutral-600 leading-relaxed text-[17px]">
+              <p className="text-neutral-600 leading-relaxed text-[17px]" style={{
+                fontFamily: "Inter, sans-serif"
+              }}>
                 Long-form blog content designed to rank on search engines while
                 positioning founders and businesses as industry authorities.
               </p>
 
               <ul className="mt-6 space-y-3">
-                <li className="flex items-start gap-3 text-neutral-600">
+                <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                   <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Strategic keyword research</span>
                 </li>
-                <li className="flex items-start gap-3 text-neutral-600">
+                <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                   <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Authority-building content</span>
                 </li>
-                <li className="flex items-start gap-3 text-neutral-600">
+                <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                   <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Long-form articles that rank</span>
                 </li>
@@ -125,25 +147,37 @@ export function Services() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div>
-              <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black">
+              <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black" style={{
+                fontFamily: "var(--font-fahkwang)",
+                fontWeight: 500,
+                letterSpacing: "-0.01em"
+              }}>
                 LinkedIn Ghostwriting
               </h3>
 
-              <p className="text-neutral-600 leading-relaxed text-[17px]">
+              <p className="text-neutral-600 leading-relaxed text-[17px]" style={{
+                fontFamily: "Inter, sans-serif"
+              }}>
                 Founder-focused LinkedIn content that builds credibility,
                 attracts the right audience and drives meaningful engagement.
               </p>
 
               <ul className="mt-6 space-y-3">
-                <li className="flex items-start gap-3 text-neutral-600">
+                <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                   <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Thought leadership posts</span>
                 </li>
-                <li className="flex items-start gap-3 text-neutral-600">
+                <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                   <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Founder-focused content</span>
                 </li>
-                <li className="flex items-start gap-3 text-neutral-600">
+                <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                   <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Engagement optimization</span>
                 </li>
@@ -172,25 +206,37 @@ export function Services() {
             />
 
             <div>
-              <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black">
+              <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black" style={{
+                fontFamily: "var(--font-fahkwang)",
+                fontWeight: 500,
+                letterSpacing: "-0.01em"
+              }}>
                 Landing Page Copywriting
               </h3>
 
-              <p className="text-neutral-600 leading-relaxed text-[17px]">
+              <p className="text-neutral-600 leading-relaxed text-[17px]" style={{
+                fontFamily: "Inter, sans-serif"
+              }}>
                 Conversion-focused copy that turns visitors into customers with
                 clear value propositions and compelling messaging.
               </p>
 
               <ul className="mt-6 space-y-3">
-                <li className="flex items-start gap-3 text-neutral-600">
+                <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                   <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Conversion-focused copy</span>
                 </li>
-                <li className="flex items-start gap-3 text-neutral-600">
+                <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                   <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Clear value propositions</span>
                 </li>
-                <li className="flex items-start gap-3 text-neutral-600">
+                <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                   <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Compelling messaging</span>
                 </li>
@@ -207,25 +253,37 @@ export function Services() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <div>
-              <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black">
+              <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black" style={{
+                fontFamily: "var(--font-fahkwang)",
+                fontWeight: 500,
+                letterSpacing: "-0.01em"
+              }}>
                 Website Content
               </h3>
 
-              <p className="text-neutral-600 leading-relaxed text-[17px]">
+              <p className="text-neutral-600 leading-relaxed text-[17px]" style={{
+                fontFamily: "Inter, sans-serif"
+              }}>
                 Clear website messaging that builds trust and effectively
                 communicates your value to potential clients.
               </p>
 
               <ul className="mt-6 space-y-3">
-                <li className="flex items-start gap-3 text-neutral-600">
+                <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                   <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Clear website messaging</span>
                 </li>
-                <li className="flex items-start gap-3 text-neutral-600">
+                <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                   <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Service descriptions</span>
                 </li>
-                <li className="flex items-start gap-3 text-neutral-600">
+                <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                   <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                   <span>Trust-building content</span>
                 </li>
@@ -278,24 +336,36 @@ export function Services() {
               />
 
               <div>
-                <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black">
+                <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black" style={{
+                fontFamily: "var(--font-fahkwang)",
+                fontWeight: 500,
+                letterSpacing: "-0.01em"
+              }}>
                   GEO
                 </h3>
 
-                <p className="text-neutral-600 leading-relaxed text-[17px]">
+                <p className="text-neutral-600 leading-relaxed text-[17px]" style={{
+                fontFamily: "Inter, sans-serif"
+              }}>
                   Get cited by ChatGPT, Perplexity, and Google AI — where your buyers are actively searching for answers.
                 </p>
 
                 <ul className="mt-6 space-y-3">
-                  <li className="flex items-start gap-3 text-neutral-600">
+                  <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                     <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                     <span>ChatGPT visibility</span>
                   </li>
-                  <li className="flex items-start gap-3 text-neutral-600">
+                  <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                     <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                     <span>Perplexity citations</span>
                   </li>
-                  <li className="flex items-start gap-3 text-neutral-600">
+                  <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                     <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                     <span>Google AI inclusion</span>
                   </li>
@@ -311,24 +381,36 @@ export function Services() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <div>
-                <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black">
+                <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black" style={{
+                fontFamily: "var(--font-fahkwang)",
+                fontWeight: 500,
+                letterSpacing: "-0.01em"
+              }}>
                   AEO
                 </h3>
 
-                <p className="text-neutral-600 leading-relaxed text-[17px]">
+                <p className="text-neutral-600 leading-relaxed text-[17px]" style={{
+                fontFamily: "Inter, sans-serif"
+              }}>
                   Win zero-click answer boxes, featured snippets, and voice search results before users even click.
                 </p>
 
                 <ul className="mt-6 space-y-3">
-                  <li className="flex items-start gap-3 text-neutral-600">
+                  <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                     <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                     <span>Featured snippets</span>
                   </li>
-                  <li className="flex items-start gap-3 text-neutral-600">
+                  <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                     <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                     <span>Voice search optimization</span>
                   </li>
-                  <li className="flex items-start gap-3 text-neutral-600">
+                  <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                     <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                     <span>Answer-first content</span>
                   </li>
@@ -356,24 +438,36 @@ export function Services() {
               />
 
               <div>
-                <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black">
+                <h3 className="text-[42px] font-medium tracking-tight mb-4 text-black" style={{
+                fontFamily: "var(--font-fahkwang)",
+                fontWeight: 500,
+                letterSpacing: "-0.01em"
+              }}>
                   AI Content Strategy
                 </h3>
 
-                <p className="text-neutral-600 leading-relaxed text-[17px]">
+                <p className="text-neutral-600 leading-relaxed text-[17px]" style={{
+                fontFamily: "Inter, sans-serif"
+              }}>
                   Scale content production without losing your brand voice, quality, or strategic direction.
                 </p>
 
                 <ul className="mt-6 space-y-3">
-                  <li className="flex items-start gap-3 text-neutral-600">
+                  <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                     <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                     <span>AI-assisted workflows</span>
                   </li>
-                  <li className="flex items-start gap-3 text-neutral-600">
+                  <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                     <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                     <span>Brand voice consistency</span>
                   </li>
-                  <li className="flex items-start gap-3 text-neutral-600">
+                  <li className="flex items-start gap-3 text-neutral-600" style={{
+                  fontFamily: "Inter, sans-serif"
+                }}>
                     <span className="mt-[6px] w-[6px] h-[6px] bg-purple-500 rounded-full" />
                     <span>Scalable content systems</span>
                   </li>

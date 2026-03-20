@@ -15,9 +15,14 @@ html {
   --input: #1a1a1a;
   --ring: #6c5ce7;
   
-  /* Font Variables */
-  --font-heading: var(--font-fahkwang);
-  --font-body: var(--font-inter);
+  /* Services Design Variables */
+  --bg: #F5F0E8;
+  --ink: #0F0A00;
+  --paper: #EDE7D9;
+  --paper-2: #E3DBC8;
+  --accent-service: #FF3B00;
+  --gold: #C4922A;
+  --muted-service: #8A7F6E;
 }
 
 * {
@@ -28,7 +33,124 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-feature-settings: "rlig" 1, "calt" 1;
-  font-family: var(--font-body);
+}
+
+/* Services Design CSS */
+.hero {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  min-height: 60vh; /* increase from 42vh */
+}
+
+.hero-left {
+  padding: 60px;
+  border-right: 2px solid var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-right {
+  background: black;
+  color: white;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.hero-title {
+  font-size: clamp(6rem, 10vw, 11rem);
+  line-height: 0.88;
+}
+
+.services-container {
+  width: 100%;
+}
+
+.service-row {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: center;
+  border-bottom: 2px solid var(--paper-2);
+  min-height: 96px;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-row::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--row-accent, var(--accent-service));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+.service-row:hover::before {
+  transform: scaleX(1);
+}
+
+.service-row:hover .row-title,
+.service-row:hover .row-desc,
+.service-row:hover .row-tag,
+.service-row:hover .row-num {
+  color: #000 !important;
+}
+
+.row-num,
+.row-main,
+.row-right {
+  position: relative;
+  z-index: 1;
+}
+
+.row-title,
+.row-desc,
+.row-tag,
+.row-num {
+  transition: color 0.25s ease;
+}
+
+.row-num {
+  padding-left: 60px;
+  display: flex;
+  align-items: center;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.row-main {
+  padding: 24px 32px;
+}
+
+.row-right {
+  padding-right: 60px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.row-arrow {
+  transition: all 0.25s ease;
+}
+
+.service-row:hover .row-arrow {
+  transform: rotate(90deg);
+  border-color: rgba(0,0,0,0.3);
+}
+
+.cat-strip {
+  background: black;
+  color: white;
+  padding: 12px 60px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
 }
 
 .vertical-services {
@@ -38,4 +160,15 @@ body {
   font-weight: 600;
   letter-spacing: 8px;
   padding-left: 200px;
+}
+
+h4 {
+  font-family: 'Fahkwang', sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+/* Cursor Fix */
+#cursor {
+  background: var(--accent); /* orange */
 }

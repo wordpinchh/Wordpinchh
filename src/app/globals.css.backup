@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Fahkwang:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --accent: #6c5ce7;
+  --accent-foreground: #ffffff;
+  --muted: #1a1a1a;
+  --muted-foreground: #a0a0a0;
+  --border: #2a2a2a;
+  --input: #1a1a1a;
+  --ring: #6c5ce7;
+  
+  /* Font variables */
+  --font-fahkwang: 'Fahkwang', 'Bebas Neue', 'Arial Black', sans-serif;
+  --font-inter: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+/* Font loading detection */
+@font-face {
+  font-family: 'Fahkwang-fallback';
+  src: local('Arial Black');
+  ascent-override: 90%;
+  descent-override: 20%;
+  line-gap-override: 10%;
+}
+
+@font-face {
+  font-family: 'Inter-fallback';
+  src: local('Helvetica Neue');
+  ascent-override: 95%;
+  descent-override: 25%;
+  line-gap-override: 5%;
+}
+
+/* Force font loading */
+.font-fahkwang {
+  font-family: var(--font-fahkwang), 'Fahkwang-fallback', 'Bebas Neue', 'Arial Black', sans-serif;
+}
+
+.font-inter {
+  font-family: var(--font-inter), 'Inter-fallback', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.vertical-services {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 65px;
+  font-weight: 600;
+  letter-spacing: 8px;
+  padding-left: 200px;
+}
+
+h4 {
+  font-family: 'Fahkwang', sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}

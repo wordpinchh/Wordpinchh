@@ -15,20 +15,25 @@ export default function Tagline() {
           text-black
           whitespace-normal
           lg:whitespace-nowrap
-        ">
+        " style={{
+          fontFamily: "var(--font-fahkwang)",
+          fontWeight: 300,
+          letterSpacing: "-0.04em"
+        }}>
           Your Competitors Are Already Publishing. <span className="font-semibold">Are You?</span>
         </h2>
 
         {/* DESCRIPTION */}
         <p className="
           mt-6 md:mt-8
-          max-w-[750px]
+          max-w-[950px]
           mx-auto
           text-sm sm:text-base md:text-lg
-          font-sans
           leading-relaxed
           text-neutral-600
-        ">
+        " style={{
+          fontFamily: "Inter, sans-serif"
+        }}>
           Wordpinchh writes SEO blogs, LinkedIn thought leadership, and website copy for founders, SaaS startups, and consulting firms — so you show up where your buyers are already looking. In Google search, in AI-generated answers, and in the minds of every decision-maker in your space.
         </p>
 
@@ -54,10 +59,16 @@ export default function Tagline() {
               min-h-[120px]
             "
           >
-            <h3 className="text-[22px] sm:text-[26px] md:text-[30px] font-heading leading-tight text-black">
+            <h3 className="text-[22px] sm:text-[26px] md:text-[30px] font-heading leading-tight text-black" style={{
+              fontFamily: "var(--font-fahkwang)",
+              fontWeight: 500,
+              letterSpacing: "-0.01em"
+            }}>
               5000+
             </h3>
-            <p className="mt-1 text-xs sm:text-sm font-sans text-neutral-500">
+            <p className="mt-1 text-xs sm:text-sm text-neutral-500" style={{
+              fontFamily: "Inter, sans-serif"
+            }}>
               Articles Written
             </p>
           </motion.div>
@@ -76,10 +87,16 @@ export default function Tagline() {
               min-h-[120px]
             "
           >
-            <h3 className="text-[22px] sm:text-[26px] md:text-[30px] font-heading leading-tight text-black">
+            <h3 className="text-[22px] sm:text-[26px] md:text-[30px] font-heading leading-tight text-black" style={{
+              fontFamily: "var(--font-fahkwang)",
+              fontWeight: 500,
+              letterSpacing: "-0.01em"
+            }}>
               50+
             </h3>
-            <p className="mt-1 text-xs sm:text-sm font-sans text-neutral-500">
+            <p className="mt-1 text-xs sm:text-sm text-neutral-500" style={{
+              fontFamily: "Inter, sans-serif"
+            }}>
               Brands Supported
             </p>
           </motion.div>
@@ -98,10 +115,16 @@ export default function Tagline() {
               min-h-[120px]
             "
           >
-            <h3 className="text-[22px] sm:text-[26px] md:text-[30px] font-heading leading-tight text-black">
+            <h3 className="text-[22px] sm:text-[26px] md:text-[30px] font-heading leading-tight text-black" style={{
+              fontFamily: "var(--font-fahkwang)",
+              fontWeight: 500,
+              letterSpacing: "-0.01em"
+            }}>
               7+
             </h3>
-            <p className="mt-1 text-xs sm:text-sm font-sans text-neutral-500">
+            <p className="mt-1 text-xs sm:text-sm text-neutral-500" style={{
+              fontFamily: "Inter, sans-serif"
+            }}>
               Years Experience
             </p>
           </motion.div>

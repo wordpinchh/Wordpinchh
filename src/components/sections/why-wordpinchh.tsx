@@ -11,7 +11,7 @@ export function WhyWordpinchh() {
       label: "For Humans & Machines",
       icon: "✍️",
       title: "Writing for Two Audiences",
-      description: "Search has two audiences now: the person reading your content and the AI system deciding whether to cite it. Every piece we write earns visibility across traditional search, AI answer engines, and the humans who actually buy from you.",
+      description: "Search has two audiences now: person reading your content and AI system deciding whether to cite it. Every piece we write earns visibility across traditional search, AI answer engines, and for humans who actually buy from you.",
       oldWay: [
         {
           title: "Write for Google only",
@@ -49,110 +49,110 @@ export function WhyWordpinchh() {
       description: "Every brief starts with strategy — what angle will cut through, what the reader needs to believe, what action we want them to take, and how we want AI to categorise and cite this content. Writing without that thinking produces words. Writing with it produces results.",
       oldWay: [
         {
-          title: "Brief = keyword + word count",
-          text: "Writers receive minimal direction. Angle is guesswork."
+          title: "Generic brief",
+          text: "One-size-fits-all approach that misses the mark."
         },
         {
-          title: "Self-researched articles",
-          text: "Writers search the web, regurgitate what already exists."
+          title: "No research or insight",
+          text: "Writing based on assumptions rather than data."
         },
         {
-          title: "No conversion intent",
-          text: "Pieces are informational — there's no desired reader action."
+          title: "Poor structure",
+          text: "Hard for AI to extract and cite properly."
         }
       ],
       newWay: [
         {
-          title: "Strategic brief every time",
-          text: "Angle, reader belief, CTA, and AI categorisation — all defined before writing starts."
+          title: "Data-driven strategy",
+          text: "Every brief starts with deep research into your market, competitors, and what's already working."
         },
         {
-          title: "Interview-informed writing",
-          text: "We extract your expertise. Your ideas, our words."
+          title: "Clear messaging framework",
+          text: "We define exactly what problem we solve and how, with crystal-clear positioning."
         },
         {
-          title: "Results-oriented from word one",
-          text: "Every paragraph moves the reader toward belief, then action."
+          title: "Persuasive architecture",
+          text: "Content structured to guide readers from problem to solution naturally."
         }
       ]
     },
     {
       id: 2,
-      label: "Ahead of Search",
-      icon: "🔭",
-      title: "We Stay Ahead of How Search Is Changing",
-      description: "SEO, GEO, AEO — the landscape is shifting faster than most businesses can track. We're obsessively current on how AI systems discover, evaluate, and cite content. You shouldn't have to worry about this. We do.",
+      label: "Create & Optimize",
+      icon: "⚡",
+      title: "We Write, You Review",
+      description: "We write. You review. We refine. Most clients request one round of edits, if that. Then we hit publish.",
       oldWay: [
         {
-          title: "Chase last year's tactics",
-          text: "Agencies recycle 2022 SEO playbooks into 2025 AI-first reality."
+          title: "Slow, generic writing",
+          text: "Content that sounds like it could be for any company."
         },
         {
-          title: "Ignore AI answer engines",
-          text: "No strategy for Perplexity, ChatGPT, Gemini, or AI Overviews."
+          title: "No quality control",
+          text: "Publishing without proper review and optimization."
         },
         {
-          title: "React to changes, never lead",
-          text: "You're always one algorithm update behind."
+          title: "Missing SEO elements",
+          text: "Content that won't rank or get cited properly."
         }
       ],
       newWay: [
         {
-          title: "Obsessively current on AI search",
-          text: "We track how AI systems discover, evaluate, and cite content in real-time."
+          title: "Collaborative writing",
+          text: "We work with you to get the tone and insights exactly right."
         },
         {
-          title: "Future-proof content strategy",
-          text: "Built for today's SEO and tomorrow's AI answer engines."
+          title: "SEO-optimized publishing",
+          text: "Every piece is optimized for search engines and AI citation from day one."
         },
         {
-          title: "You lead, competitors follow",
-          text: "We position you ahead of algorithm changes, not behind them."
+          title: "Performance tracking",
+          text: "We monitor rankings, AI mentions, and engagement to optimize continuously."
         }
       ]
     },
     {
       id: 3,
-      label: "Built for Lean Teams",
+      label: "Distribute & Amplify",
       icon: "🚀",
-      title: "Designed for Teams That Need Results, Not Headaches",
-      description: "You don't have time for content agencies that need hand-holding. We're built for lean teams that need expertise, execution, and measurable outcomes without the drama.",
+      title: "We Measure & Iterate",
+      description: "We track rankings, AI citation appearances, engagement, and lead attribution. What's working gets doubled down. What isn't gets cut.",
       oldWay: [
         {
-          title: "High-maintenance relationships",
-          text: "Constant check-ins, endless revisions, missed deadlines."
+          title: "Publish and pray",
+          text: "Content published without tracking or optimization."
         },
         {
-          title: "Generic content mills",
-          text: "One-size-fits-all approach that doesn't understand your business."
+          title: "No data analysis",
+          text: "Flying blind without knowing what actually works."
         },
         {
-          title: "No accountability",
-          text: "They deliver words, not results. You're left wondering if it worked."
+          title: "Set it and forget it",
+          text: "Content that doesn't compound or improve over time."
         }
       ],
       newWay: [
         {
-          title: "Set it and forget it workflow",
-          text: "Minimal meetings, maximum impact. We handle the details, you get the results."
+          title: "Comprehensive analytics",
+          text: "We track everything: rankings, AI citations, engagement, conversions, and ROI."
         },
         {
-          title: "Deeply customized approach",
-          text: "We learn your business inside out so content sounds like you, just better."
+          title: "Continuous optimization",
+          text: "We constantly test and improve content based on performance data."
         },
         {
-          title: "Results-obsessed delivery",
-          text: "Every piece comes with clear metrics and expected business outcomes."
+          title: "Strategic amplification",
+          text: "We amplify what works across all channels to maximize reach and impact."
         }
       ]
     }
   ];
 
   const stepColors = [
-    { bg: "#1A1A2E", light: "#F2F2F8" },
-    { bg: "#2D4A8A", light: "#F0F4FB" },
-    { bg: "#2A7A5C", light: "#F0F9F5" },
-    { bg: "#7A2A6E", light: "#F9F0F8" }
+    { bg: '#f59e0b', light: '#fef2f2' },
+    { bg: '#3b82f6', light: '#eef2ff' },
+    { bg: '#8b5cf6', light: '#e0f2fe' },
+    { bg: '#dc2626', light: '#fef3c7' }
   ];
 
   return (
@@ -163,21 +163,21 @@ export function WhyWordpinchh() {
         {/* Header */}
         <div className="text-center mb-14 relative z-20">
           <div className="inline-block">
-            <span className="text-xs font-semibold tracking-widest uppercase text-red-600 bg-red-50 px-4 py-2 rounded-full mb-6 inline-block">
+            <span className="font-label text-black mb-6 inline-block">
               Our Approach
             </span>
           </div>
-          <h2 className="font-heading text-4xl md:text-5xl text-[#1A1A2E] mb-4 font-bold">
+          <h2 className="font-heading text-4xl md:text-5xl text-black mb-4 font-bold" style={{ fontFamily: 'var(--font-fahkwang)' }}>
             Why <span className="font-bold">Wordpinchh</span>
           </h2>
-          <p className="text-[#3D3D5C] max-w-lg mx-auto leading-relaxed">
+          <p className="text-muted max-w-lg mx-auto leading-relaxed" style={{ fontFamily: 'var(--font-barlow)', lineHeight: 1.7 , color: 'black'}}>
             We have a four-step process that turns content into a compounding growth engine — for search, for AI, and for the humans who actually buy.
           </p>
         </div>
 
         {/* Step Tabs */}
         <nav className="flex justify-center mb-12 relative z-30">
-          <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#E2DDD5] z-0"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#e2d5d5] z-0"></div>
           <div className="flex gap-0 relative z-10">
             {steps.map((step, index) => (
               <button
@@ -192,7 +192,7 @@ export function WhyWordpinchh() {
               >
                 <div 
                   className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold transition-all duration-250 ${
-                    activeStep === index ? 'text-white' : 'bg-gray-300 text-gray-600'
+                    activeStep === index ? 'text-black' : 'bg-gray-300 text-gray-600'
                   }`}
                   style={{
                     backgroundColor: activeStep === index ? stepColors[index].bg : '#E2DDD5'
@@ -200,7 +200,7 @@ export function WhyWordpinchh() {
                 >
                   {index + 1}
                 </div>
-                <span className="text-xs font-medium whitespace-nowrap tracking-wide">
+                <span className="text-xs font-medium whitespace-nowrap tracking-wide text-black" style={{ fontFamily: 'var(--font-fahkwang)' }}>
                   {step.label}
                 </span>
                 <div 
@@ -229,8 +229,10 @@ export function WhyWordpinchh() {
                   {step.icon}
                 </div>
                 <div>
-                  <h3 className="font-semibold text-sm mb-1 text-[#1A1A2E]">{step.title}</h3>
-                  <p className="text-xs text-[#3D3D5C] leading-relaxed font-light">
+                  <h3 className="font-heading text-sm mb-1 text-black" style={{ fontFamily: 'var(--font-fahkwang)' }}>
+                    {step.title}
+                  </h3>
+                  <p className="text-xs text-muted leading-relaxed font-light" style={{ color: 'darkslategray', fontFamily: 'var(--font-barlow)' }}>
                     {step.description}
                   </p>
                 </div>
@@ -240,9 +242,9 @@ export function WhyWordpinchh() {
               <div className="grid md:grid-cols-2 gap-5">
                 {/* Old Way */}
                 <div className="bg-gray-50 border border-[#E2DDD5] rounded-xl p-7">
-                  <div className="flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-gray-500 mb-5">
+                  <div className="flex items-center gap-2 text-xs font-semibold tracking-widest uppercase text-black mb-5">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M18 6L6 18M6 6l12 12"/>
+                      <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                     Old Way
                   </div>
@@ -255,7 +257,7 @@ export function WhyWordpinchh() {
                           <line x1="9" y1="9" x2="15" y2="15"/>
                         </svg>
                         <div>
-                          <strong className="block text-xs font-semibold mb-1 text-gray-700">{item.title}</strong>
+                          <strong className="block text-xs font-semibold mb-1 text-black">{item.title}</strong>
                           <p className="text-xs text-gray-500 leading-relaxed">{item.text}</p>
                         </div>
                       </div>
@@ -269,8 +271,8 @@ export function WhyWordpinchh() {
                   style={{ borderColor: stepColors[index].bg, backgroundColor: stepColors[index].light }}
                 >
                   <div className="flex items-center gap-2 text-xs font-semibold tracking-widest uppercase mb-5" style={{ color: stepColors[index].bg }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <polyline points="20 6 9 17 4 12"/>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                     Wordpinchh Way
                   </div>
@@ -278,12 +280,11 @@ export function WhyWordpinchh() {
                     {step.newWay.map((item, itemIndex) => (
                       <div key={itemIndex} className="flex items-start gap-3 py-3.5 border-b border-gray-200 last:border-0 first:pt-0">
                         <svg className="w-5.5 h-5.5 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke={stepColors[index].bg} strokeWidth="2">
-                          <circle cx="12" cy="12" r="10"/>
-                          <polyline points="16 10 11 15 8 12"/>
+                          <polyline points="20 6 9 17 4 12"></polyline>
                         </svg>
                         <div>
-                          <strong className="block text-xs font-semibold mb-1" style={{ color: stepColors[index].bg }}>{item.title}</strong>
-                          <p className="text-xs text-gray-600 leading-relaxed">{item.text}</p>
+                          <strong className="block text-xs font-semibold mb-1 text-black" style={{ color: stepColors[index].bg }}>{item.title}</strong>
+                          <p className="text-xs text-muted leading-relaxed" style={{ color: 'grey' }}>{item.text}</p>
                         </div>
                       </div>
                     ))}
