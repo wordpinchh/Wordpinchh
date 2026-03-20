@@ -223,7 +223,7 @@ export function WhyWordpinchh() {
               {/* Step Description */}
               <div className="bg-white border border-[#E2DDD5] rounded-xl p-5 mb-7 flex items-start gap-4">
                 <div 
-                  className="w-10 h-10 rounded-lg flex items-center justify-center text-lg flex-shrink-0"
+                  className="w-10 h-10 rounded-lg flex items-center justify-center text-lg shrink-0"
                   style={{ backgroundColor: stepColors[index].light }}
                 >
                   {step.icon}
@@ -249,7 +249,7 @@ export function WhyWordpinchh() {
                   <div className="space-y-3.5">
                     {step.oldWay.map((item, itemIndex) => (
                       <div key={itemIndex} className="flex items-start gap-3 py-3.5 border-b border-gray-200 last:border-0 first:pt-0">
-                        <svg className="w-5.5 h-5.5 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="2">
+                        <svg className="w-5.5 h-5.5 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2">
                           <circle cx="12" cy="12" r="10"/>
                           <line x1="15" y1="9" x2="9" y2="15"/>
                           <line x1="9" y1="9" x2="15" y2="15"/>
@@ -277,7 +277,7 @@ export function WhyWordpinchh() {
                   <div className="space-y-3.5">
                     {step.newWay.map((item, itemIndex) => (
                       <div key={itemIndex} className="flex items-start gap-3 py-3.5 border-b border-gray-200 last:border-0 first:pt-0">
-                        <svg className="w-5.5 h-5.5 flex-shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke={stepColors[index].bg} strokeWidth="2">
+                        <svg className="w-5.5 h-5.5 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke={stepColors[index].bg} strokeWidth="2">
                           <circle cx="12" cy="12" r="10"/>
                           <polyline points="16 10 11 15 8 12"/>
                         </svg>

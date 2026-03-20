@@ -10,6 +10,7 @@ import { Services, AIVisibility } from "@/components/sections/services";
 import { Navbar } from "@/components/layout/navbar";
 import { ProblemSolution } from "@/components/sections/problem-solution";
 import { WhyWordpinchh } from "@/components/sections/why-wordpinchh";
+import { WhatWeDo } from "@/components/sections/what-we-do";
 import { useEffect, useState } from "react";
 import LeadMagnet from "@/components/LeadMagnet";
 import SectionSpacer from "@/components/SectionSpacer";
@@ -46,6 +47,7 @@ export default function HomePage() {
       <ProblemSolution />
       <Services />
       <AIVisibility />
+      <WhatWeDo />
       <WhyWordpinchh />
       <LeadMagnet />
       <LetsWorkTogether />
