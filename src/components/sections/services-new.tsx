@@ -271,94 +271,9 @@ function ServiceRow({ s, open, setOpen, activeService, toggleService }: ServiceR
     </>
   );
 }
-
 export default function ServicesNew() {
   const [open, setOpen] = useState<string | null>(null);
   const [activeService, setActiveService] = useState<string | null>(null);
-
-  // Custom Cursor Logic
-  useEffect(() => {
-    const cursor = document.getElementById("cursor");
-
-    let mouseX = -100;
-    let mouseY = -100;
-    let posX = -100;
-    let posY = -100;
-
-    const move = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    };
-
-    document.addEventListener("mousemove", move);
-
-    const animate = () => {
-      posX += (mouseX - posX) * 0.18;
-      posY += (mouseY - posY) * 0.18;
-
-      if (cursor) {
-        cursor.style.left = posX + "px";
-        cursor.style.top = posY + "px";
-      }
-
-      requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    // HOVER TARGETS
-    const setupHoverTargets = () => {
-      const targets = document.querySelectorAll(
-        "[data-cursor-color], a, button"
-      );
-
-      console.log("Found targets:", targets.length);
-
-      targets.forEach((el) => {
-        const color = el.getAttribute("data-cursor-color");
-        console.log("Element with color:", color);
-
-        el.addEventListener("mouseenter", (e) => {
-          const target = e.currentTarget as HTMLElement;
-          const color = target.getAttribute("data-cursor-color");
-
-          console.log("Hovering, color:", color);
-
-          cursor?.classList.add("hover");
-
-          if (color && cursor) {
-            cursor.style.background = color;
-          }
-        });
-
-        el.addEventListener("mouseleave", () => {
-          cursor?.classList.remove("hover");
-
-          if (cursor) {
-            cursor.style.background = "#FF3B00"; // default
-          }
-        });
-      });
-    };
-
-    // Initial setup
-    setTimeout(setupHoverTargets, 100);
-
-    // Watch for DOM changes
-    const observer = new MutationObserver(() => {
-      setupHoverTargets();
-    });
-
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
-
-    return () => {
-      document.removeEventListener("mousemove", move);
-      observer.disconnect();
-    };
-  }, []);
 
   const toggleService = (id: string) => {
     setActiveService(prev => (prev === id ? null : id));
@@ -380,9 +295,6 @@ export default function ServicesNew() {
 
   return (
     <div style={{ minHeight: "100vh" }}>
-      <div id="cursor">
-        <div id="cursor-text">OPEN</div>
-      </div>
       <div className="w-full" style={{ background: "var(--bg)", color: "var(--ink)", minHeight: "100vh", width: "100%" }}>
 
       {/* TICKER */}

@@ -23,6 +23,14 @@ html {
   --accent-service: #FF3B00;
   --gold: #C4922A;
   --muted-service: #8A7F6E;
+  
+  /* About Page Editorial Theme */
+  --paper: #F2EDE4;
+  --paper-2: #E8E1D5;
+  --ink: #1A1208;
+  --ink-soft: #5C5040;
+  --red: #C41C1C;
+  --gold: #B07C1A;
 }
 
 * {
@@ -46,50 +54,6 @@ html, body {
 
 a, button, input, textarea, select, [role="button"] {
   cursor: none;
-}
-
-/* MAIN CURSOR DOT */
-#cursor {
-  position: fixed;
-  width: 12px;
-  height: 12px;
-  background: #FF3B00;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-  transition: 
-    width 0.25s ease,
-    height 0.25s ease,
-    background 0.3s ease;
-  mix-blend-mode: multiply;
-}
-
-/* EXPANDED STATE */
-#cursor.hover {
-  width: 70px;
-  height: 70px;
-  background: #0b0701;
-  mix-blend-mode: normal;
-}
-
-/* TEXT INSIDE CURSOR */
-#cursor-text {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  color: #fff;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-#cursor.hover #cursor-text {
-  opacity: 1;
 }
 
 /* TICKER */

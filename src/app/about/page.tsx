@@ -1,34 +1,27 @@
-"use client";
-
-import { Container } from "@/components/ui/container";
-import { Navbar } from "@/components/layout/navbar";
-import PageWrapper from "@/components/PageWrapper";
-import AboutIntro from "@/components/AboutIntro";
-import AboutStory from "@/components/AboutStory";
-import EditorialStatement from "@/components/EditorialStatement";
-import AboutValues from "@/components/AboutValues";
-import AboutFounder from "@/components/AboutFounder";
-import TrustedByBrands from "@/components/TrustedByBrands";
-import ExploreServices from "@/components/ExploreServices";
-import LetsWorkTogether from "@/components/LetsWorkTogether";
-import BottomCTA from "@/components/BottomCTA";
+import AboutHero from "@/components/about/AboutHero";
+import AboutManifesto from "@/components/about/AboutManifesto";
+import AboutContrast from "@/components/about/AboutContrast";
+import AboutCTA from "@/components/about/AboutCTA";
 
 export default function AboutPage() {
   return (
-    <PageWrapper>
-      <Navbar />
+    <div className="bg-[var(--paper)] text-[var(--ink)] min-h-screen relative">
       
-      <main className="pt-24">
-        <AboutIntro />
-        <AboutStory />
-        <EditorialStatement />
-        <AboutValues />
-        <AboutFounder />
-        <TrustedByBrands />
-        <ExploreServices />
-        <LetsWorkTogether />
-        <BottomCTA />
-      </main>
-    </PageWrapper>
+      {/* GRAIN TEXTURE */}
+      <div 
+        className="pointer-events-none fixed inset-0 opacity-[0.05] z-[1]"
+        style={{
+          backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+        }}
+      />
+
+      {/* CONTENT */}
+      <div className="relative z-10">
+        <AboutHero />
+        <AboutManifesto />
+        <AboutContrast />
+        <AboutCTA />
+      </div>
+    </div>
   );
 }

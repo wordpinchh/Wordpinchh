@@ -6,8 +6,11 @@ import { useEffect, useState } from "react";
 export default function CustomCursor() {
   const [pos, setPos] = useState({ x: -100, y: -100 });
   const [isHovering, setIsHovering] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    
     const move = (e: MouseEvent) => {
       setPos({ x: e.clientX, y: e.clientY });
     };
@@ -33,11 +36,13 @@ export default function CustomCursor() {
     };
   }, []);
 
+  if (!mounted) return null;
+
   return (
     <>
       {/* MAIN DOT */}
       <motion.div
-        className="fixed top-0 left-0 w-3 h-3 bg-white rounded-full pointer-events-none z-[9999] mix-blend-difference"
+        className="fixed top-0 left-0 w-3 h-3 bg-white rounded-full pointer-events-none z-10000 mix-blend-difference"
         animate={{
           x: pos.x - 6,
           y: pos.y - 6,
@@ -52,7 +57,7 @@ export default function CustomCursor() {
 
       {/* RING */}
       <motion.div
-        className="fixed top-0 left-0 w-10 h-10 border border-white/50 rounded-full pointer-events-none z-[9998]"
+        className="fixed top-0 left-0 w-10 h-10 border border-white/50 rounded-full pointer-events-none z-10001"
         animate={{
           x: pos.x - 20,
           y: pos.y - 20,
