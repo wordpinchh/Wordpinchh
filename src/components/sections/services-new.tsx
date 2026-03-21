@@ -1,55 +1,437 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+const services = [
+  {
+    id: "seo",
+    number: "01",
+    title: "SEO Blog Writing",
+    desc: "Content your ideal client finds at 11pm, reads in full, and emails to their team.",
+    tag: "Blogging · SEO",
+    color: "#C4922A",
+
+    problem: "Most business blogs fail for the same reason: written for a vague audience, optimised for keywords nobody converts on, published without any distribution plan. We start with your ICP and work backwards from the sale.",
+
+    features: [
+      "Keyword research tied to buyer intent, not just search volume",
+      "A sharp angle that gives your take — not a Wikipedia summary",
+      "Internal linking structure that builds topic authority over time",
+      "SEO-optimised headline, meta description, and URL",
+      "A clear CTA that moves the reader to the next logical step",
+    ],
+
+    result: "A blog that ranks, gets read, and builds trust — month after month.",
+    cta: "Start With a Content Audit",
+  },
+
+  {
+    id: "li",
+    number: "02",
+    title: "LinkedIn Ghostwriting",
+    desc: "Your insights are worth sharing. You just don't have time to share them.",
+    tag: "Social · B2B",
+    color: "#00A86B",
+
+    problem: "LinkedIn is the highest-ROI content channel for B2B founders and consultants right now. Organic reach is still strong. Decision-makers are active. Most people are posting noise — good content stands out immediately.",
+
+    features: [
+      "4–8 posts per month, written in your voice",
+      "A mix: storytelling, insight, contrarian takes, lessons learned",
+      "Posts designed to start conversations, not just collect likes",
+      "A content calendar so you're never scrambling",
+    ],
+
+    result: "A LinkedIn presence that attracts inbound messages from the people you actually want to work with.",
+    cta: "See LinkedIn Examples",
+  },
+
+  {
+    id: "lp",
+    number: "03",
+    title: "Landing Page Copywriting",
+    desc: "Most pages explain what a product does. Great ones make not buying feel like a mistake.",
+    tag: "Conversion · Copy",
+    color: "#FF3B00",
+
+    problem: "A weak landing page is one of the most expensive problems in your business — because you're already paying to drive traffic to it. We rewrite pages using one framework: value undeniable, risk small, next step obvious.",
+
+    features: [
+      "A headline that speaks to the specific outcome your buyer wants",
+      "A problem framing section that makes them feel understood",
+      "Benefits from the buyer's perspective, not a feature list",
+      "Social proof positioned to address the exact objection that kills conversions",
+      "A CTA that creates urgency without being pushy",
+    ],
+
+    result: "Well-written landing page copy has doubled conversion rates without changing a single pixel of design.",
+    cta: "Get a Landing Page Audit",
+  },
+
+  {
+    id: "web",
+    number: "04",
+    title: "Website Content",
+    desc: '8 seconds to answer one question: "Why you, not them?"',
+    tag: "Web · Positioning",
+    color: "#7A4BD4",
+
+    problem: "Most business websites fail the 8-second test. They lead with the company, not the customer. They use buzzwords like 'innovative solutions.' They bury the actual value under three scrolls of vague copy.",
+
+    features: [
+      "Homepage — positioning, hero copy, value prop, social proof structure",
+      "About page — story and credibility, written to attract not impress",
+      "Services pages — outcome-focused copy for each offering",
+      "Contact page — copy that makes reaching out feel easy, not formal",
+    ],
+
+    result: "We walk you through why every decision was made — so you understand the strategy behind the words.",
+    cta: "Request a Website Copy Audit",
+  },
+
+  {
+    id: "geo",
+    number: "05",
+    title: "GEO: Generative Engine Optimization",
+    desc: "Your buyers are asking AI for recommendations. Is your brand part of the answer?",
+    tag: "AI · Citations",
+    color: "#0047FF",
+    isNew: true,
+
+    problem: "Traditional SEO gets you a blue link. GEO gets you named in the answer. When someone asks ChatGPT, Perplexity, or Google AI a question in your space, these systems pull from sources they consider authoritative and well-structured.",
+
+    features: [
+      "Prompt research — how your buyers ask about your category in AI tools",
+      "Content gap analysis vs. what AI currently cites in your space",
+      "Citation-optimised articles with structured formatting",
+      "Schema and metadata recommendations for machine readability",
+      "Monthly AI citation reports across ChatGPT, Perplexity, and Google",
+      "Ongoing content refresh as AI models update",
+    ],
+
+    result: "If your buyers use AI to research — and they do — GEO is no longer optional.",
+    cta: "Get a GEO Visibility Audit",
+  },
+
+  {
+    id: "aeo",
+    number: "06",
+    title: "AEO: Answer Engine Optimization",
+    desc: "65% of searches end without a click. AEO wins in a zero-click world.",
+    tag: "AI · Zero-Click",
+    color: "#D44B7A",
+    isNew: true,
+
+    problem: "Your content can rank on page one and still be invisible — because the person got their answer before they ever saw your link. AEO is about making your content the answer. Not a source. Not a link. The answer.",
+
+    features: [
+      "Conversational query research — real questions buyers ask AI",
+      "Content structure audit with specific rewrite recommendations",
+      "Answer-first rewrites for up to 10 priority pages",
+      "FAQ content creation targeting your top 20 buyer questions",
+      "Schema markup recommendations and implementation support",
+      "Tracking for AI Overview appearances and featured snippets",
+    ],
+
+    result: "When your ideal client asks AI 'who are the best content agencies for B2B SaaS' — that's not a click. It's a recommendation.",
+    cta: "Book an AEO Strategy Call",
+  },
+
+  {
+    id: "ai",
+    number: "07",
+    title: "AI Content Strategy",
+    desc: "AI can produce content at scale. The question is whether any of it is worth reading.",
+    tag: "AI · Workflow",
+    color: "#FF9500",
+    isNew: true,
+
+    problem: "The problem isn't the tools — it's that nobody explained how to use AI to build authority rather than fill a blog with words that say nothing. We help you build a content operation that uses AI intelligently.",
+
+    features: [
+      "Current content workflow audit and bottleneck analysis",
+      "AI tool recommendations based on your use case and budget",
+      "Custom prompt library for your top 5 content formats",
+      "AI-assisted content workflow with human checkpoint map",
+      "Team training: how to brief, prompt, edit, and approve AI content",
+      "Content quality rubric tailored to your brand voice",
+    ],
+
+    result: "The founders and teams that win the next three years will be the ones who know the difference between AI as accelerator vs. AI as crutch.",
+    cta: "Get an AI Workflow Audit",
+  },
+];
+
+interface ServiceItem {
+  id: string;
+  number: string;
+  title: string;
+  desc: string;
+  tag: string;
+  color: string;
+  isNew?: boolean;
+  problem: string;
+  features: string[];
+  result: string;
+  cta: string;
+}
+
+interface ServiceRowProps {
+  s: ServiceItem;
+  open: string | null;
+  setOpen: (id: string | null) => void;
+  activeService: string | null;
+  toggleService: (id: string) => void;
+}
+
+function ServiceRow({ s, open, setOpen, activeService, toggleService }: ServiceRowProps) {
+  return (
+    <>
+      {/* ROW */}
+      <div
+        id={s.id}
+        className={`service-row ${open === s.id ? "active" : ""}`}
+        style={{ "--row-accent": s.color } as React.CSSProperties}
+        onClick={() => toggleService(s.id)}
+      >
+        <div className="row-num">{s.number}</div>
+
+        <div className="row-main">
+          <div className="row-title">
+            {s.title}
+            {s.isNew && <span className="row-new-badge">NEW</span>}
+          </div>
+          <div className="row-desc">{s.desc}</div>
+        </div>
+
+        <div className="row-right">
+          <span className="row-tag">{s.tag}</span>
+          <div className="row-arrow">
+            {activeService === s.id ? "×" : "+"}
+          </div>
+        </div>
+      </div>
+
+      {/* DETAIL */}
+      <div 
+        className={`service-detail ${open === s.id ? "open" : ""}`}
+        style={{ "--detail-accent": s.color } as React.CSSProperties}
+      >
+        <div className="detail-inner">
+
+          {/* LEFT */}
+          <div className="detail-block">
+            <div className="detail-block-label">The problem we solve</div>
+            <p className="detail-intro">
+              {s.problem}
+            </p>
+          </div>
+
+          {/* CENTER */}
+          <div className="detail-block">
+            <div className="detail-block-label">Every article includes</div>
+            <ul className="detail-features">
+              {s.features.map((f: string, i: number) => (
+                <li key={i}>{f}</li>
+              ))}
+            </ul>
+          </div>
+
+          {/* RIGHT */}
+          <div className="detail-block">
+            <div className="detail-block-label">The payoff</div>
+
+            <div className="detail-result-box">
+              <div 
+                className="detail-result-label"
+                style={{ color: s.color }}
+              >
+                Result
+              </div>
+              <div className="detail-result-text">
+                {s.result}
+              </div>
+            </div>
+
+            <a 
+              href="#" 
+              className="detail-cta-btn"
+              style={{ 
+                background: s.color,
+                filter: "brightness(0.9)"
+              }}
+            >
+              {s.cta} →
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </>
+  );
+}
 
 export default function ServicesNew() {
   const [open, setOpen] = useState<string | null>(null);
+  const [activeService, setActiveService] = useState<string | null>(null);
 
-  const toggle = (id: string) => {
-    setOpen(open === id ? null : id);
+  // Custom Cursor Logic
+  useEffect(() => {
+    const cursor = document.getElementById("cursor");
+
+    let mouseX = -100;
+    let mouseY = -100;
+    let posX = -100;
+    let posY = -100;
+
+    const move = (e: MouseEvent) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    };
+
+    document.addEventListener("mousemove", move);
+
+    const animate = () => {
+      posX += (mouseX - posX) * 0.18;
+      posY += (mouseY - posY) * 0.18;
+
+      if (cursor) {
+        cursor.style.left = posX + "px";
+        cursor.style.top = posY + "px";
+      }
+
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    // HOVER TARGETS
+    const targets = document.querySelectorAll(
+      ".service-row, .hero-item, a, button"
+    );
+
+    targets.forEach((el) => {
+      el.addEventListener("mouseenter", () => {
+        cursor?.classList.add("hover");
+      });
+
+      el.addEventListener("mouseleave", () => {
+        cursor?.classList.remove("hover");
+      });
+    });
+
+    return () => {
+      document.removeEventListener("mousemove", move);
+    };
+  }, []);
+
+  const toggleService = (id: string) => {
+    setActiveService(prev => (prev === id ? null : id));
+    setOpen(prev => (prev === id ? null : id));
+  };
+
+  const handleScrollToService = (id: string) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    window.scrollTo({
+      top: el.offsetTop - 80,
+      behavior: "smooth",
+    });
+
+    setActiveService(id);
+    setOpen(id);
   };
 
   return (
     <div style={{ minHeight: "100vh" }}>
+      <div id="cursor">
+        <div id="cursor-text">OPEN</div>
+      </div>
       <div className="w-full" style={{ background: "var(--bg)", color: "var(--ink)", minHeight: "100vh", width: "100%" }}>
+
+      {/* TICKER */}
+      <div className="ticker">
+        <div className="ticker-track">
+          {[
+            "GHOSTWRITING",
+            "LANDING PAGE COPY",
+            "WEBSITE CONTENT",
+            "GEO OPTIMIZATION",
+            "AEO OPTIMIZATION",
+            "AI CONTENT STRATEGY",
+            "SEO BLOG WRITING",
+            "LINKEDIN GHOSTWRITING",
+          ]
+            .concat([
+              "GHOSTWRITING",
+              "LANDING PAGE COPY",
+              "WEBSITE CONTENT",
+              "GEO OPTIMIZATION",
+              "AEO OPTIMIZATION",
+              "AI CONTENT STRATEGY",
+              "SEO BLOG WRITING",
+              "LINKEDIN GHOSTWRITING",
+            ])
+            .map((item, i) => (
+              <span key={i} className="ticker-item">
+                <span className="dot" />
+                {item}
+              </span>
+            ))}
+        </div>
+      </div>
 
       {/* HERO */}
       <section className="hero" style={{ cursor: "default" }}>
         <div className="hero-left">
-          <h1 className="hero-title" style={{ fontFamily: "var(--font-fahkwang)" }}>
+          <div className="hero-eyebrow">
+            <span>02</span>
+            <div className="line"></div>
+            <span>SERVICES</span>
+          </div>
+          <h1 className="hero-title">
             WHAT <br />
-            <span style={{ WebkitTextStroke: "2px black", color: "transparent" }}>
-              WE
-            </span>{" "}
-            <br />
-            <span style={{ color: "var(--accent-service)" }}>DO</span>
+            <span className="outline">WE</span> <br />
+            <span className="red">DO</span>
           </h1>
+          <p className="hero-desc">
+            Three jobs. One agency. Google, AI engines, and the humans who actually buy.
+          </p>
         </div>
 
         <div className="hero-right">
           <div>
-            <p style={{ fontSize: "12px", textTransform: "uppercase", letterSpacing: "2px", color: "rgba(255,255,255,0.4)", marginBottom: "24px" }}>
-              What's covered
-            </p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", paddingTop: "12px", borderTop: "1px solid rgba(255,255,255,0.1)" }}>
-                <span>SEO Blog Writing</span>
-                <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>Core</span>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between", paddingTop: "12px", borderTop: "1px solid rgba(255,255,255,0.1)" }}>
-                <span>LinkedIn Ghostwriting</span>
-                <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>Core</span>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between", paddingTop: "12px", borderTop: "1px solid rgba(255,255,255,0.1)" }}>
-                <span>Landing Page Copywriting</span>
-                <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>Core</span>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between", paddingTop: "12px", borderTop: "1px solid rgba(255,255,255,0.1)" }}>
-                <span>Website Content</span>
-                <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>Core</span>
-              </div>
+            <p className="hero-label">WHAT'S COVERED</p>
+
+            <div className="hero-list">
+              {services.map((item) => (
+                <div
+                  key={item.id}
+                  className={`hero-item ${
+                    activeService === item.id ? "active" : ""
+                  }`}
+                  onClick={() => handleScrollToService(item.id)}
+                >
+                  <span className="hero-name">{item.title}</span>
+
+                  <span
+                    className={`hero-badge ${
+                      item.isNew ? "new" : "core"
+                    }`}
+                  >
+                    {item.isNew ? "NEW" : "CORE"}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
-          <a style={{ fontSize: "14px", color: "#FF3B00", cursor: "pointer" }}>
+
+          <div className="hero-count">
+            07
+            <span>Services</span>
+          </div>
+
+          <a href="#" className="hero-cta">
             Not sure which? Talk to us →
           </a>
         </div>
@@ -58,98 +440,39 @@ export default function ServicesNew() {
       {/* SERVICES */}
       <div className="services-container">
 
+        {/* CORE */}
         <div className="cat-strip">
-          <span>Core Content Services</span>
-          <span style={{ color: "rgba(255,255,255,0.4)" }}>04 / 04</span>
+          <span className="cat-label">CORE CONTENT SERVICES</span>
+          <span className="cat-meta">04 / 07</span>
         </div>
 
-        <div className="service-row" style={{ ["--row-accent" as any]: "#C4922A" }} onClick={() => toggle("seo")}>
-          <div className="row-num">01</div>
-          <div className="row-main">
-            <div className="row-title">SEO Blog Writing</div>
-            <div className="row-desc">Content your ideal client finds at 11pm, reads in full, and emails to their team.</div>
-          </div>
-          <div className="row-right">
-            <span className="row-tag">Blogging · SEO</span>
-            <div className="row-arrow">
-              {open === "seo" ? "×" : "+"}
-            </div>
-          </div>
+        {services.filter(s => !s.isNew).map((s) => (
+          <ServiceRow 
+            key={s.id} 
+            s={s} 
+            open={open} 
+            setOpen={setOpen}
+            activeService={activeService}
+            toggleService={toggleService}
+          />
+        ))}
+
+        {/* AI */}
+        <div className="cat-strip">
+          <span className="cat-label">AI VISIBILITY SERVICES — NEW</span>
+          <span className="cat-meta">03 / 07</span>
         </div>
 
-        {open === "seo" && (
-          <div style={{ padding: "24px 32px", background: "var(--paper)", borderBottom: "2px solid var(--paper-2)" }}>
-            <p style={{ fontSize: "14px", fontStyle: "italic", color: "rgba(15,10,0,0.8)" }}>
-              A blog that ranks, gets read, and builds trust.
-            </p>
-          </div>
-        )}
-
-        <div className="service-row" style={{ ["--row-accent" as any]: "#00A86B" }} onClick={() => toggle("linkedin")}>
-          <div className="row-num">02</div>
-          <div className="row-main">
-            <div className="row-title">LinkedIn Ghostwriting</div>
-            <div className="row-desc">Your insights are worth sharing. You just don't have time to share them.</div>
-          </div>
-          <div className="row-right">
-            <span className="row-tag">Social · B2B</span>
-            <div className="row-arrow">
-              {open === "linkedin" ? "×" : "+"}
-            </div>
-          </div>
-        </div>
-
-        {open === "linkedin" && (
-          <div style={{ padding: "24px 32px", background: "var(--paper)", borderBottom: "2px solid var(--paper-2)" }}>
-            <p style={{ fontSize: "14px", fontStyle: "italic", color: "rgba(15,10,0,0.8)" }}>
-              Inbound leads from right audience.
-            </p>
-          </div>
-        )}
-
-        <div className="service-row" style={{ ["--row-accent" as any]: "#FF3B00" }} onClick={() => toggle("landing")}>
-          <div className="row-num">03</div>
-          <div className="row-main">
-            <div className="row-title">Landing Page Copywriting</div>
-            <div className="row-desc">Great pages make not buying feel like a mistake.</div>
-          </div>
-          <div className="row-right">
-            <span className="row-tag">Conversion · Copy</span>
-            <div className="row-arrow">
-              {open === "landing" ? "×" : "+"}
-            </div>
-          </div>
-        </div>
-
-        {open === "landing" && (
-          <div style={{ padding: "24px 32px", background: "var(--paper)", borderBottom: "2px solid var(--paper-2)" }}>
-            <p style={{ fontSize: "14px", fontStyle: "italic", color: "rgba(15,10,0,0.8)" }}>
-              Higher conversion rates without redesign.
-            </p>
-          </div>
-        )}
-
-        <div className="service-row" style={{ ["--row-accent" as any]: "#7A4BD4" }} onClick={() => toggle("website")}>
-          <div className="row-num">04</div>
-          <div className="row-main">
-            <div className="row-title">Website Content</div>
-            <div className="row-desc">8 seconds to answer: Why you?</div>
-          </div>
-          <div className="row-right">
-            <span className="row-tag">Web · Positioning</span>
-            <div className="row-arrow">
-              {open === "website" ? "×" : "+"}
-            </div>
-          </div>
-        </div>
-
-        {open === "website" && (
-          <div style={{ padding: "24px 32px", background: "var(--paper)", borderBottom: "2px solid var(--paper-2)" }}>
-            <p style={{ fontSize: "14px", fontStyle: "italic", color: "rgba(15,10,0,0.8)" }}>
-              Clear messaging that builds trust.
-            </p>
-          </div>
-        )}
+        {services.filter(s => s.isNew).map((s) => (
+          <ServiceRow 
+            key={s.id} 
+            s={s} 
+            open={open} 
+            setOpen={setOpen}
+            activeService={activeService}
+            toggleService={toggleService}
+          />
+        ))}
 
       </div>
     </div>
