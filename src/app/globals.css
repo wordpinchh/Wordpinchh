@@ -57,7 +57,7 @@ body {
   transition: 
     width 0.25s ease,
     height 0.25s ease,
-    background 0.25s ease;
+    background 0.3s ease;
   mix-blend-mode: multiply;
 }
 
@@ -90,10 +90,16 @@ body {
 
 /* TICKER */
 .ticker {
-  background: #0b0701;
+  background: #0b0701 !important;
   overflow: hidden;
   border-bottom: 2px solid #FF3B00;
   padding: 10px 0;
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  height: 40px;
+  display: block;
+  margin-top: 70px; /* height of navbar spacing */
 }
 
 .ticker-track {
@@ -112,15 +118,16 @@ body {
 }
 
 .ticker-item {
-  display: flex;
+  display: flex !important;
   align-items: center;
   gap: 16px;
   padding: 0 40px;
   font-family: 'DM Mono', monospace;
   font-size: 11px;
   letter-spacing: 0.2em;
-  color: #fff;
+  color: #fff !important;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .ticker-item .dot {
@@ -141,7 +148,7 @@ body {
   border-right: 2px solid var(--ink);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 /* HERO EYEBROW */
@@ -171,12 +178,22 @@ body {
   max-width: 420px;
 }
 
+/* RESPONSIVE POLISH */
+@media (max-height: 800px) {
+  .hero-left {
+    padding: 40px 40px 60px;
+  }
+
+  .hero-title {
+    font-size: clamp(4rem, 8vw, 8rem);
+  }
+}
+
 .hero-right {
   background: #0b0701;
   padding: 56px 44px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   border-left: 1px solid rgba(255,255,255,0.06);
 }
 
@@ -280,6 +297,8 @@ body {
   color: #E3DBC8;
   text-align: right;
   line-height: 1;
+  margin-top: 40px;
+  align-self: flex-end;
 }
 
 .hero-count span {

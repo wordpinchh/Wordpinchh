@@ -15,7 +15,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-black">
+    <nav className="fixed top-0 left-0 w-full z-9999 bg-black">
       <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 py-4">
 
         {/* Logo */}

@@ -191,6 +191,7 @@ function ServiceRow({ s, open, setOpen, activeService, toggleService }: ServiceR
         id={s.id}
         className={`service-row ${open === s.id ? "active" : ""}`}
         style={{ "--row-accent": s.color } as React.CSSProperties}
+        data-cursor-color={s.color}
         onClick={() => toggleService(s.id)}
       >
         <div className="row-num">{s.number}</div>
@@ -255,6 +256,7 @@ function ServiceRow({ s, open, setOpen, activeService, toggleService }: ServiceR
             <a 
               href="#" 
               className="detail-cta-btn"
+              data-cursor-color={s.color}
               style={{ 
                 background: s.color,
                 filter: "brightness(0.9)"
@@ -305,22 +307,56 @@ export default function ServicesNew() {
     animate();
 
     // HOVER TARGETS
-    const targets = document.querySelectorAll(
-      ".service-row, .hero-item, a, button"
-    );
+    const setupHoverTargets = () => {
+      const targets = document.querySelectorAll(
+        "[data-cursor-color], a, button"
+      );
 
-    targets.forEach((el) => {
-      el.addEventListener("mouseenter", () => {
-        cursor?.classList.add("hover");
-      });
+      console.log("Found targets:", targets.length);
 
-      el.addEventListener("mouseleave", () => {
-        cursor?.classList.remove("hover");
+      targets.forEach((el) => {
+        const color = el.getAttribute("data-cursor-color");
+        console.log("Element with color:", color);
+
+        el.addEventListener("mouseenter", (e) => {
+          const target = e.currentTarget as HTMLElement;
+          const color = target.getAttribute("data-cursor-color");
+
+          console.log("Hovering, color:", color);
+
+          cursor?.classList.add("hover");
+
+          if (color && cursor) {
+            cursor.style.background = color;
+          }
+        });
+
+        el.addEventListener("mouseleave", () => {
+          cursor?.classList.remove("hover");
+
+          if (cursor) {
+            cursor.style.background = "#FF3B00"; // default
+          }
+        });
       });
+    };
+
+    // Initial setup
+    setTimeout(setupHoverTargets, 100);
+
+    // Watch for DOM changes
+    const observer = new MutationObserver(() => {
+      setupHoverTargets();
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
     });
 
     return () => {
       document.removeEventListener("mousemove", move);
+      observer.disconnect();
     };
   }, []);
 
@@ -410,6 +446,7 @@ export default function ServicesNew() {
                   className={`hero-item ${
                     activeService === item.id ? "active" : ""
                   }`}
+                  data-cursor-color={item.color}
                   onClick={() => handleScrollToService(item.id)}
                 >
                   <span className="hero-name">{item.title}</span>
@@ -431,7 +468,7 @@ export default function ServicesNew() {
             <span>Services</span>
           </div>
 
-          <a href="#" className="hero-cta">
+          <a href="#" className="hero-cta" data-cursor-color="#FF3B00">
             Not sure which? Talk to us →
           </a>
         </div>

@@ -1,0 +1,852 @@
+
+kuNaL nandiwadekar <kunalnandiwadekar2003@gmail.com>
+09:25 (2 hours ago)
+to chamanchomya
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wordpinchh — Who We Work With</title>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #09090B;
+  --surface: #111113;
+  --surface-2: #18181B;
+  --border: rgba(255,255,255,0.08);
+  --border-hover: rgba(255,255,255,0.15);
+  --text: #FAFAF9;
+  --muted: #71717A;
+  --muted-2: #3F3F46;
+
+  --c1: #E8FF47;       /* founder — electric lime */
+  --c1-dim: rgba(232,255,71,0.08);
+  --c2: #00D9FF;       /* saas — cyan */
+  --c2-dim: rgba(0,217,255,0.08);
+  --c3: #FF6B35;       /* consulting — burnt orange */
+  --c3-dim: rgba(255,107,53,0.08);
+}
+
+html, body { height: 100%; }
+
+body {
+  font-family: 'Geist', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── CURSOR ── */
+#cur {
+  position: fixed;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--text);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: width .25s, height .25s, background .25s, border-radius .25s;
+  mix-blend-mode: exclusion;
+}
+#cur.big { width: 56px; height: 56px; }
+
+/* ── NOISE ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ══════════════════════════
+   HEADER / INTRO
+══════════════════════════ */
+.intro {
+  padding: 72px 64px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 80px;
+  align-items: end;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 52px;
+}
+
+.intro-label {
+  font-family: 'Geist', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.intro-label::before {
+  content: '';
+  width: 28px; height: 1px;
+  background: var(--muted);
+}
+
+.intro-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(3.2rem, 5.5vw, 5.2rem);
+  line-height: 1.0;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.intro-title em {
+  font-style: italic;
+  color: var(--muted);
+}
+
+.intro-right {
+  padding-bottom: 8px;
+}
+
+.intro-desc {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 36px;
+}
+
+.intro-clients {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.client-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 40px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  background: var(--surface);
+  cursor: none;
+  transition: all 0.25s;
+}
+
+.client-pill:hover { border-color: var(--border-hover); color: var(--text); }
+
+.pill-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+}
+
+/* ══════════════════════════
+   INDUSTRY SELECTOR — THE MAIN EVENT
+══════════════════════════ */
+.industries-wrap {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  min-height: 680px;
+}
+
+/* LEFT: stacked clickable tabs */
+.industry-tabs {
+  border-right: 1px solid var(--border);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tab {
+  padding: 36px 40px;
+  border-bottom: 1px solid var(--border);
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+
+.tab:last-child { border-bottom: none; }
+
+.tab::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: transparent;
+  transition: background 0.3s;
+}
+
+.tab.active-1::before { background: var(--c1); }
+.tab.active-2::before { background: var(--c2); }
+.tab.active-3::before { background: var(--c3); }
+
+.tab.active-1 { background: var(--c1-dim); }
+.tab.active-2 { background: var(--c2-dim); }
+.tab.active-3 { background: var(--c3-dim); }
+
+.tab-index {
+  font-family: 'Geist', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  color: var(--muted-2);
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+
+.tab.active-1 .tab-index { color: var(--c1); opacity: 0.7; }
+.tab.active-2 .tab-index { color: var(--c2); opacity: 0.7; }
+.tab.active-3 .tab-index { color: var(--c3); opacity: 0.7; }
+
+.tab-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--muted);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  transition: color 0.3s;
+}
+
+.tab.active-1 .tab-name,
+.tab.active-2 .tab-name,
+.tab.active-3 .tab-name { color: var(--text); }
+
+.tab-tagline {
+  font-size: 12px;
+  color: var(--muted-2);
+  margin-top: 6px;
+  line-height: 1.5;
+  font-style: italic;
+  transition: color 0.3s;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, color 0.3s, opacity 0.3s;
+  opacity: 0;
+}
+
+.tab.active-1 .tab-tagline,
+.tab.active-2 .tab-tagline,
+.tab.active-3 .tab-tagline {
+  max-height: 60px;
+  opacity: 1;
+  color: var(--muted);
+}
+
+.tab-arrow {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: var(--muted-2);
+  transition: all 0.3s;
+  opacity: 0;
+}
+
+.tab.active-1 .tab-arrow { opacity: 1; color: var(--c1); }
+.tab.active-2 .tab-arrow { opacity: 1; color: var(--c2); }
+.tab.active-3 .tab-arrow { opacity: 1; color: var(--c3); }
+
+/* RIGHT: detail panel */
+.industry-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.panel-slide {
+  position: absolute;
+  inset: 0;
+  padding: 52px 60px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  overflow-y: auto;
+}
+
+.panel-slide.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+/* giant bg number */
+.panel-bg-num {
+  position: absolute;
+  right: -20px;
+  top: -30px;
+  font-family: 'Instrument Serif', serif;
+  font-size: 280px;
+  font-weight: 400;
+  opacity: 0.04;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  transition: color 0.3s;
+}
+
+.panel-header {
+  margin-bottom: 40px;
+}
+
+.panel-tag {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.panel-tag::before {
+  content: '';
+  width: 20px; height: 1px;
+  background: currentColor;
+}
+
+.panel-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.panel-subtitle {
+  font-size: 15px;
+  color: var(--muted);
+  font-style: italic;
+  line-height: 1.65;
+  font-weight: 300;
+  max-width: 540px;
+}
+
+/* body content */
+.panel-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  flex: 1;
+}
+
+.body-col {}
+
+.body-intro {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 28px;
+}
+
+/* deliverables */
+.deliverables-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.deliverable-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  transition: border-color 0.2s;
+}
+
+.deliverable-item:last-child { border-bottom: none; }
+
+.d-icon {
+  width: 28px; height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Geist', monospace;
+  margin-top: 1px;
+}
+
+.d-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.d-text strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+/* signal cards — right column */
+.signal-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 22px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.signal-card:last-child { margin-bottom: 0; }
+
+.signal-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  border-radius: 14px 14px 0 0;
+}
+
+.signal-quote {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--text);
+  margin-bottom: 14px;
+  font-weight: 400;
+}
+
+.signal-label {
+  font-size: 11px;
+  color: var(--muted-2);
+  letter-spacing: 0.06em;
+}
+
+/* CTA at bottom */
+.panel-cta {
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.cta-text {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 300;
+  font-style: italic;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: none;
+  cursor: none;
+  transition: opacity 0.2s;
+  color: #000;
+  white-space: nowrap;
+}
+
+.cta-btn:hover { opacity: 0.85; }
+
+/* ── COLORS per industry ── */
+.col-1 { color: var(--c1); }
+.col-2 { color: var(--c2); }
+.col-3 { color: var(--c3); }
+
+.bg-1 { background: var(--c1); }
+.bg-2 { background: var(--c2); }
+.bg-3 { background: var(--c3); }
+
+.dim-1 { background: var(--c1-dim); border-color: rgba(232,255,71,0.12); }
+.dim-2 { background: var(--c2-dim); border-color: rgba(0,217,255,0.12); }
+.dim-3 { background: var(--c3-dim); border-color: rgba(255,107,53,0.12); }
+
+.icon-1 { background: var(--c1-dim); color: var(--c1); }
+.icon-2 { background: var(--c2-dim); color: var(--c2); }
+.icon-3 { background: var(--c3-dim); color: var(--c3); }
+
+.bar-1::before { background: var(--c1); }
+.bar-2::before { background: var(--c2); }
+.bar-3::before { background: var(--c3); }
+
+/* ══════════════════════════
+   COMPARISON STRIP
+══════════════════════════ */
+.compare-strip {
+  border-top: 1px solid var(--border);
+  padding: 60px 64px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.compare-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  cursor: none;
+  transition: border-color 0.3s, background 0.3s;
+  position: relative;
+}
+
+.compare-card:hover { border-color: var(--border-hover); }
+
+.cc-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.cc-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+
+.cc-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+.cc-tag {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  margin-top: 18px;
+}
+
+/* ── PAGE LOAD ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.intro { animation: fadeIn 0.6s ease both; }
+.industries-wrap { animation: fadeIn 0.6s ease 0.1s both; }
+.compare-strip { animation: fadeIn 0.6s ease 0.2s both; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .intro { grid-template-columns: 1fr; padding: 40px 24px; }
+  .industries-wrap { grid-template-columns: 1fr; }
+  .industry-tabs { flex-direction: row; overflow-x: auto; border-right: none; border-bottom: 1px solid var(--border); }
+  .tab { min-width: 200px; flex-shrink: 0; border-bottom: none; border-right: 1px solid var(--border); }
+  .panel-slide { position: relative; padding: 32px 24px; }
+  .industry-panel { min-height: 600px; }
+  .panel-body { grid-template-columns: 1fr; }
+  .compare-strip { grid-template-columns: 1fr; padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+
+<!-- ══ INTRO ══ -->
+<header class="intro">
+  <div>
+    <div class="intro-label">Industries — Who We Work With</div>
+    <h1 class="intro-title">
+      We're specific<br>
+      about <em>who</em><br>
+      we work with.
+    </h1>
+  </div>
+  <div class="intro-right">
+    <p class="intro-desc">Content strategy that works for a SaaS startup looks very different from what works for a solo consultant or a boutique firm. We work with three types of clients — and we know all three deeply.</p>
+    <div class="intro-clients">
+      <div class="client-pill"><span class="pill-dot" style="background:var(--c1)"></span>Founders & Solopreneurs</div>
+      <div class="client-pill"><span class="pill-dot" style="background:var(--c2)"></span>B2B SaaS Startups</div>
+      <div class="client-pill"><span class="pill-dot" style="background:var(--c3)"></span>Consulting Firms</div>
+    </div>
+  </div>
+</header>
+
+<!-- ══ INDUSTRY SELECTOR ══ -->
+<section class="industries-wrap">
+
+  <!-- TABS -->
+  <nav class="industry-tabs">
+    <div class="tab active-1" onclick="switchTab(1)" id="tab-1">
+      <div class="tab-index">01 / 03</div>
+      <div class="tab-name">Founders &<br>Solopreneurs</div>
+      <div class="tab-tagline">"You've built real expertise. Your content should prove it."</div>
+      <div class="tab-arrow">→</div>
+    </div>
+    <div class="tab" onclick="switchTab(2)" id="tab-2">
+      <div class="tab-index">02 / 03</div>
+      <div class="tab-name">B2B SaaS<br>Startups</div>
+      <div class="tab-tagline">"Your cheapest acquisition channel — when it's done right."</div>
+      <div class="tab-arrow">→</div>
+    </div>
+    <div class="tab" onclick="switchTab(3)" id="tab-3">
+      <div class="tab-index">03 / 03</div>
+      <div class="tab-name">Consulting<br>Firms</div>
+      <div class="tab-tagline">"The firms that publish consistently get called first."</div>
+      <div class="tab-arrow">→</div>
+    </div>
+  </nav>
+
+  <!-- PANELS -->
+  <div class="industry-panel">
+
+    <!-- PANEL 1: Founders -->
+    <div class="panel-slide visible" id="panel-1">
+      <div class="panel-bg-num col-1">01</div>
+      <div class="panel-header">
+        <div class="panel-tag col-1">Founders & Solopreneurs</div>
+        <h2 class="panel-title">You're good at what you do.<br>Your online presence should be too.</h2>
+        <p class="panel-subtitle">You get referrals. You close deals when you're in the room. The problem is your online presence doesn't reflect any of that — and it's limiting who finds you.</p>
+      </div>
+      <div class="panel-body">
+        <div class="body-col">
+          <p class="body-intro">We help founders build a content presence that works while you sleep: LinkedIn posts that attract inbound DMs, a blog that ranks for searches your ideal clients are making, and a website that closes conversations before they even start.</p>
+          <div class="deliverables-label">What we build for you</div>
+          <div class="deliverable-item">
+            <div class="d-icon icon-1">LP</div>
+            <div class="d-text"><strong>LinkedIn Ghostwriting</strong>Posts that sound like you — just sharper and more consistent</div>
+          </div>
+          <div class="deliverable-item">
+            <div class="d-icon icon-1">WC</div>
+            <div class="d-text"><strong>Website Copy</strong>Translates your experience into client-facing value</div>
+          </div>
+          <div class="deliverable-item">
+            <div class="d-icon icon-1">SB</div>
+            <div class="d-text"><strong>SEO Blog</strong>Ranks for searches your ideal clients are already making</div>
+          </div>
+          <div class="deliverable-item">
+            <div class="d-icon icon-1">GE</div>
+            <div class="d-text"><strong>GEO Content</strong>Puts your name in AI recommendations for your expertise area</div>
+          </div>
+        </div>
+        <div class="body-col">
+          <div class="signal-card dim-1 bar-1">
+            <div class="signal-quote">"You're good at what you do. You get referrals. You close deals when you're in the room."</div>
+            <div class="signal-label">The situation we start with — every time</div>
+          </div>
+          <div class="signal-card" style="background:var(--surface-2); border-color:var(--border);">
+            <div class="signal-quote">"A clear, differentiated point of view — not a personal brand that feels cringe."</div>
+            <div class="signal-label">What we build toward</div>
+          </div>
+          <div class="signal-card" style="background:var(--surface-2); border-color:var(--border);">
+            <div class="signal-quote">"Increasingly — content structured to get your name cited when someone asks AI for experts in your field."</div>
+            <div class="signal-label">The new opportunity</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-cta">
+        <span class="cta-text">Typically works for consultants, coaches, freelancers, and thought leaders</span>
+        <button class="cta-btn bg-1" style="color:#000;">Start with a content audit →</button>
+      </div>
+    </div>
+
+    <!-- PANEL 2: SaaS -->
+    <div class="panel-slide" id="panel-2">
+      <div class="panel-bg-num col-2">02</div>
+      <div class="panel-header">
+        <div class="panel-tag col-2">B2B SaaS Startups</div>
+        <h2 class="panel-title">Content isn't a nice-to-have.<br>It's your cheapest acquisition channel.</h2>
+        <p class="panel-subtitle">The SaaS companies that win with content don't publish more. They publish smarter — bottom-of-funnel posts that capture people already looking to buy.</p>
+      </div>
+      <div class="panel-body">
+        <div class="body-col">
+          <p class="body-intro">And now there's a third channel: AI search. Your buyers are asking ChatGPT and Perplexity which tools to use. The SaaS companies getting cited in those answers are building an acquisition channel that compounds with zero ad spend.</p>
+          <div class="deliverables-label">What we build for you</div>
+          <div class="deliverable-item">
+            <div class="d-icon icon-2">SC</div>
+            <div class="d-text"><strong>SEO Funnel Content</strong>Mapped to TOFU, MOFU, and BOFU — not random topics</div>
+          </div>
+          <div class="deliverable-item">
+            <div class="d-icon icon-2">CP</div>
+            <div class="d-text"><strong>Comparison & Alt Pages</strong>Convert high-intent searchers at the decision stage</div>
+          </div>
+          <div class="deliverable-item">
+            <div class="d-icon icon-2">PL</div>
+            <div class="d-text"><strong>Product-Led Blog</strong>Integrates your tool naturally into every narrative</div>
+          </div>
+          <div class="deliverable-item">
+            <div class="d-icon icon-2">AI</div>
+            <div class="d-text"><strong>GEO + AEO Content</strong>Appear in AI tool recommendations — ChatGPT, Perplexity, Gemini</div>
+          </div>
+          <div class="deliverable-item">
+            <div class="d-icon icon-2">FL</div>
+            <div class="d-text"><strong>Founder LinkedIn</strong>Builds trust with your target market at the top of the funnel</div>
+          </div>
+        </div>
+        <div class="body-col">
+          <div class="signal-card dim-2 bar-2">
+            <div class="signal-quote">"The SaaS companies that win with content don't publish more. They publish smarter."</div>
+            <div class="signal-label">The principle we operate on</div>
+          </div>
+          <div class="signal-card" style="background:var(--surface-2); border-color:var(--border);">
+            <div class="signal-quote">"Bottom-of-funnel posts that capture people already looking to buy."</div>
+            <div class="signal-label">Where we start — not traffic, but intent</div>
+          </div>
+          <div class="signal-card" style="background:var(--surface-2); border-color:var(--border);">
+            <div class="signal-quote">"An acquisition channel that compounds with zero ad spend."</div>
+            <div class="signal-label">The compounding return we build toward</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-cta">
+        <span class="cta-text">Typically works for B2B SaaS with 6+ months of content runway to invest</span>
+        <button class="cta-btn bg-2">Book a SaaS content strategy call →</button>
+      </div>
+    </div>
+
+    <!-- PANEL 3: Consulting -->
+    <div class="panel-slide" id="panel-3">
+      <div class="panel-bg-num col-3">03</div>
+      <div class="panel-header">
+        <div class="panel-tag col-3">Consulting Firms</div>
+        <h2 class="panel-title">The firms that publish<br>consistently get called first.</h2>
+        <p class="panel-subtitle">Consulting is a trust business. And trust at scale is built through consistent, intelligent content — articles that demonstrate your methodology, insights that prove you think differently.</p>
+      </div>
+      <div class="panel-body">
+        <div class="body-col">
+          <p class="body-intro">We help consulting firms create the content infrastructure that larger firms have built over decades — adapted for boutique and specialist firms that need to move faster and be more specific. That includes getting cited when decision-makers ask AI for recommendations in your space.</p>
+          <div class="deliverables-label">What we build for you</div>
+          <div class="deliverable-item">
+            <div class="d-icon icon-3">TL</div>
+            <div class="d-text"><strong>Thought Leadership Articles</strong>Showcase your frameworks and IP — not generic insights</div>
+          </div>
+          <div class="deliverable-item">
+            <div class="d-icon icon-3">SC</div>
+            <div class="d-text"><strong>SEO Content</strong>Attracts searches from your ideal client profile</div>
+          </div>
+          <div class="deliverable-item">
+            <div class="d-icon icon-3">WC</div>
+            <div class="d-text"><strong>Website Positioning Copy</strong>Positions your firm as the specialist, not just a provider</div>
+          </div>
+          <div class="deliverable-item">
+            <div class="d-icon icon-3">PA</div>
+            <div class="d-text"><strong>Partner LinkedIn Content</strong>Builds individual authority for founding partners</div>
+          </div>
+          <div class="deliverable-item">
+            <div class="d-icon icon-3">GE</div>
+            <div class="d-text"><strong>GEO Citations</strong>Earns mentions when buyers ask AI for firms in your category</div>
+          </div>
+        </div>
+        <div class="body-col">
+          <div class="signal-card dim-3 bar-3">
+            <div class="signal-quote">"The firms that publish consistently are the ones that get called first."</div>
+            <div class="signal-label">What consistent publishing actually does</div>
+          </div>
+          <div class="signal-card" style="background:var(--surface-2); border-color:var(--border);">
+            <div class="signal-quote">"A website that makes the decision to call you feel obvious."</div>
+            <div class="signal-label">The positioning outcome we build toward</div>
+          </div>
+          <div class="signal-card" style="background:var(--surface-2); border-color:var(--border);">
+            <div class="signal-quote">"Boutique and specialist firms that need to move faster and be more specific."</div>
+            <div class="signal-label">Why we focus on this type — not the Big 4</div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-cta">
+        <span class="cta-text">Typically works for boutique and specialist firms — strategy, ops, finance, HR, legal</span>
+        <button class="cta-btn bg-3">Discuss your firm's content strategy →</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ COMPARE STRIP ══ -->
+<section class="compare-strip">
+  <div class="compare-card">
+    <div class="cc-label col-1">Founders & Solopreneurs</div>
+    <div class="cc-title">Build authority<br>that earns inbound</div>
+    <div class="cc-desc">You have expertise the market wants. The gap is visibility — on Google, on LinkedIn, and now in AI answers. We close that gap systematically.</div>
+    <div class="cc-tag" style="background:var(--c1-dim); color:var(--c1);">LinkedIn · SEO · GEO · Website Copy</div>
+  </div>
+  <div class="compare-card">
+    <div class="cc-label col-2">B2B SaaS Startups</div>
+    <div class="cc-title">Build a compounding<br>acquisition channel</div>
+    <div class="cc-desc">Content that targets buyers, not browsers. Funnel-mapped, intent-driven, and structured to appear in both Google and AI answers where your buyers research.</div>
+    <div class="cc-tag" style="background:var(--c2-dim); color:var(--c2);">SEO · Comparison Pages · GEO · AEO</div>
+  </div>
+  <div class="compare-card">
+    <div class="cc-label col-3">Consulting Firms</div>
+    <div class="cc-title">Build the trust that<br>wins the meeting</div>
+    <div class="cc-desc">Thought leadership that proves you think differently. Articles that demonstrate methodology. A website that makes calling you feel obvious — not hopeful.</div>
+    <div class="cc-tag" style="background:var(--c3-dim); color:var(--c3);">Thought Leadership · SEO · GEO · Positioning</div>
+  </div>
+</section>
+
+<script>
+/* ── CURSOR ── */
+const cur = document.getElementById('cur');
+let mx=-100,my=-100;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+const hoverEls = document.querySelectorAll('.tab, .cta-btn, .compare-card, .client-pill');
+hoverEls.forEach(el => {
+  el.addEventListener('mouseenter', () => cur.classList.add('big'));
+  el.addEventListener('mouseleave', () => cur.classList.remove('big'));
+});
+(function tick() {
+  cur.style.left = mx + 'px';
+  cur.style.top = my + 'px';
+  requestAnimationFrame(tick);
+})();
+
+/* ── TAB SWITCHING ── */
+let current = 1;
+
+function switchTab(n) {
+  if (n === current) return;
+
+  // remove active from old tab
+  document.getElementById('tab-' + current).classList.remove('active-1','active-2','active-3');
+  // hide old panel
+  document.getElementById('panel-' + current).classList.remove('visible');
+
+  current = n;
+
+  // activate new tab
+  document.getElementById('tab-' + n).classList.add('active-' + n);
+  // show new panel
+  const panel = document.getElementById('panel-' + n);
+  panel.classList.add('visible');
+}
+</script>
+</body>
+</html>
