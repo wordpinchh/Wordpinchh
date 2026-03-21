@@ -7,6 +7,7 @@ import Link from "next/link";
 const navItems = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
+  { name: "Industries", href: "/industries" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
@@ -15,7 +16,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-9999 bg-black">
+    <nav className="fixed top-0 left-0 w-full z-9999 bg-black/80 backdrop-blur-md">
       <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 py-4">
 
         {/* Logo */}
@@ -26,7 +27,7 @@ export function Navbar() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8 text-sm text-gray-300">
+        <div className="hidden md:flex items-center gap-8 text-sm text-white/80">
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -38,7 +39,7 @@ export function Navbar() {
             </Link>
           ))}
 
-          <button className="ml-4 px-5 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 text-white hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105">
+          <button className="ml-4 px-5 py-2 rounded-lg bg-linear-to-r from-purple-500 to-purple-600 text-white hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105">
             Get Free Content Report
           </button>
         </div>
@@ -67,7 +68,7 @@ export function Navbar() {
             </Link>
           ))}
 
-          <button className="w-full mt-4 py-3 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+          <button className="w-full mt-4 py-3 rounded-lg bg-linear-to-r from-purple-500 to-purple-600 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
             Get Free Content Report
           </button>
         </div>

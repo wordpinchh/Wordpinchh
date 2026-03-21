@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Fahkwang } from "next/font/google";
 import "./globals.css";
+import { Navbar } from "@/components/layout/navbar";
 import PageTransition from "@/components/PageTransition";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
@@ -52,18 +53,19 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body 
-        className={`${inter.variable} ${fahkwang.variable} font-sans antialiased bg-background text-foreground`}
+        className={`${inter.variable} ${fahkwang.variable} font-sans antialiased bg-black text-white overflow-x-hidden`}
         suppressHydrationWarning
       >
         <CustomCursor />
-        {/* <SmoothScroll>
+        {/* ✅ GLOBAL NAVBAR */}
+        <Navbar />
+
+        {/* ✅ PAGE CONTENT */}
+        <main className="relative z-0">
           <PageTransition>
             {children}
           </PageTransition>
-        </SmoothScroll> */}
-        <PageTransition>
-          {children}
-        </PageTransition>
+        </main>
       </body>
     </html>
   );

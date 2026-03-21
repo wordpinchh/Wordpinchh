@@ -40,7 +40,11 @@ body {
 
 /* CUSTOM CURSOR */
 /* HIDE DEFAULT CURSOR */
-body {
+html, body {
+  cursor: none;
+}
+
+a, button, input, textarea, select, [role="button"] {
   cursor: none;
 }
 
