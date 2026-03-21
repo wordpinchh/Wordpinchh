@@ -15,7 +15,7 @@ export default function AboutContrast() {
         </div>
 
         {/* LABEL */}
-        <div className="text-[10px] tracking-[0.25em] uppercase text-[var(--ink-soft)] mb-6">
+        <div className="text-[10px] tracking-[0.25em] uppercase text-[var(--ink)] mb-6">
           ✕ WHAT WE'RE NOT
         </div>
 
@@ -28,14 +28,14 @@ export default function AboutContrast() {
         </h2>
 
         {/* TEXT */}
-        <p className="text-[15px] text-[var(--ink-soft)] leading-[1.9] max-w-md mb-6">
+        <p className="text-[15px] text-[var(--ink)] leading-[1.9] max-w-md mb-6">
           We're not the right fit for everyone. If you're looking for 20 AI-generated
           articles a month at $10 each, there are platforms for that.
           It won't work — but they exist.
         </p>
 
         {/* LIST */}
-        <ul className="space-y-3 text-[14px] text-[var(--ink-soft)]">
+        <ul className="space-y-3 text-[14px] text-[var(--ink)]">
           {[
             "20 AI-generated articles a month at $10 each",
             "Keyword-stuffed content with no strategy angle",
