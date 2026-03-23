@@ -40,7 +40,8 @@ export function Navbar() {
             </Link>
           ))}
 
-          <button className="ml-4 px-5 py-2 rounded-lg bg-linear-to-r from-purple-500 to-purple-600 text-white hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105">
+          <button className="ml-4 px-5 py-2 rounded-lg font-bold transition-all duration-300 transform hover:scale-105" 
+                  style={{ backgroundColor: '#caff4a', color: '#000000' }}>
             Get Free Content Report
           </button>
         </div>
@@ -69,7 +70,8 @@ export function Navbar() {
             </Link>
           ))}
 
-          <button className="w-full mt-4 py-3 rounded-lg bg-linear-to-r from-purple-500 to-purple-600 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+          <button className="w-full mt-4 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105" 
+                  style={{ backgroundColor: '#caff4a', color: '#000000' }}>
             Get Free Content Report
           </button>
         </div>

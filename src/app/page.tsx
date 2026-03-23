@@ -1,32 +1,17 @@
 "use client";
 
-import { Hero } from "@/components/sections/hero";
-import Tagline from "@/components/Tagline";
-import { HowItWorks } from "@/components/sections/how-it-works";
-import { Results } from "@/components/sections/results";
-import { Portfolio } from "@/components/sections/portfolio";
-import { Insights } from "@/components/sections/insights";
-import { Services, AIVisibility } from "@/components/sections/services";
 import { Navbar } from "@/components/layout/navbar";
-import { ProblemSolution } from "@/components/sections/problem-solution";
-import { WhyWordpinchh } from "@/components/sections/why-wordpinchh";
-import { WhatWeDo } from "@/components/sections/what-we-do";
+import { HeroSection } from "@/components/home/HeroSection";
+import { TickerSection } from "@/components/home/TickerSection";
+import { ProblemSection } from "@/components/home/ProblemSection";
+import { ServicesSection } from "@/components/home/ServicesSection";
+import { ProcessSection } from "@/components/home/ProcessSection";
+import { WhySection } from "@/components/home/WhySection";
+import { LeadMagnetSection } from "@/components/home/LeadMagnetSection";
+import { FinalCTASection } from "@/components/home/FinalCTASection";
+import { FooterSection } from "@/components/home/FooterSection";
+import CustomCursor from "@/components/CustomCursor";
 import { useEffect, useState } from "react";
-import LeadMagnet from "@/components/LeadMagnet";
-import SectionSpacer from "@/components/SectionSpacer";
-import LetsWorkTogether from "@/components/LetsWorkTogether";
-import Footer from "@/components/Footer";
-import BottomCTA from "@/components/BottomCTA";
-
-const navItems = [
-  { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
-  { name: "Industries", href: "/industries" },
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "Insights", href: "/insights" },
-  { name: "About", href: "/about" },
-  { name: "Contact", href: "/contact" },
-];
 
 export default function HomePage() {
   const [mounted, setMounted] = useState(false);
@@ -40,19 +25,18 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen home-page" style={{ background: 'var(--home-bg)', color: 'var(--home-text)' }}>
+      <CustomCursor />
       <Navbar />
-      <Hero />
-      <Tagline />
-      <ProblemSolution />
-      <Services />
-      <AIVisibility />
-      <WhatWeDo />
-      <WhyWordpinchh />
-      <LeadMagnet />
-      <LetsWorkTogether />
-      <Footer />
-      <BottomCTA />
+      <HeroSection />
+      <TickerSection />
+      <ProblemSection />
+      <ServicesSection />
+      <ProcessSection />
+      <WhySection />
+      <LeadMagnetSection />
+      <FinalCTASection />
+      <FooterSection />
       
       <style jsx global>{`
         html {

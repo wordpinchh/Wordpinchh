@@ -1,0 +1,214 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
+export function HeroSection() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  return (
+    <section className="min-h-screen flex flex-col justify-end pb-0 relative overflow-hidden border-b border-[rgba(255,255,255,0.07)]">
+      {/* Animated Grid Background */}
+      <div 
+        className="absolute inset-0 opacity-25"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
+          animation: 'gridShift 20s linear infinite'
+        }}
+      />
+
+      {/* Big Background Text */}
+      <div 
+        className="hero-bg-text absolute bottom-[-60px] left-[-20px] pointer-events-none select-none whitespace-nowrap"
+        style={{
+          fontFamily: 'Barlow Condensed, sans-serif',
+          fontSize: 'clamp(180px, 28vw, 380px)',
+          fontWeight: 900,
+          textTransform: 'uppercase',
+          color: 'rgba(255,255,255,0.028)',
+          lineHeight: 0.85,
+          letterSpacing: '-0.04em'
+        }}
+      >
+        WORDS THAT WORK
+      </div>
+
+      {/* Hero Content */}
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-[1fr_420px] items-end gap-0 pt-[140px]">
+        {/* Main Content */}
+        <div className="px-16 lg:px-16 pb-16 lg:border-r border-[rgba(255,255,255,0.07)]">
+          {/* Kicker */}
+          <div className="flex items-center gap-3.5 mb-8">
+            <div className="w-2 h-2 rounded-full bg-(--home-red) animate-pulse kicker-dot" />
+            <span 
+              className="kicker-text text-[10px] tracking-[0.2em] uppercase"
+              style={{
+                fontFamily: 'DM Mono, monospace',
+                color: 'var(--home-muted)'
+              }}
+            >
+              Content for Search · AI · Humans
+            </span>
+          </div>
+
+          {/* Headline */}
+          <h1 
+            className="hero-h1 mb-8"
+            style={{
+              fontFamily: 'Barlow Condensed, sans-serif',
+              fontSize: 'clamp(3.5rem, 7vw, 7.5rem)',
+              fontWeight: 900,
+              lineHeight: 0.88,
+              letterSpacing: '-0.02em',
+              textTransform: 'uppercase',
+              color: 'var(--home-text)',
+              marginBottom: '32px'
+            }}
+          >
+            Your Competitors<br />
+            Are Already<br />
+            <span className="outline">Publishing.</span><br />
+            <span className="red">Are You?</span>
+          </h1>
+
+          {/* Description */}
+          <p 
+            className="hero-desc mb-10 max-w-[520px]"
+            style={{
+              fontSize: '16px',
+              lineHeight: 1.8,
+              color: 'var(--home-muted)',
+              fontFamily: 'Libre Baskerville, serif',
+              fontStyle: 'italic'
+            }}
+          >
+            Wordpinchh writes <strong>SEO blogs, LinkedIn thought leadership,</strong> and <strong>website copy</strong> for founders, SaaS startups, and consulting firms — so you show up where your buyers are already looking. In Google search, in AI-generated answers, and in the minds of every decision-maker in your space.
+          </p>
+
+          {/* Actions */}
+          <div className="flex gap-3.5 flex-wrap">
+            <a 
+              href="#audit" 
+              className="btn-primary inline-flex items-center gap-2.5 px-7 py-4 bg-(--home-lime) text-(--home-bg) no-underline rounded-lg transition-all duration-200 hover:opacity-90 hover:-translate-y-px"
+              style={{
+                fontFamily: 'Barlow Condensed, sans-serif',
+                fontSize: '14px',
+                fontWeight: 700,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                padding: '16px 28px',
+                borderRadius: '8px'
+              }}
+            >
+              Get Your Free Content Audit →
+            </a>
+            <a 
+              href="#process" 
+              className="btn-ghost inline-flex items-center gap-2.5 px-7 py-4 bg-transparent text-(--home-text) border border-[rgba(255,255,255,0.13)] no-underline rounded-lg transition-all duration-200 hover:border-(--home-text) hover:bg-[rgba(255,255,255,0.04)]"
+              style={{
+                fontFamily: 'Barlow Condensed, sans-serif',
+                fontSize: '14px',
+                fontWeight: 700,
+                letterSpacing: '0.08em',
+                textTransform: 'uppercase',
+                padding: '16px 28px',
+                borderRadius: '8px'
+              }}
+            >
+              See How It Works
+            </a>
+          </div>
+        </div>
+
+        {/* Sidebar */}
+        <div className="px-12 lg:px-12 pb-16 flex flex-col gap-8">
+          {/* Channels */}
+          <div className="flex flex-col gap-0">
+            {[
+              { name: 'SEO Blog Writing', tag: 'Core' },
+              { name: 'LinkedIn Ghostwriting', tag: 'Core' },
+              { name: 'Landing Page Copy', tag: 'Core' },
+              { name: 'Website Content', tag: 'Core' },
+              { name: 'GEO Optimization', tag: 'New' },
+              { name: 'AEO Optimization', tag: 'New' },
+              { name: 'AI Content Strategy', tag: 'New' }
+            ].map((channel, index) => (
+              <div 
+                key={index}
+                className="flex items-center justify-between gap-3 py-4 border-b border-[rgba(255,255,255,0.07)] first:border-t first:border-[rgba(255,255,255,0.07)]"
+              >
+                <span 
+                  style={{
+                    fontFamily: 'Barlow Condensed, sans-serif',
+                    fontSize: '1rem',
+                    fontWeight: 600,
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.06em',
+                    color: 'var(--home-text)'
+                  }}
+                >
+                  {channel.name}
+                </span>
+                <span 
+                  className="px-2.5 py-1 rounded text-[9px] uppercase"
+                  style={{
+                    fontFamily: 'var(--font-inter)',
+                    letterSpacing: '0.12em',
+                    background: channel.tag === 'Core' ? 'rgba(212,168,75,0.12)' : 'var(--home-lime-dim)',
+                    color: channel.tag === 'Core' ? 'var(--home-gold)' : 'var(--home-lime)',
+                    border: channel.tag === 'New' ? '1px solid rgba(202,255,74,0.2)' : 'none'
+                  }}
+                >
+                  {channel.tag}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Stat */}
+          <div 
+            className="rounded-xl p-6 border border-[rgba(255,255,255,0.07)]"
+            style={{ background: 'var(--home-surface)' }}
+          >
+            <div 
+              className="text-[9px] tracking-[0.18em] uppercase mb-2.5"
+              style={{
+                fontFamily: 'var(--font-inter)',
+                color: 'var(--home-muted)'
+              }}
+            >
+              Content compounds.
+            </div>
+            <div 
+              className="text-[2.4rem] font-bold leading-none mb-1"
+              style={{
+                fontFamily: 'Barlow Condensed, sans-serif',
+                color: 'var(--home-lime)'
+              }}
+            >
+              Every week
+            </div>
+            <div 
+              className="text-[12px] italic leading-6"
+              style={{
+                color: 'var(--home-muted)',
+                fontFamily: 'var(--font-inter)'
+              }}
+            >
+              you're not publishing is a week your competitors are pulling ahead.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
