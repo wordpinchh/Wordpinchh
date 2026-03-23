@@ -575,3 +575,15 @@ h4 {
 #cursor {
   background: var(--accent); /* orange */
 }
+
+/* Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
