@@ -66,7 +66,7 @@ export function HeroSection() {
             className="hero-h1 mb-8"
             style={{
               fontFamily: 'Barlow Condensed, sans-serif',
-              fontSize: 'clamp(3.5rem, 7vw, 7.5rem)',
+              fontSize: 'clamp(3.5rem, 6vw, 7.5rem)',
               fontWeight: 900,
               lineHeight: 0.88,
               letterSpacing: '-0.02em',
@@ -83,13 +83,14 @@ export function HeroSection() {
 
           {/* Description */}
           <p 
-            className="hero-desc mb-10 max-w-[520px]"
+            className="hero-desc mb-10"
             style={{
-              fontSize: '16px',
-              lineHeight: 1.8,
+              fontSize: '24px',
+              lineHeight: 1.6,
               color: 'var(--home-muted)',
               fontFamily: 'Libre Baskerville, serif',
-              fontStyle: 'italic'
+              fontStyle: 'italic',
+              maxWidth: '600px'
             }}
           >
             Wordpinchh writes <strong>SEO blogs, LinkedIn thought leadership,</strong> and <strong>website copy</strong> for founders, SaaS startups, and consulting firms — so you show up where your buyers are already looking. In Google search, in AI-generated answers, and in the minds of every decision-maker in your space.
@@ -102,7 +103,7 @@ export function HeroSection() {
               className="btn-primary inline-flex items-center gap-2.5 px-7 py-4 bg-(--home-lime) text-(--home-bg) no-underline rounded-lg transition-all duration-200 hover:opacity-90 hover:-translate-y-px"
               style={{
                 fontFamily: 'Barlow Condensed, sans-serif',
-                fontSize: '14px',
+                fontSize: '18px',
                 fontWeight: 700,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
@@ -113,11 +114,11 @@ export function HeroSection() {
               Get Your Free Content Audit →
             </a>
             <a 
-              href="#process" 
+              href="/contact" 
               className="btn-ghost inline-flex items-center gap-2.5 px-7 py-4 bg-transparent text-(--home-text) border border-[rgba(255,255,255,0.13)] no-underline rounded-lg transition-all duration-200 hover:border-(--home-text) hover:bg-[rgba(255,255,255,0.04)]"
               style={{
                 fontFamily: 'Barlow Condensed, sans-serif',
-                fontSize: '14px',
+                fontSize: '18px',
                 fontWeight: 700,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
@@ -150,7 +151,7 @@ export function HeroSection() {
                 <span 
                   style={{
                     fontFamily: 'Barlow Condensed, sans-serif',
-                    fontSize: '1rem',
+                    fontSize: '1.2rem',
                     fontWeight: 600,
                     textTransform: 'uppercase',
                     letterSpacing: '0.06em',
