@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wordpinchh — Let's Talk</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Azeret+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0B0B09;
+  --surface: #111110;
+  --surface-2: #181816;
+  --border: rgba(255,255,255,0.07);
+  --border-2: rgba(255,255,255,0.12);
+  --text: #F0EDE6;
+  --muted: #6B6860;
+  --muted-2: #3A3830;
+  --lime: #CAFF4A;
+  --lime-dim: rgba(202,255,74,0.08);
+  --lime-border: rgba(202,255,74,0.2);
+}
+
+html { height: 100%; }
+body {
+  font-family: 'Newsreader', serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── CURSOR ── */
+#cur {
+  position: fixed;
+  width: 12px; height: 12px;
+  background: var(--lime);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: width .3s, height .3s, opacity .3s, border-radius .3s;
+  mix-blend-mode: difference;
+}
+#cur.big { width: 60px; height: 60px; border-radius: 50%; }
+
+/* ── GRAIN ── */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9998;
+}
+
+/* ══ LAYOUT ══ */
+.page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+/* ══ LEFT — HERO/INFO PANEL ══ */
+.left-panel {
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* animated background lines */
+.left-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 79px,
+      rgba(255,255,255,0.025) 79px,
+      rgba(255,255,255,0.025) 80px
+    );
+  pointer-events: none;
+}
+
+.left-top {
+  padding: 48px 52px 40px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+
+.left-eyebrow {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.left-eyebrow::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--lime);
+}
+
+.left-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(2.8rem, 4vw, 4rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.left-title .lime { color: var(--lime); }
+
+.left-sub {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--muted);
+  font-weight: 300;
+  font-style: italic;
+  max-width: 380px;
+}
+
+/* process steps */
+.process-steps {
+  padding: 36px 52px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+  overflow-y: auto;
+}
+
+.process-label {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  margin-bottom: 24px;
+}
+
+.step {
+  display: flex;
+  gap: 20px;
+  padding: 18px 0;
+  position: relative;
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 50px;
+  bottom: -18px;
+  width: 1px;
+  background: var(--border);
+}
+
+.step-dot {
+  width: 30px; height: 30px;
+  border: 1px solid var(--border-2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+  transition: border-color .3s, background .3s;
+}
+
+.step.active .step-dot {
+  border-color: var(--lime);
+  background: var(--lime-dim);
+}
+
+.step-num {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  transition: color .3s;
+}
+
+.step.active .step-num { color: var(--lime); }
+
+.step-content {}
+
+.step-title {
+  font-family: 'Newsreader', serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 3px;
+  line-height: 1.3;
+  opacity: 0.5;
+  transition: opacity .3s;
+}
+
+.step.active .step-title { opacity: 1; }
+
+.step-desc {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+  font-weight: 300;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease;
+}
+
+.step.active .step-desc { max-height: 60px; }
+
+/* promise badge */
+.promise-badge {
+  margin: 0 52px 40px;
+  background: var(--lime-dim);
+  border: 1px solid var(--lime-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.badge-icon {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: rgba(202,255,74,0.15);
+  border: 1px solid var(--lime-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+.badge-text {
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(202,255,74,0.8);
+  font-weight: 300;
+}
+
+.badge-text strong {
+  display: block;
+  color: var(--lime);
+  font-weight: 500;
+  font-size: 13px;
+  margin-bottom: 2px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+
+/* ══ RIGHT — FORM PANEL ══ */
+.right-panel {
+  padding: 56px 60px 80px;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+}
+
+/* path switcher */
+.path-switcher {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 44px;
+}
+
+.path-btn {
+  padding: 16px 20px;
+  border: 1px solid var(--border-2);
+  border-radius: 12px;
+  background: transparent;
+  cursor: none;
+  text-align: left;
+  transition: all .25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.path-btn.active {
+  border-color: var(--lime);
+  background: var(--lime-dim);
+}
+
+.path-btn:hover:not(.active) { border-color: var(--border-2); background: var(--surface-2); }
+
+.path-btn-label {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-bottom: 4px;
+  display: block;
+  transition: color .2s;
+}
+
+.path-btn.active .path-btn-label { color: var(--lime); }
+
+.path-btn-desc {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.4;
+  display: block;
+  transition: color .2s;
+}
+
+.path-btn.active .path-btn-desc { color: rgba(202,255,74,0.6); }
+
+.path-active-dot {
+  position: absolute;
+  top: 12px; right: 14px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--lime);
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.path-btn.active .path-active-dot { opacity: 1; }
+
+/* form panels */
+.form-panel { display: none; }
+.form-panel.visible { display: block; }
+
+/* FORM STYLING */
+.form-heading {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.form-sub {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 36px;
+}
+
+.field-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.field-group.full { grid-template-columns: 1fr; }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.field-label {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color .2s;
+}
+
+.field:focus-within .field-label { color: var(--lime); }
+
+.field-input {
+  background: var(--surface-2);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-family: 'Newsreader', serif;
+  font-size: 15px;
+  color: var(--text);
+  outline: none;
+  transition: border-color .2s, background .2s;
+  width: 100%;
+  appearance: none;
+}
+
+.field-input::placeholder { color: var(--muted-2); font-style: italic; }
+
+.field-input:focus {
+  border-color: var(--lime);
+  background: rgba(202,255,74,0.04);
+}
+
+.field-input:focus::placeholder { color: transparent; }
+
+textarea.field-input {
+  resize: none;
+  min-height: 110px;
+  line-height: 1.65;
+}
+
+/* submit button */
+.submit-btn {
+  width: 100%;
+  margin-top: 24px;
+  padding: 18px 32px;
+  background: var(--lime);
+  color: var(--bg);
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border: none;
+  border-radius: 12px;
+  cursor: none;
+  transition: opacity .2s, transform .15s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.submit-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+.submit-btn:active { transform: translateY(0); }
+
+.submit-arrow {
+  width: 32px; height: 32px;
+  background: rgba(0,0,0,0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.submit-note {
+  font-size: 11px;
+  color: var(--muted);
+  font-family: 'Azeret Mono', monospace;
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin-top: 14px;
+}
+
+/* CALENDAR PATH */
+.calendar-panel {}
+
+.cal-heading {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.cal-sub {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 36px;
+}
+
+.cal-includes {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 24px;
+  margin-bottom: 28px;
+}
+
+.cal-includes-label {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cal-include-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.cal-include-item:last-child { border-bottom: none; }
+
+.inc-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--lime);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.inc-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.inc-text strong { color: var(--text); font-weight: 500; display: block; margin-bottom: 1px; font-size: 13px; }
+
+.cal-btn {
+  width: 100%;
+  padding: 18px 32px;
+  background: transparent;
+  color: var(--lime);
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border: 1.5px solid var(--lime);
+  border-radius: 12px;
+  cursor: none;
+  transition: background .2s, color .2s, transform .15s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cal-btn:hover { background: var(--lime); color: var(--bg); transform: translateY(-1px); }
+.cal-btn:active { transform: translateY(0); }
+
+.cal-btn-arrow {
+  width: 32px; height: 32px;
+  border: 1px solid rgba(202,255,74,0.3);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.cal-note {
+  font-size: 11px;
+  color: var(--muted);
+  font-family: 'Azeret Mono', monospace;
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin-top: 14px;
+}
+
+/* ── divider OR ── */
+.or-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 28px 0;
+}
+
+.or-line { flex: 1; height: 1px; background: var(--border); }
+
+.or-text {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+/* ── SUCCESS STATE ── */
+.success-state {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  gap: 20px;
+}
+
+.success-state.visible { display: flex; }
+
+.success-icon {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--lime-dim);
+  border: 1px solid var(--lime-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.success-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.success-sub {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+  font-style: italic;
+  max-width: 340px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.left-panel { animation: fadeUp 0.5s ease both; }
+.right-panel { animation: fadeUp 0.5s ease 0.1s both; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .page { grid-template-columns: 1fr; }
+  .left-panel { position: static; height: auto; }
+  .left-top { padding: 36px 24px 28px; }
+  .process-steps { padding: 24px 24px; }
+  .promise-badge { margin: 0 24px 32px; }
+  .right-panel { padding: 40px 24px 60px; }
+  .field-group { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+
+<div class="page">
+
+  <!-- ══ LEFT PANEL ══ -->
+  <aside class="left-panel">
+
+    <div class="left-top">
+      <div class="left-eyebrow">Contact</div>
+      <h1 class="left-title">
+        Let's<br>
+        <span class="lime">Talk.</span>
+      </h1>
+      <p class="left-sub">Start with a Free Content Audit. No pitch, no pressure — just a clear picture of where you are and what's possible.</p>
+    </div>
+
+    <div class="process-steps">
+      <div class="process-label">What happens next</div>
+
+      <div class="step active" id="step-1">
+        <div class="step-dot"><span class="step-num">01</span></div>
+        <div class="step-content">
+          <div class="step-title">We review your content</div>
+          <div class="step-desc">Website, LinkedIn, and any existing content — we look at everything through the lens of a buyer finding you for the first time.</div>
+        </div>
+      </div>
+
+      <div class="step" id="step-2">
+        <div class="step-dot"><span class="step-num">02</span></div>
+        <div class="step-content">
+          <div class="step-title">We check your AI visibility</div>
+          <div class="step-desc">We test whether your content is showing up in AI-generated answers for the queries your ideal clients are actually asking.</div>
+        </div>
+      </div>
+
+      <div class="step" id="step-3">
+        <div class="step-dot"><span class="step-num">03</span></div>
+        <div class="step-content">
+          <div class="step-title">We map the gaps</div>
+          <div class="step-desc">We identify your biggest content gaps and quick wins — across traditional search and AI visibility.</div>
+        </div>
+      </div>
+
+      <div class="step" id="step-4">
+        <div class="step-dot"><span class="step-num">04</span></div>
+        <div class="step-content">
+          <div class="step-title">Report in 48 hours</div>
+          <div class="step-desc">A personalised report lands in your inbox — specific to your business, your goals, your gaps.</div>
+        </div>
+      </div>
+
+      <div class="step" id="step-5">
+        <div class="step-dot"><span class="step-num">05</span></div>
+        <div class="step-content">
+          <div class="step-title">Optional 30-min call</div>
+          <div class="step-desc">If it makes sense, we hop on a call to discuss next steps. No commitment, no pressure.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="promise-badge">
+      <div class="badge-icon">✦</div>
+      <div class="badge-text">
+        <strong>No commitment required</strong>
+        Keep the report whether we work together or not. It's yours.
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ══ RIGHT PANEL ══ -->
+  <main class="right-panel">
+
+    <!-- PATH SWITCHER -->
+    <div class="path-switcher">
+      <button class="path-btn active" id="path-audit" onclick="switchPath('audit')">
+        <div class="path-active-dot"></div>
+        <span class="path-btn-label">Free Content Audit</span>
+        <span class="path-btn-desc">Get a personalised report within 48 hrs</span>
+      </button>
+      <button class="path-btn" id="path-call" onclick="switchPath('call')">
+        <div class="path-active-dot"></div>
+        <span class="path-btn-label">Book a Strategy Call</span>
+        <span class="path-btn-desc">30 minutes, direct conversation</span>
+      </button>
+    </div>
+
+    <!-- ── AUDIT FORM ── -->
+    <div class="form-panel visible" id="panel-audit">
+
+      <div id="audit-form-wrap">
+        <h2 class="form-heading">Get your Free<br>Content Audit</h2>
+        <p class="form-sub">Fill in your details. We'll review your content and send a personalised report — no fluff, no pitch, just honest assessment.</p>
+
+        <form onsubmit="handleSubmit(event)">
+          <div class="field-group">
+            <div class="field">
+              <label class="field-label" for="name">Your name</label>
+              <input class="field-input" type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label class="field-label" for="email">Email address</label>
+              <input class="field-input" type="email" id="email" name="email" placeholder="jane@company.com" required autocomplete="email">
+            </div>
+          </div>
+
+          <div class="field-group full" style="margin-bottom:14px;">
+            <div class="field">
+              <label class="field-label" for="website">Company / website URL</label>
+              <input class="field-input" type="url" id="website" name="website" placeholder="https://yourwebsite.com" required>
+            </div>
+          </div>
+
+          <div class="field-group full" style="margin-bottom:0;">
+            <div class="field">
+              <label class="field-label" for="challenge">Your biggest content challenge right now</label>
+              <textarea class="field-input" id="challenge" name="challenge" placeholder="E.g. We're getting traffic but no leads. Or — we're invisible in AI search results. Or — our blog exists but we haven't published in months..." required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <span>Send Details — Get the Free Audit</span>
+            <span class="submit-arrow">→</span>
+          </button>
+        </form>
+
+        <div class="submit-note">Personalised report within 48 hours · No commitment</div>
+
+        <div class="or-divider">
+          <div class="or-line"></div>
+          <span class="or-text">Prefer a call instead?</span>
+          <div class="or-line"></div>
+        </div>
+
+        <button class="cal-btn" onclick="switchPath('call')">
+          <span>Book a 30-Minute Strategy Call</span>
+          <span class="cal-btn-arrow">→</span>
+        </button>
+      </div>
+
+      <!-- success state -->
+      <div class="success-state" id="success-state">
+        <div class="success-icon">✦</div>
+        <div class="success-title">You're in.</div>
+        <p class="success-sub">We'll review your content and send your personalised audit within 48 hours. Check your inbox — and keep an eye on spam just in case.</p>
+        <div style="margin-top:8px; font-family:'Azeret Mono',monospace; font-size:10px; letter-spacing:0.12em; color:var(--muted); text-transform:uppercase;">No commitment · Yours to keep</div>
+      </div>
+
+    </div>
+
+    <!-- ── CALL PANEL ── -->
+    <div class="form-pa
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wordpinchh — Sample Work</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Aktiv+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #FAFAF7;
+  --ink: #0D0D0B;
+  --ink-2: #1E1E1A;
+  --ink-3: #4A4A44;
+  --muted: #8A8A82;
+  --muted-2: #C4C4BA;
+  --border: rgba(13,13,11,0.1);
+  --border-mid: rgba(13,13,11,0.18);
+  --card: #FFFFFF;
+
+  --tag-seo: #0A4F2A;
+  --tag-seo-bg: #E6F5EC;
+  --tag-li: #1A3A6B;
+  --tag-li-bg: #E8F0FC;
+  --tag-web: #5C1A00;
+  --tag-web-bg: #FFF0EB;
+  --tag-geo: #3A1A6B;
+  --tag-geo-bg: #F0EBFF;
+  --tag-new: #6B3A00;
+  --tag-new-bg: #FFF7EB;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Syne', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── CURSOR ── */
+#cur {
+  position: fixed;
+  width: 10px; height: 10px;
+  border: 1.5px solid var(--ink);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: width .3s cubic-bezier(.4,0,.2,1), height .3s, background .3s, border-color .3s;
+}
+#cur.fill { width: 52px; height: 52px; background: var(--ink); border-color: var(--ink); }
+#cur.fill::after {
+  content: 'VIEW';
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; font-weight: 600; letter-spacing: 0.1em;
+  color: var(--bg); font-family: 'Syne', sans-serif;
+}
+
+/* ── GRAIN ── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9998;
+}
+
+/* ══════════════════════
+   TOP BAR
+══════════════════════ */
+.topbar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 60%, #B5E550 60%, #B5E550 75%, #0099CC 75%, #0099CC 88%, #CC4400 88%);
+}
+
+/* ══════════════════════
+   HEADER
+══════════════════════ */
+.page-header {
+  padding: 56px 72px 0;
+  border-bottom: 1px solid var(--border-mid);
+  padding-bottom: 52px;
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  gap: 80px;
+  align-items: end;
+}
+
+.header-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+  font-family: 'IBM Plex Mono', monospace;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px; height: 1px;
+  background: var(--muted);
+}
+
+.header-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  font-weight: 300;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.header-title span {
+  font-style: italic;
+  font-weight: 600;
+  display: block;
+}
+
+.header-right {
+  padding-bottom: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.header-desc {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink-3);
+  font-weight: 400;
+}
+
+/* filter pills */
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-pill {
+  padding: 7px 16px;
+  border: 1px solid var(--border-mid);
+  border-radius: 40px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  cursor: none;
+  transition: all 0.2s;
+  font-family: 'Syne', sans-serif;
+}
+
+.filter-pill:hover, .filter-pill.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
+
+/* stats row */
+.stats-row {
+  display: flex;
+  gap: 32px;
+}
+
+.stat-item { display: flex; flex-direction: column; gap: 3px; }
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.stat-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+/* ══════════════════════
+   PORTFOLIO GRID
+══════════════════════ */
+.portfolio-grid {
+  padding: 0 72px 80px;
+  margin-top: 0;
+}
+
+/* ── SECTION DIVIDER ── */
+.section-sep {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 52px 0 32px;
+}
+
+.sep-label {
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.sep-line { flex: 1; height: 1px; background: var(--border); }
+
+.sep-count {
+  font-size: 10px;
+  color: var(--muted-2);
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.08em;
+}
+
+/* ── FEATURED CARD — HORIZONTAL FULL WIDTH ── */
+.card-featured {
+  background: var(--ink-2);
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+  cursor: none;
+  transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+.card-featured:hover { transform: translateY(-3px); }
+
+.featured-body {
+  padding: 52px 56px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-family: 'IBM Plex Mono', monospace;
+  margin-bottom: 24px;
+  width: fit-content;
+}
+
+.tag-seo { background: var(--tag-seo-bg); color: var(--tag-seo); }
+.tag-linkedin { background: var(--tag-li-bg); color: var(--tag-li); }
+.tag-website { background: var(--tag-web-bg); color: var(--tag-web); }
+.tag-geo { background: var(--tag-geo-bg); color: var(--tag-geo); }
+.tag-new { background: var(--tag-new-bg); color: var(--tag-new); }
+
+/* on dark bg */
+.tag-seo-dark { background: rgba(181,229,80,0.12); color: #B5E550; }
+.tag-li-dark { background: rgba(100,180,255,0.12); color: #64B4FF; }
+.tag-web-dark { background: rgba(255,140,80,0.12); color: #FF8C50; }
+
+.featured-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--bg);
+  margin-bottom: 16px;
+}
+
+.featured-angle {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.55);
+  font-weight: 300;
+  flex: 1;
+  margin-bottom: 28px;
+  font-family: 'Lora', serif;
+  font-style: italic;
+}
+
+.featured-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.meta-chip {
+  font-size: 11px;
+  color: rgba(255,255,255,0.35);
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.meta-chip::before {
+  content: '';
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+}
+
+.meta-chip:first-child::before { display: none; }
+
+.featured-visual {
+  background: rgba(255,255,255,0.03);
+  border-left: 1px solid rgba(255,255,255,0.06);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* mock document preview inside featured card */
+.doc-preview {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+  padding: 20px;
+  flex: 1;
+}
+
+.doc-line {
+  height: 7px;
+  border-radius: 4px;
+  background: rgba(255,255,255,0.12);
+  margin-bottom: 10px;
+}
+
+.doc-line:first-child { width: 85%; height: 10px; background: rgba(255,255,255,0.2); margin-bottom: 16px; }
+.doc-line:nth-child(2) { width: 95%; }
+.doc-line:nth-child(3) { width: 78%; }
+.doc-line:nth-child(4) { width: 88%; margin-bottom: 18px; }
+.doc-line:nth-child(5) { width: 60%; height: 9px; background: rgba(181,229,80,0.3); }
+.doc-line:nth-child(6) { width: 90%; }
+.doc-line:nth-child(7) { width: 75%; }
+.doc-line:nth-child(8) { width: 50%; }
+
+.doc-stat-row {
+  display: flex;
+  gap: 12px;
+}
+
+.doc-stat {
+  flex: 1;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ds-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #B5E550;
+  line-height: 1;
+}
+
+.ds-label {
+  font-size: 9px;
+  color: rgba(255,255,255,0.3);
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── GRID: 3 columns for regular cards ── */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* ── STANDARD CARD ── */
+.card-standard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  cursor: none;
+  transition: border-color 0.25s, transform 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-standard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--card-accent, transparent);
+  transition: opacity 0.25s;
+  opacity: 0;
+}
+
+.card-standard:hover { border-color: var(--border-mid); transform: translateY(-2px); }
+.card-standard:hover::before { opacity: 1; }
+
+.card-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--muted-2);
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.card-desc {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--ink-3);
+  font-weight: 400;
+  flex: 1;
+  margin-bottom: 20px;
+  font-family: 'Lora', serif;
+}
+
+.card-highlights {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 20px;
+}
+
+.card-highlight {
+  font-size: 12px;
+  color: var(--ink-3);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+
+.card-highlight::before {
+  content: '→';
+  color: var(--muted-2);
+  flex-shrink: 0;
+  font-size: 11px;
+  margin-top: 1px;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+.card-cta {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.card-standard:hover .card-cta { gap: 10px; }
+
+.card-format {
+  font-size: 10px;
+  color: var(--muted-2);
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.06em;
+}
+
+/* ── WIDE CARD (spans 2 cols) ── */
+.card-wide {
+  grid-column: span 2;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 36px;
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 36px;
+  cursor: none;
+  transition: border-color 0.25s, transform 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-wide::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--card-accent, transparent);
+  transition: opacity 0.25s;
+  opacity: 0;
+}
+
+.card-wide:hover { border-color: var(--border-mid); transform: translateY(-2px); }
+.card-wide:hover::before { opacity: 1; }
+
+.wide-left {}
+.wide-right {
+  border-left: 1px solid var(--border);
+  padding-left: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* before/after preview block */
+.before-after {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ba-block {
+  border-radius: 8px;
+  padding: 14px;
+  position: relative;
+}
+
+.ba-block-before {
+  background: #FFF5F5;
+  border: 1px solid #FECACA;
+}
+
+.ba-block-after {
+  background: #F0FDF4;
+  border: 1px solid #BBF7D0;
+}
+
+.ba-label {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.ba-block-before .ba-label { color: #EF4444; }
+.ba-block-after .ba-label { color: #16A34A; }
+
+.ba-text {
+  font-size: 11px;
+  line-height: 1.55;
+  font-family: 'Lora', serif;
+}
+
+.ba-block-before .ba-text { color: #9B1C1C; }
+.ba-block-after .ba-text { color: #14532D; }
+
+/* ── COMING SOON CARD ── */
+.card-placeholder {
+  border: 1.5px dashed var(--muted-2);
+  border-radius: 16px;
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 220px;
+  background: rgba(255,255,255,0.5);
+  cursor: none;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.card-placeholder:hover {
+  border-color: var(--muted);
+  background: rgba(255,255,255,0.8);
+}
+
+.placeholder-icon {
+  width: 40px; height: 40px;
+  border: 1.5px dashed var(--muted-2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--muted-2);
+}
+
+.placeholder-label {
+  font-size: 12px;
+  color: var(--muted);
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.placeholder-sub {
+  font-size: 11px;
+  color: var(--muted-2);
+  font-family: 'Lora', serif;
+  font-style: italic;
+  text-align: center;
+}
+
+/* ══════════════════════
+   REQUEST CTA SECTION
+══════════════════════ */
+.request-section {
+  margin: 0 72px 80px;
+  background: var(--ink);
+  border-radius: 20px;
+  padding: 56px 64px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.request-section::before {
+  content: 'MORE';
+  position: absolute;
+  right: 180px; top: -20px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 200px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.03);
+  line-height: 1;
+  pointer-events: none;
+  letter-spacing: -0.04em;
+}
+
+.req-eyebrow {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  font-family: 'IBM Plex Mono', monospace;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.req-eyebrow::before { content: ''; width: 20px; height: 1px; background: rgba(255,255,255,0.2); }
+
+.req-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--bg);
+  margin-bottom: 12px;
+}
+
+.req-title em {
+  font-style: italic;
+  color: #B5E550;
+}
+
+.req-sub {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.45);
+  font-weight: 300;
+  max-width: 440px;
+  font-family: 'Lora', serif;
+}
+
+.req-actions { display: flex; flex-direction: column; gap: 12px; flex-shrink: 0; }
+
+.req-btn {
+  padding: 16px 32px;
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border: none;
+  border-radius: 10px;
+  cursor: none;
+  transition: opacity 0.2s;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.req-btn-primary { background: #B5E550; color: var(--ink); }
+.req-btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.6);
+}
+
+.req-btn:hover { opacity: 0.85; }
+
+.req-note {
+  font-size: 10px;
+  color: rgba(255,255,255,0.2);
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+/* ── PAGE ANIMATION ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-header { animation: fadeUp 0.5s ease both; }
+.portfolio-grid { animation: fadeUp 0.5s ease 0.1s both; }
+.request-section { animation: fadeUp 0.5s ease 0.15s both; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .cards-grid { grid-template-columns: 1fr 1fr; }
+  .card-wide { grid-column: span 2; }
+}
+
+@media (max-width: 900px) {
+  .page-header { grid-template-columns: 1fr; padding: 40px 24px; gap: 32px; }
+  .portfolio-grid { padding: 0 24px 60px; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .card-wide { grid-column: span 1; grid-template-columns: 1fr; }
+  .wide-right { border-left: none; border-top: 1px solid var(--border); padding-left: 0; padding-top: 24px; }
+  .card-featured { grid-template-columns: 1fr; }
+  .featured-visual { display: none; }
+  .request-section { margin: 0 24px 60px; padding: 40px 28px; grid-template-columns: 1fr; }
+  .request-section::before { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+
+<!-- TOP COLOR BAR -->
+<div class="topbar"></div>
+
+<!-- ══ HEADER ══ -->
+<header class="page-header">
+  <div>
+    <div class="header-eyebrow">Portfolio / Sample Work</div>
+    <h1 class="header-title">
+      Words that
+      <span>Work.</span>
+    </h1>
+  </div>
+  <div class="header-right">
+    <p class="header-desc">We're building our public portfolio. Here's a taste of what we produce — SEO blogs, LinkedIn posts, website copy, and AI-visibility content. More samples available on request.</p>
+    <div class="filter-row" id="filterRow">
+      <button class="filter-pill active" data-filter="all" onclick="filterCards('all',this)">All Work</button>
+      <button class="filter-pill" data-filter="seo" onclick="filterCards('seo',this)">SEO Blog</button>
+      <button class="filter-pill" data-filter="linkedin" onclick="filterCards('linkedin',this)">LinkedIn</button>
+      <button class="filter-pill" data-filter="website" onclick="filterCards('website',this)">Website Copy</button>
+      <button class="filter-pill" data-filter="geo" onclick="filterCards('geo',this)">GEO / AEO</button>
+    </div>
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Public samples</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">∞</div>
+        <div class="stat-label">On request</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4</div>
+        <div class="stat-label">Content types</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══ PORTFOLIO GRID ══ -->
+<div class="portfolio-grid">
+
+  <!-- ── FEATURED ROW ── -->
+  <div class="section-sep">
+    <span class="sep-label">Featured</span>
+    <div class="sep-line"></div>
+    <span class="sep-count">01 sample</span>
+  </div>
+
+  <div class="card-featured" data-tags="seo geo">
+    <div class="featured-body">
+      <span class="card-tag tag-seo-dark" style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; font-weight:600; padding:5px 12px; border-radius:4px; width:fit-content; margin-bottom:24px; background:rgba(181,229,80,0.12); color:#B5E550;">SEO Blog + GEO</span>
+      <h2 class="featured-title">How SaaS Companies Use Content to Reduce CAC Without Paid Ads</h2>
+      <p class="featured-angle">Most SaaS marketers chase top-of-funnel volume. This piece argues that bottom-of-funnel content — comparisons, alternatives, use-case pages — generates 3x the conversion rate at a fraction of the cost, and shows exactly how to build it.</p>
+      <div class="featured-meta">
+        <span class="meta-chip" style="color:rgba(255,255,255,0.35); font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.06em;">B2B SaaS</span>
+        <span class="meta-chip" style="color:rgba(255,255,255,0.35); font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.06em;">Bottom-of-funnel</span>
+        <span class="meta-chip" style="color:rgba(255,255,255,0.35); font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.06em;">GEO-structured</span>
+        <span class="meta-chip" style="color:rgba(255,255,255,0.35); font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.06em;">Buyer-intent focus</span>
+      </div>
+    </div>
+    <div class="featured-visual">
+      <div class="doc-preview">
+        <div class="doc-line"></div>
+        <div class="doc-line"></div>
+        <div class="doc-line"></div>
+        <div class="doc-line"></div>
+        <div class="doc-line"></div>
+        <div class="doc-line"></div>
+        <div class="doc-line"></div>
+        <div class="doc-line"></div>
+      </div>
+      <div class="doc-stat-row">
+        <div class="doc-stat">
+          <div class="ds-num">3×</div>
+          <div class="ds-label">Conv. rate vs TOFU</div>
+        </div>
+        <div class="doc-stat">
+          <div class="ds-num">GEO</div>
+          <div class="ds-label">Citation-ready</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── STANDARD GRID ── -->
+  <div class="section-sep">
+    <span class="sep-label">All Samples</span>
+    <div class="sep-line"></div>
+    <span class="sep-count" id="gridCount">03 samples</span>
+  </div>
+
+  <div class="cards-grid" id="cardsGrid">
+
+    <!-- LinkedIn Card -->
+    <div class="card-standard" style="--card-accent: #0A76A4;" data-tags="linkedin">
+      <div class="card-num">02 / LinkedIn Post</div>
+      <span class="card-tag tag-linkedin" style="font-size:10px; padding:5px 12px; border-radius:4px; font-family:'IBM Plex Mono',monospace; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; width:fit-content; margin-bottom:16px;">LinkedIn</span>
+      <h3 class="card-title">"The content advice I ignored that cost me six months of growth"</h3>
+      <p class="card-desc">Personal story with a hard-earned lesson. Opens with a counterintuitive claim. Ends with a specific, actionable takeaway. Written in first person, conversational, no corporate speak.</p>
+      <ul class="card-highlights">
+        <li class="card-highlight">High-engagement format — 3–8x more comments than informational posts</li>
+        <li class="card-highlight">Opens with a pattern interrupt that stops the scroll</li>
+        <li class="card-highlight">Structured for maximum dwell time and saves</li>
+      </ul>
+      <div class="card-footer">
+        <span class="card-cta">Request sample →</span>
+        <span class="card-format">First-person · Story</span>
+      </div>
+    </div>
+
+    <!-- Website Copy — WIDE CARD -->
+    <div class="card-wide" style="--card-accent: #CC4400;" data-tags="website">
+      <div class="wide-left">
+        <div class="card-num">03 / Website Copy</div>
+        <span class="card-tag tag-website" style="font-size:10px; padding:5px 12px; border-radius:4px; font-family:'IBM Plex Mono',monospace; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; width:fit-content; margin-bottom:16px;">Website Copy</span>
+        <h3 class="card-title">Homepage rewrite for a B2B consulting firm</h3>
+        <p class="card-desc">Their old homepage led with company history and service descriptions. Visitors bounced in under 10 seconds. We rewrote it to open with the client's problem, restructured services around outcomes, and added AEO-structured FAQ for AI citation potential.</p>
+        <ul class="card-highlights">
+          <li class="card-highlight">Hero section rewritten to open with the client's problem — not the company's history</li>
+          <li class="card-highlight">Services section restructured around outcomes, not activities</li>
+          <li class="card-highlight">Social proof added before the CTA, not buried at the bottom</li>
+          <li class="card-highlight">AEO-structured FAQ section integrated to improve AI citation potential</li>
+        </ul>
+        <div class="card-footer">
+          <span class="card-cta">See before/after →</span>
+          <span class="card-format">Homepage · B2B Consulting</span>
+        </div>
+      </div>
+      <div class="wide-right">
+        <div class="before-after">
+          <div class="ba-block ba-block-before">
+            <div class="ba-label">Before</div>
+            <div class="ba-text">"We are a full-service consulting firm with 15 years of experience delivering end-to-end solutions..."</div>
+          </div>
+          <div class="ba-block ba-block-after">
+            <div class="ba-label">After</div>
+            <div class="ba-text">"If your team keeps solving the same problems, the issue isn't execution — it's how you're structured."</div>
+          </div>
+        </div>
+        <div style="margin-top:16px; padding:14px; background:#F9F9F7; border-radius:8px; border:1px solid var(--border);">
+          <div style="font-size:9px; letter-spacing:0.15em; text-transform:uppercase; font-family:'IBM Plex Mono',monospace; color:var(--muted); margin-bottom:8px;">Result</div>
+          <div style="font-size:12px; line-height:1.6; font-family:'Lora',serif; font-style:italic; color:var(--ink-3);">Bounce rate dropped. First-call bookings increased. Full before/after available on request.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLACEHOLDER CARDS — expandable slots -->
+    <div class="card-placeholder" data-tags="placeholder">
+      <div class="placeholder-icon">+</div>
+      <div class="placeholder-label">GEO Content</div>
+      <div class="placeholder-sub">Sample coming soon —<br>available on request now</div>
+    </div>
+
+    <div class="card-placeholder" data-tags="placeholder">
+      <div class="placeholder-icon">+</div>
+      <div class="placeholder-label">AEO / FAQ Copy</div>
+      <div class="placeholder-sub">Sample coming soon —<br>available on request now</div>
+    </div>
+
+    <div class="card-placeholder" data-tags="placeholder">
+      <div class="placeholder-icon">+</div>
+      <div class="placeholder-label">Landing Page Copy</div>
+      <div class="placeholder-sub">Sample coming soon —<br>available on request now</div>
+    </div>
+
+  </div>
+
+  <!-- ADDING MORE — instruction note -->
+  <div style="margin-top: 24px; padding: 18px 24px; background: rgba(13,13,11,0.04); border-radius: 10px; border: 1px dashed var(--muted-2); display:flex; align-items:center; gap:16px;">
+    <span style="font-size:10px; letter-spacing:0.15em; text-transform:uppercase; font-family:'IBM Plex Mono',monospace; color:var(--muted);">→ More samples can be added here — replace the placeholder cards above or append new cards to the grid.</span>
+  </div>
+
+</div>
+
+<!-- ══ REQUEST CTA ══ -->
+<section class="request-section">
+  <div>
+    <div class="req-eyebrow">Want to see more?</div>
+    <h2 class="req-title">Full samples available<br>on <em>request.</em></h2>
+    <p class="req-sub">Including before/after comparisons, full-length SEO articles, GEO-structured content, and LinkedIn ghostwriting examples. No fluff — just the actual work.</p>
+  </div>
+  <div class="req-actions">
+    <button class="req-btn req-btn-primary">→ Request Sample Work</button>
+    <button class="req-btn req-btn-secondary">Book a Strategy Call</button>
+    <div class="req-note">Samples sent within 24 hours</div>
+  </div>
+</section>
+
+<script>
+/* ── CURSOR ── */
+const cur = document.getElementById('cur');
+let mx = -100, my = -100;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+const hoverTargets = document.querySelectorAll('.card-featured, .card-standard, .card-wide, .req-btn, .filter-pill, .card-placeholder');
+hoverTargets.forEach(el => {
+  el.addEventListener('mouseenter', () => cur.classList.add('fill'));
+  el.addEventListener('mouseleave', () => cur.classList.remove('fill'));
+});
+
+(function tick() {
+  cur.style.left = mx + 'px';
+  cur.style.top = my + 'px';
+  requestAnimationFrame(tick);
+})();
+
+/* ── FILTER ── */
+function filterCards(filter, btn) {
+  // update pills
+  document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+
+  const grid = document.getElementById('cardsGrid');
+  const cards = grid.querySelectorAll('[data-tags]');
+  let visible = 0;
+
+  cards.forEach(card => {
+    const tags = card.getAttribute('data-tags') || '';
+    const show = filter === 'all' || tags.includes(filter) || tags === 'placeholder';
+    card.style.display = show ? '' : 'none';
+    if (show && tags !== 'placeholder') visible++;
+    if (tags === 'placeholder') card.style.display = filter === 'all' ? '' : 'none';
+  });
+
+  const total = filter === 'all' ? '03 samples' : (visible + ' sample' + (visible !== 1 ? 's' : ''));
+  document.getElementById('gridCount').textContent = total;
+}
+</script>
+</body>
+</html>

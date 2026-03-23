@@ -35,7 +35,7 @@ export default function Cursor() {
 
   return (
     <div
-      className="fixed w-[10px] h-[10px] border-[1.5px] border-black rounded-full pointer-events-none z-[9999] transition-all duration-300"
+      className="fixed w-[10px] h-[10px] border-[1.5px] border-black rounded-full pointer-events-none z-9999 transition-all duration-300"
       style={{
         left: position.x,
         top: position.y,
@@ -47,7 +47,7 @@ export default function Cursor() {
       }}
     >
       {isHovering && (
-        <span className="absolute inset-0 flex items-center justify-center text-[9px] font-semibold tracking-[0.1em] text-[#FAFAF7] font-sans uppercase">
+        <span className="absolute inset-0 flex items-center justify-center text-[9px] font-semibold tracking-widest text-[#FAFAF7] font-sans uppercase">
           VIEW
         </span>
       )}
