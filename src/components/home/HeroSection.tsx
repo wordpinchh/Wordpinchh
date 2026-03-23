@@ -50,9 +50,10 @@ export function HeroSection() {
           <div className="flex items-center gap-3.5 mb-8">
             <div className="w-2 h-2 rounded-full bg-(--home-red) animate-pulse kicker-dot" />
             <span 
-              className="kicker-text text-[10px] tracking-[0.2em] uppercase"
+              className="kicker-text tracking-[0.2em] uppercase"
               style={{
                 fontFamily: 'DM Mono, monospace',
+                fontSize: '20px',
                 color: 'var(--home-muted)'
               }}
             >
