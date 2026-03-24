@@ -1,0 +1,948 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wordpinchh — Let's Talk</title>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Azeret+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0B0B09;
+  --surface: #111110;
+  --surface-2: #181816;
+  --border: rgba(255,255,255,0.07);
+  --border-2: rgba(255,255,255,0.12);
+  --text: #F0EDE6;
+  --muted: #6B6860;
+  --muted-2: #3A3830;
+  --lime: #CAFF4A;
+  --lime-dim: rgba(202,255,74,0.08);
+  --lime-border: rgba(202,255,74,0.2);
+}
+
+html { height: 100%; }
+body {
+  font-family: 'Newsreader', serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ── CURSOR ── */
+#cur {
+  position: fixed;
+  width: 12px; height: 12px;
+  background: var(--lime);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%,-50%);
+  transition: width .3s, height .3s, opacity .3s, border-radius .3s;
+  mix-blend-mode: difference;
+}
+#cur.big { width: 60px; height: 60px; border-radius: 50%; }
+
+/* ── GRAIN ── */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9998;
+}
+
+/* ══ LAYOUT ══ */
+.page {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100vh;
+}
+
+/* ══ LEFT — HERO/INFO PANEL ══ */
+.left-panel {
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* animated background lines */
+.left-panel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 79px,
+      rgba(255,255,255,0.025) 79px,
+      rgba(255,255,255,0.025) 80px
+    );
+  pointer-events: none;
+}
+
+.left-top {
+  padding: 48px 52px 40px;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  z-index: 1;
+}
+
+.left-eyebrow {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.left-eyebrow::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--lime);
+}
+
+.left-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(2.8rem, 4vw, 4rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.left-title .lime { color: var(--lime); }
+
+.left-sub {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--muted);
+  font-weight: 300;
+  font-style: italic;
+  max-width: 380px;
+}
+
+/* process steps */
+.process-steps {
+  padding: 36px 52px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+  overflow-y: auto;
+}
+
+.process-label {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  margin-bottom: 24px;
+}
+
+.step {
+  display: flex;
+  gap: 20px;
+  padding: 18px 0;
+  position: relative;
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 50px;
+  bottom: -18px;
+  width: 1px;
+  background: var(--border);
+}
+
+.step-dot {
+  width: 30px; height: 30px;
+  border: 1px solid var(--border-2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  background: var(--bg);
+  transition: border-color .3s, background .3s;
+}
+
+.step.active .step-dot {
+  border-color: var(--lime);
+  background: var(--lime-dim);
+}
+
+.step-num {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  transition: color .3s;
+}
+
+.step.active .step-num { color: var(--lime); }
+
+.step-content {}
+
+.step-title {
+  font-family: 'Newsreader', serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 3px;
+  line-height: 1.3;
+  opacity: 0.5;
+  transition: opacity .3s;
+}
+
+.step.active .step-title { opacity: 1; }
+
+.step-desc {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+  font-weight: 300;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease;
+}
+
+.step.active .step-desc { max-height: 60px; }
+
+/* promise badge */
+.promise-badge {
+  margin: 0 52px 40px;
+  background: var(--lime-dim);
+  border: 1px solid var(--lime-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+.badge-icon {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: rgba(202,255,74,0.15);
+  border: 1px solid var(--lime-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 16px;
+}
+
+.badge-text {
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(202,255,74,0.8);
+  font-weight: 300;
+}
+
+.badge-text strong {
+  display: block;
+  color: var(--lime);
+  font-weight: 500;
+  font-size: 13px;
+  margin-bottom: 2px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+
+/* ══ RIGHT — FORM PANEL ══ */
+.right-panel {
+  padding: 56px 60px 80px;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+}
+
+/* path switcher */
+.path-switcher {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 44px;
+}
+
+.path-btn {
+  padding: 16px 20px;
+  border: 1px solid var(--border-2);
+  border-radius: 12px;
+  background: transparent;
+  cursor: none;
+  text-align: left;
+  transition: all .25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.path-btn.active {
+  border-color: var(--lime);
+  background: var(--lime-dim);
+}
+
+.path-btn:hover:not(.active) { border-color: var(--border-2); background: var(--surface-2); }
+
+.path-btn-label {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin-bottom: 4px;
+  display: block;
+  transition: color .2s;
+}
+
+.path-btn.active .path-btn-label { color: var(--lime); }
+
+.path-btn-desc {
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.4;
+  display: block;
+  transition: color .2s;
+}
+
+.path-btn.active .path-btn-desc { color: rgba(202,255,74,0.6); }
+
+.path-active-dot {
+  position: absolute;
+  top: 12px; right: 14px;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--lime);
+  opacity: 0;
+  transition: opacity .2s;
+}
+
+.path-btn.active .path-active-dot { opacity: 1; }
+
+/* form panels */
+.form-panel { display: none; }
+.form-panel.visible { display: block; }
+
+/* FORM STYLING */
+.form-heading {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.form-sub {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 36px;
+}
+
+.field-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.field-group.full { grid-template-columns: 1fr; }
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.field-label {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color .2s;
+}
+
+.field:focus-within .field-label { color: var(--lime); }
+
+.field-input {
+  background: var(--surface-2);
+  border: 1px solid var(--border-2);
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-family: 'Newsreader', serif;
+  font-size: 15px;
+  color: var(--text);
+  outline: none;
+  transition: border-color .2s, background .2s;
+  width: 100%;
+  appearance: none;
+}
+
+.field-input::placeholder { color: var(--muted-2); font-style: italic; }
+
+.field-input:focus {
+  border-color: var(--lime);
+  background: rgba(202,255,74,0.04);
+}
+
+.field-input:focus::placeholder { color: transparent; }
+
+textarea.field-input {
+  resize: none;
+  min-height: 110px;
+  line-height: 1.65;
+}
+
+/* submit button */
+.submit-btn {
+  width: 100%;
+  margin-top: 24px;
+  padding: 18px 32px;
+  background: var(--lime);
+  color: var(--bg);
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border: none;
+  border-radius: 12px;
+  cursor: none;
+  transition: opacity .2s, transform .15s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.submit-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+.submit-btn:active { transform: translateY(0); }
+
+.submit-arrow {
+  width: 32px; height: 32px;
+  background: rgba(0,0,0,0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.submit-note {
+  font-size: 11px;
+  color: var(--muted);
+  font-family: 'Azeret Mono', monospace;
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin-top: 14px;
+}
+
+/* CALENDAR PATH */
+.calendar-panel {}
+
+.cal-heading {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+
+.cal-sub {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+  font-weight: 300;
+  font-style: italic;
+  margin-bottom: 36px;
+}
+
+.cal-includes {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 24px;
+  margin-bottom: 28px;
+}
+
+.cal-includes-label {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.cal-include-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.cal-include-item:last-child { border-bottom: none; }
+
+.inc-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--lime);
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+.inc-text {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.inc-text strong { color: var(--text); font-weight: 500; display: block; margin-bottom: 1px; font-size: 13px; }
+
+.cal-btn {
+  width: 100%;
+  padding: 18px 32px;
+  background: transparent;
+  color: var(--lime);
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border: 1.5px solid var(--lime);
+  border-radius: 12px;
+  cursor: none;
+  transition: background .2s, color .2s, transform .15s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cal-btn:hover { background: var(--lime); color: var(--bg); transform: translateY(-1px); }
+.cal-btn:active { transform: translateY(0); }
+
+.cal-btn-arrow {
+  width: 32px; height: 32px;
+  border: 1px solid rgba(202,255,74,0.3);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.cal-note {
+  font-size: 11px;
+  color: var(--muted);
+  font-family: 'Azeret Mono', monospace;
+  letter-spacing: 0.06em;
+  text-align: center;
+  margin-top: 14px;
+}
+
+/* ── divider OR ── */
+.or-divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 28px 0;
+}
+
+.or-line { flex: 1; height: 1px; background: var(--border); }
+
+.or-text {
+  font-family: 'Azeret Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+/* ── SUCCESS STATE ── */
+.success-state {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  gap: 20px;
+}
+
+.success-state.visible { display: flex; }
+
+.success-icon {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  background: var(--lime-dim);
+  border: 1px solid var(--lime-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+}
+
+.success-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.success-sub {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+  font-style: italic;
+  max-width: 340px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.left-panel { animation: fadeUp 0.5s ease both; }
+.right-panel { animation: fadeUp 0.5s ease 0.1s both; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .page { grid-template-columns: 1fr; }
+  .left-panel { position: static; height: auto; }
+  .left-top { padding: 36px 24px 28px; }
+  .process-steps { padding: 24px 24px; }
+  .promise-badge { margin: 0 24px 32px; }
+  .right-panel { padding: 40px 24px 60px; }
+  .field-group { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+
+<div class="page">
+
+  <!-- ══ LEFT PANEL ══ -->
+  <aside class="left-panel">
+
+    <div class="left-top">
+      <div class="left-eyebrow">Contact</div>
+      <h1 class="left-title">
+        Let's<br>
+        <span class="lime">Talk.</span>
+      </h1>
+      <p class="left-sub">Start with a Free Content Audit. No pitch, no pressure — just a clear picture of where you are and what's possible.</p>
+    </div>
+
+    <div class="process-steps">
+      <div class="process-label">What happens next</div>
+
+      <div class="step active" id="step-1">
+        <div class="step-dot"><span class="step-num">01</span></div>
+        <div class="step-content">
+          <div class="step-title">We review your content</div>
+          <div class="step-desc">Website, LinkedIn, and any existing content — we look at everything through the lens of a buyer finding you for the first time.</div>
+        </div>
+      </div>
+
+      <div class="step" id="step-2">
+        <div class="step-dot"><span class="step-num">02</span></div>
+        <div class="step-content">
+          <div class="step-title">We check your AI visibility</div>
+          <div class="step-desc">We test whether your content is showing up in AI-generated answers for the queries your ideal clients are actually asking.</div>
+        </div>
+      </div>
+
+      <div class="step" id="step-3">
+        <div class="step-dot"><span class="step-num">03</span></div>
+        <div class="step-content">
+          <div class="step-title">We map the gaps</div>
+          <div class="step-desc">We identify your biggest content gaps and quick wins — across traditional search and AI visibility.</div>
+        </div>
+      </div>
+
+      <div class="step" id="step-4">
+        <div class="step-dot"><span class="step-num">04</span></div>
+        <div class="step-content">
+          <div class="step-title">Report in 48 hours</div>
+          <div class="step-desc">A personalised report lands in your inbox — specific to your business, your goals, your gaps.</div>
+        </div>
+      </div>
+
+      <div class="step" id="step-5">
+        <div class="step-dot"><span class="step-num">05</span></div>
+        <div class="step-content">
+          <div class="step-title">Optional 30-min call</div>
+          <div class="step-desc">If it makes sense, we hop on a call to discuss next steps. No commitment, no pressure.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="promise-badge">
+      <div class="badge-icon">✦</div>
+      <div class="badge-text">
+        <strong>No commitment required</strong>
+        Keep the report whether we work together or not. It's yours.
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ══ RIGHT PANEL ══ -->
+  <main class="right-panel">
+
+    <!-- PATH SWITCHER -->
+    <div class="path-switcher">
+      <button class="path-btn active" id="path-audit" onclick="switchPath('audit')">
+        <div class="path-active-dot"></div>
+        <span class="path-btn-label">Free Content Audit</span>
+        <span class="path-btn-desc">Get a personalised report within 48 hrs</span>
+      </button>
+      <button class="path-btn" id="path-call" onclick="switchPath('call')">
+        <div class="path-active-dot"></div>
+        <span class="path-btn-label">Book a Strategy Call</span>
+        <span class="path-btn-desc">30 minutes, direct conversation</span>
+      </button>
+    </div>
+
+    <!-- ── AUDIT FORM ── -->
+    <div class="form-panel visible" id="panel-audit">
+
+      <div id="audit-form-wrap">
+        <h2 class="form-heading">Get your Free<br>Content Audit</h2>
+        <p class="form-sub">Fill in your details. We'll review your content and send a personalised report — no fluff, no pitch, just honest assessment.</p>
+
+        <form onsubmit="handleSubmit(event)">
+          <div class="field-group">
+            <div class="field">
+              <label class="field-label" for="name">Your name</label>
+              <input class="field-input" type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label class="field-label" for="email">Email address</label>
+              <input class="field-input" type="email" id="email" name="email" placeholder="jane@company.com" required autocomplete="email">
+            </div>
+          </div>
+
+          <div class="field-group full" style="margin-bottom:14px;">
+            <div class="field">
+              <label class="field-label" for="website">Company / website URL</label>
+              <input class="field-input" type="url" id="website" name="website" placeholder="https://yourwebsite.com" required>
+            </div>
+          </div>
+
+          <div class="field-group full" style="margin-bottom:0;">
+            <div class="field">
+              <label class="field-label" for="challenge">Your biggest content challenge right now</label>
+              <textarea class="field-input" id="challenge" name="challenge" placeholder="E.g. We're getting traffic but no leads. Or — we're invisible in AI search results. Or — our blog exists but we haven't published in months..." required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <span>Send Details — Get the Free Audit</span>
+            <span class="submit-arrow">→</span>
+          </button>
+        </form>
+
+        <div class="submit-note">Personalised report within 48 hours · No commitment</div>
+
+        <div class="or-divider">
+          <div class="or-line"></div>
+          <span class="or-text">Prefer a call instead?</span>
+          <div class="or-line"></div>
+        </div>
+
+        <button class="cal-btn" onclick="switchPath('call')">
+          <span>Book a 30-Minute Strategy Call</span>
+          <span class="cal-btn-arrow">→</span>
+        </button>
+      </div>
+
+      <!-- success state -->
+      <div class="success-state" id="success-state">
+        <div class="success-icon">✦</div>
+        <div class="success-title">You're in.</div>
+        <p class="success-sub">We'll review your content and send your personalised audit within 48 hours. Check your inbox — and keep an eye on spam just in case.</p>
+        <div style="margin-top:8px; font-family:'Azeret Mono',monospace; font-size:10px; letter-spacing:0.12em; color:var(--muted); text-transform:uppercase;">No commitment · Yours to keep</div>
+      </div>
+
+    </div>
+
+    <!-- ── CALL PANEL ── -->
+    <div class="form-panel" id="panel-call">
+      <h2 class="cal-heading">Book a 30-Minute<br>Strategy Call</h2>
+      <p class="cal-sub">We'll look at your current content situation and tell you honestly what we think. What's working, what isn't, and what we'd do if we were you.</p>
+
+      <div class="cal-includes">
+        <div class="cal-includes-label">What's covered in 30 minutes</div>
+        <div class="cal-include-item">
+          <div class="inc-dot"></div>
+          <div class="inc-text">
+            <strong>Search rankings review</strong>
+            Where you rank today, which keywords matter, what's cannibalising your own results.
+          </div>
+        </div>
+        <div class="cal-include-item">
+          <div class="inc-dot"></div>
+          <div class="inc-text">
+            <strong>AI visibility check</strong>
+            Are you showing up when buyers ask ChatGPT, Perplexity, or Google AI about your category?
+          </div>
+        </div>
+        <div class="cal-include-item">
+          <div class="inc-dot"></div>
+          <div class="inc-text">
+            <strong>LinkedIn presence audit</strong>
+            Are you or your founders visible in the feed where your buyers spend time?
+          </div>
+        </div>
+        <div class="cal-include-item">
+          <div class="inc-dot"></div>
+          <div class="inc-text">
+            <strong>Honest next steps</strong>
+            What we'd do if we were you — whether or not we work together.
+          </div>
+        </div>
+      </div>
+
+      <button class="cal-btn" id="bookCallBtn">
+        <span>Book My 30-Minute Call</span>
+        <span class="cal-btn-arrow">→</span>
+      </button>
+
+      <div class="cal-note">Free · No pitch · Honest conversation</div>
+
+      <div class="or-divider">
+        <div class="or-line"></div>
+        <span class="or-text">Prefer the written audit first?</span>
+        <div class="or-line"></div>
+      </div>
+
+      <button class="submit-btn" onclick="switchPath('audit')" style="background:var(--surface-2); color:var(--text); border:1px solid var(--border-2);">
+        <span>Get the Free Written Audit Instead</span>
+        <span class="submit-arrow" style="background:rgba(255,255,255,0.06);">→</span>
+      </button>
+    </div>
+
+  </main>
+</div>
+
+<script>
+/* ── CURSOR ── */
+const cur = document.getElementById('cur');
+let mx = -100, my = -100;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+
+const hoverEls = document.querySelectorAll('.submit-btn, .cal-btn, .path-btn, .field-input');
+hoverEls.forEach(el => {
+  el.addEventListener('mouseenter', () => cur.classList.add('big'));
+  el.addEventListener('mouseleave', () => cur.classList.remove('big'));
+});
+
+(function tick() {
+  cur.style.left = mx + 'px';
+  cur.style.top = my + 'px';
+  requestAnimationFrame(tick);
+})();
+
+/* ── PATH SWITCHING ── */
+function switchPath(path) {
+  document.querySelectorAll('.path-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('visible'));
+
+  document.getElementById('path-' + path).classList.add('active');
+  document.getElementById('panel-' + path).classList.add('visible');
+}
+
+/* ── STEP ANIMATION on focus ── */
+const fields = document.querySelectorAll('.field-input');
+const stepMap = {
+  'name': 'step-1', 'email': 'step-1',
+  'website': 'step-3',
+  'challenge': 'step-3'
+};
+
+fields.forEach(f => {
+  f.addEventListener('focus', () => {
+    const stepId = stepMap[f.id] || 'step-1';
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.getElementById(stepId)?.classList.add('active');
+  });
+});
+
+/* ── FORM SUBMIT ── */
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('audit-form-wrap').style.display = 'none';
+  document.getElementById('success-state').classList.add('visible');
+  // cycle steps as "processing"
+  let i = 1;
+  const interval = setInterval(() => {
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    const step = document.getElementById('step-' + i);
+    if (step) step.classList.add('active');
+    i++;
+    if (i > 5) clearInterval(interval);
+  }, 500);
+}
+
+/* ── STEP AUTO-CYCLE on idle ── */
+let stepIndex = 1;
+let cycleInterval;
+
+function startCycle() {
+  cycleInterval = setInterval(() => {
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    stepIndex = (stepIndex % 5) + 1;
+    document.getElementById('step-' + stepIndex)?.classList.add('active');
+  }, 2200);
+}
+
+function stopCycle() { clearInterval(cycleInterval); }
+
+fields.forEach(f => {
+  f.addEventListener('focus', stopCycle);
+  f.addEventListener('blur', startCycle);
+});
+
+startCycle();
+</script>
+</body>
+</html> -->

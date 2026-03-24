@@ -53,7 +53,7 @@ export function HeroSection() {
               className="kicker-text tracking-[0.2em] uppercase"
               style={{
                 fontFamily: 'DM Mono, monospace',
-                fontSize: '20px',
+                fontSize: 'clamp(14px, 3vw, 20px)',
                 color: 'var(--home-muted)'
               }}
             >
@@ -85,7 +85,7 @@ export function HeroSection() {
           <p 
             className="hero-desc mb-10"
             style={{
-              fontSize: '24px',
+              fontSize: 'clamp(16px, 4vw, 24px)',
               lineHeight: 1.6,
               color: 'var(--home-muted)',
               fontFamily: 'Libre Baskerville, serif',
@@ -103,7 +103,7 @@ export function HeroSection() {
               className="btn-primary inline-flex items-center gap-2.5 px-7 py-4 bg-(--home-lime) text-(--home-bg) no-underline rounded-lg transition-all duration-200 hover:opacity-90 hover:-translate-y-px"
               style={{
                 fontFamily: 'Barlow Condensed, sans-serif',
-                fontSize: '18px',
+                fontSize: 'clamp(14px, 3vw, 20px)',
                 fontWeight: 700,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
@@ -118,7 +118,7 @@ export function HeroSection() {
               className="btn-ghost inline-flex items-center gap-2.5 px-7 py-4 bg-transparent text-(--home-text) border border-[rgba(255,255,255,0.13)] no-underline rounded-lg transition-all duration-200 hover:border-(--home-text) hover:bg-[rgba(255,255,255,0.04)]"
               style={{
                 fontFamily: 'Barlow Condensed, sans-serif',
-                fontSize: '18px',
+                fontSize: 'clamp(14px, 3vw, 20px)',
                 fontWeight: 700,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase',
@@ -151,7 +151,7 @@ export function HeroSection() {
                 <span 
                   style={{
                     fontFamily: 'Barlow Condensed, sans-serif',
-                    fontSize: '1.2rem',
+                    fontSize: 'clamp(12px, 2.5vw, 16px)',
                     fontWeight: 600,
                     textTransform: 'uppercase',
                     letterSpacing: '0.06em',
@@ -182,7 +182,7 @@ export function HeroSection() {
             style={{ background: 'var(--home-surface)' }}
           >
             <div 
-              className="text-[9px] tracking-[0.18em] uppercase mb-2.5"
+              className="text-[13px] tracking-[0.18em] uppercase mb-2.5"
               style={{
                 fontFamily: 'var(--font-inter)',
                 color: 'var(--home-muted)'
@@ -191,7 +191,7 @@ export function HeroSection() {
               Content compounds.
             </div>
             <div 
-              className="text-[2.4rem] font-bold leading-none mb-1"
+              className="text-[3rem] font-bold leading-none mb-1"
               style={{
                 fontFamily: 'Barlow Condensed, sans-serif',
                 color: 'var(--home-lime)'
@@ -200,7 +200,7 @@ export function HeroSection() {
               Every week
             </div>
             <div 
-              className="text-[12px] italic leading-6"
+              className="text-[16px] italic leading-6"
               style={{
                 color: 'var(--home-muted)',
                 fontFamily: 'var(--font-inter)'

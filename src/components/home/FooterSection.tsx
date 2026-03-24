@@ -28,7 +28,7 @@ export function FooterSection() {
       <div 
         style={{
           fontFamily: 'var(--font-fahkwang)',
-          fontSize: '1.1rem',
+          fontSize: 'clamp(1.1rem, 3vw, 1.2rem)',
           fontWeight: 800,
           letterSpacing: '0.1em',
           textTransform: 'uppercase',
@@ -47,7 +47,7 @@ export function FooterSection() {
               className="no-underline transition-all duration-200 hover:text-(--home-text)"
               style={{
                 fontFamily: 'var(--font-inter)',
-                fontSize: '10px',
+                fontSize: 'clamp(12px, 3vw, 15px)',
                 letterSpacing: '0.12em',
                 textTransform: 'uppercase',
                 color: 'var(--home-muted)'
@@ -63,7 +63,7 @@ export function FooterSection() {
       <div 
         style={{
           fontFamily: 'var(--font-inter)',
-          fontSize: '10px',
+          fontSize: 'clamp(10px, 2.5vw, 12px)',
           letterSpacing: '0.08em',
           color: 'var(--home-muted-2)'
         }}

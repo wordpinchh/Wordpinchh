@@ -32,7 +32,7 @@ export function ServicesSection() {
           <div className="flex items-center gap-3 mb-6">
             <div className="w-6 h-0.5 bg-(--home-red)" />
             <span 
-              className="text-[10px] tracking-[0.2em] uppercase"
+              className="text-[clamp(14px, 4vw, 20px)] tracking-[0.2em] uppercase"
               style={{
                 fontFamily: 'var(--font-inter)',
                 color: 'var(--home-red)'
@@ -69,7 +69,7 @@ export function ServicesSection() {
           className="inline-flex items-center gap-2.5 px-7 py-4 bg-transparent text-(--home-text) border border-[rgba(255,255,255,0.13)] no-underline rounded-lg transition-all duration-200 hover:border-(--home-text) hover:bg-[rgba(255,255,255,0.04)] shrink-0"
           style={{
             fontFamily: 'var(--font-fahkwang)',
-            fontSize: '14px',
+            fontSize: 'clamp(16px, 4vw, 18px)',
             fontWeight: 700,
             letterSpacing: '0.08em',
             textTransform: 'uppercase'
@@ -84,7 +84,7 @@ export function ServicesSection() {
         {/* Core Services */}
         <div className="px-16 py-10 lg:border-r border-[rgba(255,255,255,0.07)]">
           <div 
-            className="text-[9px] tracking-[0.22em] uppercase mb-6 pb-3 border-b border-[rgba(255,255,255,0.07)]"
+            className="text-[clamp(12px, 3vw, 15px)] tracking-[0.22em] uppercase mb-6 pb-3 border-b border-[rgba(255,255,255,0.07)]"
             style={{
               fontFamily: 'var(--font-inter)',
               color: 'var(--home-gold)'
@@ -112,7 +112,7 @@ export function ServicesSection() {
                   className="mb-1"
                   style={{
                     fontFamily: 'var(--font-fahkwang)',
-                    fontSize: '1.15rem',
+                    fontSize: 'clamp(1.2rem, 4vw, 1.4rem)',
                     fontWeight: 700,
                     textTransform: 'uppercase',
                     letterSpacing: '0.04em',
@@ -123,7 +123,7 @@ export function ServicesSection() {
                 </div>
                 <div 
                   style={{
-                    fontSize: '12px',
+                    fontSize: 'clamp(16px, 4vw, 20px)',
                     color: 'var(--home-muted)',
                     fontStyle: 'italic',
                     lineHeight: 1.5,
@@ -140,7 +140,7 @@ export function ServicesSection() {
         {/* AI Services */}
         <div className="px-16 py-10">
           <div 
-            className="text-[9px] tracking-[0.22em] uppercase mb-6 pb-3 border-b border-[rgba(255,255,255,0.07)]"
+            className="text-[clamp(12px, 3vw, 15px)] tracking-[0.22em] uppercase mb-6 pb-3 border-b border-[rgba(255,255,255,0.07)]"
             style={{
               fontFamily: 'var(--font-inter)',
               color: 'var(--home-lime)'
@@ -168,7 +168,7 @@ export function ServicesSection() {
                   className="mb-1"
                   style={{
                     fontFamily: 'var(--font-fahkwang)',
-                    fontSize: '1.15rem',
+                    fontSize: 'clamp(1.2rem, 4vw, 1.4rem)',
                     fontWeight: 700,
                     textTransform: 'uppercase',
                     letterSpacing: '0.04em',
@@ -179,7 +179,7 @@ export function ServicesSection() {
                 </div>
                 <div 
                   style={{
-                    fontSize: '12px',
+                    fontSize: 'clamp(16px, 4vw, 20px)',
                     color: 'var(--home-muted)',
                     fontStyle: 'italic',
                     lineHeight: 1.5,

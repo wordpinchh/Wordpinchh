@@ -48,7 +48,7 @@ export function TickerSection() {
             className="flex items-center gap-5 px-10 transition-all duration-300 hover:scale-110"
             style={{
               fontFamily: 'Barlow Condensed, sans-serif',
-              fontSize: '13px',
+              fontSize: 'clamp(14px, 3vw, 20px)',
               fontWeight: 600,
               letterSpacing: '0.12em',
               textTransform: 'uppercase',

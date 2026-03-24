@@ -49,7 +49,7 @@ export function FinalCTASection() {
           className="mb-6 inline-block px-4 py-2 rounded-full"
           style={{
             fontFamily: 'var(--font-inter)',
-            fontSize: '10px',
+            fontSize: 'clamp(14px, 3.5vw, 20px)',
             letterSpacing: '0.22em',
             textTransform: 'uppercase',
             color: 'var(--home-muted)',
@@ -66,7 +66,7 @@ export function FinalCTASection() {
           className="mb-7"
           style={{
             fontFamily: 'Barlow Condensed, sans-serif',
-            fontSize: 'clamp(2.8rem, 5vw, 5.5rem)',
+            fontSize: 'clamp(2.8rem, 10vw, 8rem)',
             fontWeight: 900,
             lineHeight: 0.9,
             textTransform: 'uppercase',
@@ -84,10 +84,10 @@ export function FinalCTASection() {
 
         {/* Body */}
         <p 
-          className="max-w-[500px] mx-auto mb-12"
+          className="max-w-[800px] mx-auto mb-12 whitespace-nowrap"
           style={{
-            fontSize: '16px',
-            lineHeight: 1.75,
+            fontSize: 'clamp(18px, 4vw, 22px)',
+            lineHeight: 1.5,
             color: 'var(--home-muted)',
             fontStyle: 'italic',
             fontFamily: 'var(--font-inter)'
@@ -103,7 +103,7 @@ export function FinalCTASection() {
             className="inline-flex items-center gap-2.5 px-9 py-4.5 no-underline rounded-lg transition-all duration-300 hover:scale-110 hover:shadow-2xl relative overflow-hidden group"
             style={{
               fontFamily: 'Barlow Condensed, sans-serif',
-              fontSize: '15px',
+              fontSize: 'clamp(14px, 3.5vw, 20px)',
               fontWeight: 700,
               letterSpacing: '0.08em',
               textTransform: 'uppercase',
@@ -127,7 +127,7 @@ export function FinalCTASection() {
             className="inline-flex items-center gap-2.5 px-9 py-4.5 no-underline rounded-lg transition-all duration-300 hover:scale-110 hover:shadow-xl relative overflow-hidden group"
             style={{
               fontFamily: 'Barlow Condensed, sans-serif',
-              fontSize: '15px',
+              fontSize: 'clamp(14px, 3.5vw, 20px)',
               fontWeight: 700,
               letterSpacing: '0.08em',
               textTransform: 'uppercase',

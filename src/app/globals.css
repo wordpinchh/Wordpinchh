@@ -254,7 +254,7 @@ body {
   align-items: center;
   gap: 14px;
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
+  font-size: 20px !important;
   letter-spacing: 0.2em;
   color: #8A7F6E;
 }

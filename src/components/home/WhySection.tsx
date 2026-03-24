@@ -41,7 +41,7 @@ export function WhySection() {
         <div className="flex items-center gap-3 mb-6">
           <div className="w-6 h-0.5 bg-(--home-red)" />
           <span 
-            className="text-[10px] tracking-[0.2em] uppercase"
+            className="text-[clamp(14px, 4vw, 20px)] tracking-[0.2em] uppercase"
             style={{
               fontFamily: 'var(--font-inter)',
               color: 'var(--home-red)'
@@ -96,7 +96,7 @@ export function WhySection() {
               className="mb-4"
               style={{
                 fontFamily: 'var(--font-inter)',
-                fontSize: '9px',
+                fontSize: 'clamp(16px, 4vw, 20px)',
                 letterSpacing: '0.15em',
                 color: 'var(--home-muted-2)'
               }}
@@ -109,7 +109,7 @@ export function WhySection() {
               className="mb-3"
               style={{
                 fontFamily: 'var(--font-fahkwang)',
-                fontSize: '1.4rem',
+                fontSize: 'clamp(1.4rem, 4vw, 1.5rem)',
                 fontWeight: 700,
                 textTransform: 'uppercase',
                 letterSpacing: '0.02em',
@@ -123,7 +123,7 @@ export function WhySection() {
             {/* Description */}
             <p 
               style={{
-                fontSize: '14px',
+                fontSize: 'clamp(15px, 4vw, 17px)',
                 lineHeight: 1.75,
                 color: 'var(--home-muted)',
                 fontWeight: 300,

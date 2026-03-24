@@ -40,7 +40,7 @@ export function ProcessSection() {
       <div className="flex items-center gap-3 mb-6">
         <div className="w-6 h-0.5 bg-(--home-red)" />
         <span 
-          className="text-[10px] tracking-[0.2em] uppercase"
+          className="text-[clamp(14px, 4vw, 20px)] tracking-[0.2em] uppercase"
           style={{
             fontFamily: 'var(--font-inter)',
             color: 'var(--home-red)'
@@ -108,7 +108,7 @@ export function ProcessSection() {
               className="mb-2.5"
               style={{
                 fontFamily: 'var(--font-fahkwang)',
-                fontSize: '1.2rem',
+                fontSize: 'clamp(1.3rem, 4vw, 1.4rem)',
                 fontWeight: 700,
                 textTransform: 'uppercase',
                 letterSpacing: '0.06em',
@@ -121,7 +121,7 @@ export function ProcessSection() {
             {/* Description */}
             <p 
               style={{
-                fontSize: '13px',
+                fontSize: 'clamp(16px, 4vw, 19px)',
                 lineHeight: 1.7,
                 color: 'var(--home-muted)',
                 fontWeight: 300,

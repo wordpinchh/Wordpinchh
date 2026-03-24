@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ContactRightPanel() {
   const [activePath, setActivePath] = useState<'audit' | 'call'>('audit');
-  const [showSuccess, setShowSuccess] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,10 +12,8 @@ export default function ContactRightPanel() {
     challenge: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-    setShowSuccess(true);
+  const switchPath = (path: 'audit' | 'call') => {
+    setActivePath(path);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -25,49 +23,50 @@ export default function ContactRightPanel() {
     }));
   };
 
-  if (showSuccess) {
-    return (
-      <main className="p-14 lg:p-20 bg-[#111110] flex flex-col items-center justify-center text-center">
-        <div className="w-18 h-18 bg-[rgba(202,255,74,0.08)] border border-[rgba(202,255,74,0.2)] rounded-full flex items-center justify-center text-[28px] mb-5">
-          ✦
-        </div>
-        <h2 className="text-[1.5rem] font-bold tracking-tight text-[#F0EDE6] mb-5" style={{ fontFamily: "var(--font-fahkwang)" }}>
-          You're in.
-        </h2>
-        <p className="text-[15px] leading-[1.7] text-[#6B6860] font-light italic max-w-[340px] mb-2" style={{ fontFamily: "var(--font-inter)" }}>
-          We'll review your content and send your personalised audit within 48 hours. Check your inbox — and keep an eye on spam just in case.
-        </p>
-        <div className="text-[10px] tracking-[0.12em] text-[#6B6860] uppercase font-mono mt-2">
-          No commitment · Yours to keep
-        </div>
-      </main>
-    );
-  }
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+  };
+
+  useEffect(() => {
+    // Trigger step animations based on field focus
+    const stepMap: Record<string, number> = {
+      'name': 1, 'email': 1,
+      'website': 3,
+      'challenge': 3
+    };
+
+    // This would communicate with left panel if needed
+    // For now, just handle local state
+  }, [formData]);
 
   return (
-    <main className="p-14 lg:p-20 bg-[#111110] flex flex-col">
-      
-      {/* Path Switcher */}
+    <main className="p-14 flex flex-col bg-[#111110]"
+      style={{
+        animation: 'fadeUp 0.5s ease 0.1s both',
+      }}
+    >
+      {/* PATH SWITCHER */}
       <div className="grid grid-cols-2 gap-2.5 mb-11">
         <button
-          onClick={() => setActivePath('audit')}
-          className={`p-4 border rounded-xl text-left transition-all duration-250 relative overflow-hidden ${
+          className={`p-4 border border-[rgba(255,255,255,0.12)] rounded-[12px] text-left transition-all duration-250 relative overflow-hidden cursor-pointer ${
             activePath === 'audit' 
               ? 'border-[#CAFF4A] bg-[rgba(202,255,74,0.08)]' 
-              : 'border-[rgba(255,255,255,0.12)] bg-transparent hover:border-[rgba(255,255,255,0.12)] hover:bg-[#181816]'
+              : 'border-[rgba(255,255,255,0.12)] hover:border-[rgba(255,255,255,0.12)] hover:bg-[#181816]'
           }`}
+          onClick={() => switchPath('audit')}
         >
-          <div className={`absolute top-3 right-3.5 w-1.5 h-1.5 rounded-full bg-[#CAFF4A] transition-opacity duration-200 ${
+          <div className={`absolute top-3 right-3.5 w-[7px] h-[7px] rounded-full bg-[#CAFF4A] transition-opacity duration-200 ${
             activePath === 'audit' ? 'opacity-100' : 'opacity-0'
           }`} />
-          <span className={`block text-[11px] font-semibold tracking-[0.04em] mb-1 transition-colors duration-200 ${
+          <span className={`font-[Unbounded] text-[11px] font-semibold tracking-[0.04em] block mb-1 transition-colors duration-200 ${
             activePath === 'audit' ? 'text-[#CAFF4A]' : 'text-[#6B6860]'
-          }`} style={{ fontFamily: "var(--font-fahkwang)" }}>
+          }`}>
             Free Content Audit
           </span>
-          <span className={`block text-[12px] font-light italic leading-[1.4] transition-colors duration-200 ${
+          <span className={`text-[12px] font-light italic leading-[1.4] block transition-colors duration-200 ${
             activePath === 'audit' ? 'text-[rgba(202,255,74,0.6)]' : 'text-[#6B6860]'
-          }`} style={{ fontFamily: "var(--font-inter)" }}>
+          }`}>
             Get a personalised report within 48 hrs
           </span>
         </button>
@@ -200,12 +199,32 @@ export default function ContactRightPanel() {
           </div>
 
           <button
-            onClick={() => setActivePath('call')}
-            className="w-full p-[18px_32px] bg-transparent text-[#CAFF4A] font-bold tracking-[0.04em] border-[1.5px] border-[#CAFF4A] rounded-xl cursor-pointer transition-all duration-200 flex items-center justify-between gap-3 text-[13px] hover:bg-[#CAFF4A] hover:text-[#0B0B09] hover:-translate-y-px active:translate-y-0"
-            style={{ fontFamily: "'Unbounded', sans-serif" }}
+            className="cal-btn w-full p-[18px_32px] bg-transparent text-[#CAFF4A] font-[Unbounded] text-[13px] font-bold tracking-[0.04em] border-[1.5px] border-[#CAFF4A] rounded-[12px] cursor-none transition-all duration-250 flex items-center justify-between hover:bg-[#CAFF4A] hover:text-[#0B0B09] hover:transform hover:-translate-y-px active:translate-y-0"
           >
-            <span>Book a 30-Minute Strategy Call</span>
-            <span className="w-8 h-8 border border-[rgba(202,255,74,0.3)] rounded-lg flex items-center justify-center text-[16px]">
+            <span>Book My 30-Minute Call</span>
+            <span className="cal-btn-arrow w-8 h-8 border border-[rgba(202,255,74,0.3)] rounded-lg flex items-center justify-center text-base">
+              →
+            </span>
+          </button>
+
+          <div className="cal-note text-[11px] text-[#6B6860] font-[Azeret_Mono] tracking-[0.06em] text-center mt-3.5">
+            Free · No pitch · Honest conversation
+          </div>
+
+          <div className="or-divider flex items-center gap-3.5 my-7">
+            <div className="or-line flex-1 h-px bg-[rgba(255,255,255,0.07)]" />
+            <span className="or-text font-[Azeret_Mono] text-[10px] tracking-[0.15em] uppercase text-[#3A3830]">
+              Prefer the written audit first?
+            </span>
+            <div className="or-line flex-1 h-px bg-[rgba(255,255,255,0.07)]" />
+          </div>
+
+          <button
+            onClick={() => switchPath('audit')}
+            className="submit-btn w-full mt-6 p-[18px_32px] bg-[#181816] text-[#F0EDE6] font-[Unbounded] text-[13px] font-bold tracking-[0.04em] border border-[rgba(255,255,255,0.12)] rounded-[12px] transition-all duration-250 flex items-center justify-between gap-3 hover:opacity-90 hover:transform hover:-translate-y-px active:translate-y-0"
+          >
+            <span>Get the Free Written Audit Instead</span>
+            <span className="submit-arrow w-8 h-8 bg-[rgba(255,255,255,0.06)] rounded-lg flex items-center justify-center text-base shrink-0">
               →
             </span>
           </button>
@@ -215,66 +234,91 @@ export default function ContactRightPanel() {
       {/* Call Panel */}
       {activePath === 'call' && (
         <div>
-          <h2 className="text-[clamp(1.3rem,2vw,1.7rem)] font-bold tracking-[-0.02em] text-[#F0EDE6] mb-2 leading-[1.2] text-left" style={{ fontFamily: "var(--font-fahkwang)" }}>
-            Book a Strategy Call
+          <h2 className="cal-heading font-[Unbounded] font-bold tracking-[-0.02em] text-[#F0EDE6] mb-2 leading-[1.2]"
+            style={{
+              fontSize: 'clamp(1.3rem, 2vw, 1.7rem)',
+            }}
+          >
+            Book a 30-Minute<br />Strategy Call
           </h2>
-          <p className="text-[15px] leading-[1.7] text-[#6B6860] font-light italic mb-9 text-left" style={{ fontFamily: "var(--font-inter)" }}>
-            30 minutes to discuss your content challenges and explore how we can help you grow.
+          <p className="cal-sub text-[14px] leading-[1.7] text-[#6B6860] font-light italic mb-9">
+            We'll look at your current content situation and tell you honestly what we think. What's working, what isn't, and what we'd do if we were you.
           </p>
 
-          <div className="bg-[#181816] border border-[rgba(255,255,255,0.07)] rounded-[14px] p-6 mb-7">
-            <div className="text-[9px] tracking-[0.22em] uppercase text-[#3A3830] mb-4.5 pb-3 border-b border-[rgba(255,255,255,0.07)] font-mono">
-              What's included
+          <div className="cal-includes bg-[#181816] border border-[rgba(255,255,255,0.07)] rounded-[14px] p-6 mb-7">
+            <div className="cal-includes-label font-[Azeret_Mono] text-[9px] tracking-[0.22em] uppercase text-[#3A3830] mb-4.5 pb-3 border-b border-[rgba(255,255,255,0.07)]">
+              What's covered in 30 minutes
+            </div>
+            
+            <div className="cal-include-item flex items-start gap-3 py-2.5 border-b border-[rgba(255,255,255,0.07)]">
+              <div className="inc-dot w-1.5 h-1.5 rounded-full bg-[#CAFF4A] shrink-0 mt-1.5" />
+              <div className="inc-text text-[13px] leading-[1.55] text-[#6B6860] font-light">
+                <strong className="block text-[#F0EDE6] font-medium block mb-0.25 text-[13px]">
+                  Search rankings review
+                </strong>
+                Where you rank today, which keywords matter, what's cannibalising your own results.
+              </div>
             </div>
 
-            <div className="space-y-0">
-              <div className="flex items-start gap-3 py-2.5 border-b border-[rgba(255,255,255,0.07)]">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#CAFF4A] shrink-0 mt-1.5" />
-                <div className="text-[14px] leading-[1.55] text-[#6B6860] font-light text-left" style={{ fontFamily: "var(--font-inter)" }}>
-                  <strong className="block text-[#F0EDE6] font-medium text-[14px] mb-0.25 text-left" style={{ fontFamily: "var(--font-fahkwang)" }}>Content strategy review</strong>
-                  We'll analyze your current content and identify quick wins
-                </div>
+            <div className="cal-include-item flex items-start gap-3 py-2.5 border-b border-[rgba(255,255,255,0.07)]">
+              <div className="inc-dot w-1.5 h-1.5 rounded-full bg-[#CAFF4A] shrink-0 mt-1.5" />
+              <div className="inc-text text-[13px] leading-[1.55] text-[#6B6860] font-light">
+                <strong className="block text-[#F0EDE6] font-medium block mb-0.25 text-[13px]">
+                  AI visibility check
+                </strong>
+                Are you showing up when buyers ask ChatGPT, Perplexity, or Google AI about your category?
               </div>
+            </div>
 
-              <div className="flex items-start gap-3 py-2.5 border-b border-[rgba(255,255,255,0.07)]">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#CAFF4A] shrink-0 mt-1.5" />
-                <div className="text-[14px] leading-[1.55] text-[#6B6860] font-light text-left" style={{ fontFamily: "var(--font-inter)" }}>
-                  <strong className="block text-[#F0EDE6] font-medium text-[14px] mb-0.25 text-left" style={{ fontFamily: "var(--font-fahkwang)" }}>AI visibility assessment</strong>
-                  Check how you're showing up in AI-generated answers
-                </div>
+            <div className="cal-include-item flex items-start gap-3 py-2.5 border-b border-[rgba(255,255,255,0.07)]">
+              <div className="inc-dot w-1.5 h-1.5 rounded-full bg-[#CAFF4A] shrink-0 mt-1.5" />
+              <div className="inc-text text-[13px] leading-[1.55] text-[#6B6860] font-light">
+                <strong className="block text-[#F0EDE6] font-medium block mb-0.25 text-[13px]">
+                  LinkedIn presence audit
+                </strong>
+                Are you or your founders visible in the feed where your buyers spend time?
               </div>
+            </div>
 
-              <div className="flex items-start gap-3 py-2.5 border-b border-[rgba(255,255,255,0.07)]">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#CAFF4A] shrink-0 mt-1.5" />
-                <div className="text-[14px] leading-[1.55] text-[#6B6860] font-light text-left" style={{ fontFamily: "var(--font-inter)" }}>
-                  <strong className="block text-[#F0EDE6] font-medium text-[14px] mb-0.25 text-left" style={{ fontFamily: "var(--font-fahkwang)" }}>Actionable recommendations</strong>
-                  Specific steps you can take immediately after the call
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3 py-2.5">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#CAFF4A] shrink-0 mt-1.5" />
-                <div className="text-[14px] leading-[1.55] text-[#6B6860] font-light text-left" style={{ fontFamily: "var(--font-inter)" }}>
-                  <strong className="block text-[#F0EDE6] font-medium text-[14px] mb-0.25 text-left" style={{ fontFamily: "var(--font-fahkwang)" }}>No pressure, no pitch</strong>
-                  Just honest advice and a clear path forward
-                </div>
+            <div className="cal-include-item flex items-start gap-3 py-2.5">
+              <div className="inc-dot w-1.5 h-1.5 rounded-full bg-[#CAFF4A] shrink-0 mt-1.5" />
+              <div className="inc-text text-[13px] leading-[1.55] text-[#6B6860] font-light">
+                <strong className="block text-[#F0EDE6] font-medium block mb-0.25 text-[13px]">
+                  Honest next steps
+                </strong>
+                What we'd do if we were you — whether or not we work together.
               </div>
             </div>
           </div>
 
-          <button
-            className="w-full p-[18px_32px] bg-transparent text-[#CAFF4A] font-bold tracking-[0.04em] border-[1.5px] border-[#CAFF4A] rounded-xl cursor-pointer transition-all duration-200 flex items-center justify-between gap-3 text-[13px] hover:bg-[#CAFF4A] hover:text-[#0B0B09] hover:-translate-y-px active:translate-y-0"
-            style={{ fontFamily: "var(--font-fahkwang)" }}
-          >
-            <span>Book Your 30-Minute Call</span>
-            <span className="w-8 h-8 border border-[rgba(202,255,74,0.3)] rounded-lg flex items-center justify-center text-[16px]">
+          <button className="cal-btn w-full p-[18px_32px] bg-transparent text-[#CAFF4A] font-[Unbounded] text-[13px] font-bold tracking-[0.04em] border-[1.5px] border-[#CAFF4A] rounded-[12px] cursor-none transition-all duration-250 flex items-center justify-between hover:bg-[#CAFF4A] hover:text-[#0B0B09] hover:transform hover:-translate-y-px active:translate-y-0">
+            <span>Book My 30-Minute Call</span>
+            <span className="cal-btn-arrow w-8 h-8 border border-[rgba(202,255,74,0.3)] rounded-lg flex items-center justify-center text-base">
               →
             </span>
           </button>
 
-          <div className="text-[11px] text-[#6B6860] text-center mt-3.5 font-mono tracking-[0.06em]">
-            Free consultation · No obligation
+          <div className="cal-note text-[11px] text-[#6B6860] font-[Azeret_Mono] tracking-[0.06em] text-center mt-3.5">
+            Free · No pitch · Honest conversation
           </div>
+
+          <div className="or-divider flex items-center gap-3.5 my-7">
+            <div className="or-line flex-1 h-px bg-[rgba(255,255,255,0.07)]" />
+            <span className="or-text font-[Azeret_Mono] text-[10px] tracking-[0.15em] uppercase text-[#3A3830]">
+              Prefer the written audit first?
+            </span>
+            <div className="or-line flex-1 h-px bg-[rgba(255,255,255,0.07)]" />
+          </div>
+
+          <button
+            onClick={() => switchPath('audit')}
+            className="submit-btn w-full mt-6 p-[18px_32px] bg-[#181816] text-[#F0EDE6] font-[Unbounded] text-[13px] font-bold tracking-[0.04em] border border-[rgba(255,255,255,0.12)] rounded-[12px] transition-all duration-250 flex items-center justify-between gap-3 hover:opacity-90 hover:transform hover:-translate-y-px active:translate-y-0"
+          >
+            <span>Get the Free Written Audit Instead</span>
+            <span className="submit-arrow w-8 h-8 bg-[rgba(255,255,255,0.06)] rounded-lg flex items-center justify-center text-base shrink-0">
+              →
+            </span>
+          </button>
         </div>
       )}
     </main>

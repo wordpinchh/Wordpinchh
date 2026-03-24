@@ -27,7 +27,7 @@ export function ProblemSection() {
         <div className="flex items-center gap-3 mb-6">
           <div className="w-6 h-0.5 bg-(--home-red)" />
           <span 
-            className="text-[10px] tracking-[0.2em] uppercase"
+            className="text-[clamp(14px, 4vw, 20px)] tracking-[0.2em] uppercase"
             style={{
               fontFamily: 'var(--font-inter)',
               color: 'var(--home-red)'
@@ -65,7 +65,7 @@ export function ProblemSection() {
         <p 
           className="mb-5"
           style={{
-            fontSize: '15px',
+            fontSize: 'clamp(16px, 4vw, 20px)',
             lineHeight: 1.8,
             color: 'var(--home-muted)',
             fontFamily: 'var(--font-inter)',
@@ -77,7 +77,7 @@ export function ProblemSection() {
         <p 
           className="mb-8"
           style={{
-            fontSize: '15px',
+            fontSize: 'clamp(16px, 4vw, 20px)',
             lineHeight: 1.8,
             color: 'var(--home-muted)',
             fontFamily: 'var(--font-inter)',
@@ -108,7 +108,7 @@ export function ProblemSection() {
               </div>
               <span 
                 style={{
-                  fontSize: '14px',
+                  fontSize: 'clamp(14px, 3vw, 18px)',
                   lineHeight: 1.6,
                   color: 'var(--home-muted)',
                   fontWeight: 400,
@@ -146,7 +146,7 @@ export function ProblemSection() {
             className="mb-3.5"
             style={{
               fontFamily: 'var(--font-inter)',
-              fontSize: '9px',
+              fontSize: 'clamp(12px, 3vw, 15px)',
               letterSpacing: '0.2em',
               textTransform: 'uppercase',
               color: 'var(--home-gold)'
@@ -157,7 +157,7 @@ export function ProblemSection() {
           <p 
             style={{
               fontFamily: 'var(--font-inter)',
-              fontSize: '1.05rem',
+              fontSize: 'clamp(1.4rem, 4vw, 1.6rem)',
               lineHeight: 1.7,
               color: 'var(--home-text)',
               fontStyle: 'italic'
@@ -179,7 +179,7 @@ export function ProblemSection() {
             className="flex items-center gap-2.5 mb-3"
             style={{
               fontFamily: 'var(--font-fahkwang)',
-              fontSize: '11px',
+              fontSize: 'clamp(12px, 3vw, 15px)',
               fontWeight: 700,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
@@ -190,7 +190,7 @@ export function ProblemSection() {
           </div>
           <p 
             style={{
-              fontSize: '14px',
+              fontSize: 'clamp(20px, 5vw, 25.6px)',
               lineHeight: 1.7,
               color: 'rgba(202,255,74,0.65)',
               fontWeight: 300,

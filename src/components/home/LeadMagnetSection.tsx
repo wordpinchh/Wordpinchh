@@ -42,7 +42,7 @@ export function LeadMagnetSection() {
         <div className="flex items-center gap-3 mb-6">
           <div className="w-6 h-0.5 bg-(--home-red)" />
           <span 
-            className="text-[10px] tracking-[0.2em] uppercase"
+            className="text-[clamp(14px, 4vw, 20px)] tracking-[0.2em] uppercase"
             style={{
               fontFamily: 'var(--font-inter)',
               color: 'var(--home-red)'
@@ -73,7 +73,7 @@ export function LeadMagnetSection() {
         <p 
           className="mb-9"
           style={{
-            fontSize: '15px',
+            fontSize: 'clamp(16px, 4vw, 20px)',
             lineHeight: 1.8,
             color: 'var(--home-muted)',
             fontStyle: 'italic',
@@ -96,7 +96,7 @@ export function LeadMagnetSection() {
                   background: 'var(--home-lime-dim)',
                   border: '1px solid rgba(202,255,74,0.2)',
                   fontFamily: 'var(--font-inter)',
-                  fontSize: '8px',
+                  fontSize: 'clamp(9px, 2.5vw, 10px)',
                   color: 'var(--home-lime)',
                   letterSpacing: 0
                 }}
@@ -105,7 +105,7 @@ export function LeadMagnetSection() {
               </span>
               <span 
                 style={{
-                  fontSize: '13px',
+                  fontSize: 'clamp(14px, 3.5vw, 18px)',
                   lineHeight: 1.6,
                   color: 'var(--home-muted)',
                   fontStyle: 'italic',
@@ -140,7 +140,7 @@ export function LeadMagnetSection() {
             className="mb-1.5"
             style={{
               fontFamily: 'var(--font-fahkwang)',
-              fontSize: '1.4rem',
+              fontSize: 'clamp(1.6rem, 5vw, 2rem)',
               fontWeight: 700,
               textTransform: 'uppercase',
               color: 'var(--home-text)',
@@ -153,7 +153,7 @@ export function LeadMagnetSection() {
           <div 
             className="mb-6"
             style={{
-              fontSize: '12px',
+              fontSize: 'clamp(16px, 4vw, 20px)',
               color: 'var(--home-muted)',
               fontStyle: 'italic',
               lineHeight: 1.5,
@@ -171,7 +171,7 @@ export function LeadMagnetSection() {
               style={{
                 background: 'var(--home-surface-2)',
                 fontFamily: 'var(--font-inter)',
-                fontSize: '14px',
+                fontSize: '18px',
                 color: 'var(--home-text)'
               }}
             />
@@ -182,7 +182,7 @@ export function LeadMagnetSection() {
               style={{
                 background: 'var(--home-surface-2)',
                 fontFamily: 'var(--font-inter)',
-                fontSize: '14px',
+                fontSize: '18px',
                 color: 'var(--home-text)'
               }}
             />
@@ -193,7 +193,7 @@ export function LeadMagnetSection() {
               style={{
                 background: 'var(--home-surface-2)',
                 fontFamily: 'var(--font-inter)',
-                fontSize: '14px',
+                fontSize: '18px',
                 color: 'var(--home-text)'
               }}
             />
@@ -202,7 +202,7 @@ export function LeadMagnetSection() {
               className="w-full p-4 bg-(--home-lime) text-(--home-bg) rounded-lg border-none transition-all duration-200 hover:opacity-88 mt-1"
               style={{
                 fontFamily: 'var(--font-fahkwang)',
-                fontSize: '14px',
+                fontSize: 'clamp(16px, 4vw, 19px)',
                 fontWeight: 700,
                 letterSpacing: '0.08em',
                 textTransform: 'uppercase'
@@ -216,7 +216,7 @@ export function LeadMagnetSection() {
             className="mt-3 text-center"
             style={{
               fontFamily: 'var(--font-inter)',
-              fontSize: '10px',
+              fontSize: 'clamp(12px, 3vw, 15px)',
               letterSpacing: '0.08em',
               color: 'var(--home-muted-2)'
             }}
