@@ -1,76 +1,165 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from 'react';
 
 export default function AboutCTA() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
-    <section className="relative w-full bg-[var(--paper)] px-6 md:px-12 lg:px-16 py-24 overflow-hidden border-t border-[rgba(0,0,0,0.1)]">
-
-      {/* BACKGROUND WORD */}
-      <div className="absolute right-10 top-1/2 -translate-y-1/2 text-[180px] font-heading text-[var(--ink)]/[0.04] pointer-events-none leading-[0.8] text-right">
-        WORK<br />WITH<br />US
+    <section 
+      className="relative overflow-hidden"
+      style={{
+        padding: '72px 64px',
+        display: 'grid',
+        gridTemplateColumns: '1fr auto',
+        alignItems: 'center',
+        gap: '60px',
+        background: 'var(--about-paper)',
+        borderBottom: '6px solid var(--about-ink)',
+        animation: 'slideUp 0.5s ease 0.25s both'
+      }}
+    >
+      {/* BACKGROUND WATERMARK */}
+      <div className="absolute pointer-events-none right-[200px] top-[-30px] z-0 select-none">
+        <div
+          style={{
+            fontFamily: 'Barlow Condensed, sans-serif',
+            fontSize: '180px',
+            fontWeight: 900,
+            textTransform: 'uppercase',
+            color: 'rgba(26,18,8,0.04)',
+            lineHeight: 0.85,
+            letterSpacing: '-0.04em',
+            whiteSpace: 'pre',
+          }}
+        >
+          WORK{"\n"}WITH{"\n"}US
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center relative z-10">
-
-        {/* LEFT */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+      {/* CTA TEXT WRAP */}
+      <div>
+        {/* KICKER */}
+        <div 
+          className="flex items-center gap-3 mb-4"
+          style={{
+            fontFamily: 'DM Mono, monospace',
+            fontSize: '10px',
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            color: 'var(--about-red)',
+            marginBottom: '16px'
+          }}
         >
-          {/* LABEL */}
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-[2px] bg-[var(--red)]" />
-            <span className="text-[10px] tracking-[0.25em] uppercase text-[var(--red)]">
-              If that's you
-            </span>
-          </div>
+          <div 
+            className="w-6 h-0.5"
+            style={{ background: 'var(--about-red)' }}
+          />
+          If that's you
+        </div>
 
-          {/* HEADING */}
-          <h2 className="font-heading text-[3rem] md:text-[4rem] leading-[1.05] tracking-[-0.02em] text-[var(--ink)] uppercase">
-            We'll do great
-            <br />
-            work together.
-          </h2>
-
-          {/* PARAGRAPH */}
-          <p className="mt-6 max-w-md text-[15px] leading-[1.9] text-[var(--ink-soft)] italic">
-            Tell us where you are, what you've tried, and what you're trying to
-            build. We'll tell you whether and how we can help — no obligation,
-            no pitch deck.
-          </p>
-        </motion.div>
-
-        {/* RIGHT */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1, duration: 0.6 }}
-          className="flex flex-col items-start md:items-end gap-4"
+        {/* HEADLINE */}
+        <h2 
+          className="mb-4.5"
+          style={{
+            fontFamily: 'Barlow Condensed, sans-serif',
+            fontSize: 'clamp(2.2rem, 4vw, 3.8rem)',
+            fontWeight: 900,
+            textTransform: 'uppercase',
+            lineHeight: 1.0,
+            letterSpacing: '-0.01em',
+            color: 'var(--about-ink)',
+            marginBottom: '18px'
+          }}
         >
+          We'll do great<br />
+          work together.
+        </h2>
 
-          {/* BUTTON */}
-          <button className="relative px-10 py-5 bg-[#1a1208] text-white font-heading uppercase tracking-[0.15em] text-[12px] border border-white/20 group overflow-hidden">
-
-            <span className="relative z-10">
-              Book a Strategy Call
-            </span>
-
-            {/* HOVER FILL */}
-            <span className="absolute inset-0 bg-[var(--gold)] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-
-          </button>
-
-          {/* MICRO TEXT */}
-          <div className="text-[10px] tracking-[0.2em] uppercase text-[var(--ink-soft)]">
-            Free · 30 minutes · No pitch
-          </div>
-
-        </motion.div>
+        {/* COPY */}
+        <p 
+          style={{
+            fontSize: '15px',
+            lineHeight: 1.75,
+            color: 'var(--about-ink-3)',
+            fontWeight: 400,
+            maxWidth: '480px',
+            fontStyle: 'italic'
+          }}
+        >
+          Tell us where you are, what you've tried, and What you're trying to build. We'll tell you whether and how we can help — no obligation, no pitch deck.
+        </p>
       </div>
+
+      {/* CTA BUTTON WRAP */}
+      <div 
+        className="relative z-10"
+        style={{ flexShrink: 0 }}
+      >
+        <a 
+          href="/contact"
+          className="cta-btn"
+        >
+          Book a Strategy Call
+        </a>
+        
+        {/* NOTE */}
+        <div 
+          style={{
+            fontFamily: 'DM Mono, monospace',
+            fontSize: '10px',
+            letterSpacing: '0.08em',
+            color: 'var(--about-ink-4)',
+            marginTop: '14px',
+            textAlign: 'center'
+          }}
+        >
+          Free · 30 minutes · No pitch
+        </div>
+      </div>
+
+      {/* BUTTON STYLES */}
+      <style jsx>{`
+        .cta-btn {
+          position: relative;
+          display: block;
+          padding: 20px 40px;
+          background: var(--about-ink);
+          color: var(--about-paper);
+          font-family: 'Barlow Condensed', sans-serif;
+          font-size: 18px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          text-align: center;
+          text-decoration: none;
+          transition: background 0.25s;
+        }
+
+        .cta-btn::after {
+          content: '';
+          position: absolute;
+          inset: 4px -4px -4px 4px;
+          border: 2px solid var(--about-ink);
+          transition: all 0.2s;
+          z-index: -1;
+        }
+
+        .cta-btn:hover {
+          background: var(--about-red);
+        }
+
+        .cta-btn:hover::after {
+          border-color: var(--about-red);
+          inset: 6px -6px -6px 6px;
+        }
+      `}</style>
     </section>
   );
 }

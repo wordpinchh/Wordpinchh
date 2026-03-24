@@ -1,89 +1,96 @@
 "use client";
 
-import { motion } from "framer-motion";
+import React from "react";
 
-const beliefs = [
-  { normal: "Good content is", accent: "specific.", end: "Vague content is invisible." },
-  { normal: "Strategy comes", accent: "before", end: "writing. Always." },
-  { normal: "Content must work for", accent: "humans and AI.", end: "Both matter now." },
-  { normal: "Clients should understand", accent: "why", end: "every word was chosen." },
-  { normal: "", accent: "Consistency", end: "beats perfection. Ship and iterate." },
-  { normal: "The best content makes people feel", accent: "understood", end: "before it asks for anything." },
-];
-
-export default function AboutManifesto() {
+export default function ManifestoSection() {
   return (
-    <section className="w-full border-t border-[rgba(0,0,0,0.1)]">
+    <section className="border-b-2 border-[rgba(26,18,8,0.25)]">
 
       {/* HEADER */}
-      <div className="px-6 md:px-12 lg:px-16 py-8 border-b border-[rgba(0,0,0,0.1)] flex items-end gap-6">
-        <h2 className="font-heading text-[2.5rem] uppercase tracking-tight text-(--ink)">
+      <div className="flex items-baseline gap-6 px-16 py-8 border-b border-[rgba(26,18,8,0.25)]">
+        <h2 className="font-[Barlow_Condensed] font-black uppercase" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}>
           What We Believe
         </h2>
-        <span className="text-[10px] tracking-[0.25em] text-(--ink-soft) uppercase">
+        <span className="font-mono text-xs tracking-widest text-[#8C7D6A] uppercase">
           — Six principles we won't compromise on
         </span>
       </div>
 
       {/* LIST */}
       <div>
-        {beliefs.map((item, i) => (
-          <motion.div
-            key={i}
-            initial="rest"
-            whileHover="hover"
-            animate="rest"
-            className="relative border-b border-[rgba(0,0,0,0.1)] group"
-          >
+        {/* ITEM 01 */}
+        <div className="group relative grid grid-cols-[80px_1fr] border-b border-[rgba(26,18,8,0.12)] overflow-hidden">
+          <div className="absolute inset-0 bg-[#1A1208] scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100 z-0" />
+          <div className="relative z-10 px-16 py-7 font-mono text-xs text-[#8C7D6A] group-hover:text-white/30 transition">01</div>
+          <div className="relative z-10 pr-16 py-6 text-[clamp(1.8rem,3.5vw,3rem)] font-[Barlow_Condensed] font-bold tracking-[-0.01em] leading-[1.15] text-[#1A1208] group-hover:text-[#F2EDE4] transition antialiased">
+            Good content is <span className="belief-accent">specific.</span> Vague content is invisible.
+          </div>
+        </div>
 
-            {/* 🔥 GRADIENT HOVER BAND */}
-            <motion.div
-              variants={{
-                rest: { x: "-100%" },
-                hover: { x: "0%" },
-              }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute inset-0 z-0"
-              style={{
-                background:
-                  "linear-gradient(90deg, #1a1208 0%, #2a1a0f 50%, #1a1208 100%)",
-                boxShadow: "inset 0 0 40px rgba(255,180,80,0.1)",
-              }}
-            />
+        {/* ITEM 02 */}
+        <div className="group relative grid grid-cols-[80px_1fr] border-b border-[rgba(26,18,8,0.12)] overflow-hidden">
+          <div className="absolute inset-0 bg-[#1A1208] scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100 z-0" />
+          <div className="relative z-10 px-16 py-7 font-mono text-xs text-[#8C7D6A] group-hover:text-white/30 transition">02</div>
+          <div className="relative z-10 pr-16 py-6 text-[clamp(1.8rem,3.5vw,3rem)] font-[Barlow_Condensed] font-bold tracking-[-0.01em] leading-[1.15] text-[#1A1208] group-hover:text-[#F2EDE4] transition antialiased">
+            Strategy comes <span className="belief-accent">before</span> writing. Always.
+          </div>
+        </div>
 
-            {/* CONTENT */}
-            <div className="relative z-10 px-6 md:px-12 lg:px-16 py-8 flex gap-6 items-start">
+        {/* ITEM 03 */}
+        <div className="group relative grid grid-cols-[80px_1fr] border-b border-[rgba(26,18,8,0.12)] overflow-hidden">
+          <div className="absolute inset-0 bg-[#1A1208] scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100 z-0" />
+          <div className="relative z-10 px-16 py-7 font-mono text-xs text-[#8C7D6A] group-hover:text-white/30 transition">03</div>
+          <div className="relative z-10 pr-16 py-6 text-[clamp(1.8rem,3.5vw,3rem)] font-[Barlow_Condensed] font-bold tracking-[-0.01em] leading-[1.15] text-[#1A1208] group-hover:text-[#F2EDE4] transition antialiased">
+            Content must work for <span className="belief-accent">humans and AI.</span> Both matter now.
+          </div>
+        </div>
 
-              {/* NUMBER */}
-              <div className="text-[11px] tracking-[0.2em] text-(--ink-soft) group-hover:text-white/50 transition">
-                {String(i + 1).padStart(2, "0")}
-              </div>
+        {/* ITEM 04 */}
+        <div className="group relative grid grid-cols-[80px_1fr] border-b border-[rgba(26,18,8,0.12)] overflow-hidden">
+          <div className="absolute inset-0 bg-[#1A1208] scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100 z-0" />
+          <div className="relative z-10 px-16 py-7 font-mono text-xs text-[#8C7D6A] group-hover:text-white/30 transition">04</div>
+          <div className="relative z-10 pr-16 py-6 text-[clamp(1.8rem,3.5vw,3rem)] font-[Barlow_Condensed] font-bold tracking-[-0.01em] leading-[1.15] text-[#1A1208] group-hover:text-[#F2EDE4] transition antialiased">
+            Clients should understand <span className="belief-accent">why</span> every word was chosen.
+          </div>
+        </div>
 
-              {/* TEXT */}
-              <h3 className="font-heading text-[1.8rem] md:text-[2.3rem] leading-[1.3] tracking-[-0.01em] flex flex-wrap gap-2">
+        {/* ITEM 05 */}
+        <div className="group relative grid grid-cols-[80px_1fr] border-b border-[rgba(26,18,8,0.12)] overflow-hidden">
+          <div className="absolute inset-0 bg-[#1A1208] scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100 z-0" />
+          <div className="relative z-10 px-16 py-7 font-mono text-xs text-[#8C7D6A] group-hover:text-white/30 transition">05</div>
+          <div className="relative z-10 pr-16 py-6 text-[clamp(1.8rem,3.5vw,3rem)] font-[Barlow_Condensed] font-bold tracking-[-0.01em] leading-[1.15] text-[#1A1208] group-hover:text-[#F2EDE4] transition antialiased">
+            <span className="belief-accent">Consistency</span> beats perfection. Ship and iterate.
+          </div>
+        </div>
 
-                {/* NORMAL TEXT */}
-                {item.normal && (
-                  <span className="text-(--ink) group-hover:text-white transition">
-                    {item.normal}
-                  </span>
-                )}
-
-                {/* ACCENT */}
-                <span className="italic text-(--red) group-hover:text-(--gold) transition">
-                  {item.accent}
-                </span>
-
-                {/* END TEXT */}
-                <span className="text-(--ink) group-hover:text-white transition">
-                  {item.end}
-                </span>
-
-              </h3>
-            </div>
-          </motion.div>
-        ))}
+        {/* ITEM 06 */}
+        <div className="group relative grid grid-cols-[80px_1fr] border-b border-[rgba(26,18,8,0.12)] overflow-hidden">
+          <div className="absolute inset-0 bg-[#1A1208] scale-x-0 origin-left transition-transform duration-500 ease-in-out group-hover:scale-x-100 z-0" />
+          <div className="relative z-10 px-16 py-7 font-mono text-xs text-[#8C7D6A] group-hover:text-white/30 transition">06</div>
+          <div className="relative z-10 pr-16 py-6 text-[clamp(1.8rem,3.5vw,3rem)] font-[Barlow_Condensed] font-bold tracking-[-0.01em] leading-[1.15] text-[#1A1208] group-hover:text-[#F2EDE4] transition antialiased">
+            The best content makes reader feel <span className="belief-accent">understood</span> before it asks for anything.
+          </div>
+        </div>
       </div>
+
+      {/* ACCENT STYLE */}
+      <style jsx>{`
+        .belief-accent {
+          color: #C41C1C; /* red */
+          font-style: italic;
+          font-family: 'Libre Baskerville', serif;
+          font-weight: 700;
+          font-size: 0.85em;
+          letter-spacing: 0.01em;
+          transition: color 0.4s ease;
+        }
+
+        /* HOVER STATE */
+        .group:hover .belief-accent {
+          color: #FFD97A; /* gold on hover */
+        }
+      `}</style>
+
     </section>
   );
 }

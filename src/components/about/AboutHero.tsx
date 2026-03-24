@@ -1,111 +1,291 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from 'react';
+import React from 'react';
 
 export default function AboutHero() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
-    <section className="w-full border-b border-(--ink-soft)/20 pt-15">
+    <React.Fragment>
+      {/* TOP RULE */}
+      <div 
+        className="h-[6px]"
+        style={{
+          background: 'var(--about-ink)',
+          borderBottom: '2px solid var(--about-red)'
+        }}
+      />
 
-      {/* 🔥 HERO GRID */}
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_380px]">
+      {/* MASTHEAD */}
+      <header 
+        className="flex items-center justify-between py-[28px] px-16 lg:px-16 pb-6"
+        style={{
+          borderBottom: '3px double var(--about-border-heavy)',
+          animation: 'slideUp 0.5s ease both'
+        }}
+      >
+        <div 
+          style={{
+            fontFamily: 'Barlow Condensed, sans-serif',
+            fontSize: '13px',
+            fontWeight: 600,
+            letterSpacing: '0.35em',
+            textTransform: 'uppercase',
+            color: 'var(--about-ink-3)'
+          }}
+        >
+          Wordpinchh
+        </div>
+        
+        <div className="text-center">
+          <div 
+            style={{
+              fontFamily: 'Barlow Condensed, sans-serif',
+              fontSize: 'clamp(3rem, 6vw, 5.5rem)',
+              fontWeight: 900,
+              letterSpacing: '-0.01em',
+              lineHeight: 0.85,
+              textTransform: 'uppercase',
+              color: 'var(--about-ink)'
+            }}
+          >
+            About
+          </div>
+          <div 
+            style={{
+              fontFamily: 'DM Mono, monospace',
+              fontSize: '10px',
+              letterSpacing: '0.15em',
+              color: 'var(--about-ink-4)',
+              marginTop: '6px',
+              textTransform: 'uppercase'
+            }}
+          >
+            The story · The beliefs · The fit
+          </div>
+        </div>
+        
+        <div 
+          style={{
+            fontFamily: 'DM Mono, monospace',
+            fontSize: '10px',
+            letterSpacing: '0.08em',
+            color: 'var(--about-ink-4)',
+            textAlign: 'right'
+          }}
+        >
+          Content for Search.<br />
+          Content for AI.<br />
+          Content that converts.
+        </div>
+      </header>
 
-        {/* LEFT */}
-        <div className="relative px-6 md:px-12 lg:px-16 py-16 border-r border-[var(--ink-soft)]/20">
-
-          {/* BACKGROUND WORD */}
-          <div className="absolute bottom-[-40px] right-[-20px] text-[180px] font-heading text-(--ink)/4 uppercase pointer-events-none">
+      {/* HERO — ORIGIN STORY */}
+      <section 
+        className="grid grid-cols-1 lg:grid-cols-[1fr_380px]"
+        style={{
+          borderBottom: '2px solid var(--about-border-heavy)',
+          animation: 'slideUp 0.5s ease 0.1s both'
+        }}
+      >
+        {/* HERO LEFT */}
+        <div 
+          className="relative px-16 lg:px-16 py-14 lg:py-14"
+          style={{
+            borderRight: '1px solid var(--about-border-heavy)'
+          }}
+        >
+          {/* BIG DECORATIVE TEXT behind hero */}
+          <div 
+            className="absolute bottom-[-20px] right-[-10px] pointer-events-none select-none whitespace-nowrap"
+            style={{
+              fontFamily: 'Barlow Condensed, sans-serif',
+              fontSize: '200px',
+              fontWeight: 900,
+              textTransform: 'uppercase',
+              color: 'rgba(26,18,8,0.04)',
+              lineHeight: 1,
+              letterSpacing: '-0.04em'
+            }}
+          >
             Words
           </div>
 
-          {/* EYEBROW */}
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-8 h-[2px] bg-(--red)" />
-            <span className="text-[11px] tracking-[0.25em] uppercase text-(--red)">
+          {/* HERO EYEBROW */}
+          <div 
+            className="flex items-center gap-3 mb-8"
+          >
+            <div 
+              className="w-9 h-0.5"
+              style={{ background: 'var(--about-red)' }}
+            />
+            <span 
+              style={{
+                fontFamily: 'Barlow Condensed, sans-serif',
+                fontSize: '11px',
+                letterSpacing: '0.22em',
+                textTransform: 'uppercase',
+                color: 'var(--about-red)',
+                fontWeight: 600
+              }}
+            >
               Why We Exist
             </span>
           </div>
 
-          {/* BIG HEADING */}
-          <h1 className="font-heading uppercase text-[3.2rem] md:text-[4rem] lg:text-[4.8rem] leading-[1.05] tracking-[-0.015em] font-bold text-[var(--ink)] mb-6">
-            Brilliant businesses
-            <br />
-            kept losing to
-            <br />
-            mediocre ones.
+          {/* HERO PULL */}
+          <h1 
+            className="mb-8"
+            style={{
+              fontFamily: 'Barlow Condensed, sans-serif',
+              fontSize: 'clamp(2.4rem, 4.5vw, 4rem)',
+              fontWeight: 800,
+              lineHeight: 1.0,
+              letterSpacing: '-0.01em',
+              textTransform: 'uppercase',
+              color: 'var(--about-ink)',
+              marginBottom: '32px'
+            }}
+          >
+            Brilliant businesses<br />
+            kept losing to<br />
+            mediocre ones.<br />
+            <em 
+              style={{
+                fontStyle: 'italic',
+                fontFamily: 'Libre Baskerville, serif',
+                textTransform: 'none',
+                fontSize: '0.85em',
+                color: 'var(--about-red)',
+                fontWeight: 400
+              }}
+            >
+              Just because of content.
+            </em>
           </h1>
 
-          {/* RED LINE */}
-          <div className="text-(--red) italic text-[60px] md:text-[1.9rem] font-[400] mt-2 mb-8">
-            Just because of content.
-          </div>
-
-          {/* BODY */}
-          <div className="max-w-xl space-y-7 text-[15px] leading-loose text-(--ink-soft)">
-            <p>
-              We started Wordpinchh because we kept watching this happen.
-              A better product, deeper experience, stronger results — and still losing at
-              Google search, LinkedIn feed, AI recommendation, and first-impression game.
-            </p>
-
-            <p>
-              <span className="text-[var(--ink)]">
-                Expertise doesn't market itself.
-              </span>{" "}
-              That's the uncomfortable truth most agencies won't say out loud. We built Wordpinchh to fix that — for founders, SaaS startups, and consulting firms who have real expertise and need the world to find it.
-            </p>
-
-            <p>
-              We're not a content mill. We don't use AI to churn out keyword-stuffed articles and call it strategy. We think, we research, we argue about angles, and we write — because that's the only way to produce content that actually does something.
-            </p>
-          </div>
+          {/* HERO BODY */}
+          <p 
+            className="mb-6 max-w-[560px]"
+            style={{
+              fontSize: '16px',
+              lineHeight: 1.85,
+              color: 'var(--about-ink-2)',
+              fontWeight: 400,
+              marginBottom: '24px'
+            }}
+          >
+            We started Wordpinchh because we kept watching this happen. A better product, deeper experience, stronger results — and still losing Google search, LinkedIn feed, AI recommendation, and first-impression game.
+          </p>
+          
+          <p 
+            className="max-w-[560px]"
+            style={{
+              fontSize: '16px',
+              lineHeight: 1.85,
+              color: 'var(--about-ink-2)',
+              fontWeight: 400,
+              marginBottom: '24px'
+            }}
+          >
+            <strong 
+              style={{
+                fontWeight: 700,
+                color: 'var(--about-ink)'
+              }}
+            >
+              Expertise doesn't market itself.
+            </strong> 
+            {' '}That's the uncomfortable truth most agencies won't say out loud. We built Wordpinchh to fix that — for founders, SaaS startups, and consulting firms who have real expertise and need the world to find it.
+          </p>
+          
+          <p 
+            className="max-w-[560px]"
+            style={{
+              fontSize: '16px',
+              lineHeight: 1.85,
+              color: 'var(--about-ink-2)',
+              fontWeight: 400
+            }}
+          >
+            We're not a content mill. We don't use AI to churn out keyword-stuffed articles and call it strategy. We think, we research, we argue about angles, and we write — because that's the only way to produce content that actually does something.
+          </p>
         </div>
 
-        {/* RIGHT SIDEBAR */}
-        <div className="px-8 py-12 text-white relative overflow-hidden">
-          
-          {/* WARM GRADIENT BACKGROUND */}
+        {/* HERO RIGHT - SIDEBAR: uncomfortable truths */}
+        <div 
+          className="px-10 py-12 flex flex-col gap-0"
+          style={{
+            background: 'var(--about-ink)'
+          }}
+        >
           <div 
-            className="absolute inset-0 pointer-events-none"
             style={{
-              background: "linear-gradient(180deg, #1a1208 0%, #0f0b07 100%)"
+              fontFamily: 'DM Mono, monospace',
+              fontSize: '9px',
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              color: 'rgba(255,255,255,0.3)',
+              marginBottom: '20px',
+              paddingBottom: '12px',
+              borderBottom: '1px solid rgba(255,255,255,0.1)'
             }}
-          />
-          
-          {/* GOLD GLOW OVERLAY */}
-          <div 
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background: "radial-gradient(circle at 30% 20%, rgba(255,180,80,0.15), transparent 70%)"
-            }}
-          />
-
-          {/* LABEL */}
-          <div className="relative z-10 text-[10px] tracking-[0.25em] uppercase text-white/75 mb-6 border-b border-white/20 pb-4">
+          >
             The uncomfortable truths
           </div>
-
-          {/* LIST */}
-          <div className="relative z-10 space-y-8">
-            {[
-              "You can have the better product and still lose the Google search.",
-              "Expertise doesn't market itself. Publishing does.",
-              "AI is recommending your competitors.",
-              "Most content drives traffic. We drive clients.",
-              "The first impression happens before the first call.",
-            ].map((text, i) => (
-              <div key={i} className="flex gap-4">
-                <span className="text-white/40 text-xs">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <p className="text-[13.5px] text-white/75 leading-[1.7]">
-                  {text}
-                </p>
-              </div>
-            ))}
-          </div>
-
+          
+          {[
+            { num: '01', text: 'You can have a better product and still', highlight: 'lose Google search.' },
+            { num: '02', text: 'Expertise doesn\'t market itself.', highlight: 'Publishing does.' },
+            { num: '03', text: 'AI is now recommending your competitors.', highlight: 'Are you in those answers?' },
+            { num: '04', text: 'Most "content strategies" produce traffic.', highlight: 'We produce clients.' },
+            { num: '05', text: 'The first-impression game is won', highlight: 'before the first call.' }
+          ].map((truth, index) => (
+            <div 
+              key={index}
+              className="flex items-start gap-3.5 py-4.5 border-b border-[rgba(255,255,255,0.08)] last:border-b-0"
+            >
+              <span 
+                style={{
+                  fontFamily: 'DM Mono, monospace',
+                  fontSize: '10px',
+                  color: 'rgba(255,255,255,0.2)',
+                  flexShrink: 0,
+                  marginTop: '3px',
+                  letterSpacing: '0.06em'
+                }}
+              >
+                {truth.num}
+              </span>
+              <span 
+                style={{
+                  fontFamily: 'Libre Baskerville, serif',
+                  fontSize: '14px',
+                  color: 'rgba(255,255,255,0.85)',
+                  lineHeight: 1.6,
+                  fontWeight: 400
+                }}
+              >
+                {truth.text} <em 
+                  style={{
+                    fontStyle: 'italic',
+                    color: '#FFD97A'
+                  }}
+                >
+                  {truth.highlight}
+                </em>
+              </span>
+            </div>
+          ))}
         </div>
-      </div>
-    </section>
+      </section>
+    </React.Fragment>
   );
 }

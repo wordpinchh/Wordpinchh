@@ -1,149 +1,296 @@
-"use client";
+'use client';
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from 'react';
 
 export default function AboutContrast() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
+  const notList = [
+    '20 AI-generated articles a month at $10 each',
+    'Keyword-stuffed content with no strategic angle',
+    'Agencies that never push back on your ideas',
+    'One-off projects with no commitment to consistency',
+    'Vanity metrics — traffic without conversions'
+  ];
+
+  const fitList = [
+    {
+      title: 'Content as investment',
+      normal: 'You understand that content compounds over time — ',
+      highlight: 'and you\'re building for the long term, not chasing one viral article.'
+    },
+    {
+      title: 'Want a real partner',
+      normal: 'You want someone who will push back with better ideas —',
+      highlight: 'not just execute whatever brief you hand them without question.'
+    },
+    {
+      title: 'Committed to consistency',
+      normal: 'You\'re committed to publishing consistently over the long term —',
+      highlight: 'not stopping when the first article doesn\'t go viral.'
+    },
+    {
+      title: 'Real expertise to share',
+      normal: 'You have genuine knowledge and experience. Our job is to make it visible —',
+      highlight: 'not invent a point of view for you.'
+    }
+  ];
+
   return (
-    <section className="w-full grid grid-cols-1 md:grid-cols-2">
-
-      {/* 🔴 LEFT SIDE */}
-      <div className="relative bg-[var(--paper)] px-6 md:px-12 py-20 border-r border-[rgba(0,0,0,0.1)] overflow-hidden">
-
-        {/* BACKGROUND WORD */}
-        <div className="absolute bottom-[-20px] left-0 text-[180px] font-heading text-[var(--ink)]/[0.04] pointer-events-none">
-          NOT US
+    <section 
+      className="grid grid-cols-1 lg:grid-cols-2"
+      style={{
+        borderBottom: '3px double var(--about-border-heavy)',
+        animation: 'slideUp 0.5s ease 0.2s both'
+      }}
+    >
+      {/* CONTRAST BAD */}
+      <div 
+        className="relative px-12 py-14"
+        style={{
+          background: 'var(--about-paper-3)',
+          borderRight: '1px solid var(--about-border-heavy)'
+        }}
+      >
+        {/* BACKGROUND DECORATIVE TEXT */}
+        <div 
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          style={{
+            fontFamily: 'Barlow Condensed, sans-serif',
+            fontSize: '160px',
+            fontWeight: 900,
+            color: 'rgba(26,18,8,0.04)',
+            textTransform: 'uppercase',
+            letterSpacing: '-0.04em'
+          }}
+        >
+          NOT ANUS
         </div>
 
         {/* LABEL */}
-        <div className="text-[10px] tracking-[0.25em] uppercase text-[var(--ink)] mb-6">
-          ✕ WHAT WE'RE NOT
+        <div 
+          className="flex items-center gap-2.5 mb-6"
+          style={{
+            fontFamily: 'Barlow Condensed, sans-serif',
+            fontSize: '11px',
+            letterSpacing: '0.3em',
+            textTransform: 'uppercase',
+            fontWeight: 700
+          }}
+        >
+          <span 
+            style={{
+              color: 'var(--about-ink-4)'
+            }}
+          >
+            ✕
+          </span>
+          {' '}
+          What we're not
         </div>
 
         {/* HEADING */}
-        <h2 className="font-heading text-[2.5rem] text-[var(--ink)] relative mb-6">
-          THE{" "}
-          <span className="absolute left-0 top-1/2 w-full h-[2px] bg-[var(--red)]" />
-          {" "}
-          WRONG FIT
-        </h2>
+        <h3 
+          className="mb-6"
+          style={{
+            fontFamily: 'Barlow Condensed, sans-serif',
+            fontSize: 'clamp(1.8rem, 3vw, 2.6rem)',
+            fontWeight: 800,
+            textTransform: 'uppercase',
+            lineHeight: 1.05,
+            letterSpacing: '-0.01em'
+          }}
+        >
+          <span 
+            className="relative"
+            style={{
+              position: 'relative',
+              color: 'var(--about-ink-4)'
+            }}
+          >
+            The wrong fit
+          </span>
+        </h3>
 
-        {/* TEXT */}
-        <p className="text-[15px] text-[var(--ink)] leading-[1.9] max-w-md mb-6">
-          We're not the right fit for everyone. If you're looking for 20 AI-generated
-          articles a month at $10 each, there are platforms for that.
-          It won't work — but they exist.
+        {/* BODY */}
+        <p 
+          className="mb-5"
+          style={{
+            fontSize: '14px',
+            lineHeight: 1.75,
+            color: 'var(--about-ink-3)',
+            fontWeight: 400
+          }}
+        >
+          We're not the right fit for everyone. If you're looking for 20 AI-generated articles a month at $10 each, there are platforms for that. It won't work — but they exist.
         </p>
 
-        {/* LIST */}
-        <ul className="space-y-3 text-[14px] text-[var(--ink)]">
-          {[
-            "20 AI-generated articles a month at $10 each",
-            "Keyword-stuffed content with no strategy angle",
-            "Agencies that never push back on your ideas",
-            "One-off projects with no commitment to consistency",
-            "Vanity metrics — traffic without conversions",
-          ].map((item, i) => (
-            <li key={i} className="line-through decoration-[var(--red)] decoration-2 opacity-70">
+        {/* NOT LIST */}
+        <ul 
+          className="flex flex-col gap-2.5 mt-5"
+          style={{
+            listStyle: 'none'
+          }}
+        >
+          {notList.map((item, index) => (
+            <li 
+              key={index}
+              className="flex items-start gap-2.5"
+              style={{
+                fontSize: '13px',
+                lineHeight: 1.5,
+                color: 'var(--about-ink-4)',
+                textDecoration: 'line-through',
+                textDecorationColor: 'var(--about-red)',
+                textDecorationThickness: '1.5px'
+              }}
+            >
               {item}
             </li>
           ))}
         </ul>
       </div>
 
-      {/* 🟡 RIGHT SIDE */}
-      <div
-        className="relative px-6 md:px-12 py-20 text-white overflow-hidden"
+      {/* CONTRAST GOOD */}
+      <div 
+        className="px-12 py-14 flex flex-col"
         style={{
-          background:
-            "linear-gradient(180deg, #1a1208 0%, #0f0b07 100%)",
+          background: 'var(--about-ink)'
         }}
       >
-
-        {/* GOLD GLOW */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(circle at 30% 20%, rgba(255,180,80,0.15), transparent 70%)",
-          }}
-        />
-
         {/* LABEL */}
-        <div className="text-[10px] tracking-[0.25em] uppercase text-red-500 mb-6">
-          → WHO WE WORK BEST WITH
+        <div 
+          className="flex items-center gap-2.5 mb-7"
+          style={{
+            fontFamily: 'Barlow Condensed, sans-serif',
+            fontSize: '11px',
+            letterSpacing: '0.3em',
+            textTransform: 'uppercase',
+            fontWeight: 700,
+            color: '#c42119'
+          }}
+        >
+          <span 
+            style={{
+              color: 'var(--about-red)'
+            }}
+          >
+            →
+          </span>
+          {' '}
+          Who we work best with
         </div>
 
         {/* HEADING */}
-        <h2 className="font-heading text-[2.5rem] leading-[1.2] mb-10">
-          THE{" "}
-          <span className="italic text-[var(--gold)]">RIGHT</span>{" "}
-          FIT LOOKS LIKE THIS
-        </h2>
+        <h3 
+          className="mb-7"
+          style={{
+            fontFamily: 'Barlow Condensed, sans-serif',
+            fontSize: 'clamp(1.8rem, 3vw, 2.6rem)',
+            fontWeight: 800,
+            textTransform: 'uppercase',
+            lineHeight: 1.05,
+            letterSpacing: '-0.01em',
+            color: 'var(--about-paper)',
+            marginBottom: '28px'
+          }}
+        >
+          The <em 
+            style={{
+              color: '#FFD97A',
+              fontStyle: 'italic',
+              fontFamily: 'Libre Baskerville, serif',
+              fontSize: '0.82em',
+              textTransform: 'none'
+            }}
+          >
+            right
+          </em> fit looks like this
+        </h3>
 
-        {/* LIST */}
-        <div className="space-y-10">
-          {[
-            {
-              title: "CONTENT AS INVESTMENT",
-              normal:
-                "You understand that content compounds over time — and you're building for the long term,",
-              highlight: "not chasing one viral article.",
-            },
-            {
-              title: "WANT A REAL PARTNER",
-              normal:
-                "You want someone who will push back with better ideas —",
-              highlight:
-                "not just execute whatever brief you hand them without question.",
-            },
-            {
-              title: "COMMITTED TO CONSISTENCY",
-              normal:
-                "You're committed to publishing consistently over the long term —",
-              highlight:
-                "not stopping when the first article doesn't go viral.",
-            },
-            {
-              title: "REAL EXPERTISE TO SHARE",
-              normal:
-                "You have genuine knowledge and experience. Our job is to make it visible —",
-              highlight:
-                "not invent a point of view for you.",
-            },
-          ].map((item, i) => (
-            <div key={i} className="flex gap-4">
-
+        {/* FIT LIST */}
+        <ul 
+          className="flex-1 flex flex-col gap-0"
+          style={{
+            listStyle: 'none'
+          }}
+        >
+          {fitList.map((item, index) => (
+            <li 
+              key={index}
+              className="flex items-start gap-3.5 py-4 border-b border-[rgba(255,255,255,0.07)] last:border-b-0"
+            >
               {/* ICON */}
-              <div className="w-6 h-6 rounded-full border border-white/20 flex items-center justify-center text-[10px] text-[var(--gold)]">
-                ✓
+              <div 
+                className="shrink-0 mt-0.5"
+                style={{
+                  width: '24px',
+                  height: '24px',
+                  borderRadius: '50%',
+                  background: 'rgba(255,255,255,0.08)',
+                  border: '1px solid rgba(255,255,255,0.15)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                <svg 
+                  viewBox="0 0 24 24"
+                  style={{
+                    width: '10px',
+                    height: '10px',
+                    stroke: '#FFD97A',
+                    fill: 'none',
+                    strokeWidth: '2.5',
+                    strokeLinecap: 'round',
+                    strokeLinejoin: 'round'
+                  }}
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
               </div>
 
               {/* TEXT */}
-              <div className="flex-1">
-                <div className="font-heading text-[13px] tracking-[0.1em] uppercase mb-1">
+              <div 
+                style={{
+                  fontSize: '14px',
+                  color: 'rgba(255,255,255,0.75)',
+                  lineHeight: 1.6,
+                  fontWeight: 300
+                }}
+              >
+                <strong 
+                  style={{
+                    color: 'rgba(255,255,255,0.95)',
+                    fontWeight: 500,
+                    display: 'block',
+                    marginBottom: '2px',
+                    fontFamily: 'Barlow Condensed, sans-serif',
+                    fontSize: '16px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.04em'
+                  }}
+                >
                   {item.title}
-                </div>
-                <p className="text-[14px] leading-[1.7] max-w-md">
-                  <span className="text-white/70">
-                    {item.normal}{" "}
-                  </span>
-
-                  <span 
-                    className="italic text-[var(--gold)] font-medium"
-                    style={{ textShadow: "0 0 8px rgba(214,168,79,0.2)" }}
-                  >
-                    {item.highlight}
-                  </span>
-                </p>
+                </strong>
+                {item.normal} <em 
+                  style={{
+                    fontStyle: 'italic',
+                    color: '#FFD97A'
+                  }}
+                >
+                  {item.highlight}
+                </em>
               </div>
-
-              {/* DIVIDER (except for last item) */}
-              {i < 3 && (
-                <div className="absolute left-6 right-6 h-px bg-white/10 mt-22" />
-              )}
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

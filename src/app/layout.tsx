@@ -52,6 +52,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@1,400&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet" />
+      </head>
       <body 
         className={`${inter.variable} ${fahkwang.variable} font-sans antialiased bg-black text-white overflow-x-hidden`}
         suppressHydrationWarning
