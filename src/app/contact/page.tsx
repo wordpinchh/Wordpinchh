@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import ContactLeftPanel from "@/components/contact/ContactLeftPanel";
 import ContactRightPanel from "@/components/contact/ContactRightPanel";
+import { FooterSection } from "@/components/home/FooterSection";
+import { FinalCTASection } from "@/components/home/FinalCTASection";
 
 export default function ContactPage() {
   const [mounted, setMounted] = useState(false);
@@ -77,6 +79,12 @@ export default function ContactPage() {
 
         <ContactLeftPanel />
         <ContactRightPanel />
+      </div>
+
+      {/* Footer and Final CTA */}
+      <div className="bg-[#0B0B09]">
+        <FinalCTASection />
+        <FooterSection />
       </div>
     </>
   );

@@ -109,7 +109,7 @@ export default function IndustriesSelector() {
 
               {/* Index */}
               <div
-                className={`text-[10px] tracking-[0.18em] uppercase mb-2 transition-colors ${
+                className={`font-['Geist'] text-[20px] tracking-[0.18em] uppercase mb-2.5 transition-colors ${
                   activeTab === industry.id ? 'opacity-70' : 'text-white/20'
                 }`}
                 style={{ color: activeTab === industry.id ? industry.color : undefined }}
@@ -119,7 +119,7 @@ export default function IndustriesSelector() {
 
               {/* Name */}
               <div
-                className={`font-heading text-[1.5rem] leading-[1.2] tracking-[-0.01em] whitespace-pre-line transition-colors ${
+                className={`font-['Instrument_Serif'] text-[1.9rem] leading-[1.2] font-normal tracking-[-0.01em] whitespace-pre-line transition-colors ${
                   activeTab === industry.id ? 'text-white' : 'text-white/40'
                 }`}
               >
@@ -128,7 +128,7 @@ export default function IndustriesSelector() {
 
               {/* Tagline */}
               <motion.div
-                className="text-[12px] text-white/30 italic leading-normal mt-1.5 overflow-hidden"
+                className="font-['Geist'] text-[20px] text-white/20 italic leading-[1.5] mt-1.5 overflow-hidden"
                 initial={false}
                 animate={{
                   maxHeight: activeTab === industry.id ? 60 : 0,
@@ -168,7 +168,7 @@ export default function IndustriesSelector() {
           >
             {/* Background Number */}
             <div
-              className="absolute -right-5 -top-8 text-[280px] leading-none opacity-[0.04] font-heading pointer-events-none select-none"
+              className="absolute -right-5 -top-8 text-[280px] leading-none opacity-[0.04] font-['Instrument_Serif'] font-normal pointer-events-none select-none"
               style={{ color: currentIndustry?.color }}
             >
               {String(currentIndustry?.id).padStart(2, '0')}
@@ -179,18 +179,18 @@ export default function IndustriesSelector() {
               <div className="flex items-center gap-2.5 mb-4">
                 <div className="w-5 h-px" style={{ backgroundColor: currentIndustry?.color }} />
                 <span
-                  className="text-[10px] tracking-[0.22em] uppercase"
+                  className="text-[20px] tracking-[0.22em] uppercase"
                   style={{ color: currentIndustry?.color }}
                 >
                   {currentIndustry?.name.replace('\n', ' ')}
                 </span>
               </div>
 
-              <h2 className="font-heading text-[clamp(2rem,3.5vw,3rem)] leading-[1.1] tracking-[-0.02em] mb-4 whitespace-pre-line">
+              <h2 className="font-['Instrument_Serif'] text-[clamp(3rem,3.5vw,3rem)] leading-[1.1] font-normal tracking-[-0.02em] mb-4 whitespace-pre-line">
                 {currentIndustry?.title}
               </h2>
 
-              <p className="text-[15px] text-white/50 italic leading-[1.65] font-light max-w-[540px]">
+              <p className="font-['Geist'] text-[20px] text-white/40 italic leading-[1.65] font-light max-w-[540px]">
                 {currentIndustry?.subtitle}
               </p>
             </div>
@@ -199,11 +199,11 @@ export default function IndustriesSelector() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
               {/* Left Column */}
               <div>
-                <p className="text-[14px] leading-[1.85] text-white/50 font-light mb-7">
+                <p className="font-['Geist'] text-[20px] leading-[1.85] text-white/40 font-light mb-7">
                   {currentIndustry?.intro}
                 </p>
 
-                <div className="text-[10px] tracking-[0.2em] uppercase text-white/20 mb-3.5 pb-2.5 border-b border-white/10">
+                <div className="font-['Geist'] text-[20px] tracking-[0.2em] uppercase text-white/20 mb-3.5 pb-2.5 border-b border-white/8">
                   What we build for you
                 </div>
 
@@ -213,7 +213,7 @@ export default function IndustriesSelector() {
                     className="flex gap-3 py-3 border-b border-white/10 last:border-b-0"
                   >
                     <div
-                      className="w-7 h-7 rounded-[6px] flex items-center justify-center shrink-0 text-[12px] font-semibold font-mono mt-0.5"
+                      className="w-7 h-7 rounded-[6px] flex items-center justify-center shrink-0 text-[18px] font-semibold font-['Geist'] mt-0.5"
                       style={{
                         backgroundColor: currentIndustry?.colorDim,
                         color: currentIndustry?.color,
@@ -222,10 +222,10 @@ export default function IndustriesSelector() {
                       {item.icon}
                     </div>
                     <div>
-                      <div className="text-[13px] font-medium text-white mb-0.5 block">
+                      <div className="font-['Geist'] text-[22px] font-medium text-white mb-0.5 block">
                         {item.title}
                       </div>
-                      <div className="text-[13px] text-white/50 font-light leading-[1.55]">
+                      <div className="font-['Geist'] text-[18px] text-white/40 font-light leading-[1.55]">
                         {item.desc}
                       </div>
                     </div>
@@ -236,41 +236,42 @@ export default function IndustriesSelector() {
               {/* Right Column */}
               <div>
                 {currentIndustry?.signals.map((signal, i) => (
-                  <div
+                  <motion.div
                     key={i}
-                    className={`p-6 rounded-[14px] border mb-4 last:mb-0 relative overflow-hidden ${
-                      i === 0 ? '' : 'bg-white/3 border-white/10'
-                    }`}
-                    style={{
-                      backgroundColor: i === 0 ? currentIndustry?.colorDim : undefined,
-                      borderColor: i === 0 ? `${currentIndustry?.color}20` : undefined,
+                    className="p-6 rounded-[14px] border mb-4 last:mb-0 relative overflow-hidden cursor-pointer transition-all duration-300 bg-white/3 border-white/8 hover:border-white/15"
+                    whileHover={{
+                      backgroundColor: currentIndustry?.colorDim,
+                      borderColor: currentIndustry?.color,
                     }}
                   >
-                    {i === 0 && (
-                      <div
-                        className="absolute top-0 left-0 right-0 h-[2px] rounded-t-[14px]"
-                        style={{ backgroundColor: currentIndustry?.color }}
-                      />
-                    )}
-                    <div className="font-heading text-[1.05rem] italic leading-[1.55] text-white mb-3.5">
+                    {/* Top line - appears on hover for all cards */}
+                    <motion.div
+                      className="absolute top-0 left-0 right-0 h-[2px] rounded-t-[14px] origin-left"
+                      style={{ backgroundColor: currentIndustry?.color }}
+                      initial={{ scaleX: 0 }}
+                      whileHover={{ scaleX: 1 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                    />
+                    <div className="font-['Instrument_Serif'] text-[1.4rem] italic leading-[1.55] text-white mb-3.5 font-normal">
                       {signal.quote}
                     </div>
-                    <div className="text-[11px] text-white/20 tracking-[0.06em]">
+                    <div className="font-['Geist'] text-[18px] text-white/20 tracking-[0.06em]">
                       {signal.label}
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
 
             {/* CTA */}
             <div className="pt-7 border-t border-white/10 flex items-center justify-between gap-6">
-              <span className="text-[13px] text-white/50 font-light italic">
+              <span className="font-['Geist'] text-[13px] text-white/40 font-light italic">
                 {currentIndustry?.ctaText}
               </span>
               <button
-                className="px-5.5 py-2.5 rounded-[8px] text-[12px] font-medium tracking-[0.04em] border-none text-black whitespace-nowrap hover:opacity-85 transition-opacity"
+                className="px-5.5 py-2.5 rounded-[8px] font-['Geist'] text-[20px] font-medium tracking-[0.04em] border-none text-black whitespace-nowrap hover:opacity-85 transition-opacity"
                 style={{ backgroundColor: currentIndustry?.color }}
+                onClick={() => window.location.href = '/contact'}
               >
                 {currentIndustry?.ctaButton}
               </button>

@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import IndustriesHero from "@/components/industries/IndustriesHero";
 import IndustriesSelector from "@/components/industries/IndustriesSelector";
 import IndustriesComparison from "@/components/industries/IndustriesComparison";
+import { FooterSection } from "@/components/home/FooterSection";
+import { FinalCTASection } from "@/components/home/FinalCTASection";
 
 export default function IndustriesPage() {
   const [mounted, setMounted] = useState(false);
@@ -25,6 +27,8 @@ export default function IndustriesPage() {
       <IndustriesHero />
       <IndustriesSelector />
       <IndustriesComparison />
+      <FinalCTASection />
+      <FooterSection />
     </div>
   );
 }
