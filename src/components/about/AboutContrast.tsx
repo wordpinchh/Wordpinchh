@@ -1,16 +1,6 @@
-'use client';
-
-import { useState, useEffect } from 'react';
+"use client";
 
 export default function AboutContrast() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
   const notList = [
     '20 AI-generated articles a month at $10 each',
     'Keyword-stuffed content with no strategic angle',
@@ -46,8 +36,7 @@ export default function AboutContrast() {
     <section 
       className="grid grid-cols-1 lg:grid-cols-2"
       style={{
-        borderBottom: '3px double var(--about-border-heavy)',
-        animation: 'slideUp 0.5s ease 0.2s both'
+        borderBottom: '3px double var(--about-border-heavy)'
       }}
     >
       {/* CONTRAST BAD */}
@@ -78,7 +67,7 @@ export default function AboutContrast() {
           className="flex items-center gap-2.5 mb-6"
           style={{
             fontFamily: 'Barlow Condensed, sans-serif',
-            fontSize: '11px',
+            fontSize: '20px',
             letterSpacing: '0.3em',
             textTransform: 'uppercase',
             fontWeight: 700
@@ -100,7 +89,7 @@ export default function AboutContrast() {
           className="mb-6"
           style={{
             fontFamily: 'Barlow Condensed, sans-serif',
-            fontSize: 'clamp(1.8rem, 3vw, 2.6rem)',
+            fontSize: 'clamp(2rem, 3vw, 4rem)',
             fontWeight: 800,
             textTransform: 'uppercase',
             lineHeight: 1.05,
@@ -122,7 +111,7 @@ export default function AboutContrast() {
         <p 
           className="mb-5"
           style={{
-            fontSize: '14px',
+            fontSize: '20px',
             lineHeight: 1.75,
             color: 'var(--about-ink-3)',
             fontWeight: 400
@@ -143,7 +132,7 @@ export default function AboutContrast() {
               key={index}
               className="flex items-start gap-2.5"
               style={{
-                fontSize: '13px',
+                fontSize: '20px',
                 lineHeight: 1.5,
                 color: 'var(--about-ink-4)',
                 textDecoration: 'line-through',
@@ -169,7 +158,7 @@ export default function AboutContrast() {
           className="flex items-center gap-2.5 mb-7"
           style={{
             fontFamily: 'Barlow Condensed, sans-serif',
-            fontSize: '11px',
+            fontSize: '20px',
             letterSpacing: '0.3em',
             textTransform: 'uppercase',
             fontWeight: 700,
@@ -192,7 +181,7 @@ export default function AboutContrast() {
           className="mb-7"
           style={{
             fontFamily: 'Barlow Condensed, sans-serif',
-            fontSize: 'clamp(1.8rem, 3vw, 2.6rem)',
+            fontSize: 'clamp(2rem, 3vw, 4rem)',
             fontWeight: 800,
             textTransform: 'uppercase',
             lineHeight: 1.05,
@@ -206,7 +195,7 @@ export default function AboutContrast() {
               color: '#FFD97A',
               fontStyle: 'italic',
               fontFamily: 'Libre Baskerville, serif',
-              fontSize: '0.82em',
+              fontSize: '0.9em',
               textTransform: 'none'
             }}
           >
@@ -259,7 +248,7 @@ export default function AboutContrast() {
               {/* TEXT */}
               <div 
                 style={{
-                  fontSize: '14px',
+                  fontSize: '18px',
                   color: 'rgba(255,255,255,0.75)',
                   lineHeight: 1.6,
                   fontWeight: 300
@@ -272,7 +261,7 @@ export default function AboutContrast() {
                     display: 'block',
                     marginBottom: '2px',
                     fontFamily: 'Barlow Condensed, sans-serif',
-                    fontSize: '16px',
+                    fontSize: '22px',
                     textTransform: 'uppercase',
                     letterSpacing: '0.04em'
                   }}

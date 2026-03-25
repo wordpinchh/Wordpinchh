@@ -1,19 +1,8 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-import React from 'react';
+"use client";
 
 export default function AboutHero() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
   return (
-    <React.Fragment>
+    <>
       {/* TOP RULE */}
       <div 
         className="h-[6px]"
@@ -27,14 +16,13 @@ export default function AboutHero() {
       <header 
         className="flex items-center justify-between py-[28px] px-16 lg:px-16 pb-6"
         style={{
-          borderBottom: '3px double var(--about-border-heavy)',
-          animation: 'slideUp 0.5s ease both'
+          borderBottom: '3px double var(--about-border-heavy)'
         }}
       >
         <div 
           style={{
             fontFamily: 'Barlow Condensed, sans-serif',
-            fontSize: '13px',
+            fontSize: '25px',
             fontWeight: 600,
             letterSpacing: '0.35em',
             textTransform: 'uppercase',
@@ -48,7 +36,7 @@ export default function AboutHero() {
           <div 
             style={{
               fontFamily: 'Barlow Condensed, sans-serif',
-              fontSize: 'clamp(3rem, 6vw, 5.5rem)',
+              fontSize: 'clamp(4rem, 5vw, 6rem)',
               fontWeight: 900,
               letterSpacing: '-0.01em',
               lineHeight: 0.85,
@@ -61,7 +49,7 @@ export default function AboutHero() {
           <div 
             style={{
               fontFamily: 'DM Mono, monospace',
-              fontSize: '10px',
+              fontSize: '15px',
               letterSpacing: '0.15em',
               color: 'var(--about-ink-4)',
               marginTop: '6px',
@@ -75,7 +63,7 @@ export default function AboutHero() {
         <div 
           style={{
             fontFamily: 'DM Mono, monospace',
-            fontSize: '10px',
+            fontSize: '15px',
             letterSpacing: '0.08em',
             color: 'var(--about-ink-4)',
             textAlign: 'right'
@@ -91,8 +79,7 @@ export default function AboutHero() {
       <section 
         className="grid grid-cols-1 lg:grid-cols-[1fr_380px]"
         style={{
-          borderBottom: '2px solid var(--about-border-heavy)',
-          animation: 'slideUp 0.5s ease 0.1s both'
+          borderBottom: '2px solid var(--about-border-heavy)'
         }}
       >
         {/* HERO LEFT */}
@@ -102,22 +89,6 @@ export default function AboutHero() {
             borderRight: '1px solid var(--about-border-heavy)'
           }}
         >
-          {/* BIG DECORATIVE TEXT behind hero */}
-          <div 
-            className="absolute bottom-[-20px] right-[-10px] pointer-events-none select-none whitespace-nowrap"
-            style={{
-              fontFamily: 'Barlow Condensed, sans-serif',
-              fontSize: '200px',
-              fontWeight: 900,
-              textTransform: 'uppercase',
-              color: 'rgba(26,18,8,0.04)',
-              lineHeight: 1,
-              letterSpacing: '-0.04em'
-            }}
-          >
-            Words
-          </div>
-
           {/* HERO EYEBROW */}
           <div 
             className="flex items-center gap-3 mb-8"
@@ -129,7 +100,7 @@ export default function AboutHero() {
             <span 
               style={{
                 fontFamily: 'Barlow Condensed, sans-serif',
-                fontSize: '11px',
+                fontSize: '20px',
                 letterSpacing: '0.22em',
                 textTransform: 'uppercase',
                 color: 'var(--about-red)',
@@ -175,7 +146,7 @@ export default function AboutHero() {
           <p 
             className="mb-6 max-w-[560px]"
             style={{
-              fontSize: '16px',
+              fontSize: '20px',
               lineHeight: 1.85,
               color: 'var(--about-ink-2)',
               fontWeight: 400,
@@ -188,7 +159,7 @@ export default function AboutHero() {
           <p 
             className="max-w-[560px]"
             style={{
-              fontSize: '16px',
+              fontSize: '20px',
               lineHeight: 1.85,
               color: 'var(--about-ink-2)',
               fontWeight: 400,
@@ -209,7 +180,7 @@ export default function AboutHero() {
           <p 
             className="max-w-[560px]"
             style={{
-              fontSize: '16px',
+              fontSize: '20px',
               lineHeight: 1.85,
               color: 'var(--about-ink-2)',
               fontWeight: 400
@@ -229,7 +200,7 @@ export default function AboutHero() {
           <div 
             style={{
               fontFamily: 'DM Mono, monospace',
-              fontSize: '9px',
+              fontSize: '15px',
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
               color: 'rgba(255,255,255,0.3)',
@@ -255,7 +226,7 @@ export default function AboutHero() {
               <span 
                 style={{
                   fontFamily: 'DM Mono, monospace',
-                  fontSize: '10px',
+                  fontSize: '18px',
                   color: 'rgba(255,255,255,0.2)',
                   flexShrink: 0,
                   marginTop: '3px',
@@ -267,7 +238,7 @@ export default function AboutHero() {
               <span 
                 style={{
                   fontFamily: 'Libre Baskerville, serif',
-                  fontSize: '14px',
+                  fontSize: '20px',
                   color: 'rgba(255,255,255,0.85)',
                   lineHeight: 1.6,
                   fontWeight: 400
@@ -286,6 +257,6 @@ export default function AboutHero() {
           ))}
         </div>
       </section>
-    </React.Fragment>
+    </>
   );
 }

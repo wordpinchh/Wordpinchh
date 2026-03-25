@@ -8,10 +8,10 @@ export default function ManifestoSection() {
 
       {/* HEADER */}
       <div className="flex items-baseline gap-6 px-16 py-8 border-b border-[rgba(26,18,8,0.25)]">
-        <h2 className="font-[Barlow_Condensed] font-black uppercase" style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}>
+        <h2 className="font-[Barlow_Condensed] font-black uppercase" style={{ fontSize: 'clamp(4rem, 4vw, 4rem)' }}>
           What We Believe
         </h2>
-        <span className="font-mono text-xs tracking-widest text-[#8C7D6A] uppercase">
+        <span className="font-mono text-xs tracking-widest text-[#8C7D6A] uppercase" style={{ fontSize: 'clamp(1.3rem, 2vw, 1rem)' }}>
           — Six principles we won't compromise on
         </span>
       </div>

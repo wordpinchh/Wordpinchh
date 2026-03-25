@@ -1,16 +1,6 @@
-'use client';
-
-import { useState, useEffect } from 'react';
+"use client";
 
 export default function AboutCTA() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
   return (
     <section 
       className="relative overflow-hidden"
@@ -21,28 +11,9 @@ export default function AboutCTA() {
         alignItems: 'center',
         gap: '60px',
         background: 'var(--about-paper)',
-        borderBottom: '6px solid var(--about-ink)',
-        animation: 'slideUp 0.5s ease 0.25s both'
+        borderBottom: '6px solid var(--about-ink)'
       }}
     >
-      {/* BACKGROUND WATERMARK */}
-      <div className="absolute pointer-events-none right-[200px] top-[-30px] z-0 select-none">
-        <div
-          style={{
-            fontFamily: 'Barlow Condensed, sans-serif',
-            fontSize: '180px',
-            fontWeight: 900,
-            textTransform: 'uppercase',
-            color: 'rgba(26,18,8,0.04)',
-            lineHeight: 0.85,
-            letterSpacing: '-0.04em',
-            whiteSpace: 'pre',
-          }}
-        >
-          WORK{"\n"}WITH{"\n"}US
-        </div>
-      </div>
-
       {/* CTA TEXT WRAP */}
       <div>
         {/* KICKER */}
@@ -50,7 +21,7 @@ export default function AboutCTA() {
           className="flex items-center gap-3 mb-4"
           style={{
             fontFamily: 'DM Mono, monospace',
-            fontSize: '10px',
+            fontSize: '20px',
             letterSpacing: '0.2em',
             textTransform: 'uppercase',
             color: 'var(--about-red)',
@@ -69,7 +40,7 @@ export default function AboutCTA() {
           className="mb-4.5"
           style={{
             fontFamily: 'Barlow Condensed, sans-serif',
-            fontSize: 'clamp(2.2rem, 4vw, 3.8rem)',
+            fontSize: 'clamp(2.2rem, 4vw, 4rem)',
             fontWeight: 900,
             textTransform: 'uppercase',
             lineHeight: 1.0,
@@ -85,7 +56,7 @@ export default function AboutCTA() {
         {/* COPY */}
         <p 
           style={{
-            fontSize: '15px',
+            fontSize: '20px',
             lineHeight: 1.75,
             color: 'var(--about-ink-3)',
             fontWeight: 400,
@@ -113,7 +84,7 @@ export default function AboutCTA() {
         <div 
           style={{
             fontFamily: 'DM Mono, monospace',
-            fontSize: '10px',
+            fontSize: '20px',
             letterSpacing: '0.08em',
             color: 'var(--about-ink-4)',
             marginTop: '14px',
@@ -133,7 +104,7 @@ export default function AboutCTA() {
           background: var(--about-ink);
           color: var(--about-paper);
           font-family: 'Barlow Condensed', sans-serif;
-          font-size: 18px;
+          font-size: 20px;
           font-weight: 700;
           letter-spacing: 0.12em;
           text-transform: uppercase;

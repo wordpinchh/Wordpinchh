@@ -12,7 +12,7 @@ export default function HeroSection() {
           <span className="font-mono text-[11px] tracking-[0.12em] text-[#8A7F6E]">
             02
           </span>
-          <div className="w-[48px] h-[1px] bg-[#8A7F6E]" />
+          <div className="w-[48px] h-1px bg-[#8A7F6E]" />
           <span className="font-mono text-[20px] tracking-[0.12em] text-[#8A7F6E] uppercase">
             Services
           </span>
@@ -98,7 +98,7 @@ export default function HeroSection() {
         <div className="mt-8">
           <a
             href="#"
-            className="flex items-center gap-2 font-mono text-[17px] tracking-[0.1em] uppercase text-[#FF3B00] hover:gap-4 transition-all"
+            className="flex items-center gap-2 font-mono text-[17px] tracking-widest uppercase text-[#FF3B00] hover:gap-4 transition-all"
           >
             Not sure which? Talk to us →
           </a>

@@ -163,14 +163,9 @@ body {
   z-index: 9998;
 }
 
-/* About Page Grain Texture */
+/* About Page Grain Texture - DISABLED for performance */
 .about-page::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.06'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 1;
+  display: none;
 }
 
 /* Home Page Grid Background Animation */
@@ -276,7 +271,7 @@ body {
 .ticker-inner {
   display: inline-flex;
   gap: 0;
-  animation: ticker 18s linear infinite;
+  animation: none;
 }
 
 .ticker-item {
@@ -764,7 +759,7 @@ body {
 .marquee-track {
   display: inline-flex;
   gap: 0;
-  animation: marquee 20s linear infinite;
+  animation: none;
   white-space: nowrap;
 }
 
