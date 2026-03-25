@@ -21,14 +21,14 @@ export function Navbar() {
       <div className="max-w-[1400px] mx-auto flex items-center justify-between px-6 py-4">
 
         {/* Logo */}
-        <div>
+        <div className="shrink-0 ml-2 pl-4">
           <Link href="/" className="text-white font-bold text-xl">
             Wordpinch<span className="text-accent">h</span>
           </Link>
         </div>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8 text-sm text-white/80">
+        {/* Desktop Navigation - Centered */}
+        <div className="hidden md:flex items-center gap-8 text-sm text-white/80 flex-1 justify-center">
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -39,8 +39,11 @@ export function Navbar() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
+        </div>
 
-          <button className="ml-4 px-5 py-2 rounded-lg font-bold transition-all duration-300 transform hover:scale-105" 
+        {/* Get Free Content Report Button - Right */}
+        <div className="shrink-0 hidden md:block">
+          <button className="px-5 py-2 rounded-lg font-bold transition-all duration-300 transform hover:scale-105" 
                   style={{ backgroundColor: '#caff4a', color: '#000000' }}>
             Get Free Content Report
           </button>

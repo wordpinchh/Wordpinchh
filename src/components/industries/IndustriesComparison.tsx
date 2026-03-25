@@ -48,25 +48,25 @@ export default function IndustriesComparison() {
           >
             {/* Label */}
             <div 
-              className="font-['Geist'] text-[15px] tracking-[0.2em] uppercase mb-3"
+              className="font-['Geist'] text-[18px] tracking-[0.2em] uppercase mb-3"
               style={{ color: item.color }}
             >
               {item.label}
             </div>
 
             {/* Title */}
-            <h3 className="font-['Instrument_Serif'] text-[1.6rem] leading-[1.2] font-normal tracking-[-0.01em] mb-2.5 whitespace-pre-line">
+            <h3 className="font-['Instrument_Serif'] text-[2rem] leading-[1.2] font-normal tracking-[-0.01em] mb-2.5 whitespace-pre-line">
               {item.title}
             </h3>
 
             {/* Description */}
-            <p className="font-['Geist'] text-[16px] text-white/40 leading-[1.65] font-light mb-4.5">
+            <p className="font-['Geist'] text-[21px] text-white/40 leading-[1.65] font-light mb-4.5">
               {item.description}
             </p>
 
             {/* Tags */}
             <div
-              className="inline-block px-2.5 py-1 rounded-[4px] font-['Geist'] text-[14px] tracking-widest font-medium"
+              className="inline-block px-2.5 py-1 rounded-[4px] font-['Geist'] text-[16px] tracking-widest font-medium"
               style={{
                 backgroundColor: item.colorDim,
                 color: item.color,

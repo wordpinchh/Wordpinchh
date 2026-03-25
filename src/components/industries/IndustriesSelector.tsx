@@ -128,7 +128,7 @@ export default function IndustriesSelector() {
 
               {/* Tagline */}
               <motion.div
-                className="font-['Geist'] text-[20px] text-white/20 italic leading-[1.5] mt-1.5 overflow-hidden"
+                className="font-['Geist'] text-[20px] text-white/20 italic leading-normal mt-1.5 overflow-hidden"
                 initial={false}
                 animate={{
                   maxHeight: activeTab === industry.id ? 60 : 0,
@@ -186,11 +186,11 @@ export default function IndustriesSelector() {
                 </span>
               </div>
 
-              <h2 className="font-['Instrument_Serif'] text-[clamp(3rem,3.5vw,3rem)] leading-[1.1] font-normal tracking-[-0.02em] mb-4 whitespace-pre-line">
+              <h2 className="font-['Instrument_Serif'] text-[clamp(4rem,4vw,4rem)] leading-[1.1] font-normal tracking-[-0.02em] mb-4 whitespace-pre-line">
                 {currentIndustry?.title}
               </h2>
 
-              <p className="font-['Geist'] text-[20px] text-white/40 italic leading-[1.65] font-light max-w-[540px]">
+              <p className="font-['Geist'] text-[25px] text-white/40 italic leading-[1.65] font-light max-w-[540px]">
                 {currentIndustry?.subtitle}
               </p>
             </div>
@@ -199,11 +199,11 @@ export default function IndustriesSelector() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
               {/* Left Column */}
               <div>
-                <p className="font-['Geist'] text-[20px] leading-[1.85] text-white/40 font-light mb-7">
+                <p className="font-['Geist'] text-[24px] leading-[1.85] text-white/40 font-light mb-7">
                   {currentIndustry?.intro}
                 </p>
 
-                <div className="font-['Geist'] text-[20px] tracking-[0.2em] uppercase text-white/20 mb-3.5 pb-2.5 border-b border-white/8">
+                <div className="font-['Geist'] text-[30px] tracking-[0.2em] uppercase text-white/20 mb-3.5 pb-2.5 border-b border-white/8">
                   What we build for you
                 </div>
 
@@ -213,7 +213,7 @@ export default function IndustriesSelector() {
                     className="flex gap-3 py-3 border-b border-white/10 last:border-b-0"
                   >
                     <div
-                      className="w-7 h-7 rounded-[6px] flex items-center justify-center shrink-0 text-[18px] font-semibold font-['Geist'] mt-0.5"
+                      className="w-7 h-7 rounded-[6px] flex items-center justify-center shrink-0 text-[17px] font-semibold font-['Geist'] mt-0.5"
                       style={{
                         backgroundColor: currentIndustry?.colorDim,
                         color: currentIndustry?.color,
@@ -222,10 +222,10 @@ export default function IndustriesSelector() {
                       {item.icon}
                     </div>
                     <div>
-                      <div className="font-['Geist'] text-[22px] font-medium text-white mb-0.5 block">
+                      <div className="font-['Geist'] text-[25px] font-medium text-white mb-0.5 block">
                         {item.title}
                       </div>
-                      <div className="font-['Geist'] text-[18px] text-white/40 font-light leading-[1.55]">
+                      <div className="font-['Geist'] text-[20px] text-white/40 font-light leading-[1.55]">
                         {item.desc}
                       </div>
                     </div>
@@ -265,7 +265,7 @@ export default function IndustriesSelector() {
 
             {/* CTA */}
             <div className="pt-7 border-t border-white/10 flex items-center justify-between gap-6">
-              <span className="font-['Geist'] text-[13px] text-white/40 font-light italic">
+              <span className="font-['Geist'] text-[20px] text-white/40 font-light italic">
                 {currentIndustry?.ctaText}
               </span>
               <button

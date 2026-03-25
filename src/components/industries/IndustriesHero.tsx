@@ -17,13 +17,13 @@ export default function IndustriesHero() {
           {/* Label */}
           <div className="flex items-center gap-3 mb-6">
             <div className="w-7 h-px bg-white/30" />
-            <span className="font-['Geist'] text-[11px] tracking-[0.2em] uppercase text-white/40">
+            <span className="font-['Geist'] text-[20px] tracking-[0.2em] uppercase text-white/40">
               Industries — Who We Work With
             </span>
           </div>
 
           {/* Heading */}
-          <h1 className="font-['Instrument_Serif'] text-[clamp(3.2rem,5.5vw,5.2rem)] leading-[1.0] font-normal tracking-[-0.02em]">
+          <h1 className="font-['Instrument_Serif'] text-[clamp(3.5rem,5.5vw,5.5rem)] leading-none font-normal tracking-[-0.02em]">
             We're specific
             <br />
             about <span className="italic text-white/40">who</span>
@@ -40,7 +40,7 @@ export default function IndustriesHero() {
           className="max-w-xl"
         >
           {/* Description */}
-          <p className="font-['Geist'] text-[20px] leading-[1.75] text-white/40 font-light mb-9">
+          <p className="font-['Geist'] text-[25px] leading-[1.75] text-white/40 font-light mb-9">
             Content strategy that works for a SaaS startup looks very different
             from what works for a solo consultant or a boutique firm. We work
             with three types of clients — and we know all three deeply.
@@ -55,7 +55,7 @@ export default function IndustriesHero() {
             ].map((item, i) => (
               <div
                 key={i}
-                className="flex items-center gap-2 px-4 py-2 rounded-[40px] border border-white/8 bg-white/5 backdrop-blur-sm text-[14px] font-medium text-white/40 hover:text-white hover:border-white/15 transition-all"
+                className="flex items-center gap-2 px-4 py-2 rounded-[40px] border border-white/8 bg-white/5 backdrop-blur-sm text-[18px] font-medium text-white/40 hover:text-white hover:border-white/15 transition-all"
               >
                 <span
                   className="w-[7px] h-[7px] rounded-full"
