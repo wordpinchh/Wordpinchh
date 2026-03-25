@@ -22,8 +22,12 @@ export function Navbar() {
 
         {/* Logo */}
         <div className="shrink-0 ml-2 pl-4">
-          <Link href="/" className="text-white font-bold text-xl">
-            Wordpinch<span className="text-accent">h</span>
+          <Link href="/" className="flex items-center">
+            <img 
+              src="/wordpichhlogo.png" 
+              alt="Wordpinchh" 
+              className="h-12 w-auto"
+            />
           </Link>
         </div>
 

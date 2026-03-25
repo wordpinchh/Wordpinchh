@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import HeroSection from "./HeroSection";
 
 const services = [
   {
@@ -254,7 +255,15 @@ function ServiceRow({ s, open, setOpen, activeService, toggleService }: ServiceR
             </div>
 
             <a 
-              href="#" 
+              href={
+                s.id === "li" ? "/portfolio" : 
+                s.id === "seo" ? "/contact" :
+                s.id === "lp" ? "/contact" :
+                s.id === "web" ? "/contact" :
+                s.id === "geo" ? "/contact" :
+                s.id === "aeo" ? "/contact" :
+                s.id === "ai" ? "/contact" : "/contact"
+              } 
               className="detail-cta-btn"
               data-cursor-color={s.color}
               style={{ 
@@ -299,100 +308,41 @@ export default function ServicesNew() {
 
       {/* TICKER */}
       <div className="ticker">
-        <div className="ticker-track">
+        <div className="ticker-inner" id="tickerInner">
           {[
-            "GHOSTWRITING",
-            "LANDING PAGE COPY",
-            "WEBSITE CONTENT",
-            "GEO OPTIMIZATION",
-            "AEO OPTIMIZATION",
-            "AI CONTENT STRATEGY",
-            "SEO BLOG WRITING",
-            "LINKEDIN GHOSTWRITING",
-          ]
-            .concat([
-              "GHOSTWRITING",
-              "LANDING PAGE COPY",
-              "WEBSITE CONTENT",
-              "GEO OPTIMIZATION",
-              "AEO OPTIMIZATION",
-              "AI CONTENT STRATEGY",
-              "SEO BLOG WRITING",
-              "LINKEDIN GHOSTWRITING",
-            ])
-            .map((item, i) => (
-              <span key={i} className="ticker-item">
-                <span className="dot" />
-                {item}
-              </span>
-            ))}
+            "SEO Blog Writing",
+            "LinkedIn Ghostwriting",
+            "Landing Page Copy",
+            "Website Content",
+            "GEO Optimization",
+            "AEO Optimization",
+            "AI Content Strategy",
+            "SEO Blog Writing",
+            "LinkedIn Ghostwriting",
+            "Landing Page Copy",
+            "Website Content",
+            "GEO Optimization",
+            "AEO Optimization",
+            "AI Content Strategy",
+          ].map((item, i) => (
+            <span key={i} className="ticker-item">
+              <span className="ticker-dot"></span>
+              {item}
+            </span>
+          ))}
         </div>
       </div>
 
-      {/* HERO */}
-      <section className="hero" style={{ cursor: "default" }}>
-        <div className="hero-left">
-          <div className="hero-eyebrow">
-            <span>02</span>
-            <div className="line"></div>
-            <span>SERVICES</span>
-          </div>
-          <h1 className="hero-title">
-            WHAT <br />
-            <span className="outline">WE</span> <br />
-            <span className="red">DO</span>
-          </h1>
-          <p className="hero-desc">
-            Three jobs. One agency. Google, AI engines, and the humans who actually buy.
-          </p>
-        </div>
-
-        <div className="hero-right">
-          <div>
-            <p className="hero-label">WHAT'S COVERED</p>
-
-            <div className="hero-list">
-              {services.map((item) => (
-                <div
-                  key={item.id}
-                  className={`hero-item ${
-                    activeService === item.id ? "active" : ""
-                  }`}
-                  data-cursor-color={item.color}
-                  onClick={() => handleScrollToService(item.id)}
-                >
-                  <span className="hero-name">{item.title}</span>
-
-                  <span
-                    className={`hero-badge ${
-                      item.isNew ? "new" : "core"
-                    }`}
-                  >
-                    {item.isNew ? "NEW" : "CORE"}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="hero-count">
-            07
-            <span>Services</span>
-          </div>
-
-          <a href="#" className="hero-cta" data-cursor-color="#FF3B00">
-            Not sure which? Talk to us →
-          </a>
-        </div>
-      </section>
+      {/* HERO - Exact HTML Conversion */}
+      <HeroSection />
 
       {/* SERVICES */}
       <div className="services-container">
 
         {/* CORE */}
         <div className="cat-strip">
-          <span className="cat-label">CORE CONTENT SERVICES</span>
-          <span className="cat-meta">04 / 07</span>
+          <span className="cat-label text-[1.5rem]">CORE CONTENT SERVICES</span>
+          <span className="cat-meta text-[20px] ">04 / 07</span>
         </div>
 
         {services.filter(s => !s.isNew).map((s) => (
@@ -423,6 +373,25 @@ export default function ServicesNew() {
           />
         ))}
 
+      </div>
+
+      {/* BOTTOM MARQUEE */}
+      <div className="bottom-marquee">
+        <div className="marquee-track">
+          {[
+            "CONTENT FOR SEARCH",
+            "CONTENT FOR AI", 
+            "CONTENT THAT CONVERTS",
+            "CONTENT FOR SEARCH",
+            "CONTENT FOR AI",
+            "CONTENT THAT CONVERTS",
+          ].map((item, i) => (
+            <span key={i} className="marquee-item">
+              {item}
+              <span className="m-dot"></span>
+            </span>
+          ))}
+        </div>
       </div>
     </div>
   </div>

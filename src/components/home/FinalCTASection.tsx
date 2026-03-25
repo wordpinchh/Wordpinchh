@@ -12,7 +12,7 @@ export function FinalCTASection() {
   if (!mounted) return null;
 
   return (
-    <section className="px-16 py-25 text-center relative overflow-hidden">
+    <section className="px-16 py-25 text-center relative overflow-hidden" style={{ background: '#020202' }}>
       {/* Premium Background with Multiple Layers */}
       <div 
         className="absolute inset-0 pointer-events-none"
