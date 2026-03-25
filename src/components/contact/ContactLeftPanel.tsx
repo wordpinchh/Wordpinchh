@@ -70,7 +70,9 @@ export default function ContactLeftPanel() {
       {/* Top Section */}
       <div className="relative z-10 p-12 border-b border-[rgba(255,255,255,0.07)]">
         {/* Eyebrow */}
-        <div className="flex items-center gap-3 mb-7 font-bold text-sm uppercase text-[#6B6860]">
+        <div className="flex items-center gap-3 mb-7 font-bold text-sm uppercase text-[#6B6860]" style={{
+            fontSize: 'clamp(1.5rem, 2vw, 1rem)',
+          }}>
           <div className="w-6 h-px bg-[#CAFF4A]" />
           Contact
         </div>
@@ -78,7 +80,7 @@ export default function ContactLeftPanel() {
         {/* Title */}
         <h1 className="font-bold text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] text-[#F0EDE6] mb-5"
           style={{
-            fontSize: 'clamp(2.8rem, 4vw, 4rem)',
+            fontSize: 'clamp(4rem, 6vw, 7rem)',
           }}
         >
           Let's<br />
@@ -86,14 +88,14 @@ export default function ContactLeftPanel() {
         </h1>
 
         {/* Subtitle */}
-        <p className="text-sm leading-[1.75] text-[#6B6860] font-light italic max-w-[380px]">
+        <p className="text-sm leading-[1.75] text-[#6B6860] font-light italic max-w-[500px]" style={{fontSize: '20px'}}>
           Start with a Free Content Audit. No pitch, no pressure — just a clear picture of where you are and what's possible.
         </p>
       </div>
 
       {/* Process Steps */}
       <div className="relative z-10 flex-1 p-9 flex flex-col overflow-y-auto">
-        <div className="font-bold text-xs tracking-[0.22em] uppercase text-[#3A3830] mb-6">
+        <div className="font-bold text-xs tracking-[0.22em] uppercase text-[#3A3830] mb-6" style={{fontSize: '22px'}}>
           What happens next
         </div>
 
@@ -128,12 +130,12 @@ export default function ContactLeftPanel() {
             <div className="flex-1">
               <div className={`font-bold text-base font-medium text-[#F0EDE6] mb-1 leading-[1.3] transition-opacity duration-300 ${
                 activeStep === step.id ? 'opacity-100' : 'opacity-50'
-              }`}>
+              }`} style={{ fontSize: '20px' }}>
                 {step.title}
               </div>
               <div className={`text-sm leading-[1.6] text-[#6B6860] font-light overflow-hidden transition-all duration-400 ${
                 activeStep === step.id ? 'max-h-[60px]' : 'max-h-0'
-              }`}>
+              }`} style={{ fontSize: '18px' }}>
                 {step.desc}
               </div>
             </div>
@@ -147,10 +149,12 @@ export default function ContactLeftPanel() {
           ✦
         </div>
         <div className="text-sm leading-[1.5] text-[rgba(202,255,74,0.8)] font-light">
-          <strong className="block text-[#CAFF4A] font-medium text-base mb-0.5 font-bold text-xs tracking-[0.02em]">
+          <strong className="block text-[#CAFF4A] font-medium text-base mb-0.5 font-bold text-xs tracking-[0.02em]" style={{fontSize: '25px'}}>
             No commitment required
           </strong>
-          Keep the report whether we work together or not. It's yours.
+          <span style={{fontSize: '15px'}}>
+            Keep the report whether we work together or not. It's yours.
+          </span>
         </div>
       </div>
 

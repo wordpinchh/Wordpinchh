@@ -59,12 +59,12 @@ export default function ContactRightPanel() {
           <div className={`absolute top-3 right-3.5 w-[7px] h-[7px] rounded-full bg-[#CAFF4A] transition-opacity duration-200 ${
             activePath === 'audit' ? 'opacity-100' : 'opacity-0'
           }`} />
-          <span className={`font-[Unbounded] text-[11px] font-semibold tracking-[0.04em] block mb-1 transition-colors duration-200 ${
+          <span className={`font-[Unbounded] text-[18px] font-semibold tracking-[0.04em] block mb-1 transition-colors duration-200 ${
             activePath === 'audit' ? 'text-[#CAFF4A]' : 'text-[#6B6860]'
           }`}>
             Free Content Audit
           </span>
-          <span className={`text-[12px] font-light italic leading-[1.4] block transition-colors duration-200 ${
+          <span className={`text-[16px] font-light italic leading-[1.4] block transition-colors duration-200 ${
             activePath === 'audit' ? 'text-[rgba(202,255,74,0.6)]' : 'text-[#6B6860]'
           }`}>
             Get a personalised report within 48 hrs
@@ -82,12 +82,12 @@ export default function ContactRightPanel() {
           <div className={`absolute top-3 right-3.5 w-1.5 h-1.5 rounded-full bg-[#CAFF4A] transition-opacity duration-200 ${
             activePath === 'call' ? 'opacity-100' : 'opacity-0'
           }`} />
-          <span className={`block text-[11px] font-semibold tracking-[0.04em] mb-1 transition-colors duration-200 ${
+          <span className={`block text-[18px] font-semibold tracking-[0.04em] mb-1 transition-colors duration-200 ${
             activePath === 'call' ? 'text-[#CAFF4A]' : 'text-[#6B6860]'
           }`} style={{ fontFamily: "var(--font-fahkwang)" }}>
             Book a Strategy Call
           </span>
-          <span className={`block text-[12px] font-light italic leading-[1.4] transition-colors duration-200 ${
+          <span className={`block text-[16px] font-light italic leading-[1.4] transition-colors duration-200 ${
             activePath === 'call' ? 'text-[rgba(202,255,74,0.6)]' : 'text-[#6B6860]'
           }`} style={{ fontFamily: "var(--font-inter)" }}>
             30 minutes, direct conversation
@@ -98,17 +98,17 @@ export default function ContactRightPanel() {
       {/* Audit Form Panel */}
       {activePath === 'audit' && (
         <div>
-          <h2 className="text-[clamp(1.3rem,2vw,1.7rem)] font-bold tracking-[-0.02em] text-[#F0EDE6] mb-2 leading-[1.2] text-left" style={{ fontFamily: "var(--font-fahkwang)" }}>
+          <h2 className="text-[clamp(2rem,3vw,3rem)] font-bold tracking-[-0.02em] text-[#F0EDE6] mb-2 leading-[1.2] text-left" style={{ fontFamily: "var(--font-fahkwang)" }}>
             Get your Free<br />Content Audit
           </h2>
-          <p className="text-[15px] leading-[1.7] text-[#6B6860] font-light italic mb-9 text-left" style={{ fontFamily: "var(--font-inter)" }}>
+          <p className="text-[20px] leading-[1.7] text-[#6B6860] font-light italic mb-9 text-left" style={{ fontFamily: "var(--font-inter)" }}>
             Fill in your details. We'll review your content and send a personalised report — no fluff, no pitch, just honest assessment.
           </p>
 
           <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-2 gap-3.5 mb-3.5">
               <div className="flex flex-col gap-1.5">
-                <label className="text-[10px] tracking-[0.18em] uppercase text-[#6B6860] font-mono transition-colors duration-200">
+                <label className="text-[15px] tracking-[0.18em] uppercase text-[#6B6860] font-mono transition-colors duration-200">
                   Your name
                 </label>
                 <input
@@ -124,7 +124,7 @@ export default function ContactRightPanel() {
                 />
               </div>
               <div className="flex flex-col gap-1.5">
-                <label className="text-[10px] tracking-[0.18em] uppercase text-[#6B6860] font-mono transition-colors duration-200">
+                <label className="text-[15px] tracking-[0.18em] uppercase text-[#6B6860] font-mono transition-colors duration-200">
                   Email address
                 </label>
                 <input
@@ -142,7 +142,7 @@ export default function ContactRightPanel() {
             </div>
 
             <div className="flex flex-col gap-1.5 mb-3.5">
-              <label className="text-[10px] tracking-[0.18em] uppercase text-[#6B6860] font-mono transition-colors duration-200">
+              <label className="text-[15px] tracking-[0.18em] uppercase text-[#6B6860] font-mono transition-colors duration-200">
                 Company / website URL
               </label>
               <input
@@ -158,7 +158,7 @@ export default function ContactRightPanel() {
             </div>
 
             <div className="flex flex-col gap-1.5 mb-6">
-              <label className="text-[10px] tracking-[0.18em] uppercase text-[#6B6860] font-mono transition-colors duration-200">
+              <label className="text-[15px] tracking-[0.18em] uppercase text-[#6B6860] font-mono transition-colors duration-200">
                 Your biggest content challenge right now
               </label>
               <textarea
@@ -175,31 +175,31 @@ export default function ContactRightPanel() {
 
             <button
               type="submit"
-              className="w-full mt-6 p-[18px_32px] bg-[#CAFF4A] text-[#0B0B09] font-bold tracking-[0.04em] border-none rounded-xl cursor-pointer transition-all duration-200 flex items-center justify-between gap-3 text-[13px] hover:opacity-90 hover:-translate-y-px active:translate-y-0"
+              className="w-full mt-6 p-[18px_32px] bg-[#CAFF4A] text-[#0B0B09] font-bold tracking-[0.04em] border-none rounded-xl cursor-pointer transition-all duration-200 flex items-center justify-between gap-3 text-[20px] hover:opacity-90 hover:-translate-y-px active:translate-y-0"
               style={{ fontFamily: "var(--font-fahkwang)" }}
             >
               <span>Send Details — Get the Free Audit</span>
-              <span className="w-8 h-8 bg-[rgba(0,0,0,0.15)] rounded-lg flex items-center justify-center text-[16px] shrink-0">
+              <span className="w-8 h-8 bg-[rgba(0,0,0,0.15)] rounded-lg flex items-center justify-center text-[20px] shrink-0">
                 →
               </span>
             </button>
           </form>
 
-          <div className="text-[11px] text-[#6B6860] text-center mt-3.5 font-mono tracking-[0.06em]">
+          <div className="text-[18px] text-[#6B6860] text-center mt-3.5 font-mono tracking-[0.06em]">
             Personalised report within 48 hours · No commitment
           </div>
 
           {/* OR Divider */}
           <div className="flex items-center gap-3.5 my-7">
             <div className="flex-1 h-px bg-[rgba(255,255,255,0.07)]" />
-            <span className="text-[10px] tracking-[0.15em] uppercase text-[#3A3830] font-mono">
+            <span className="text-[20px] tracking-[0.15em] uppercase text-[#3A3830] font-mono">
               Prefer a call instead?
             </span>
             <div className="flex-1 h-px bg-[rgba(255,255,255,0.07)]" />
           </div>
 
           <button
-            className="cal-btn w-full p-[18px_32px] bg-transparent text-[#CAFF4A] font-[Unbounded] text-[13px] font-bold tracking-[0.04em] border-[1.5px] border-[#CAFF4A] rounded-[12px] cursor-none transition-all duration-250 flex items-center justify-between hover:bg-[#CAFF4A] hover:text-[#0B0B09] hover:transform hover:-translate-y-px active:translate-y-0"
+            className="cal-btn w-full p-[18px_32px] bg-transparent text-[#CAFF4A] font-[Unbounded] text-[20px] font-bold tracking-[0.04em] border-[1.5px] border-[#CAFF4A] rounded-[12px] cursor-none transition-all duration-250 flex items-center justify-between hover:bg-[#CAFF4A] hover:text-[#0B0B09] hover:transform hover:-translate-y-px active:translate-y-0"
           >
             <span>Book My 30-Minute Call</span>
             <span className="cal-btn-arrow w-8 h-8 border border-[rgba(202,255,74,0.3)] rounded-lg flex items-center justify-center text-base">
@@ -207,13 +207,13 @@ export default function ContactRightPanel() {
             </span>
           </button>
 
-          <div className="cal-note text-[11px] text-[#6B6860] font-[Azeret_Mono] tracking-[0.06em] text-center mt-3.5">
+          <div className="cal-note text-[18px] text-[#6B6860] font-[Azeret_Mono] tracking-[0.06em] text-center mt-3.5">
             Free · No pitch · Honest conversation
           </div>
 
           <div className="or-divider flex items-center gap-3.5 my-7">
             <div className="or-line flex-1 h-px bg-[rgba(255,255,255,0.07)]" />
-            <span className="or-text font-[Azeret_Mono] text-[10px] tracking-[0.15em] uppercase text-[#3A3830]">
+            <span className="or-text font-[Azeret_Mono] text-[18px] tracking-[0.15em] uppercase text-[#3A3830]">
               Prefer the written audit first?
             </span>
             <div className="or-line flex-1 h-px bg-[rgba(255,255,255,0.07)]" />
@@ -221,7 +221,7 @@ export default function ContactRightPanel() {
 
           <button
             onClick={() => switchPath('audit')}
-            className="submit-btn w-full mt-6 p-[18px_32px] bg-[#181816] text-[#F0EDE6] font-[Unbounded] text-[13px] font-bold tracking-[0.04em] border border-[rgba(255,255,255,0.12)] rounded-[12px] transition-all duration-250 flex items-center justify-between gap-3 hover:opacity-90 hover:transform hover:-translate-y-px active:translate-y-0"
+            className="submit-btn w-full mt-6 p-[18px_32px] bg-[#181816] text-[#F0EDE6] font-[Unbounded] text-[20px] font-bold tracking-[0.04em] border border-[rgba(255,255,255,0.12)] rounded-[12px] transition-all duration-250 flex items-center justify-between gap-3 hover:opacity-90 hover:transform hover:-translate-y-px active:translate-y-0"
           >
             <span>Get the Free Written Audit Instead</span>
             <span className="submit-arrow w-8 h-8 bg-[rgba(255,255,255,0.06)] rounded-lg flex items-center justify-center text-base shrink-0">
@@ -236,24 +236,24 @@ export default function ContactRightPanel() {
         <div>
           <h2 className="cal-heading font-[Unbounded] font-bold tracking-[-0.02em] text-[#F0EDE6] mb-2 leading-[1.2]"
             style={{
-              fontSize: 'clamp(1.3rem, 2vw, 1.7rem)',
+              fontSize: 'clamp(2rem, 2vw, 2.5rem)',
             }}
           >
             Book a 30-Minute<br />Strategy Call
           </h2>
-          <p className="cal-sub text-[14px] leading-[1.7] text-[#6B6860] font-light italic mb-9">
+          <p className="cal-sub text-[20px] leading-[1.7] text-[#6B6860] font-light italic mb-9">
             We'll look at your current content situation and tell you honestly what we think. What's working, what isn't, and what we'd do if we were you.
           </p>
 
           <div className="cal-includes bg-[#181816] border border-[rgba(255,255,255,0.07)] rounded-[14px] p-6 mb-7">
-            <div className="cal-includes-label font-[Azeret_Mono] text-[9px] tracking-[0.22em] uppercase text-[#3A3830] mb-4.5 pb-3 border-b border-[rgba(255,255,255,0.07)]">
+            <div className="cal-includes-label font-[Azeret_Mono] text-[18px] tracking-[0.22em] uppercase text-[#3A3830] mb-4.5 pb-3 border-b border-[rgba(255,255,255,0.07)]">
               What's covered in 30 minutes
             </div>
             
             <div className="cal-include-item flex items-start gap-3 py-2.5 border-b border-[rgba(255,255,255,0.07)]">
               <div className="inc-dot w-1.5 h-1.5 rounded-full bg-[#CAFF4A] shrink-0 mt-1.5" />
-              <div className="inc-text text-[13px] leading-[1.55] text-[#6B6860] font-light">
-                <strong className="block text-[#F0EDE6] font-medium block mb-0.25 text-[13px]">
+              <div className="inc-text text-[18px] leading-[1.55] text-[#6B6860] font-light">
+                <strong className="block text-[#F0EDE6] font-medium block mb-0.25 text-[20px]">
                   Search rankings review
                 </strong>
                 Where you rank today, which keywords matter, what's cannibalising your own results.
@@ -262,8 +262,8 @@ export default function ContactRightPanel() {
 
             <div className="cal-include-item flex items-start gap-3 py-2.5 border-b border-[rgba(255,255,255,0.07)]">
               <div className="inc-dot w-1.5 h-1.5 rounded-full bg-[#CAFF4A] shrink-0 mt-1.5" />
-              <div className="inc-text text-[13px] leading-[1.55] text-[#6B6860] font-light">
-                <strong className="block text-[#F0EDE6] font-medium block mb-0.25 text-[13px]">
+              <div className="inc-text text-[18px] leading-[1.55] text-[#6B6860] font-light">
+                <strong className="block text-[#F0EDE6] font-medium block mb-0.25 text-[20px]">
                   AI visibility check
                 </strong>
                 Are you showing up when buyers ask ChatGPT, Perplexity, or Google AI about your category?
@@ -272,8 +272,8 @@ export default function ContactRightPanel() {
 
             <div className="cal-include-item flex items-start gap-3 py-2.5 border-b border-[rgba(255,255,255,0.07)]">
               <div className="inc-dot w-1.5 h-1.5 rounded-full bg-[#CAFF4A] shrink-0 mt-1.5" />
-              <div className="inc-text text-[13px] leading-[1.55] text-[#6B6860] font-light">
-                <strong className="block text-[#F0EDE6] font-medium block mb-0.25 text-[13px]">
+              <div className="inc-text text-[18px] leading-[1.55] text-[#6B6860] font-light">
+                <strong className="block text-[#F0EDE6] font-medium block mb-0.25 text-[20px]">
                   LinkedIn presence audit
                 </strong>
                 Are you or your founders visible in the feed where your buyers spend time?
@@ -282,8 +282,8 @@ export default function ContactRightPanel() {
 
             <div className="cal-include-item flex items-start gap-3 py-2.5">
               <div className="inc-dot w-1.5 h-1.5 rounded-full bg-[#CAFF4A] shrink-0 mt-1.5" />
-              <div className="inc-text text-[13px] leading-[1.55] text-[#6B6860] font-light">
-                <strong className="block text-[#F0EDE6] font-medium block mb-0.25 text-[13px]">
+              <div className="inc-text text-[18px] leading-[1.55] text-[#6B6860] font-light">
+                <strong className="block text-[#F0EDE6] font-medium block mb-0.25 text-[20px]">
                   Honest next steps
                 </strong>
                 What we'd do if we were you — whether or not we work together.
@@ -291,20 +291,20 @@ export default function ContactRightPanel() {
             </div>
           </div>
 
-          <button className="cal-btn w-full p-[18px_32px] bg-transparent text-[#CAFF4A] font-[Unbounded] text-[13px] font-bold tracking-[0.04em] border-[1.5px] border-[#CAFF4A] rounded-[12px] cursor-none transition-all duration-250 flex items-center justify-between hover:bg-[#CAFF4A] hover:text-[#0B0B09] hover:transform hover:-translate-y-px active:translate-y-0">
+          <button className="cal-btn w-full p-[18px_32px] bg-transparent text-[#CAFF4A] font-[Unbounded] text-[20px] font-bold tracking-[0.04em] border-[1.5px] border-[#CAFF4A] rounded-[12px] cursor-none transition-all duration-250 flex items-center justify-between hover:bg-[#CAFF4A] hover:text-[#0B0B09] hover:transform hover:-translate-y-px active:translate-y-0">
             <span>Book My 30-Minute Call</span>
             <span className="cal-btn-arrow w-8 h-8 border border-[rgba(202,255,74,0.3)] rounded-lg flex items-center justify-center text-base">
               →
             </span>
           </button>
 
-          <div className="cal-note text-[11px] text-[#6B6860] font-[Azeret_Mono] tracking-[0.06em] text-center mt-3.5">
+          <div className="cal-note text-[18px] text-[#6B6860] font-[Azeret_Mono] tracking-[0.06em] text-center mt-3.5">
             Free · No pitch · Honest conversation
           </div>
 
           <div className="or-divider flex items-center gap-3.5 my-7">
             <div className="or-line flex-1 h-px bg-[rgba(255,255,255,0.07)]" />
-            <span className="or-text font-[Azeret_Mono] text-[10px] tracking-[0.15em] uppercase text-[#3A3830]">
+            <span className="or-text font-[Azeret_Mono] text-[16px] tracking-[0.15em] uppercase text-[#3A3830]">
               Prefer the written audit first?
             </span>
             <div className="or-line flex-1 h-px bg-[rgba(255,255,255,0.07)]" />
@@ -312,7 +312,7 @@ export default function ContactRightPanel() {
 
           <button
             onClick={() => switchPath('audit')}
-            className="submit-btn w-full mt-6 p-[18px_32px] bg-[#181816] text-[#F0EDE6] font-[Unbounded] text-[13px] font-bold tracking-[0.04em] border border-[rgba(255,255,255,0.12)] rounded-[12px] transition-all duration-250 flex items-center justify-between gap-3 hover:opacity-90 hover:transform hover:-translate-y-px active:translate-y-0"
+            className="submit-btn w-full mt-6 p-[18px_32px] bg-[#181816] text-[#F0EDE6] font-[Unbounded] text-[20px] font-bold tracking-[0.04em] border border-[rgba(255,255,255,0.12)] rounded-[12px] transition-all duration-250 flex items-center justify-between gap-3 hover:opacity-90 hover:transform hover:-translate-y-px active:translate-y-0"
           >
             <span>Get the Free Written Audit Instead</span>
             <span className="submit-arrow w-8 h-8 bg-[rgba(255,255,255,0.06)] rounded-lg flex items-center justify-center text-base shrink-0">
