@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fahkwang } from "next/font/google";
+import { Inter, Fahkwang, Playfair_Display, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -13,6 +13,19 @@ const inter = Inter({
 
 const fahkwang = Fahkwang({
   variable: "--font-fahkwang",
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+});
+
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair-display",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+});
+
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500"],
 });
@@ -54,9 +67,10 @@ export default function RootLayout({
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@1,400&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Azeret+Mono:wght@300;400&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
       </head>
       <body 
-        className={`${inter.variable} ${fahkwang.variable} font-sans antialiased bg-black text-white overflow-x-hidden`}
+        className={`${inter.variable} ${fahkwang.variable} ${playfairDisplay.variable} ${dmSans.variable} font-sans antialiased bg-black text-white overflow-x-hidden`}
         suppressHydrationWarning
       >
         <CustomCursor />
