@@ -25,12 +25,17 @@ export function FooterSection() {
       style={{ background: 'var(--home-surface)' }}
     >
       {/* Brand */}
-      <div className="flex items-center">
-        <img 
-          src="/wordpichhlogo.png" 
-          alt="Wordpinchh" 
-          className="h-12 w-auto"
-        />
+      <div 
+        style={{
+          fontFamily: 'var(--font-fahkwang)',
+          fontSize: 'clamp(1.1rem, 3vw, 1.2rem)',
+          fontWeight: 800,
+          letterSpacing: '0.1em',
+          textTransform: 'uppercase',
+          color: 'var(--home-text)'
+        }}
+      >
+        Wordpinchh
       </div>
 
       {/* Links */}

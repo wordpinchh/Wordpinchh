@@ -116,9 +116,9 @@ export default function AboutHero() {
             className="mb-8"
             style={{
               fontFamily: 'Barlow Condensed, sans-serif',
-              fontSize: 'clamp(2.4rem, 4.5vw, 4rem)',
-              fontWeight: 800,
-              lineHeight: 1.0,
+              fontSize: 'clamp(4rem, 6.5vw, 7rem)',
+              fontWeight: 900,
+              lineHeight: 0.8,
               letterSpacing: '-0.01em',
               textTransform: 'uppercase',
               color: 'var(--about-ink)',
@@ -144,7 +144,7 @@ export default function AboutHero() {
 
           {/* HERO BODY */}
           <p 
-            className="mb-6 max-w-[560px]"
+            className="mb-6 max-w-[900px]"
             style={{
               fontSize: '20px',
               lineHeight: 1.85,
@@ -157,7 +157,7 @@ export default function AboutHero() {
           </p>
           
           <p 
-            className="max-w-[560px]"
+            className="max-w-[900px]"
             style={{
               fontSize: '20px',
               lineHeight: 1.85,
@@ -178,7 +178,7 @@ export default function AboutHero() {
           </p>
           
           <p 
-            className="max-w-[560px]"
+            className="max-w-[900px]"
             style={{
               fontSize: '20px',
               lineHeight: 1.85,

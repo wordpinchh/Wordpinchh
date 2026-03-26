@@ -24,9 +24,9 @@ export function Navbar() {
         <div className="shrink-0 ml-2 pl-4">
           <Link href="/" className="flex items-center">
             <img 
-              src="/wordpichhlogo.png" 
+              src="/wordpichh.png" 
               alt="Wordpinchh" 
-              className="h-12 w-auto"
+              className="h-14 w-auto"
             />
           </Link>
         </div>
