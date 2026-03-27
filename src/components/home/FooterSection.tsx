@@ -24,40 +24,55 @@ export function FooterSection() {
     <>
       {/* Main Footer Navigation */}
       <footer 
-        className="border-t-2 border-[rgba(255,255,255,0.07)] px-16 py-7 flex items-center justify-between"
+        className="border-t-2 border-[rgba(255,255,255,0.07)] px-20 flex items-center justify-between"
         style={{ background: 'var(--home-surface)' }}
       >
         {/* Brand */}
-        <div className="flex items-center">
+        <div className="flex items-start justify-start w-1/3">
           <img 
-            src="/wordpichh.png" 
+            src="/footer-logo.png" 
             alt="Wordpinchh" 
-            className="h-14 w-auto"
+            className="h-60 w-auto"
           />
         </div>
 
-        {/* Links */}
-        <ul className="flex gap-7 list-none">
-          {footerLinks.map((link, index) => (
-            <li key={index}>
-              <a 
-                href={link.href}
-                className="no-underline transition-all duration-200 hover:text-(--home-text)"
-                style={{
-                  fontFamily: 'var(--font-inter)',
-                  fontSize: 'clamp(12px, 3vw, 15px)',
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: 'var(--home-muted)'
-                }}
-              >
-                {link.name}
-              </a>
-            </li>
-          ))}
-        </ul>
+        {/* Links - Centered */}
+        <div className="flex-1 flex justify-center">
+          <ul className="flex gap-7 list-none">
+            {footerLinks.map((link, index) => (
+              <li key={index}>
+                <a 
+                  href={link.href}
+                  className="no-underline transition-all duration-300 hover:text-[#CAFF4A] hover:scale-105 relative group"
+                  style={{
+                    fontFamily: 'var(--font-inter)',
+                    fontSize: 'clamp(12px, 3vw, 15px)',
+                    letterSpacing: '0.12em',
+                    textTransform: 'uppercase',
+                    color: 'var(--home-muted)',
+                    whiteSpace: 'nowrap'
+                  }}
+                >
+                  {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#CAFF4A] transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-        {/* Tagline */}
+        {/* Empty space for balance */}
+        <div className="w-1/3"></div>
+      </footer>
+
+      {/* Tagline Section */}
+      <div 
+        className="w-full px-16 text-center"
+        style={{ 
+          background: 'var(--home-surface)',
+          marginTop: '-8px'
+        }}
+      >
         <div 
           style={{
             fontFamily: 'var(--font-inter)',
@@ -68,7 +83,7 @@ export function FooterSection() {
         >
           Content for Search · Content for AI · Content that converts
         </div>
-      </footer>
+      </div>
 
       {/* Dedicated Bottom Footer Section */}
       <div 
