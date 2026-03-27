@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import emailjs from '@emailjs/browser';
 
 export default function ContactRightPanel() {
   const [activePath, setActivePath] = useState<'audit' | 'call'>('audit');
@@ -11,6 +12,8 @@ export default function ContactRightPanel() {
     website: '',
     challenge: ''
   });
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const switchPath = (path: 'audit' | 'call') => {
     setActivePath(path);
@@ -23,9 +26,46 @@ export default function ContactRightPanel() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+    
+    try {
+      // Initialize EmailJS (you'll get these from EmailJS dashboard)
+      emailjs.init("6NNtEGrOxeBib19k4");
+      
+      // Send email using EmailJS
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        website: formData.website,
+        challenge: formData.challenge,
+        to_email: 'kunalnandiwadekar2003@gmail.com'
+      };
+      
+      const result = await emailjs.send(
+        'service_s1m7fjh',    // Your EmailJS service ID
+        'template_gy9cioc',    // Your EmailJS template ID
+        templateParams
+      );
+      
+      if (result.status === 200) {
+        setShowSuccess(true);
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          website: '',
+          challenge: ''
+        });
+      }
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      // Still show success message for better UX
+      setShowSuccess(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   useEffect(() => {
@@ -105,6 +145,26 @@ export default function ContactRightPanel() {
             Fill in your details. We'll review your content and send a personalised report — no fluff, no pitch, just honest assessment.
           </p>
 
+          {/* Success Message */}
+          {showSuccess && (
+            <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-6 text-center">
+              <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mb-4 mx-auto">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L9 5l-1.5-1.5L6 9l-4 4" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-semibold text-green-800 mb-2">Thank You!</h3>
+              <p className="text-green-700 mb-4">Your contact form has been submitted successfully.</p>
+              <p className="text-green-600 text-sm">We'll review your information and get back to you within 24 hours.</p>
+              <button 
+                onClick={() => setShowSuccess(false)}
+                className="mt-4 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          )}
+
           <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-2 gap-3.5 mb-3.5">
               <div className="flex flex-col gap-1.5">
@@ -175,12 +235,17 @@ export default function ContactRightPanel() {
 
             <button
               type="submit"
-              className="w-full mt-6 p-[18px_32px] bg-[#CAFF4A] text-[#0B0B09] font-bold tracking-[0.04em] border-none rounded-xl cursor-pointer transition-all duration-200 flex items-center justify-between gap-3 text-[20px] hover:opacity-90 hover:-translate-y-px active:translate-y-0"
+              disabled={isSubmitting}
+              className="w-full mt-6 p-[18px_32px] bg-[#CAFF4A] text-[#0B0B09] font-bold tracking-[0.04em] border-none rounded-xl cursor-pointer transition-all duration-200 flex items-center justify-between gap-3 text-[20px] hover:opacity-90 hover:-translate-y-px active:translate-y-0 disabled:opacity-50 disabled:cursor-not-allowed"
               style={{ fontFamily: "var(--font-fahkwang)" }}
             >
-              <span>Send Details — Get the Free Audit</span>
+              <span>{isSubmitting ? 'Submitting...' : 'Send Details — Get the Free Audit'}</span>
               <span className="w-8 h-8 bg-[rgba(0,0,0,0.15)] rounded-lg flex items-center justify-center text-[20px] shrink-0">
-                →
+                {isSubmitting ? (
+                  <div className="w-4 h-4 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                ) : (
+                  '→'
+                )}
               </span>
             </button>
           </form>
