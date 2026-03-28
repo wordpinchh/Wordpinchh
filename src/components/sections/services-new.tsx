@@ -284,6 +284,20 @@ export default function ServicesNew() {
   const [open, setOpen] = useState<string | null>(null);
   const [activeService, setActiveService] = useState<string | null>(null);
 
+  useEffect(() => {
+    // Activate ticker animation
+    const tickerInner = document.getElementById('tickerInner') as HTMLElement;
+    if (tickerInner) {
+      tickerInner.style.animation = 'ticker 22s linear infinite';
+    }
+    
+    // Activate marquee animation
+    const marqueeTracks = document.querySelectorAll('.marquee-track') as NodeListOf<HTMLElement>;
+    marqueeTracks.forEach(track => {
+      track.style.animation = 'marquee 15s linear infinite';
+    });
+  }, []);
+
   const toggleService = (id: string) => {
     setActiveService(prev => (prev === id ? null : id));
     setOpen(prev => (prev === id ? null : id));
@@ -387,6 +401,19 @@ export default function ServicesNew() {
             "CONTENT THAT CONVERTS",
           ].map((item, i) => (
             <span key={i} className="marquee-item">
+              {item}
+              <span className="m-dot"></span>
+            </span>
+          ))}
+          {[
+            "CONTENT FOR SEARCH",
+            "CONTENT FOR AI", 
+            "CONTENT THAT CONVERTS",
+            "CONTENT FOR SEARCH",
+            "CONTENT FOR AI",
+            "CONTENT THAT CONVERTS",
+          ].map((item, i) => (
+            <span key={i + 6} className="marquee-item">
               {item}
               <span className="m-dot"></span>
             </span>

@@ -24,7 +24,7 @@ export default function HeroSection() {
             className="font-[Bebas_Neue] text-[clamp(12rem,12vw,11rem)] leading-[0.88] tracking-[0.01em] text-[#0F0A00] mt-5"
             style={{
               fontWeight: 600,
-              fontSize: '200px'
+              fontSize: '185px'
             }}
           >
             WHAT <br />

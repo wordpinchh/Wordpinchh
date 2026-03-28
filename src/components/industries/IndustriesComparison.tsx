@@ -31,42 +31,42 @@ const comparisonData = [
 
 export default function IndustriesComparison() {
   return (
-    <section className="relative w-full border-t border-white/8 px-6 md:px-12 lg:px-16 py-16">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <section className="relative w-full border-t border-white/8 px-5 sm:px-8 md:px-12 lg:px-16 py-10 lg:py-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
         {comparisonData.map((item, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ 
-              duration: 0.6, 
+            transition={{
+              duration: 0.6,
               delay: index * 0.1,
-              ease: "easeOut" 
+              ease: "easeOut"
             }}
-            className="group bg-white/3 border border-white/8 rounded-[16px] p-7 cursor-pointer hover:border-white/15 transition-all duration-300"
+            className="group bg-white/3 border border-white/8 rounded-[16px] p-5 sm:p-6 lg:p-7 cursor-pointer hover:border-white/15 transition-all duration-300"
           >
             {/* Label */}
-            <div 
-              className="font-['Geist'] text-[18px] tracking-[0.2em] uppercase mb-3"
+            <div
+              className="font-['Geist'] text-[clamp(10px,2vw,14px)] tracking-[0.2em] uppercase mb-3"
               style={{ color: item.color }}
             >
               {item.label}
             </div>
 
             {/* Title */}
-            <h3 className="font-['Instrument_Serif'] text-[2rem] leading-[1.2] font-normal tracking-[-0.01em] mb-2.5 whitespace-pre-line">
+            <h3 className="font-['Instrument_Serif'] text-[clamp(1.4rem,3vw,2rem)] leading-[1.2] font-normal tracking-[-0.01em] mb-2.5 whitespace-pre-line">
               {item.title}
             </h3>
 
             {/* Description */}
-            <p className="font-['Geist'] text-[21px] text-white/40 leading-[1.65] font-light mb-4.5">
+            <p className="font-['Geist'] text-[clamp(13px,2vw,16px)] text-white/40 leading-[1.65] font-light mb-4">
               {item.description}
             </p>
 
             {/* Tags */}
             <div
-              className="inline-block px-2.5 py-1 rounded-[4px] font-['Geist'] text-[16px] tracking-widest font-medium"
+              className="inline-block px-2.5 py-1 rounded-[4px] font-['Geist'] text-[clamp(10px,1.5vw,13px)] tracking-widest font-medium"
               style={{
                 backgroundColor: item.colorDim,
                 color: item.color,

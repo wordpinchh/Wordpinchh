@@ -33,136 +33,284 @@ export default function ContactLeftPanel() {
     }
   ];
 
-  // Auto-cycle steps
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveStep(prev => (prev % 5) + 1);
-    }, 2200);
-
+    }, 2500);
     return () => clearInterval(interval);
   }, []);
 
-  const handleStepHover = (stepId: number) => {
-    setActiveStep(stepId);
-  };
-
   return (
-    <aside className="relative border-r border-[rgba(255,255,255,0.07)] flex flex-col sticky top-0 h-screen overflow-hidden"
-      style={{
-        animation: 'fadeUp 0.5s ease both',
-      }}
-    >
-      {/* Animated Background Lines */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `
-            repeating-linear-gradient(
-              0deg,
-              transparent,
-              transparent 79px,
-              rgba(255,255,255,0.025) 79px,
-              rgba(255,255,255,0.025) 80px
-            )
-          `,
-        }}
-      />
+    <aside className="left-panel">
+      {/* BACKGROUND LINES */}
+      <div className="bg-lines" />
 
-      {/* Top Section */}
-      <div className="relative z-10 p-12 border-b border-[rgba(255,255,255,0.07)]">
-        {/* Eyebrow */}
-        <div className="flex items-center gap-3 mb-7 font-bold text-sm uppercase text-[#6B6860]" style={{
-            fontSize: 'clamp(1.5rem, 2vw, 1rem)',
-          }}>
-          <div className="w-6 h-px bg-[#CAFF4A]" />
+      {/* TOP */}
+      <div className="top">
+        <div className="kicker">
+          <div className="line" />
           Contact
         </div>
 
-        {/* Title */}
-        <h1 className="font-bold text-4xl font-extrabold leading-[0.95] tracking-[-0.03em] text-[#F0EDE6] mb-5"
-          style={{
-            fontSize: 'clamp(4rem, 6vw, 7rem)',
-          }}
-        >
+        <h1 className="title">
           Let's<br />
-          <span className="text-[#CAFF4A]">Talk.</span>
+          <span>Talk.</span>
         </h1>
 
-        {/* Subtitle */}
-        <p className="text-sm leading-[1.75] text-[#6B6860] font-light italic max-w-[500px]" style={{fontSize: '20px'}}>
-          Start with a Free Content Audit. No pitch, no pressure — just a clear picture of where you are and what's possible.
+        <p className="subtitle">
+          Start with a Free Content Audit. No pitch, no pressure — just a clear
+          picture of where you are and what's possible.
         </p>
       </div>
 
-      {/* Process Steps */}
-      <div className="relative z-10 flex-1 p-9 flex flex-col overflow-y-auto">
-        <div className="font-bold text-xs tracking-[0.22em] uppercase text-[#3A3830] mb-6" style={{fontSize: '22px'}}>
-          What happens next
-        </div>
+      {/* STEPS */}
+      <div className="steps">
+        <div className="steps-title">What happens next</div>
 
         {steps.map((step, index) => (
           <div
             key={step.id}
-            className={`flex gap-5 p-9 relative transition-all duration-300 cursor-pointer ${
-              activeStep === step.id ? 'opacity-100' : 'opacity-50'
-            }`}
-            onMouseEnter={() => handleStepHover(step.id)}
-            style={{
-              animation: activeStep === step.id ? 'fadeUp 0.3s ease both' : 'none',
-            }}
+            className={`step ${activeStep === step.id ? "active" : ""}`}
+            onMouseEnter={() => setActiveStep(step.id)}
           >
-            {/* Connector Line */}
-            {index < steps.length - 1 && (
-              <div className="absolute left-[15px] top-[50px] bottom-[-18px] w-px bg-[rgba(255,255,255,0.07)]" />
-            )}
+            {index < steps.length - 1 && <div className="connector" />}
 
-            {/* Step Dot */}
-            <div className={`w-12 h-12 border border-[rgba(255,255,255,0.12)] rounded-full flex items-center justify-center shrink-0 relative z-10 bg-[#0B0B09] transition-all duration-300 ${
-              activeStep === step.id ? 'border-[#CAFF4A] bg-[rgba(202,255,74,0.08)]' : ''
-            }`}>
-              <span className={`font-bold text-xs transition-colors duration-300 ${
-                activeStep === step.id ? 'text-[#CAFF4A]' : 'text-[#6B6860]'
-              }`}>
-                {String(step.id).padStart(2, '0')}
-              </span>
+            <div className="dot">
+              {String(step.id).padStart(2, "0")}
             </div>
 
-            {/* Step Content */}
-            <div className="flex-1">
-              <div className={`font-bold text-base font-medium text-[#F0EDE6] mb-1 leading-[1.3] transition-opacity duration-300 ${
-                activeStep === step.id ? 'opacity-100' : 'opacity-50'
-              }`} style={{ fontSize: '20px' }}>
-                {step.title}
-              </div>
-              <div className={`text-sm leading-[1.6] text-[#6B6860] font-light overflow-hidden transition-all duration-400 ${
-                activeStep === step.id ? 'max-h-[60px]' : 'max-h-0'
-              }`} style={{ fontSize: '18px' }}>
-                {step.desc}
-              </div>
+            <div>
+              <div className="step-title">{step.title}</div>
+              <div className="step-desc">{step.desc}</div>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Promise Badge */}
-      <div className="relative z-10 mx-13 mb-10 bg-[rgba(202,255,74,0.08)] border border-[rgba(202,255,74,0.2)] rounded-[12px] p-4 flex items-center gap-3.5">
-        <div className="w-9 h-9 rounded-lg bg-[rgba(202,255,74,0.15)] border border-[rgba(202,255,74,0.2)] flex items-center justify-center shrink-0 text-base">
-          ✦
-        </div>
-        <div className="text-sm leading-[1.5] text-[rgba(202,255,74,0.8)] font-light">
-          <strong className="block text-[#CAFF4A] font-medium text-base mb-0.5 font-bold text-xs tracking-[0.02em]" style={{fontSize: '25px'}}>
-            No commitment required
-          </strong>
-          <span style={{fontSize: '15px'}}>
+      {/* BADGE */}
+      <div className="badge">
+        <div className="icon">✦</div>
+        <div>
+          <strong>No commitment required</strong>
+          <span>
             Keep the report whether we work together or not. It's yours.
           </span>
         </div>
       </div>
 
-      {/* Add fadeUp animation */}
+      {/* STYLES */}
       <style jsx>{`
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(16px); }
-          to { opacity: 1; transform: translateY(0); }
+        .left-panel {
+          position: sticky;
+          top: 0;
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          border-right: 1px solid rgba(255,255,255,0.07);
+          overflow: hidden;
+          background: #0b0b09;
+        }
+
+        .bg-lines {
+          position: absolute;
+          inset: 0;
+          background-image: repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 79px,
+            rgba(255,255,255,0.03) 79px,
+            rgba(255,255,255,0.03) 80px
+          );
+          pointer-events: none;
+        }
+
+        .top {
+          padding: 48px;
+          border-bottom: 1px solid rgba(255,255,255,0.07);
+          z-index: 1;
+        }
+
+        .kicker {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 14px;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: #6b6860;
+          margin-bottom: 20px;
+        }
+
+        .line {
+          width: 20px;
+          height: 2px;
+          background: #caff4a;
+        }
+
+        .title {
+          font-size: clamp(2.5rem, 5vw, 5rem);
+          font-weight: 900;
+          line-height: 1;
+          color: #f0ede6;
+        }
+
+        .title span {
+          color: #caff4a;
+        }
+
+        .subtitle {
+          margin-top: 16px;
+          font-size: 16px;
+          line-height: 1.7;
+          color: #6b6860;
+          font-style: italic;
+          max-width: 400px;
+        }
+
+        .steps {
+          padding: 32px;
+          flex: 1;
+          overflow-y: auto;
+          z-index: 1;
+        }
+
+        .steps-title {
+          font-size: 12px;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: #3a3830;
+          margin-bottom: 20px;
+        }
+
+        .step {
+          display: flex;
+          gap: 16px;
+          padding: 16px 0;
+          position: relative;
+          opacity: 0.5;
+          transition: 0.3s;
+        }
+
+        .step.active {
+          opacity: 1;
+        }
+
+        .connector {
+          position: absolute;
+          left: 20px;
+          top: 40px;
+          bottom: -10px;
+          width: 1px;
+          background: rgba(255,255,255,0.07);
+        }
+
+        .dot {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: 1px solid rgba(255,255,255,0.12);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+          color: #6b6860;
+        }
+
+        .step.active .dot {
+          border-color: #caff4a;
+          color: #caff4a;
+        }
+
+        .step-title {
+          font-size: 16px;
+          color: #f0ede6;
+          margin-bottom: 4px;
+        }
+
+        .step-desc {
+          font-size: 14px;
+          color: #6b6860;
+          max-height: 0;
+          overflow: hidden;
+          transition: 0.3s;
+        }
+
+        .step.active .step-desc {
+          max-height: 80px;
+        }
+
+        .badge {
+          margin: 24px;
+          padding: 16px;
+          border-radius: 12px;
+          background: rgba(202,255,74,0.08);
+          border: 1px solid rgba(202,255,74,0.2);
+          display: flex;
+          gap: 12px;
+        }
+
+        .icon {
+          width: 32px;
+          height: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(202,255,74,0.15);
+          border-radius: 8px;
+        }
+
+        .badge strong {
+          display: block;
+          color: #caff4a;
+          font-size: 14px;
+        }
+
+        .badge span {
+          font-size: 13px;
+          color: rgba(202,255,74,0.7);
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 1024px) {
+          .left-panel {
+            position: relative;
+            height: auto;
+            border-right: none;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+          }
+        }
+
+        @media (max-width: 768px) {
+          .top {
+            padding: 32px 20px;
+          }
+
+          .steps {
+            padding: 20px;
+          }
+
+          .title {
+            font-size: 2.2rem;
+          }
+
+          .subtitle {
+            font-size: 14px;
+          }
+
+          .step-title {
+            font-size: 14px;
+          }
+
+          .step-desc {
+            font-size: 13px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .title {
+            font-size: 1.8rem;
+          }
         }
       `}</style>
     </aside>

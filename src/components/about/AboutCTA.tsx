@@ -2,113 +2,108 @@
 
 export default function AboutCTA() {
   return (
-    <section 
-      className="relative overflow-hidden"
-      style={{
-        padding: '72px 64px',
-        display: 'grid',
-        gridTemplateColumns: '1fr auto',
-        alignItems: 'center',
-        gap: '60px',
-        background: 'var(--about-paper)',
-        borderBottom: '6px solid var(--about-ink)'
-      }}
-    >
+    <section className="cta-section">
       {/* CTA TEXT WRAP */}
       <div>
         {/* KICKER */}
-        <div 
-          className="flex items-center gap-3 mb-4"
-          style={{
-            fontFamily: 'DM Mono, monospace',
-            fontSize: '20px',
-            letterSpacing: '0.2em',
-            textTransform: 'uppercase',
-            color: 'var(--about-red)',
-            marginBottom: '16px'
-          }}
-        >
-          <div 
-            className="w-6 h-0.5"
-            style={{ background: 'var(--about-red)' }}
-          />
+        <div className="kicker">
+          <div className="line" />
           If that's you
         </div>
 
         {/* HEADLINE */}
-        <h2 
-          className="mb-4.5"
-          style={{
-            fontFamily: 'Barlow Condensed, sans-serif',
-            fontSize: 'clamp(2.2rem, 4vw, 4rem)',
-            fontWeight: 900,
-            textTransform: 'uppercase',
-            lineHeight: 1.0,
-            letterSpacing: '-0.01em',
-            color: 'var(--about-ink)',
-            marginBottom: '18px'
-          }}
-        >
+        <h2 className="headline">
           We'll do great<br />
           work together.
         </h2>
 
         {/* COPY */}
-        <p 
-          style={{
-            fontSize: '20px',
-            lineHeight: 1.75,
-            color: 'var(--about-ink-3)',
-            fontWeight: 400,
-            maxWidth: '480px',
-            fontStyle: 'italic'
-          }}
-        >
-          Tell us where you are, what you've tried, and What you're trying to build. We'll tell you whether and how we can help — no obligation, no pitch deck.
+        <p className="copy">
+          Tell us where you are, what you've tried, and what you're trying to
+          build. We'll tell you whether and how we can help — no obligation, no
+          pitch deck.
         </p>
       </div>
 
-      {/* CTA BUTTON WRAP */}
-      <div 
-        className="relative z-10"
-        style={{ flexShrink: 0 }}
-      >
-        <a 
-          href="/contact"
-          className="cta-btn"
-        >
+      {/* CTA BUTTON */}
+      <div className="cta-wrap">
+        <a href="/contact" className="cta-btn">
           Book a Strategy Call
         </a>
-        
-        {/* NOTE */}
-        <div 
-          style={{
-            fontFamily: 'DM Mono, monospace',
-            fontSize: '20px',
-            letterSpacing: '0.08em',
-            color: 'var(--about-ink-4)',
-            marginTop: '14px',
-            textAlign: 'center'
-          }}
-        >
+
+        <div className="note">
           Free · 30 minutes · No pitch
         </div>
       </div>
 
-      {/* BUTTON STYLES */}
+      {/* STYLES */}
       <style jsx>{`
+        .cta-section {
+          position: relative;
+          overflow: hidden;
+          display: grid;
+          grid-template-columns: 1fr auto;
+          align-items: center;
+          gap: 60px;
+          padding: 72px 64px;
+          background: var(--about-paper);
+          border-bottom: 6px solid var(--about-ink);
+        }
+
+        /* TEXT */
+        .kicker {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          font-family: 'DM Mono', monospace;
+          font-size: 18px;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: var(--about-red);
+          margin-bottom: 16px;
+        }
+
+        .line {
+          width: 24px;
+          height: 2px;
+          background: var(--about-red);
+        }
+
+        .headline {
+          font-family: 'Barlow Condensed', sans-serif;
+          font-size: clamp(2rem, 4vw, 4rem);
+          font-weight: 900;
+          text-transform: uppercase;
+          line-height: 1;
+          letter-spacing: -0.01em;
+          color: var(--about-ink);
+          margin-bottom: 18px;
+        }
+
+        .copy {
+          font-size: 18px;
+          line-height: 1.7;
+          color: var(--about-ink-3);
+          max-width: 480px;
+          font-style: italic;
+        }
+
+        /* CTA */
+        .cta-wrap {
+          text-align: center;
+        }
+
         .cta-btn {
           position: relative;
-          display: block;
-          padding: 20px 40px;
+          display: inline-block;
+          padding: 18px 36px;
           background: var(--about-ink);
           color: var(--about-paper);
           font-family: 'Barlow Condensed', sans-serif;
-          font-size: 20px;
+          font-size: 18px;
           font-weight: 700;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          text-align: center;
           text-decoration: none;
           transition: background 0.25s;
         }
@@ -129,6 +124,61 @@ export default function AboutCTA() {
         .cta-btn:hover::after {
           border-color: var(--about-red);
           inset: 6px -6px -6px 6px;
+        }
+
+        .note {
+          font-family: 'DM Mono', monospace;
+          font-size: 16px;
+          letter-spacing: 0.08em;
+          color: var(--about-ink-4);
+          margin-top: 12px;
+        }
+
+        /* ================= MOBILE ================= */
+        @media (max-width: 768px) {
+          .cta-section {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            padding: 48px 24px;
+            text-align: left;
+          }
+
+          .headline {
+            font-size: 2.2rem;
+          }
+
+          .copy {
+            font-size: 16px;
+          }
+
+          .cta-wrap {
+            text-align: left;
+          }
+
+          .cta-btn {
+            width: 100%;
+            text-align: center;
+          }
+        }
+
+        /* ================= SMALL MOBILE ================= */
+        @media (max-width: 480px) {
+          .cta-section {
+            padding: 40px 20px;
+          }
+
+          .headline {
+            font-size: 2rem;
+          }
+
+          .kicker {
+            font-size: 14px;
+          }
+
+          .cta-btn {
+            padding: 16px 20px;
+            font-size: 16px;
+          }
         }
       `}</style>
     </section>

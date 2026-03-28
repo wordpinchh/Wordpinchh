@@ -33,85 +33,69 @@ export default function AboutContrast() {
   ];
 
   return (
-    <section 
+    <section
       className="grid grid-cols-1 lg:grid-cols-2"
-      style={{
-        borderBottom: '3px double var(--about-border-heavy)'
-      }}
+      style={{ borderBottom: '3px double var(--about-border-heavy)' }}
     >
-      {/* CONTRAST BAD */}
-      <div 
-        className="relative px-12 py-14"
+      {/* LEFT — What we're not */}
+      <div
+        className="relative px-5 sm:px-8 lg:px-12 py-10 lg:py-14 border-b lg:border-b-0"
         style={{
           background: 'var(--about-paper-3)',
           borderRight: '1px solid var(--about-border-heavy)'
         }}
       >
-        {/* BACKGROUND DECORATIVE TEXT */}
-        <div 
-          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+        {/* Background decorative text */}
+        <div
+          className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden"
           style={{
             fontFamily: 'Barlow Condensed, sans-serif',
-            fontSize: '160px',
+            fontSize: 'clamp(60px, 14vw, 160px)',
             fontWeight: 900,
             color: 'rgba(26,18,8,0.04)',
             textTransform: 'uppercase',
             letterSpacing: '-0.04em'
           }}
         >
-          NOT ANUS
+          NOT US
         </div>
 
-        {/* LABEL */}
-        <div 
-          className="flex items-center gap-2.5 mb-6"
+        {/* Label */}
+        <div
+          className="flex items-center gap-2.5 mb-5 lg:mb-6"
           style={{
             fontFamily: 'Barlow Condensed, sans-serif',
-            fontSize: '20px',
+            fontSize: 'clamp(14px, 2.5vw, 20px)',
             letterSpacing: '0.3em',
             textTransform: 'uppercase',
             fontWeight: 700
           }}
         >
-          <span 
-            style={{
-              color: 'var(--about-ink-4)'
-            }}
-          >
-            ✕
-          </span>
-          {' '}
-          What we're not
+          <span style={{ color: 'var(--about-ink-4)' }}>✕</span>
+          {' '}What we're not
         </div>
 
-        {/* HEADING */}
-        <h3 
-          className="mb-6"
+        {/* Heading */}
+        <h3
+          className="mb-5 lg:mb-6"
           style={{
             fontFamily: 'Barlow Condensed, sans-serif',
-            fontSize: 'clamp(2rem, 3vw, 4rem)',
+            fontSize: 'clamp(1.8rem, 4vw, 4rem)',
             fontWeight: 800,
             textTransform: 'uppercase',
             lineHeight: 1.05,
-            letterSpacing: '-0.01em'
+            letterSpacing: '-0.01em',
+            color: 'var(--about-ink-4)'
           }}
         >
-          <span 
-            className="relative"
-            style={{
-              position: 'relative',
-              color: 'var(--about-ink-4)'
-            }}
-          >
-            The wrong fit
-          </span>
+          The wrong fit
         </h3>
 
-        {/* BODY */}
-        <p 
+        {/* Body */}
+        <p
           className="mb-5"
           style={{
-            fontSize: '20px',
+            fontSize: 'clamp(14px, 2.5vw, 20px)',
             lineHeight: 1.75,
             color: 'var(--about-ink-3)',
             fontWeight: 400
@@ -120,19 +104,14 @@ export default function AboutContrast() {
           We're not the right fit for everyone. If you're looking for 20 AI-generated articles a month at $10 each, there are platforms for that. It won't work — but they exist.
         </p>
 
-        {/* NOT LIST */}
-        <ul 
-          className="flex flex-col gap-2.5 mt-5"
-          style={{
-            listStyle: 'none'
-          }}
-        >
+        {/* Not List */}
+        <ul className="flex flex-col gap-2.5 mt-5" style={{ listStyle: 'none' }}>
           {notList.map((item, index) => (
-            <li 
+            <li
               key={index}
               className="flex items-start gap-2.5"
               style={{
-                fontSize: '20px',
+                fontSize: 'clamp(13px, 2.5vw, 20px)',
                 lineHeight: 1.5,
                 color: 'var(--about-ink-4)',
                 textDecoration: 'line-through',
@@ -146,51 +125,42 @@ export default function AboutContrast() {
         </ul>
       </div>
 
-      {/* CONTRAST GOOD */}
-      <div 
-        className="px-12 py-14 flex flex-col"
-        style={{
-          background: 'var(--about-ink)'
-        }}
+      {/* RIGHT — Who we work best with */}
+      <div
+        className="px-5 sm:px-8 lg:px-12 py-10 lg:py-14 flex flex-col"
+        style={{ background: 'var(--about-ink)' }}
       >
-        {/* LABEL */}
-        <div 
-          className="flex items-center gap-2.5 mb-7"
+        {/* Label */}
+        <div
+          className="flex items-center gap-2.5 mb-6 lg:mb-7"
           style={{
             fontFamily: 'Barlow Condensed, sans-serif',
-            fontSize: '20px',
+            fontSize: 'clamp(14px, 2.5vw, 20px)',
             letterSpacing: '0.3em',
             textTransform: 'uppercase',
             fontWeight: 700,
-            color: '#c42119'
+            color: 'var(--about-red)'
           }}
         >
-          <span 
-            style={{
-              color: 'var(--about-red)'
-            }}
-          >
-            →
-          </span>
-          {' '}
-          Who we work best with
+          <span style={{ color: 'var(--about-red)' }}>→</span>
+          {' '}Who we work best with
         </div>
 
-        {/* HEADING */}
-        <h3 
-          className="mb-7"
+        {/* Heading */}
+        <h3
+          className="mb-6 lg:mb-7"
           style={{
             fontFamily: 'Barlow Condensed, sans-serif',
-            fontSize: 'clamp(2rem, 3vw, 4rem)',
+            fontSize: 'clamp(1.8rem, 4vw, 4rem)',
             fontWeight: 800,
             textTransform: 'uppercase',
             lineHeight: 1.05,
             letterSpacing: '-0.01em',
-            color: 'var(--about-paper)',
-            marginBottom: '28px'
+            color: 'var(--about-paper)'
           }}
         >
-          The <em 
+          The{' '}
+          <em
             style={{
               color: '#FFD97A',
               fontStyle: 'italic',
@@ -200,23 +170,19 @@ export default function AboutContrast() {
             }}
           >
             right
-          </em> fit looks like this
+          </em>{' '}
+          fit looks like this
         </h3>
 
-        {/* FIT LIST */}
-        <ul 
-          className="flex-1 flex flex-col gap-0"
-          style={{
-            listStyle: 'none'
-          }}
-        >
+        {/* Fit List */}
+        <ul className="flex-1 flex flex-col gap-0" style={{ listStyle: 'none' }}>
           {fitList.map((item, index) => (
-            <li 
+            <li
               key={index}
-              className="flex items-start gap-3.5 py-4 border-b border-[rgba(255,255,255,0.07)] last:border-b-0"
+              className="flex items-start gap-3 sm:gap-3.5 py-4 border-b border-[rgba(255,255,255,0.07)] last:border-b-0"
             >
-              {/* ICON */}
-              <div 
+              {/* Icon */}
+              <div
                 className="shrink-0 mt-0.5"
                 style={{
                   width: '24px',
@@ -229,7 +195,7 @@ export default function AboutContrast() {
                   justifyContent: 'center'
                 }}
               >
-                <svg 
+                <svg
                   viewBox="0 0 24 24"
                   style={{
                     width: '10px',
@@ -245,35 +211,31 @@ export default function AboutContrast() {
                 </svg>
               </div>
 
-              {/* TEXT */}
-              <div 
+              {/* Text */}
+              <div
                 style={{
-                  fontSize: '18px',
+                  fontSize: 'clamp(13px, 2vw, 18px)',
                   color: 'rgba(255,255,255,0.75)',
                   lineHeight: 1.6,
                   fontWeight: 300
                 }}
               >
-                <strong 
+                <strong
                   style={{
                     color: 'rgba(255,255,255,0.95)',
                     fontWeight: 500,
                     display: 'block',
                     marginBottom: '2px',
                     fontFamily: 'Barlow Condensed, sans-serif',
-                    fontSize: '22px',
+                    fontSize: 'clamp(15px, 2.5vw, 22px)',
                     textTransform: 'uppercase',
                     letterSpacing: '0.04em'
                   }}
                 >
                   {item.title}
                 </strong>
-                {item.normal} <em 
-                  style={{
-                    fontStyle: 'italic',
-                    color: '#FFD97A'
-                  }}
-                >
+                {item.normal}{' '}
+                <em style={{ fontStyle: 'italic', color: '#FFD97A' }}>
                   {item.highlight}
                 </em>
               </div>

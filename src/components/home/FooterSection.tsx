@@ -51,7 +51,8 @@ export function FooterSection() {
                       fontSize: 'clamp(10px, 0.9vw, 13px)',
                       letterSpacing: '0.1em',
                       textTransform: 'uppercase',
-                      color: 'var(--home-muted)',
+                      color: 'white',
+                      fontWeight: 'bold',
                       whiteSpace: 'nowrap'
                     }}
                   >
@@ -70,7 +71,7 @@ export function FooterSection() {
             fontFamily: 'var(--font-inter)',
             fontSize: '11px',
             letterSpacing: '0.08em',
-            color: 'var(--home-muted-2)'
+            color: '#E5E5EA'
           }}>
             Content for Search · Content for AI · Content that converts
           </span>

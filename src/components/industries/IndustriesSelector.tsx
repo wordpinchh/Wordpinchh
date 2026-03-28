@@ -83,25 +83,25 @@ export default function IndustriesSelector() {
 
   return (
     <section className="relative w-full">
-      <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] min-h-[680px]">
-        
+      <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] min-h-[680px]">
+
         {/* LEFT: TABS */}
-        <nav className="border-r border-white/10">
+        <nav className="border-b lg:border-b-0 lg:border-r border-white/10 flex flex-row lg:flex-col overflow-x-auto lg:overflow-x-visible">
           {industries.map((industry) => (
             <motion.div
               key={industry.id}
-              className={`relative px-10 py-9 border-b border-white/10 cursor-pointer transition-all ${
+              className={`relative px-5 sm:px-7 lg:px-10 py-5 lg:py-9 border-r lg:border-r-0 lg:border-b border-white/10 cursor-pointer transition-all shrink-0 lg:shrink ${
                 activeTab === industry.id ? 'bg-white/5' : 'hover:bg-white/2'
               }`}
               onClick={() => setActiveTab(industry.id)}
               whileHover={{ x: 2 }}
               transition={{ duration: 0.2 }}
             >
-              {/* Active indicator */}
+              {/* Active indicator — bottom on mobile, left on desktop */}
               {activeTab === industry.id && (
                 <motion.div
                   layoutId="activeTab"
-                  className="absolute left-0 top-0 bottom-0 w-[3px]"
+                  className="absolute left-0 top-0 lg:top-0 lg:bottom-0 lg:w-[3px] h-[3px] lg:h-auto w-full bottom-0"
                   style={{ backgroundColor: industry.color }}
                   initial={false}
                 />
@@ -109,7 +109,7 @@ export default function IndustriesSelector() {
 
               {/* Index */}
               <div
-                className={`font-['Geist'] text-[20px] tracking-[0.18em] uppercase mb-2.5 transition-colors ${
+                className={`font-['Geist'] text-[clamp(10px,2vw,16px)] tracking-[0.18em] uppercase mb-1.5 lg:mb-2.5 transition-colors ${
                   activeTab === industry.id ? 'opacity-70' : 'text-white/20'
                 }`}
                 style={{ color: activeTab === industry.id ? industry.color : undefined }}
@@ -119,16 +119,16 @@ export default function IndustriesSelector() {
 
               {/* Name */}
               <div
-                className={`font-['Instrument_Serif'] text-[1.9rem] leading-[1.2] font-normal tracking-[-0.01em] whitespace-pre-line transition-colors ${
+                className={`font-['Instrument_Serif'] text-[clamp(1.1rem,3vw,1.9rem)] leading-[1.2] font-normal tracking-[-0.01em] whitespace-pre-line transition-colors ${
                   activeTab === industry.id ? 'text-white' : 'text-white/40'
                 }`}
               >
                 {industry.name}
               </div>
 
-              {/* Tagline */}
+              {/* Tagline — desktop only */}
               <motion.div
-                className="font-['Geist'] text-[20px] text-white/20 italic leading-normal mt-1.5 overflow-hidden"
+                className="hidden lg:block font-['Geist'] text-[13px] text-white/20 italic leading-normal mt-1.5 overflow-hidden"
                 initial={false}
                 animate={{
                   maxHeight: activeTab === industry.id ? 60 : 0,
@@ -139,9 +139,9 @@ export default function IndustriesSelector() {
                 {industry.tagline}
               </motion.div>
 
-              {/* Arrow */}
+              {/* Arrow — desktop only */}
               <motion.div
-                className="absolute right-5 top-1/2 -translate-y-1/2 text-[16px]"
+                className="hidden lg:block absolute right-5 top-1/2 -translate-y-1/2 text-[16px]"
                 initial={false}
                 animate={{
                   opacity: activeTab === industry.id ? 1 : 0,
@@ -164,46 +164,46 @@ export default function IndustriesSelector() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="relative p-12 lg:p-16 overflow-y-auto"
+            className="relative p-5 sm:p-8 lg:p-16 overflow-y-auto"
           >
             {/* Background Number */}
             <div
-              className="absolute -right-5 -top-8 text-[280px] leading-none opacity-[0.04] font-['Instrument_Serif'] font-normal pointer-events-none select-none"
+              className="absolute -right-5 -top-8 text-[clamp(120px,20vw,280px)] leading-none opacity-[0.04] font-['Instrument_Serif'] font-normal pointer-events-none select-none"
               style={{ color: currentIndustry?.color }}
             >
               {String(currentIndustry?.id).padStart(2, '0')}
             </div>
 
             {/* Header */}
-            <div className="mb-10">
+            <div className="mb-7 lg:mb-10">
               <div className="flex items-center gap-2.5 mb-4">
                 <div className="w-5 h-px" style={{ backgroundColor: currentIndustry?.color }} />
                 <span
-                  className="text-[20px] tracking-[0.22em] uppercase"
+                  className="text-[clamp(11px,2.5vw,18px)] tracking-[0.22em] uppercase"
                   style={{ color: currentIndustry?.color }}
                 >
                   {currentIndustry?.name.replace('\n', ' ')}
                 </span>
               </div>
 
-              <h2 className="font-['Instrument_Serif'] text-[clamp(4rem,4vw,4rem)] leading-[1.1] font-normal tracking-[-0.02em] mb-4 whitespace-pre-line">
+              <h2 className="font-['Instrument_Serif'] text-[clamp(2rem,4vw,4rem)] leading-[1.1] font-normal tracking-[-0.02em] mb-4 whitespace-pre-line">
                 {currentIndustry?.title}
               </h2>
 
-              <p className="font-['Geist'] text-[25px] text-white/40 italic leading-[1.65] font-light max-w-[540px]">
+              <p className="font-['Geist'] text-[clamp(14px,2.5vw,20px)] text-white/40 italic leading-[1.65] font-light max-w-[540px]">
                 {currentIndustry?.subtitle}
               </p>
             </div>
 
             {/* Body */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-6 mb-7 lg:mb-8">
               {/* Left Column */}
               <div>
-                <p className="font-['Geist'] text-[24px] leading-[1.85] text-white/40 font-light mb-7">
+                <p className="font-['Geist'] text-[clamp(13px,2.5vw,18px)] leading-[1.85] text-white/40 font-light mb-6 lg:mb-7">
                   {currentIndustry?.intro}
                 </p>
 
-                <div className="font-['Geist'] text-[30px] tracking-[0.2em] uppercase text-white/20 mb-3.5 pb-2.5 border-b border-white/8">
+                <div className="font-['Geist'] text-[clamp(10px,2vw,13px)] tracking-[0.2em] uppercase text-white/20 mb-3 pb-2.5 border-b border-white/8">
                   What we build for you
                 </div>
 
@@ -213,7 +213,7 @@ export default function IndustriesSelector() {
                     className="flex gap-3 py-3 border-b border-white/10 last:border-b-0"
                   >
                     <div
-                      className="w-7 h-7 rounded-[6px] flex items-center justify-center shrink-0 text-[17px] font-semibold font-['Geist'] mt-0.5"
+                      className="w-7 h-7 rounded-[6px] flex items-center justify-center shrink-0 text-[10px] font-semibold font-['Geist'] mt-0.5"
                       style={{
                         backgroundColor: currentIndustry?.colorDim,
                         color: currentIndustry?.color,
@@ -222,10 +222,10 @@ export default function IndustriesSelector() {
                       {item.icon}
                     </div>
                     <div>
-                      <div className="font-['Geist'] text-[25px] font-medium text-white mb-0.5 block">
+                      <div className="font-['Geist'] text-[clamp(13px,2.5vw,18px)] font-medium text-white mb-0.5 block">
                         {item.title}
                       </div>
-                      <div className="font-['Geist'] text-[20px] text-white/40 font-light leading-[1.55]">
+                      <div className="font-['Geist'] text-[clamp(12px,2vw,15px)] text-white/40 font-light leading-[1.55]">
                         {item.desc}
                       </div>
                     </div>
@@ -238,13 +238,12 @@ export default function IndustriesSelector() {
                 {currentIndustry?.signals.map((signal, i) => (
                   <motion.div
                     key={i}
-                    className="p-6 rounded-[14px] border mb-4 last:mb-0 relative overflow-hidden cursor-pointer transition-all duration-300 bg-white/3 border-white/8 hover:border-white/15"
+                    className="p-5 lg:p-6 rounded-[14px] border mb-4 last:mb-0 relative overflow-hidden cursor-pointer transition-all duration-300 bg-white/3 border-white/8 hover:border-white/15"
                     whileHover={{
                       backgroundColor: currentIndustry?.colorDim,
                       borderColor: currentIndustry?.color,
                     }}
                   >
-                    {/* Top line - appears on hover for all cards */}
                     <motion.div
                       className="absolute top-0 left-0 right-0 h-[2px] rounded-t-[14px] origin-left"
                       style={{ backgroundColor: currentIndustry?.color }}
@@ -252,10 +251,10 @@ export default function IndustriesSelector() {
                       whileHover={{ scaleX: 1 }}
                       transition={{ duration: 0.3, ease: "easeOut" }}
                     />
-                    <div className="font-['Instrument_Serif'] text-[1.4rem] italic leading-[1.55] text-white mb-3.5 font-normal">
+                    <div className="font-['Instrument_Serif'] text-[clamp(1rem,2.5vw,1.4rem)] italic leading-[1.55] text-white mb-3 font-normal">
                       {signal.quote}
                     </div>
-                    <div className="font-['Geist'] text-[18px] text-white/20 tracking-[0.06em]">
+                    <div className="font-['Geist'] text-[clamp(11px,2vw,14px)] text-white/20 tracking-[0.06em]">
                       {signal.label}
                     </div>
                   </motion.div>
@@ -264,12 +263,12 @@ export default function IndustriesSelector() {
             </div>
 
             {/* CTA */}
-            <div className="pt-7 border-t border-white/10 flex items-center justify-between gap-6">
-              <span className="font-['Geist'] text-[20px] text-white/40 font-light italic">
+            <div className="pt-6 lg:pt-7 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <span className="font-['Geist'] text-[clamp(12px,2vw,16px)] text-white/40 font-light italic">
                 {currentIndustry?.ctaText}
               </span>
               <button
-                className="px-5.5 py-2.5 rounded-[8px] font-['Geist'] text-[20px] font-medium tracking-[0.04em] border-none text-black whitespace-nowrap hover:opacity-85 transition-opacity"
+                className="w-full sm:w-auto px-5 py-2.5 rounded-[8px] font-['Geist'] text-[clamp(13px,2vw,16px)] font-medium tracking-[0.04em] border-none text-black whitespace-nowrap hover:opacity-85 transition-opacity shrink-0"
                 style={{ backgroundColor: currentIndustry?.color }}
                 onClick={() => window.location.href = '/contact'}
               >

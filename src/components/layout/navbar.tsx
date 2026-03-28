@@ -32,7 +32,7 @@ export function Navbar() {
         </div>
 
         {/* Desktop Navigation - Centered */}
-        <div className="hidden md:flex items-center gap-6 lg:gap-8 text-sm text-white/80 flex-1 justify-center">
+        <div className="hidden md:flex items-center gap-6 lg:gap-8 text-[15px] font-medium text-white/80 flex-1 justify-center">
           {navItems.map((item) => (
             <Link
               key={item.name}

@@ -386,6 +386,120 @@ export default function ContactRightPanel() {
           </button>
         </div>
       )}
+      <style jsx>{`
+      /* ================= TABLET ================= */
+      @media (max-width: 1024px) {
+    main {
+      padding: 48px 28px !important;
+    }
+
+    /* PATH SWITCH */
+    .grid.grid-cols-2 {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* TEXT */
+    h2 {
+      font-size: 2.2rem !important;
+    }
+
+    p {
+      font-size: 18px !important;
+    }
+  }
+
+  /* ================= MOBILE ================= */
+  @media (max-width: 768px) {
+    main {
+      padding: 32px 20px !important;
+    }
+
+    /* SWITCH → STACK */
+    .grid.grid-cols-2 {
+      grid-template-columns: 1fr !important;
+      gap: 10px !important;
+    }
+
+    /* BUTTON TEXT */
+    button span {
+      font-size: 16px !important;
+    }
+
+    /* HEADINGS */
+    h2 {
+      font-size: 1.8rem !important;
+      line-height: 1.3 !important;
+    }
+
+    /* SUBTEXT */
+    p {
+      font-size: 16px !important;
+    }
+
+    /* FORM GRID FIX */
+    form .grid.grid-cols-2 {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* INPUT + TEXTAREA */
+    input,
+    textarea {
+      font-size: 14px !important;
+      padding: 12px 14px !important;
+    }
+
+    /* BUTTON FULL WIDTH */
+    form button {
+      font-size: 16px !important;
+      padding: 16px !important;
+    }
+
+    /* OR TEXT */
+    .or-text {
+      font-size: 14px !important;
+    }
+
+    /* CAL BUTTON */
+    .cal-btn {
+      font-size: 16px !important;
+      padding: 16px !important;
+    }
+
+    /* NOTE TEXT */
+    .cal-note {
+      font-size: 14px !important;
+    }
+
+    /* SUCCESS BOX */
+    .bg-green-50 {
+      padding: 20px !important;
+    }
+  }
+
+  /* ================= SMALL MOBILE ================= */
+  @media (max-width: 480px) {
+    main {
+      padding: 24px 16px !important;
+    }
+
+    h2 {
+      font-size: 1.6rem !important;
+    }
+
+    p {
+      font-size: 14px !important;
+    }
+
+    button span {
+      font-size: 14px !important;
+    }
+
+    .cal-btn,
+    .submit-btn {
+      font-size: 14px !important;
+    }
+  }
+`}</style>
     </main>
   );
 }

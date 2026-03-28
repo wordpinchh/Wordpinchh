@@ -4,7 +4,7 @@ export default function AboutHero() {
   return (
     <>
       {/* TOP RULE */}
-      <div 
+      <div
         className="h-[6px]"
         style={{
           background: 'var(--about-ink)',
@@ -13,16 +13,14 @@ export default function AboutHero() {
       />
 
       {/* MASTHEAD */}
-      <header 
-        className="flex items-center justify-between py-[28px] px-16 lg:px-16 pb-6"
-        style={{
-          borderBottom: '3px double var(--about-border-heavy)'
-        }}
+      <header
+        className="flex flex-col sm:flex-row items-center justify-between gap-4 py-5 sm:py-7 px-5 sm:px-8 lg:px-16 pb-5 sm:pb-6"
+        style={{ borderBottom: '3px double var(--about-border-heavy)' }}
       >
-        <div 
+        <div
           style={{
             fontFamily: 'Barlow Condensed, sans-serif',
-            fontSize: '25px',
+            fontSize: 'clamp(16px, 3vw, 25px)',
             fontWeight: 600,
             letterSpacing: '0.35em',
             textTransform: 'uppercase',
@@ -31,12 +29,12 @@ export default function AboutHero() {
         >
           Wordpinchh
         </div>
-        
+
         <div className="text-center">
-          <div 
+          <div
             style={{
               fontFamily: 'Barlow Condensed, sans-serif',
-              fontSize: 'clamp(4rem, 5vw, 6rem)',
+              fontSize: 'clamp(2.5rem, 7vw, 6rem)',
               fontWeight: 900,
               letterSpacing: '-0.01em',
               lineHeight: 0.85,
@@ -46,10 +44,10 @@ export default function AboutHero() {
           >
             About
           </div>
-          <div 
+          <div
             style={{
               fontFamily: 'DM Mono, monospace',
-              fontSize: '15px',
+              fontSize: 'clamp(10px, 2vw, 15px)',
               letterSpacing: '0.15em',
               color: 'var(--about-ink-4)',
               marginTop: '6px',
@@ -59,14 +57,14 @@ export default function AboutHero() {
             The story · The beliefs · The fit
           </div>
         </div>
-        
-        <div 
+
+        <div
+          className="text-center sm:text-right hidden sm:block"
           style={{
             fontFamily: 'DM Mono, monospace',
-            fontSize: '15px',
+            fontSize: 'clamp(10px, 1.5vw, 15px)',
             letterSpacing: '0.08em',
-            color: 'var(--about-ink-4)',
-            textAlign: 'right'
+            color: 'var(--about-ink-4)'
           }}
         >
           Content for Search.<br />
@@ -76,31 +74,22 @@ export default function AboutHero() {
       </header>
 
       {/* HERO — ORIGIN STORY */}
-      <section 
+      <section
         className="grid grid-cols-1 lg:grid-cols-[1fr_380px]"
-        style={{
-          borderBottom: '2px solid var(--about-border-heavy)'
-        }}
+        style={{ borderBottom: '2px solid var(--about-border-heavy)' }}
       >
         {/* HERO LEFT */}
-        <div 
-          className="relative px-16 lg:px-16 py-14 lg:py-14"
-          style={{
-            borderRight: '1px solid var(--about-border-heavy)'
-          }}
+        <div
+          className="relative px-5 sm:px-8 lg:px-16 py-10 lg:py-14"
+          style={{ borderRight: '1px solid var(--about-border-heavy)' }}
         >
-          {/* HERO EYEBROW */}
-          <div 
-            className="flex items-center gap-3 mb-8"
-          >
-            <div 
-              className="w-9 h-0.5"
-              style={{ background: 'var(--about-red)' }}
-            />
-            <span 
+          {/* EYEBROW */}
+          <div className="flex items-center gap-3 mb-6 lg:mb-8">
+            <div className="w-9 h-0.5" style={{ background: 'var(--about-red)' }} />
+            <span
               style={{
                 fontFamily: 'Barlow Condensed, sans-serif',
-                fontSize: '20px',
+                fontSize: 'clamp(13px, 2.5vw, 20px)',
                 letterSpacing: '0.22em',
                 textTransform: 'uppercase',
                 color: 'var(--about-red)',
@@ -111,24 +100,23 @@ export default function AboutHero() {
             </span>
           </div>
 
-          {/* HERO PULL */}
-          <h1 
-            className="mb-8"
+          {/* HEADLINE */}
+          <h1
+            className="mb-6 lg:mb-8"
             style={{
               fontFamily: 'Barlow Condensed, sans-serif',
-              fontSize: 'clamp(4rem, 6.5vw, 7rem)',
+              fontSize: 'clamp(2.8rem, 7vw, 7rem)',
               fontWeight: 900,
-              lineHeight: 0.8,
+              lineHeight: 0.85,
               letterSpacing: '-0.01em',
               textTransform: 'uppercase',
-              color: 'var(--about-ink)',
-              marginBottom: '32px'
+              color: 'var(--about-ink)'
             }}
           >
             Brilliant businesses<br />
             kept losing to<br />
             mediocre ones.<br />
-            <em 
+            <em
               style={{
                 fontStyle: 'italic',
                 fontFamily: 'Libre Baskerville, serif',
@@ -142,45 +130,38 @@ export default function AboutHero() {
             </em>
           </h1>
 
-          {/* HERO BODY */}
-          <p 
-            className="mb-6 max-w-[900px]"
+          {/* BODY */}
+          <p
+            className="mb-5 max-w-[900px]"
             style={{
-              fontSize: '20px',
+              fontSize: 'clamp(15px, 2.5vw, 20px)',
               lineHeight: 1.85,
               color: 'var(--about-ink-2)',
-              fontWeight: 400,
-              marginBottom: '24px'
+              fontWeight: 400
             }}
           >
             We started Wordpinchh because we kept watching this happen. A better product, deeper experience, stronger results — and still losing Google search, LinkedIn feed, AI recommendation, and first-impression game.
           </p>
-          
-          <p 
-            className="max-w-[900px]"
+
+          <p
+            className="mb-5 max-w-[900px]"
             style={{
-              fontSize: '20px',
+              fontSize: 'clamp(15px, 2.5vw, 20px)',
               lineHeight: 1.85,
               color: 'var(--about-ink-2)',
-              fontWeight: 400,
-              marginBottom: '24px'
+              fontWeight: 400
             }}
           >
-            <strong 
-              style={{
-                fontWeight: 700,
-                color: 'var(--about-ink)'
-              }}
-            >
+            <strong style={{ fontWeight: 700, color: 'var(--about-ink)' }}>
               Expertise doesn't market itself.
-            </strong> 
-            {' '}That's the uncomfortable truth most agencies won't say out loud. We built Wordpinchh to fix that — for founders, SaaS startups, and consulting firms who have real expertise and need the world to find it.
+            </strong>{' '}
+            That's the uncomfortable truth most agencies won't say out loud. We built Wordpinchh to fix that — for founders, SaaS startups, and consulting firms who have real expertise and need the world to find it.
           </p>
-          
-          <p 
+
+          <p
             className="max-w-[900px]"
             style={{
-              fontSize: '20px',
+              fontSize: 'clamp(15px, 2.5vw, 20px)',
               lineHeight: 1.85,
               color: 'var(--about-ink-2)',
               fontWeight: 400
@@ -190,17 +171,15 @@ export default function AboutHero() {
           </p>
         </div>
 
-        {/* HERO RIGHT - SIDEBAR: uncomfortable truths */}
-        <div 
-          className="px-10 py-12 flex flex-col gap-0"
-          style={{
-            background: 'var(--about-ink)'
-          }}
+        {/* HERO RIGHT - SIDEBAR */}
+        <div
+          className="px-5 sm:px-8 lg:px-10 py-8 lg:py-12 flex flex-col gap-0 border-t lg:border-t-0"
+          style={{ background: 'var(--about-ink)' }}
         >
-          <div 
+          <div
             style={{
               fontFamily: 'DM Mono, monospace',
-              fontSize: '15px',
+              fontSize: 'clamp(10px, 2vw, 15px)',
               letterSpacing: '0.22em',
               textTransform: 'uppercase',
               color: 'rgba(255,255,255,0.3)',
@@ -211,7 +190,7 @@ export default function AboutHero() {
           >
             The uncomfortable truths
           </div>
-          
+
           {[
             { num: '01', text: 'You can have a better product and still', highlight: 'lose Google search.' },
             { num: '02', text: 'Expertise doesn\'t market itself.', highlight: 'Publishing does.' },
@@ -219,14 +198,14 @@ export default function AboutHero() {
             { num: '04', text: 'Most "content strategies" produce traffic.', highlight: 'We produce clients.' },
             { num: '05', text: 'The first-impression game is won', highlight: 'before the first call.' }
           ].map((truth, index) => (
-            <div 
+            <div
               key={index}
-              className="flex items-start gap-3.5 py-4.5 border-b border-[rgba(255,255,255,0.08)] last:border-b-0"
+              className="flex items-start gap-3.5 py-4 border-b border-[rgba(255,255,255,0.08)] last:border-b-0"
             >
-              <span 
+              <span
                 style={{
                   fontFamily: 'DM Mono, monospace',
-                  fontSize: '18px',
+                  fontSize: 'clamp(11px, 2vw, 18px)',
                   color: 'rgba(255,255,255,0.2)',
                   flexShrink: 0,
                   marginTop: '3px',
@@ -235,21 +214,17 @@ export default function AboutHero() {
               >
                 {truth.num}
               </span>
-              <span 
+              <span
                 style={{
                   fontFamily: 'Libre Baskerville, serif',
-                  fontSize: '20px',
+                  fontSize: 'clamp(14px, 2.5vw, 20px)',
                   color: 'rgba(255,255,255,0.85)',
                   lineHeight: 1.6,
                   fontWeight: 400
                 }}
               >
-                {truth.text} <em 
-                  style={{
-                    fontStyle: 'italic',
-                    color: '#FFD97A'
-                  }}
-                >
+                {truth.text}{' '}
+                <em style={{ fontStyle: 'italic', color: '#FFD97A' }}>
                   {truth.highlight}
                 </em>
               </span>
