@@ -27,12 +27,12 @@ export function ServicesSection() {
   return (
     <section className="border-b border-[rgba(255,255,255,0.07)]">
       {/* Header */}
-      <div className="px-16 pt-16 pb-10 flex items-end justify-between gap-10 border-b border-[rgba(255,255,255,0.07)]">
+      <div className="px-5 sm:px-8 lg:px-16 pt-10 lg:pt-16 pb-8 lg:pb-10 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 border-b border-[rgba(255,255,255,0.07)]">
         <div className="flex flex-col">
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-5 lg:mb-6">
             <div className="w-6 h-0.5 bg-(--home-red)" />
-            <span 
-              className="text-[clamp(14px, 4vw, 20px)] tracking-[0.2em] uppercase"
+            <span
+              className="text-[clamp(12px, 3vw, 20px)] tracking-[0.2em] uppercase"
               style={{
                 fontFamily: 'var(--font-inter)',
                 color: 'var(--home-red)'
@@ -41,11 +41,11 @@ export function ServicesSection() {
               Services
             </span>
           </div>
-          <h2 
+          <h2
             className="mb-0"
             style={{
               fontFamily: 'var(--font-fahkwang)',
-              fontSize: 'clamp(2.4rem, 4vw, 4rem)',
+              fontSize: 'clamp(1.8rem, 5vw, 4rem)',
               fontWeight: 800,
               lineHeight: 0.95,
               textTransform: 'uppercase',
@@ -64,12 +64,12 @@ export function ServicesSection() {
             }}>Be Found, Trusted & Chosen.</em>
           </h2>
         </div>
-        <a 
-          href="/services" 
-          className="inline-flex items-center gap-2.5 px-7 py-4 bg-transparent text-(--home-text) border border-[rgba(255,255,255,0.13)] no-underline rounded-lg transition-all duration-200 hover:border-(--home-text) hover:bg-[rgba(255,255,255,0.04)] shrink-0"
+        <a
+          href="/services"
+          className="inline-flex items-center gap-2 px-5 py-3 lg:px-7 lg:py-4 bg-transparent text-(--home-text) border border-[rgba(255,255,255,0.13)] no-underline rounded-lg transition-all duration-200 hover:border-(--home-text) hover:bg-[rgba(255,255,255,0.04)] shrink-0"
           style={{
             fontFamily: 'var(--font-fahkwang)',
-            fontSize: 'clamp(16px, 4vw, 18px)',
+            fontSize: 'clamp(13px, 3vw, 18px)',
             fontWeight: 700,
             letterSpacing: '0.08em',
             textTransform: 'uppercase'
@@ -82,9 +82,9 @@ export function ServicesSection() {
       {/* Services Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 border-t border-[rgba(255,255,255,0.07)]">
         {/* Core Services */}
-        <div className="px-16 py-10 lg:border-r border-[rgba(255,255,255,0.07)]">
-          <div 
-            className="text-[clamp(12px, 3vw, 15px)] tracking-[0.22em] uppercase mb-6 pb-3 border-b border-[rgba(255,255,255,0.07)]"
+        <div className="px-5 sm:px-8 lg:px-16 py-8 lg:py-10 border-b lg:border-b-0 lg:border-r border-[rgba(255,255,255,0.07)]">
+          <div
+            className="text-[clamp(11px, 2.5vw, 15px)] tracking-[0.22em] uppercase mb-5 lg:mb-6 pb-3 border-b border-[rgba(255,255,255,0.07)]"
             style={{
               fontFamily: 'var(--font-inter)',
               color: 'var(--home-gold)'
@@ -93,11 +93,11 @@ export function ServicesSection() {
             Core Content Services
           </div>
           {coreServices.map((service, index) => (
-            <div 
+            <div
               key={index}
-              className="flex items-start gap-4 py-4.5 border-b border-[rgba(255,255,255,0.07)] last:border-b-0 cursor-pointer transition-all duration-200 rounded-lg relative overflow-hidden hover:bg-[rgba(255,255,255,0.02)]"
+              className="flex items-start gap-4 py-4 border-b border-[rgba(255,255,255,0.07)] last:border-b-0 cursor-pointer transition-all duration-200 rounded-lg relative overflow-hidden hover:bg-[rgba(255,255,255,0.02)]"
             >
-              <span 
+              <span
                 className="text-[10px] shrink-0 mt-0.5"
                 style={{
                   fontFamily: 'var(--font-inter)',
@@ -108,11 +108,11 @@ export function ServicesSection() {
                 {service.num}
               </span>
               <div className="flex-1">
-                <div 
+                <div
                   className="mb-1"
                   style={{
                     fontFamily: 'var(--font-fahkwang)',
-                    fontSize: 'clamp(1.2rem, 4vw, 1.4rem)',
+                    fontSize: 'clamp(1rem, 3.5vw, 1.4rem)',
                     fontWeight: 700,
                     textTransform: 'uppercase',
                     letterSpacing: '0.04em',
@@ -121,9 +121,9 @@ export function ServicesSection() {
                 >
                   {service.name}
                 </div>
-                <div 
+                <div
                   style={{
-                    fontSize: 'clamp(16px, 4vw, 20px)',
+                    fontSize: 'clamp(14px, 3vw, 18px)',
                     color: 'var(--home-muted)',
                     fontStyle: 'italic',
                     lineHeight: 1.5,
@@ -138,9 +138,9 @@ export function ServicesSection() {
         </div>
 
         {/* AI Services */}
-        <div className="px-16 py-10">
-          <div 
-            className="text-[clamp(12px, 3vw, 15px)] tracking-[0.22em] uppercase mb-6 pb-3 border-b border-[rgba(255,255,255,0.07)]"
+        <div className="px-5 sm:px-8 lg:px-16 py-8 lg:py-10">
+          <div
+            className="text-[clamp(11px, 2.5vw, 15px)] tracking-[0.22em] uppercase mb-5 lg:mb-6 pb-3 border-b border-[rgba(255,255,255,0.07)]"
             style={{
               fontFamily: 'var(--font-inter)',
               color: 'var(--home-lime)'
@@ -149,11 +149,11 @@ export function ServicesSection() {
             AI Visibility Services — New
           </div>
           {aiServices.map((service, index) => (
-            <div 
+            <div
               key={index}
-              className="flex items-start gap-4 py-4.5 border-b border-[rgba(255,255,255,0.07)] last:border-b-0 cursor-pointer transition-all duration-200 rounded-lg relative overflow-hidden hover:bg-[rgba(255,255,255,0.02)]"
+              className="flex items-start gap-4 py-4 border-b border-[rgba(255,255,255,0.07)] last:border-b-0 cursor-pointer transition-all duration-200 rounded-lg relative overflow-hidden hover:bg-[rgba(255,255,255,0.02)]"
             >
-              <span 
+              <span
                 className="text-[10px] shrink-0 mt-0.5"
                 style={{
                   fontFamily: 'var(--font-inter)',
@@ -164,11 +164,11 @@ export function ServicesSection() {
                 {service.num}
               </span>
               <div className="flex-1">
-                <div 
+                <div
                   className="mb-1"
                   style={{
                     fontFamily: 'var(--font-fahkwang)',
-                    fontSize: 'clamp(1.2rem, 4vw, 1.4rem)',
+                    fontSize: 'clamp(1rem, 3.5vw, 1.4rem)',
                     fontWeight: 700,
                     textTransform: 'uppercase',
                     letterSpacing: '0.04em',
@@ -177,9 +177,9 @@ export function ServicesSection() {
                 >
                   {service.name}
                 </div>
-                <div 
+                <div
                   style={{
-                    fontSize: 'clamp(16px, 4vw, 20px)',
+                    fontSize: 'clamp(14px, 3vw, 18px)',
                     color: 'var(--home-muted)',
                     fontStyle: 'italic',
                     lineHeight: 1.5,
