@@ -37,25 +37,22 @@ export function WhySection() {
   return (
     <section className="border-b border-[rgba(255,255,255,0.07)]">
       {/* Header */}
-      <div className="px-16 pt-16 pb-10 border-b border-[rgba(255,255,255,0.07)]">
+      <div className="px-5 sm:px-8 lg:px-16 pt-10 lg:pt-16 pb-8 lg:pb-10 border-b border-[rgba(255,255,255,0.07)]">
         <div className="flex items-center gap-3 mb-6">
           <div className="w-6 h-0.5 bg-(--home-red)" />
-          <span 
-            className="text-[clamp(14px, 4vw, 20px)] tracking-[0.2em] uppercase"
-            style={{
-              fontFamily: 'var(--font-inter)',
-              color: 'var(--home-red)'
-            }}
+          <span
+            className="text-[clamp(12px,3vw,20px)] tracking-[0.2em] uppercase"
+            style={{ fontFamily: 'var(--font-inter)', color: 'var(--home-red)' }}
           >
             Why Wordpinchh
           </span>
         </div>
-        
-        <h2 
+
+        <h2
           className="mb-0"
           style={{
             fontFamily: 'var(--font-fahkwang)',
-            fontSize: 'clamp(2.4rem, 4vw, 4rem)',
+            fontSize: 'clamp(1.8rem, 5vw, 4rem)',
             fontWeight: 800,
             lineHeight: 0.95,
             textTransform: 'uppercase',
@@ -76,27 +73,24 @@ export function WhySection() {
       </div>
 
       {/* Why Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 border-t border-[rgba(255,255,255,0.07)]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 border-t border-[rgba(255,255,255,0.07)]">
         {whyItems.map((item, index) => (
-          <div 
+          <div
             key={index}
-            className="px-16 py-11 border-b border-r border-[rgba(255,255,255,0.07)] relative overflow-hidden cursor-pointer transition-all duration-300 hover:bg-(--home-surface) last:border-b-0 even:border-r-0"
+            className="px-5 sm:px-8 lg:px-16 py-8 lg:py-11 border-b border-[rgba(255,255,255,0.07)] sm:odd:border-r relative overflow-hidden cursor-pointer transition-all duration-300 hover:bg-(--home-surface)"
           >
             {/* Hover Accent */}
-            <div 
-              className="absolute top-0 left-0 w-0.5 h-0 transition-all duration-400"
-              style={{
-                background: 'var(--home-lime)',
-                transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)'
-              }}
+            <div
+              className="absolute top-0 left-0 w-0.5 h-full opacity-0 hover:opacity-100 transition-all duration-300"
+              style={{ background: 'var(--home-lime)' }}
             />
-            
+
             {/* Number */}
-            <div 
+            <div
               className="mb-4"
               style={{
                 fontFamily: 'var(--font-inter)',
-                fontSize: 'clamp(16px, 4vw, 20px)',
+                fontSize: 'clamp(14px, 3vw, 20px)',
                 letterSpacing: '0.15em',
                 color: 'var(--home-muted-2)'
               }}
@@ -105,11 +99,11 @@ export function WhySection() {
             </div>
 
             {/* Title */}
-            <div 
+            <div
               className="mb-3"
               style={{
                 fontFamily: 'var(--font-fahkwang)',
-                fontSize: 'clamp(1.4rem, 4vw, 1.5rem)',
+                fontSize: 'clamp(1.1rem, 3.5vw, 1.5rem)',
                 fontWeight: 700,
                 textTransform: 'uppercase',
                 letterSpacing: '0.02em',
@@ -121,9 +115,9 @@ export function WhySection() {
             </div>
 
             {/* Description */}
-            <p 
+            <p
               style={{
-                fontSize: 'clamp(15px, 4vw, 17px)',
+                fontSize: 'clamp(13px, 3vw, 17px)',
                 lineHeight: 1.75,
                 color: 'var(--home-muted)',
                 fontWeight: 300,
