@@ -60,7 +60,7 @@ export default function ContactLeftPanel() {
         <p className="subtitle">
           Start with a Free Content Audit. No pitch, no pressure — just a clear
           picture of where you are and what's possible.
-        </p>
+        </p>  
       </div>
 
       {/* STEPS */}

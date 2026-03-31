@@ -32,7 +32,7 @@ export default function ContactRightPanel() {
     
     try {
       // Initialize EmailJS (you'll get these from EmailJS dashboard)
-      emailjs.init("6NNtEGrOxeBib19k4");
+      emailjs.init("msBKOPZLM6rN0C45D");  // ← new public key
       
       // Send email using EmailJS
       const templateParams = {
@@ -40,12 +40,11 @@ export default function ContactRightPanel() {
         from_email: formData.email,
         website: formData.website,
         challenge: formData.challenge,
-        to_email: 'kunalnandiwadekar2003@gmail.com'
       };
       
       const result = await emailjs.send(
-        'service_s1m7fjh',    // Your EmailJS service ID
-        'template_gy9cioc',    // Your EmailJS template ID
+        'service_15r1l2y',    // ← your SMTP service ID
+        'template_3coscl9',   // ← your new template ID
         templateParams
       );
       

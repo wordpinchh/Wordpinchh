@@ -1,13 +1,45 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import emailjs from '@emailjs/browser';
 
 export function LeadMagnetSection() {
   const [mounted, setMounted] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', website: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      emailjs.init("msBKOPZLM6rN0C45D");
+
+      await emailjs.send(
+        'service_15r1l2y',
+        'template_3coscl9',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          website: formData.website,
+          challenge: 'Submitted via Home Page Quick Audit Form',
+        }
+      );
+
+      setShowSuccess(true);
+      setFormData({ name: '', email: '', website: '' });
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      setShowSuccess(true);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const deliverables = [
     {
@@ -38,7 +70,6 @@ export function LeadMagnetSection() {
     <section id="audit" className="grid grid-cols-1 lg:grid-cols-[1fr_440px] border-b border-[rgba(255,255,255,0.07)]">
       {/* Left Column */}
       <div className="px-5 sm:px-8 lg:px-16 py-10 lg:py-18 border-b lg:border-b-0 lg:border-r border-[rgba(255,255,255,0.07)]">
-        {/* Eyebrow */}
         <div className="flex items-center gap-3 mb-6">
           <div className="w-6 h-0.5 bg-(--home-red)" />
           <span
@@ -49,7 +80,6 @@ export function LeadMagnetSection() {
           </span>
         </div>
 
-        {/* Title */}
         <h2
           className="mb-6"
           style={{
@@ -66,7 +96,6 @@ export function LeadMagnetSection() {
           <span style={{ color: 'var(--home-lime)' }}>money on the table.</span>
         </h2>
 
-        {/* Description */}
         <p
           className="mb-8 lg:mb-9"
           style={{
@@ -80,7 +109,6 @@ export function LeadMagnetSection() {
           In 48 hours, we'll send you a personalised report. No pitch. No pressure. Just a genuinely useful report — whether you work with us or not.
         </p>
 
-        {/* Deliverables List */}
         <ul className="flex flex-col gap-0">
           {deliverables.map((item, index) => (
             <li
@@ -120,7 +148,6 @@ export function LeadMagnetSection() {
         className="px-5 sm:px-8 lg:px-16 py-10 lg:py-16 flex flex-col justify-center relative overflow-hidden"
         style={{ background: 'var(--home-surface)' }}
       >
-        {/* Background Text */}
         <div
           className="absolute bottom-[-20px] right-[-10px] pointer-events-none select-none"
           style={{
@@ -134,76 +161,171 @@ export function LeadMagnetSection() {
           FREE
         </div>
 
-        {/* Form */}
         <div className="relative z-10">
-          <div
-            className="mb-1.5"
-            style={{
-              fontFamily: 'var(--font-fahkwang)',
-              fontSize: 'clamp(1.3rem, 4vw, 2rem)',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              color: 'var(--home-text)',
-              letterSpacing: '0.02em'
-            }}
-          >
-            Get My Free Content Audit
-          </div>
 
-          <div
-            className="mb-6"
-            style={{
-              fontSize: 'clamp(14px, 3vw, 18px)',
-              color: 'var(--home-muted)',
-              fontStyle: 'italic',
-              lineHeight: 1.5,
-              fontFamily: 'var(--font-inter)'
-            }}
-          >
-            48-hour turnaround · No commitment
-          </div>
-
-          <form className="space-y-3">
-            {['Your name', 'Email address', 'Website URL'].map((placeholder, i) => (
-              <input
-                key={i}
-                type={i === 1 ? 'email' : i === 2 ? 'url' : 'text'}
-                placeholder={placeholder}
-                className="w-full p-3.5 rounded-lg border border-[rgba(255,255,255,0.13)] outline-none transition-all duration-200 focus:border-(--home-lime)"
-                style={{
-                  background: 'var(--home-surface-2)',
-                  fontFamily: 'var(--font-inter)',
-                  fontSize: 'clamp(14px, 3vw, 18px)',
-                  color: 'var(--home-text)'
-                }}
-              />
-            ))}
-            <button
-              type="submit"
-              className="w-full p-4 bg-(--home-lime) text-(--home-bg) rounded-lg border-none transition-all duration-200 hover:opacity-90 mt-1"
-              style={{
-                fontFamily: 'var(--font-fahkwang)',
-                fontSize: 'clamp(14px, 3.5vw, 19px)',
+          {/* Success Message */}
+          {showSuccess ? (
+            <div style={{
+              background: 'rgba(202,255,74,0.06)',
+              border: '1px solid rgba(202,255,74,0.25)',
+              borderRadius: '16px',
+              padding: '32px 24px',
+              textAlign: 'center',
+            }}>
+              <div style={{
+                width: '48px', height: '48px',
+                background: 'rgba(202,255,74,0.15)',
+                borderRadius: '12px',
+                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                margin: '0 auto 16px',
+                fontSize: '22px',
+              }}>
+                ✦
+              </div>
+              <h3 style={{
+                fontSize: '20px',
                 fontWeight: 700,
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase'
-              }}
-            >
-              Get My Free Audit →
-            </button>
-          </form>
+                color: '#CAFF4A',
+                marginBottom: '8px',
+                fontFamily: 'var(--font-fahkwang)',
+              }}>
+                Details Received
+              </h3>
+              <p style={{
+                fontSize: '14px',
+                color: '#6B6860',
+                lineHeight: 1.7,
+                marginBottom: '6px',
+                fontStyle: 'italic',
+              }}>
+                We'll review your content and send a personalised report within 48 hours.
+              </p>
+              <p style={{
+                fontSize: '12px',
+                color: 'rgba(202,255,74,0.6)',
+                marginBottom: '24px',
+              }}>
+                No commitment · No pitch · Just honest feedback
+              </p>
+              <button
+                onClick={() => setShowSuccess(false)}
+                style={{
+                  padding: '10px 24px',
+                  background: 'transparent',
+                  color: '#CAFF4A',
+                  border: '1px solid rgba(202,255,74,0.4)',
+                  borderRadius: '10px',
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  cursor: 'none',
+                  letterSpacing: '0.08em',
+                }}
+              >
+                Close
+              </button>
+            </div>
+          ) : (
+            <>
+              <div
+                className="mb-1.5"
+                style={{
+                  fontFamily: 'var(--font-fahkwang)',
+                  fontSize: 'clamp(1.3rem, 4vw, 2rem)',
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  color: 'var(--home-text)',
+                  letterSpacing: '0.02em'
+                }}
+              >
+                Get My Free Content Audit
+              </div>
 
-          <div
-            className="mt-3 text-center"
-            style={{
-              fontFamily: 'var(--font-inter)',
-              fontSize: 'clamp(11px, 2.5vw, 14px)',
-              letterSpacing: '0.08em',
-              color: 'var(--home-muted-2)'
-            }}
-          >
-            No pitch · No pressure · Keep the report either way
-          </div>
+              <div
+                className="mb-6"
+                style={{
+                  fontSize: 'clamp(14px, 3vw, 18px)',
+                  color: 'var(--home-muted)',
+                  fontStyle: 'italic',
+                  lineHeight: 1.5,
+                  fontFamily: 'var(--font-inter)'
+                }}
+              >
+                48-hour turnaround · No commitment
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  required
+                  value={formData.name}
+                  onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
+                  className="w-full p-3.5 rounded-lg border border-[rgba(255,255,255,0.13)] outline-none transition-all duration-200 focus:border-(--home-lime)"
+                  style={{
+                    background: 'var(--home-surface-2)',
+                    fontFamily: 'var(--font-inter)',
+                    fontSize: 'clamp(14px, 3vw, 18px)',
+                    color: 'var(--home-text)'
+                  }}
+                />
+                <input
+                  type="email"
+                  placeholder="Email address"
+                  required
+                  value={formData.email}
+                  onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                  className="w-full p-3.5 rounded-lg border border-[rgba(255,255,255,0.13)] outline-none transition-all duration-200 focus:border-(--home-lime)"
+                  style={{
+                    background: 'var(--home-surface-2)',
+                    fontFamily: 'var(--font-inter)',
+                    fontSize: 'clamp(14px, 3vw, 18px)',
+                    color: 'var(--home-text)'
+                  }}
+                />
+                <input
+                  type="url"
+                  placeholder="Website URL"
+                  required
+                  value={formData.website}
+                  onChange={e => setFormData(prev => ({ ...prev, website: e.target.value }))}
+                  className="w-full p-3.5 rounded-lg border border-[rgba(255,255,255,0.13)] outline-none transition-all duration-200 focus:border-(--home-lime)"
+                  style={{
+                    background: 'var(--home-surface-2)',
+                    fontFamily: 'var(--font-inter)',
+                    fontSize: 'clamp(14px, 3vw, 18px)',
+                    color: 'var(--home-text)'
+                  }}
+                />
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full p-4 bg-(--home-lime) text-(--home-bg) rounded-lg border-none transition-all duration-200 hover:opacity-90 mt-1 disabled:opacity-50"
+                  style={{
+                    fontFamily: 'var(--font-fahkwang)',
+                    fontSize: 'clamp(14px, 3.5vw, 19px)',
+                    fontWeight: 700,
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    cursor: 'none',
+                  }}
+                >
+                  {isSubmitting ? 'Sending...' : 'Get My Free Audit →'}
+                </button>
+              </form>
+
+              <div
+                className="mt-3 text-center"
+                style={{
+                  fontFamily: 'var(--font-inter)',
+                  fontSize: 'clamp(11px, 2.5vw, 14px)',
+                  letterSpacing: '0.08em',
+                  color: 'var(--home-muted-2)'
+                }}
+              >
+                No pitch · No pressure · Keep the report either way
+              </div>
+            </>
+          )}
         </div>
       </div>
     </section>
