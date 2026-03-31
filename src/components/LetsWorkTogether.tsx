@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function LetsWorkTogether() {
   return (
@@ -78,9 +79,11 @@ export default function LetsWorkTogether() {
               Want to collaborate with us?
             </p>
 
-            <button className="bg-[#cdebe5] text-black px-8 py-3 rounded-full font-medium hover:opacity-90 transition">
-              Get Started
-            </button>
+            <Link href="/contact">
+              <button className="bg-[#cdebe5] text-black px-8 py-3 rounded-full font-medium hover:opacity-90 transition">
+                Get Started
+              </button>
+            </Link>
 
           </div>
 

@@ -23,12 +23,12 @@ export default function IndustriesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black">
+    <main className="overflow-x-hidden max-w-[100vw]">
       <IndustriesHero />
       <IndustriesSelector />
       <IndustriesComparison />
       <FinalCTASection />
       <FooterSection />
-    </div>
+    </main>
   );
 }

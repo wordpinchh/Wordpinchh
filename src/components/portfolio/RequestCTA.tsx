@@ -1,3 +1,8 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+
 export default function RequestCTA() {
   return (
     <section className="mx-[80px] mb-[80px] bg-black rounded-[20px] p-[56px_64px] grid grid-cols-[1fr_auto] items-center gap-12 relative overflow-hidden reveal">
@@ -28,13 +33,17 @@ export default function RequestCTA() {
 
       {/* Right Actions */}
       <div className="flex flex-col gap-3">
-        <button className="px-8 py-4 bg-[#B5E550] text-black text-[13px] font-semibold tracking-[0.05em] rounded-lg hover:scale-[0.97] active:scale-[0.95] transition-all duration-150 whitespace-nowrap">
-          → Request Sample Work
-        </button>
+        <Link href="/contact">
+          <button className="px-8 py-4 bg-[#B5E550] text-black text-[13px] font-semibold tracking-[0.05em] rounded-lg hover:scale-[0.97] active:scale-[0.95] transition-all duration-150 whitespace-nowrap">
+            → Request Sample Work
+          </button>
+        </Link>
         
-        <button className="px-8 py-4 bg-transparent border border-white/15 text-white/60 text-[13px] font-semibold tracking-[0.05em] rounded-lg hover:scale-[0.97] active:scale-[0.95] transition-all duration-150 whitespace-nowrap">
-          Book a Strategy Call
-        </button>
+        <Link href="/contact">
+          <button className="px-8 py-4 bg-transparent border border-white/15 text-white/60 text-[13px] font-semibold tracking-[0.05em] rounded-lg hover:scale-[0.97] active:scale-[0.95] transition-all duration-150 whitespace-nowrap">
+            Book a Strategy Call
+          </button>
+        </Link>
         
         <div className="text-[10px] text-white/20 text-center tracking-widest">
           Samples sent within 24 hours

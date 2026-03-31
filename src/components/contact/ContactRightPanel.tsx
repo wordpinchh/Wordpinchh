@@ -89,9 +89,9 @@ export default function ContactRightPanel() {
       {/* PATH SWITCHER */}
       <div className="grid grid-cols-2 gap-2.5 mb-11">
         <button
-          className={`p-4 border border-[rgba(255,255,255,0.12)] rounded-[12px] text-left transition-all duration-250 relative overflow-hidden cursor-pointer ${
+          className={`p-4 border border-[rgba(255,255,255,0.12)] rounded-[12px] text-left transition-all duration-250 relative overflow-hidden ${
             activePath === 'audit' 
-              ? 'border-[#CAFF4A] bg-[rgba(202,255,74,0.08)]' 
+              ? 'border-[#c9ff4a] bg-[rgba(202,255,74,0.08)]' 
               : 'border-[rgba(255,255,255,0.12)] hover:border-[rgba(255,255,255,0.12)] hover:bg-[#181816]'
           }`}
           onClick={() => switchPath('audit')}
@@ -147,18 +147,76 @@ export default function ContactRightPanel() {
 
           {/* Success Message */}
           {showSuccess && (
-            <div className="bg-green-50 border border-green-200 rounded-lg p-6 mb-6 text-center">
-              <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mb-4 mx-auto">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L9 5l-1.5-1.5L6 9l-4 4" />
-                </svg>
+            <div style={{
+              background: "rgba(202,255,74,0.06)",
+              border: "1px solid rgba(202,255,74,0.25)",
+              borderRadius: "16px",
+              padding: "32px 24px",
+              marginBottom: "24px",
+              textAlign: "center",
+            }}>
+              {/* Icon */}
+              <div style={{
+                width: "48px", height: "48px",
+                background: "rgba(202,255,74,0.15)",
+                borderRadius: "12px",
+                display: "flex", alignItems: "center", justifyContent: "center",
+                margin: "0 auto 16px",
+                fontSize: "22px",
+              }}>
+                ✦
               </div>
-              <h3 className="text-xl font-semibold text-green-800 mb-2">Thank You!</h3>
-              <p className="text-green-700 mb-4">Your contact form has been submitted successfully.</p>
-              <p className="text-green-600 text-sm">We'll review your information and get back to you within 24 hours.</p>
-              <button 
+
+              <h3 style={{
+                fontSize: "22px",
+                fontWeight: 700,
+                color: "#CAFF4A",
+                marginBottom: "8px",
+                fontFamily: "var(--font-fahkwang)",
+              }}>
+                Details Received
+              </h3>
+
+              <p style={{
+                fontSize: "15px",
+                color: "#6B6860",
+                lineHeight: 1.7,
+                marginBottom: "6px",
+                fontStyle: "italic",
+              }}>
+                We'll review your content and send a personalised report within 48 hours.
+              </p>
+
+              <p style={{
+                fontSize: "13px",
+                color: "rgba(202,255,74,0.6)",
+                marginBottom: "24px",
+              }}>
+                No commitment · No pitch · Just honest feedback
+              </p>
+
+              <button
                 onClick={() => setShowSuccess(false)}
-                className="mt-4 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                style={{
+                  padding: "12px 28px",
+                  background: "transparent",
+                  color: "#CAFF4A",
+                  border: "1px solid rgba(202,255,74,0.4)",
+                  borderRadius: "10px",
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  cursor: "none",
+                  letterSpacing: "0.08em",
+                  transition: "all 0.2s",
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = "rgba(202,255,74,0.1)";
+                  e.currentTarget.style.borderColor = "#CAFF4A";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = "transparent";
+                  e.currentTarget.style.borderColor = "rgba(202,255,74,0.4)";
+                }}
               >
                 Close
               </button>
@@ -264,7 +322,7 @@ export default function ContactRightPanel() {
           </div>
 
           <button
-            className="cal-btn w-full p-[18px_32px] bg-transparent text-[#CAFF4A] font-[Unbounded] text-[20px] font-bold tracking-[0.04em] border-[1.5px] border-[#CAFF4A] rounded-[12px] cursor-none transition-all duration-250 flex items-center justify-between hover:bg-[#CAFF4A] hover:text-[#0B0B09] hover:transform hover:-translate-y-px active:translate-y-0"
+            className="cal-btn w-full p-[18px_32px] bg-transparent text-[#CAFF4A] font-[Unbounded] text-[20px] font-bold tracking-[0.04em] border-[1.5px] border-[#CAFF4A] rounded-[12px] transition-all duration-250 flex items-center justify-between hover:bg-[#CAFF4A] hover:text-[#0B0B09] hover:transform hover:-translate-y-px active:translate-y-0"
           >
             <span>Book My 30-Minute Call</span>
             <span className="cal-btn-arrow w-8 h-8 border border-[rgba(202,255,74,0.3)] rounded-lg flex items-center justify-center text-base">
@@ -318,7 +376,7 @@ export default function ContactRightPanel() {
             <div className="cal-include-item flex items-start gap-3 py-2.5 border-b border-[rgba(255,255,255,0.07)]">
               <div className="inc-dot w-1.5 h-1.5 rounded-full bg-[#CAFF4A] shrink-0 mt-1.5" />
               <div className="inc-text text-[18px] leading-[1.55] text-[#6B6860] font-light">
-                <strong className="block text-[#F0EDE6] font-medium block mb-0.25 text-[20px]">
+                <strong className="block text-[#F0EDE6] font-medium mb-0.25 text-[20px]">
                   Search rankings review
                 </strong>
                 Where you rank today, which keywords matter, what's cannibalising your own results.
@@ -328,7 +386,7 @@ export default function ContactRightPanel() {
             <div className="cal-include-item flex items-start gap-3 py-2.5 border-b border-[rgba(255,255,255,0.07)]">
               <div className="inc-dot w-1.5 h-1.5 rounded-full bg-[#CAFF4A] shrink-0 mt-1.5" />
               <div className="inc-text text-[18px] leading-[1.55] text-[#6B6860] font-light">
-                <strong className="block text-[#F0EDE6] font-medium block mb-0.25 text-[20px]">
+                <strong className="block text-[#F0EDE6] font-medium mb-0.25 text-[20px]">
                   AI visibility check
                 </strong>
                 Are you showing up when buyers ask ChatGPT, Perplexity, or Google AI about your category?
@@ -338,7 +396,7 @@ export default function ContactRightPanel() {
             <div className="cal-include-item flex items-start gap-3 py-2.5 border-b border-[rgba(255,255,255,0.07)]">
               <div className="inc-dot w-1.5 h-1.5 rounded-full bg-[#CAFF4A] shrink-0 mt-1.5" />
               <div className="inc-text text-[18px] leading-[1.55] text-[#6B6860] font-light">
-                <strong className="block text-[#F0EDE6] font-medium block mb-0.25 text-[20px]">
+                <strong className="block text-[#F0EDE6] font-medium mb-0.25 text-[20px]">
                   LinkedIn presence audit
                 </strong>
                 Are you or your founders visible in the feed where your buyers spend time?
@@ -348,7 +406,7 @@ export default function ContactRightPanel() {
             <div className="cal-include-item flex items-start gap-3 py-2.5">
               <div className="inc-dot w-1.5 h-1.5 rounded-full bg-[#CAFF4A] shrink-0 mt-1.5" />
               <div className="inc-text text-[18px] leading-[1.55] text-[#6B6860] font-light">
-                <strong className="block text-[#F0EDE6] font-medium block mb-0.25 text-[20px]">
+                <strong className="block text-[#F0EDE6] font-medium mb-0.25 text-[20px]">
                   Honest next steps
                 </strong>
                 What we'd do if we were you — whether or not we work together.
@@ -356,7 +414,7 @@ export default function ContactRightPanel() {
             </div>
           </div>
 
-          <button className="cal-btn w-full p-[18px_32px] bg-transparent text-[#CAFF4A] font-[Unbounded] text-[20px] font-bold tracking-[0.04em] border-[1.5px] border-[#CAFF4A] rounded-[12px] cursor-none transition-all duration-250 flex items-center justify-between hover:bg-[#CAFF4A] hover:text-[#0B0B09] hover:transform hover:-translate-y-px active:translate-y-0">
+          <button onClick={() => window.location.href = 'tel:7738824485'} className="cal-btn w-full p-[18px_32px] bg-transparent text-[#CAFF4A] font-[Unbounded] text-[20px] font-bold tracking-[0.04em] border-[1.5px] border-[#CAFF4A] rounded-[12px] transition-all duration-250 flex items-center justify-between hover:bg-[#CAFF4A] hover:text-[#0B0B09] hover:transform hover:-translate-y-px active:translate-y-0">
             <span>Book My 30-Minute Call</span>
             <span className="cal-btn-arrow w-8 h-8 border border-[rgba(202,255,74,0.3)] rounded-lg flex items-center justify-center text-base">
               →

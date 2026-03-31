@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/container";
+import Link from "next/link";
 
 export function HowItWorks() {
   const steps = [
@@ -124,9 +125,11 @@ export function HowItWorks() {
           <p className="text-muted-foreground mb-6">
             Ready to transform your expertise into authority-building content?
           </p>
-          <button className="bg-linear-to-r from-[#6C5CE7] to-[#A29BFE] text-white px-8 py-3 rounded-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 font-semibold">
-            Start Your Content Journey
-          </button>
+          <Link href="/contact">
+            <button className="bg-linear-to-r from-[#6C5CE7] to-[#A29BFE] text-white px-8 py-3 rounded-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 font-semibold">
+              Start Your Content Journey
+            </button>
+          </Link>
         </motion.div>
       </Container>
     </section>

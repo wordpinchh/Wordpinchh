@@ -1,6 +1,5 @@
 "use client";
 
-import { Navbar } from "@/components/layout/navbar";
 import { HeroSection } from "@/components/home/HeroSection";
 import { TickerSection } from "@/components/home/TickerSection";
 import { ProblemSection } from "@/components/home/ProblemSection";
@@ -9,8 +8,7 @@ import { ProcessSection } from "@/components/home/ProcessSection";
 import { WhySection } from "@/components/home/WhySection";
 import { LeadMagnetSection } from "@/components/home/LeadMagnetSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
-import { FooterSection } from "@/components/home/FooterSection";
-import CustomCursor from "@/components/CustomCursor";
+import { FooterSection } from "@/components/home/FooterSection";  
 import { useEffect, useState } from "react";
 
 export default function HomePage() {
@@ -20,14 +18,10 @@ export default function HomePage() {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return null;
-  }
+  if (!mounted) return null;
 
   return (
     <div className="min-h-screen home-page" style={{ background: 'var(--home-bg)', color: 'var(--home-text)' }}>
-      <CustomCursor />
-      <Navbar />
       <HeroSection />
       <TickerSection />
       <ProblemSection />
@@ -37,7 +31,7 @@ export default function HomePage() {
       <LeadMagnetSection />
       <FinalCTASection />
       <FooterSection />
-      
+
       <style jsx global>{`
         html {
           scroll-behavior: smooth;

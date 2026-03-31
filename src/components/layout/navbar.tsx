@@ -47,12 +47,14 @@ export function Navbar() {
 
         {/* Get Free Content Report Button - Right */}
         <div className="shrink-0 hidden md:block">
-          <button
-            className="px-4 lg:px-5 py-2 rounded-lg font-bold text-sm transition-all duration-300 transform hover:scale-105"
-            style={{ backgroundColor: '#caff4a', color: '#000000' }}
-          >
-            Get Free Content Report
-          </button>
+          <Link href="/contact">
+            <button
+              className="px-4 lg:px-5 py-2 rounded-lg font-bold text-sm transition-all duration-300 transform hover:scale-105"
+              style={{ backgroundColor: '#caff4a', color: '#000000' }}
+            >
+              Get Free Content Report
+            </button>
+          </Link>
         </div>
 
         {/* Mobile Hamburger */}
@@ -77,12 +79,14 @@ export function Navbar() {
               {item.name}
             </Link>
           ))}
-          <button
-            className="w-full mt-2 py-3 rounded-lg font-bold transition-all duration-300"
-            style={{ backgroundColor: '#caff4a', color: '#000000' }}
-          >
-            Get Free Content Report
-          </button>
+          <Link href="/contact" onClick={() => setOpen(false)}>
+            <button
+              className="w-full mt-2 py-3 rounded-lg font-bold transition-all duration-300"
+              style={{ backgroundColor: '#caff4a', color: '#000000' }}
+            >
+              Get Free Content Report
+            </button>
+          </Link>
         </div>
       )}
     </nav>

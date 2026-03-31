@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { div } from "framer-motion/client";
+import Link from "next/link";
 
 export function Services() {
   return (
@@ -477,18 +479,20 @@ export function Services() {
 
             {/* CTA BUTTON */}
             <div className="flex justify-center mt-16">
-              <button className="
-                px-8 py-4
-                bg-black text-white
-                font-medium text-[16px]
-                tracking-wide
-                rounded-lg
-                hover:bg-gray-800
-                transition-colors duration-300
-                shadow-lg hover:shadow-xl
-              ">
-                See All Services →
-              </button>
+              <Link href="/services">
+                <button className="
+                  px-8 py-4
+                  bg-black text-white
+                  font-medium text-[16px]
+                  tracking-wide
+                  rounded-lg
+                  hover:bg-gray-800
+                  transition-colors duration-300
+                  shadow-lg hover:shadow-xl
+                ">
+                  See All Services →
+                </button>
+              </Link>
             </div>
         </motion.div>
       </div>

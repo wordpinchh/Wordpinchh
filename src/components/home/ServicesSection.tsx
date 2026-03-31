@@ -53,7 +53,7 @@ export function ServicesSection() {
               color: 'var(--home-text)'
             }}
           >
-            Everything You Need to<br />
+            Everything You Need to Be<br />
             <em style={{
               fontFamily: 'var(--font-inter)',
               fontStyle: 'italic',
@@ -61,22 +61,38 @@ export function ServicesSection() {
               color: 'var(--home-muted)',
               fontSize: '0.82em',
               fontWeight: 400
-            }}>Be Found, Trusted & Chosen.</em>
+            }}>Found, Trusted & Chosen.</em>
           </h2>
         </div>
         <a
           href="/services"
-          className="inline-flex items-center gap-2 px-5 py-3 lg:px-7 lg:py-4 bg-transparent text-(--home-text) border border-[rgba(255,255,255,0.13)] no-underline rounded-lg transition-all duration-200 hover:border-(--home-text) hover:bg-[rgba(255,255,255,0.04)] shrink-0"
+          className="inline-flex items-center gap-2 shrink-0 no-underline rounded-lg transition-all duration-300"
           style={{
-            fontFamily: 'var(--font-fahkwang)',
-            fontSize: 'clamp(13px, 3vw, 18px)',
-            fontWeight: 700,
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase'
-          }}
-        >
-          See All Services →
-        </a>
+                  padding: 'clamp(10px, 2vw, 16px) clamp(16px, 3vw, 28px)',
+                  fontFamily: 'var(--font-fahkwang)',
+                  fontSize: 'clamp(13px, 3vw, 18px)',
+                  fontWeight: 700,
+                  letterSpacing: '0.08em',
+                  textTransform: 'uppercase',
+                  color: '#CAFF4A',
+                  border: '1.5px solid #CAFF4A',
+                  background: 'transparent',
+                }}
+                onMouseEnter={e => {
+                e.currentTarget.style.background = '#CAFF4A';
+                e.currentTarget.style.color = '#0B0B09';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(202,255,74,0.25)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = 'transparent';
+                e.currentTarget.style.color = '#CAFF4A';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+              >
+              See All Services →
+            </a>
       </div>
 
       {/* Services Grid */}

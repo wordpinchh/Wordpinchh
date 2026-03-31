@@ -106,7 +106,7 @@ export function FinalCTASection() {
         {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a
-            href="#"
+            href="/contact"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 no-underline rounded-lg transition-all duration-300 hover:scale-105 relative overflow-hidden group"
             style={{
               fontFamily: 'Barlow Condensed, sans-serif',
@@ -129,7 +129,7 @@ export function FinalCTASection() {
           </a>
           
           <a
-            href="#audit"
+            href="/contact"
             className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 no-underline rounded-lg transition-all duration-300 hover:scale-105 relative overflow-hidden group"
             style={{
               fontFamily: 'Barlow Condensed, sans-serif',

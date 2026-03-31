@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export default function LeadMagnet() {
   return (
     <section className="bg-[#c7dfd8] py-20 md:py-28 lg:py-[140px] px-6 relative z-60">
@@ -72,9 +74,11 @@ export default function LeadMagnet() {
           </div>
 
           {/* Button */}
-          <button className="font-body text-white px-8 py-3 rounded-full font-bold uppercase tracking-wider transition-all hover:opacity-90">
-            Get Free Report
-          </button>
+          <Link href="/contact">
+            <button className="font-body text-white px-8 py-3 rounded-full font-bold uppercase tracking-wider transition-all hover:opacity-90">
+              Get Free Report
+            </button>
+          </Link>
 
         </div>
       </div>

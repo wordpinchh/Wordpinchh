@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Container } from "@/components/ui/container";
+import Link from "next/link";
 
 export function Results() {
   const contentImpacts = [
@@ -116,9 +117,11 @@ export function Results() {
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <button className="bg-linear-to-r from-[#6C5CE7] to-[#A29BFE] text-white px-8 py-4 rounded-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 font-semibold text-lg">
-            See Content Examples
-          </button>
+          <Link href="/portfolio">
+            <button className="bg-linear-to-r from-[#6C5CE7] to-[#A29BFE] text-white px-8 py-4 rounded-lg hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 font-semibold text-lg">
+              See Content Examples
+            </button>
+          </Link>
         </motion.div>
       </Container>
     </section>

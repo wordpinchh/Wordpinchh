@@ -82,7 +82,7 @@ export default function IndustriesSelector() {
   const currentIndustry = industries.find(ind => ind.id === activeTab);
 
   return (
-    <section className="relative w-full">
+    <section className="relative w-full overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] min-h-[680px]">
 
         {/* LEFT: TABS */}
@@ -164,11 +164,11 @@ export default function IndustriesSelector() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="relative p-5 sm:p-8 lg:p-16 overflow-y-auto"
+            className="relative p-5 sm:p-8 lg:p-16 overflow-hidden"
           >
             {/* Background Number */}
             <div
-              className="absolute -right-5 -top-8 text-[clamp(120px,20vw,280px)] leading-none opacity-[0.04] font-['Instrument_Serif'] font-normal pointer-events-none select-none"
+              className="absolute right-0 -top-8 text-[clamp(80px,15vw,280px)] leading-none opacity-[0.04] font-['Instrument_Serif'] font-normal pointer-events-none select-none overflow-hidden"
               style={{ color: currentIndustry?.color }}
             >
               {String(currentIndustry?.id).padStart(2, '0')}
