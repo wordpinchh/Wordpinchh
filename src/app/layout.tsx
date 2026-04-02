@@ -33,24 +33,24 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "WordPinch - Modern Marketing Agency",
-    template: "%s | WordPinch",
+    default: "WordPinchh — Content Writing Agency in Mumbai",
+    template: "%s | WordPinchh",
   },
-  description: "High-end marketing agency delivering exceptional digital experiences that drive results and transform your online presence.",
-  keywords: ["marketing agency", "digital marketing", "brand development", "SEO", "content marketing"],
-  authors: [{ name: "WordPinch" }],
+  description: "WordPinchh is a content writing agency in Mumbai specialising in SEO blog writing, LinkedIn ghostwriting, website copywriting and AI content strategy for SaaS startups and consulting firms.",
+  keywords: ["content writing agency", "SEO blog writing", "LinkedIn ghostwriting", "website copywriting", "content marketing agency Mumbai", "AI content strategy"],
+  authors: [{ name: "WordPinchh" }],
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://wordpinch.com",
-    siteName: "WordPinch",
-    title: "WordPinch - Modern Marketing Agency",
-    description: "High-end marketing agency delivering exceptional digital experiences",
+    url: "https://www.wordpinchh.org",
+    siteName: "WordPinchh",
+    title: "WordPinchh — Content Writing Agency in Mumbai",
+    description: "SEO blog writing, LinkedIn ghostwriting, website copywriting and AI content strategy for SaaS startups and consulting firms.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "WordPinch - Modern Marketing Agency",
-    description: "High-end marketing agency delivering exceptional digital experiences",
+    title: "WordPinchh — Content Writing Agency in Mumbai",
+    description: "SEO blog writing, LinkedIn ghostwriting and AI content strategy for SaaS startups.",
   },
   robots: {
     index: true,
