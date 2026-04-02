@@ -24,33 +24,12 @@ export default function CookieBanner() {
 
   const accept = () => {
     Cookies.set("cookie_consent", "accepted", { expires: 365 });
-    // Load GA after consent
-    loadGA();
     setVisible(false);
   };
 
   const decline = () => {
     Cookies.set("cookie_consent", "declined", { expires: 365 });
     setVisible(false);
-  };
-
-  const loadGA = () => {
-    const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
-    if (!GA_ID) return;
-
-    const script1 = document.createElement("script");
-    script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-    script1.async = true;
-    document.head.appendChild(script1);
-
-    const script2 = document.createElement("script");
-    script2.innerHTML = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '${GA_ID}');
-    `;
-    document.head.appendChild(script2);
   };
 
   if (!visible) return null;
