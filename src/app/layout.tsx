@@ -71,11 +71,11 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
         
         {/* Google Analytics */}
-        {process.env.NEXT_PUBLIC_GA_ID && (
+        {(
           <>
             <script
               async
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+              src="https://www.googletagmanager.com/gtag/js?id=G-M090H000LE"
             />
             <script
               dangerouslySetInnerHTML={{
@@ -83,7 +83,7 @@ export default function RootLayout({
                   window.dataLayer = window.dataLayer || [];
                   function gtag(){dataLayer.push(arguments);}
                   gtag('js', new Date());
-                  gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+                  gtag('config', 'G-M090H000LE');
                 `,
               }}
             />
