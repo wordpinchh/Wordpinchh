@@ -18,9 +18,14 @@ export default function HeroSection() {
           </span>
         </div>
 
+        {/* Screen Reader H1 */}
+        <h1 className="sr-only">
+          Content Writing Services — SEO Blog Writing, LinkedIn Ghostwriting & Website Copywriting Agency
+        </h1>
+
         {/* Title */}
         <div>
-          <h1 
+          <h2 
             className="font-[Bebas_Neue] text-[clamp(12rem,12vw,11rem)] leading-[0.88] tracking-[0.01em] text-[#0F0A00] mt-5"
             style={{
               fontWeight: 600,
@@ -30,7 +35,7 @@ export default function HeroSection() {
             WHAT <br />
             <span className="outline-text">WE</span> <br />
             <span className="text-[#FF3B00]">DO</span>
-          </h1>
+          </h2>
 
           {/* Bottom */}
           <div className="flex items-end justify-between mt-8 gap-5">

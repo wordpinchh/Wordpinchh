@@ -100,8 +100,13 @@ export default function AboutHero() {
             </span>
           </div>
 
+          {/* Screen Reader H1 */}
+          <h1 className="sr-only">
+            About WordPinchh — Content Writing Agency in Mumbai
+          </h1>
+
           {/* HEADLINE */}
-          <h1
+          <h2
             className="mb-6 lg:mb-8"
             style={{
               fontFamily: 'Barlow Condensed, sans-serif',
@@ -128,7 +133,7 @@ export default function AboutHero() {
             >
               Just because of content.
             </em>
-          </h1>
+          </h2>
 
           {/* BODY */}
           <p

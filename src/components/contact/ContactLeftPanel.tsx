@@ -52,10 +52,15 @@ export default function ContactLeftPanel() {
           Contact
         </div>
 
-        <h1 className="title">
+        {/* Screen Reader H1 */}
+        <h1 className="sr-only">
+          Contact WordPinchh — Get a Free Content Audit
+        </h1>
+
+        <h2 className="title">
           Let's<br />
           <span>Talk.</span>
-        </h1>
+        </h2>
 
         <p className="subtitle">
           Start with a Free Content Audit. No pitch, no pressure — just a clear

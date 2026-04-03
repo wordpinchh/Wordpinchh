@@ -22,14 +22,19 @@ export default function IndustriesHero() {
             </span>
           </div>
 
+          {/* Screen Reader H1 */}
+          <h1 className="sr-only">
+            Content Writing for SaaS, Startups and Consulting Firms in India
+          </h1>
+
           {/* Heading */}
-          <h1 className="font-['Instrument_Serif'] text-[clamp(2.8rem,6vw,5.5rem)] leading-none font-normal tracking-[-0.02em]">
+          <h2 className="font-['Instrument_Serif'] text-[clamp(2.8rem,6vw,5.5rem)] leading-none font-normal tracking-[-0.02em]">
             We're specific
             <br />
             about <span className="italic text-white/40">who</span>
             <br />
             we work with.
-          </h1>
+          </h2>
         </motion.div>
 
         {/* RIGHT */}
