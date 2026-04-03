@@ -33,6 +33,8 @@ export function FooterSection() {
             <img
               src="/footer-logo.webp"
               alt="Wordpinchh"
+              width={140}
+              height={140}
               className="h-20 sm:h-28 lg:h-46 w-auto"
             />
           </div>

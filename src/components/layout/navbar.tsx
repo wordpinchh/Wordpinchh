@@ -25,6 +25,8 @@ export function Navbar() {
             <img
               src="/wordpinchhlogo.webp"
               alt="Wordpinchh"
+              width={313}
+              height={70}
               className="h-10 sm:h-14 md:h-16 w-auto"
             />
           </Link>
@@ -58,6 +60,7 @@ export function Navbar() {
 
         {/* Mobile Hamburger */}
         <button
+          aria-label="Open navigation menu"
           className="md:hidden text-white p-2 rounded-lg hover:bg-gray-800 transition-colors duration-200"
           onClick={() => setOpen(!open)}
         >
