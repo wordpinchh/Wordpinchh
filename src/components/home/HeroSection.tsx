@@ -62,8 +62,13 @@ export function HeroSection() {
             </span>
           </div>
 
+          {/* Screen Reader H1 */}
+          <h1 className="sr-only">
+            Content Writing Agency in Mumbai — SEO Blogs, LinkedIn Ghostwriting and AI Content Strategy
+          </h1>
+
           {/* Headline */}
-          <h1
+          <h2
             className="hero-h1 mb-6 lg:mb-8"
             style={{
               fontFamily: 'Barlow Condensed, sans-serif',
@@ -79,7 +84,7 @@ export function HeroSection() {
             Are Already<br />
             <span className="outline">Publishing.</span><br />
             <span className="red">Are You?</span>
-          </h1>
+          </h2>
 
           {/* Description */}
           <p
