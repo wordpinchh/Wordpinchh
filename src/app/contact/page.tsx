@@ -1,8 +1,14 @@
 "use client";
 
+import { Metadata } from "next";
 import { useState, useEffect } from "react";
 import ContactLeftPanel from "@/components/contact/ContactLeftPanel";
 import ContactRightPanel from "@/components/contact/ContactRightPanel";
+
+export const metadata: Metadata = {
+  title: "Contact — Get Your Free Content Audit",
+  description: "Get a free personalised content audit from WordPinchh. No pitch, no pressure — just an honest report on your content gaps within 48 hours.",
+};
 
 export default function ContactPage() {
   const [mounted, setMounted] = useState(false);

@@ -1,8 +1,9 @@
+import { Metadata } from "next";
 import ServicesNew from "@/components/sections/services-new";
 
-export const metadata = {
-  title: "Services | WordPinch",
-  description: "Our comprehensive content marketing services",
+export const metadata: Metadata = {
+  title: "Services — SEO Blog Writing, LinkedIn Ghostwriting & More",
+  description: "Explore WordPinchh services — SEO blog writing, LinkedIn ghostwriting, website copywriting, landing page copy and AI content strategy for SaaS and consulting firms.",
 };
 
 export default function Page() {

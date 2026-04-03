@@ -46,11 +46,20 @@ export const metadata: Metadata = {
     siteName: "WordPinchh",
     title: "WordPinchh — Content Writing Agency in Mumbai",
     description: "SEO blog writing, LinkedIn ghostwriting, website copywriting and AI content strategy for SaaS startups and consulting firms.",
+    images: [
+      {
+        url: "https://www.wordpinchh.org/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "WordPinchh — Content Writing Agency in Mumbai",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "WordPinchh — Content Writing Agency in Mumbai",
     description: "SEO blog writing, LinkedIn ghostwriting and AI content strategy for SaaS startups.",
+    images: ["https://www.wordpinchh.org/og-image.png"],
   },
   robots: {
     index: true,
