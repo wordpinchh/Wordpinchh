@@ -23,7 +23,7 @@ export function Navbar() {
         <div className="shrink-0">
           <Link href="/" className="flex items-center">
             <img
-              src="/wordpinchhlogo.png"
+              src="/wordpinchhlogo.webp"
               alt="Wordpinchh"
               className="h-10 sm:h-14 md:h-16 w-auto"
             />

@@ -31,7 +31,7 @@ export function FooterSection() {
           {/* Logo */}
           <div className="flex justify-center lg:justify-start shrink-0">
             <img
-              src="/footer-logo.png"
+              src="/footer-logo.webp"
               alt="Wordpinchh"
               className="h-20 sm:h-28 lg:h-46 w-auto"
             />

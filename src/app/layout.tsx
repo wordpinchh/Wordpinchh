@@ -33,7 +33,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "WordPinchh — Content Writing Agency in Mumbai",
+    default: "WordPinchh — Content Writing Agency Mumbai",
     template: "%s | WordPinchh",
   },
   description: "WordPinchh is a content writing agency in Mumbai specialising in SEO blog writing, LinkedIn ghostwriting, website copywriting and AI content strategy for SaaS startups and consulting firms.",
