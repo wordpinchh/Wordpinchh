@@ -1,5 +1,3 @@
-"use client";
-
 import { Metadata } from "next";
 import { useState, useEffect } from "react";
 import ContactLeftPanel from "@/components/contact/ContactLeftPanel";
