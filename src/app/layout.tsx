@@ -105,10 +105,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "MarketingAgency",
+              "@type": "LocalBusiness",
               "name": "WordPinchh",
               "url": "https://www.wordpinchh.org",
               "logo": "https://www.wordpinchh.org/wordpinchhlogo.webp",
+              "image": "https://www.wordpinchh.org/og-image.png",
               "description": "WordPinchh is a content writing agency in Mumbai specialising in SEO blog writing, LinkedIn ghostwriting, website copywriting and AI content strategy for SaaS startups and consulting firms.",
               "address": {
                 "@type": "PostalAddress",
@@ -120,6 +121,7 @@ export default function RootLayout({
               },
               "telephone": "+917738824485",
               "email": "akanksha@wordpinchh.org",
+              "openingHours": "Mo-Fr 09:00-19:00",
               "sameAs": [
                 "https://www.linkedin.com/company/wordpinchh"
               ],
