@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     default: "WordPinchh — Content Writing Agency Mumbai",
     template: "%s | WordPinchh",
   },
-  description: "WordPinchh is a content writing agency in Mumbai specialising in SEO blog writing, LinkedIn ghostwriting, website copywriting and AI content strategy for SaaS startups and consulting firms.",
-  keywords: ["content writing agency", "SEO blog writing", "LinkedIn ghostwriting", "website copywriting", "content marketing agency Mumbai", "AI content strategy"],
+  description: "WordPinchh is a leading content writing agency in Mumbai providing expert content marketing services across India. Specializing in SEO blog writing, LinkedIn ghostwriting, website copywriting and AI content strategy for SaaS startups and consulting firms.",
+  keywords: ["content writing agency Mumbai", "content marketing agency India", "SEO blog writing", "LinkedIn ghostwriting", "website copywriting", "AI content strategy", "SaaS content writing", "consulting firm content"],
   authors: [{ name: "WordPinchh" }],
   openGraph: {
     type: "website",
@@ -98,6 +98,46 @@ export default function RootLayout({
             />
           </>
         )}
+
+        {/* Schema Markup */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "MarketingAgency",
+              "name": "WordPinchh",
+              "url": "https://www.wordpinchh.org",
+              "logo": "https://www.wordpinchh.org/wordpinchhlogo.webp",
+              "description": "WordPinchh is a content writing agency in Mumbai specialising in SEO blog writing, LinkedIn ghostwriting, website copywriting and AI content strategy for SaaS startups and consulting firms.",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Powai Plaza, 264, A S Marg, Hiranandani Gardens",
+                "addressLocality": "Mumbai",
+                "addressRegion": "Maharashtra",
+                "postalCode": "400072",
+                "addressCountry": "IN"
+              },
+              "telephone": "+917738824485",
+              "email": "akanksha@wordpinchh.org",
+              "sameAs": [
+                "https://www.linkedin.com/company/wordpinchh"
+              ],
+              "serviceType": [
+                "SEO Blog Writing",
+                "LinkedIn Ghostwriting",
+                "Website Copywriting",
+                "AI Content Strategy",
+                "Landing Page Copy"
+              ],
+              "areaServed": {
+                "@type": "Country",
+                "name": "India"
+              },
+              "priceRange": "$$"
+            })
+          }}
+        />
       </head>
       <body 
         className={`${inter.variable} ${fahkwang.variable} ${playfairDisplay.variable} ${dmSans.variable} font-sans antialiased bg-black text-white overflow-x-hidden`}

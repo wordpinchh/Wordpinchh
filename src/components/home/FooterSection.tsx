@@ -32,7 +32,7 @@ export function FooterSection() {
           <div className="flex justify-center lg:justify-start shrink-0">
             <img
               src="/footer-logo.webp"
-              alt="Wordpinchh"
+              alt="WordPinchh — Content Writing Agency Mumbai"
               width={140}
               height={140}
               className="h-20 sm:h-28 lg:h-46 w-auto"

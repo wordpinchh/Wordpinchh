@@ -7,8 +7,9 @@ import { FooterSection } from "@/components/home/FooterSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 
 export const metadata: Metadata = {
-  title: "About Us — WordPinchh Content Writing Agency Mumbai",
-  description: "WordPinchh is a Mumbai-based content writing agency helping SaaS startups and consulting firms show up in Google search and AI-generated answers.",
+  title: "Content Writing Agency Mumbai — About WordPinchh Agency",
+  description: "Learn about WordPinchh agency, a leading content writing agency in Mumbai. We help SaaS startups and consulting firms dominate Google search and AI-generated answers with strategic content.",
+  keywords: ["content writing agency Mumbai", "WordPinchh agency", "Mumbai content writers", "SaaS content agency", "consulting firm content", "AI content strategy"],
 };
 
 export default function AboutPage() {

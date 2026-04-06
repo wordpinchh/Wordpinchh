@@ -24,7 +24,7 @@ export function Navbar() {
           <Link href="/" className="flex items-center">
             <img
               src="/wordpinchhlogo.webp"
-              alt="Wordpinchh"
+              alt="WordPinchh — Content Writing Agency Mumbai"
               width={313}
               height={70}
               className="h-10 sm:h-14 md:h-16 w-auto"
