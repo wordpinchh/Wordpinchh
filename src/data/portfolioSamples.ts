@@ -921,7 +921,6 @@ export const portfolioSamples: Record<string, PortfolioSample> = {
 </div>`
   },
   'diabetes-womens-health': {
-    id: 'diabetes-womens-health',
     cat: 'SEO Blog',
     acl: 'seo',
     title: '5 Ways Diabetes Affects Women\'s Health',
@@ -991,7 +990,6 @@ export const portfolioSamples: Record<string, PortfolioSample> = {
 </div>`
   },
   'diabetes-insipidus-test': {
-    id: 'diabetes-insipidus-test',
     title: 'Diabetes Insipidus Test — Diagnosis, Procedure & Results Explained',
     cat: 'SEO Blog',
     acl: 'seo',
