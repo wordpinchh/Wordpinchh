@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Metadata } from "next";
-import { portfolioSamples } from "@/data/portfolioSamples";
+import { portfolioSamples, type PortfolioSample } from "@/data/portfolioSamples";
 import "@/styles/portfolio.css";
 
 export const metadata: Metadata = {
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default function PortfolioPage() {
-  const [filteredSamples, setFilteredSamples] = useState(portfolioSamples);
+  const [filteredSamples, setFilteredSamples] = useState<PortfolioSample[]>(Object.values(portfolioSamples));
   const [activeFilter, setActiveFilter] = useState("all");
   const [unlocked, setUnlocked] = useState(false);
   const [pendingId, setPendingId] = useState<string | null>(null);
@@ -71,10 +71,10 @@ export default function PortfolioPage() {
     setActiveFilter(filter);
     
     if (filter === "all") {
-      setFilteredSamples(portfolioSamples);
+      setFilteredSamples(Object.values(portfolioSamples));
     } else {
-      const filtered = portfolioSamples.filter(sample => 
-        sample.tags.includes(filter)
+      const filtered = Object.values(portfolioSamples).filter((sample: any) => 
+        sample.acl.includes(filter)
       );
       setFilteredSamples(filtered);
     }
