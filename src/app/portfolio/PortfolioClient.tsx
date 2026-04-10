@@ -251,19 +251,13 @@ export default function PortfolioPage() {
         <div className="port-grid" id="grid">
           {filteredSamples.map((sample) => (
             <div
-              key={sample.id}
-              className={`card ${sample.featured ? "feat" : ""}`}
-              style={{ "--ca": getCardColor(sample.tags) } as React.CSSProperties}
-              data-tags={sample.tags.join(" ")}
-              data-id={sample.id}
-            >
-              <div className={`thumb ${sample.tall ? "tall" : ""}`} style={{ background: `linear-gradient(135deg,${sample.tags[0] === "seo" ? "#0A1A10,#0D2A18" : sample.tags[0] === "fin" ? "#1A1A0A,#2A2A0D" : "#0D1F2E,#0A2040"}` }}>
-                <div className="mock">
-                  <div className="ml t"></div>
-                  <div className="ml w1"></div>
-                  <div className="ml w2"></div>
-                  <div className="ml w3"></div>
-                  <div className="ml g"></div>
+              key={sample.id} 
+              className={`card ${sample.acl.includes('seo') ? "feat" : ""}`} 
+              style={{"--ca": getCardColor(sample.acl)} as React.CSSProperties}>
+              <div className="card-inner">
+                <div className="card-top">
+                  <div className="card-cat">{sample.cat}</div>
+                  <div className="card-tags" data-tags={sample.acl.split(' ')}>{sample.acl}</div>
                   <div className="ml w1"></div>
                   <div className="ml w4"></div>
                   <div className="ml w5"></div>
@@ -295,11 +289,18 @@ export default function PortfolioPage() {
                 </div>
                 <div className="ctitle">{sample.title}</div>
                 <div className="excerpt-wrap">
-                  <div className="cexcerpt">{sample.excerpt}</div>
+                  <div className="cexcerpt">{sample.sub}</div>
                 </div>
               </div>
               <div className="cfoot">
-                <span className="cfoot-meta">{sample.meta}</span>
+                <span className="cfoot-meta">
+                  {sample.meta.map((item, index) => (
+                    <span key={index}>
+                      {item.l}: {item.v}
+                      {index < sample.meta.length - 1 ? ", " : ""}
+                    </span>
+                  ))}
+                </span>
                 <span className="cfoot-cta" onClick={() => openGate(sample.id)}>
                   Unlock full article {"\u2192"}
                 </span>
