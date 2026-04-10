@@ -25,7 +25,7 @@ export default function LogoMarquee() {
     { name: "SL Agarbatti", alt: "SL Agarbatti Logo", image: "/logos/sl-agarbatti_logo.webp" },
     { name: "TCAI", alt: "TCAI Logo", image: "/logos/TCAI-logo.png" },
   ];
-
+//marque section
   const strip1Logos = allLogos.slice(0, 12);
   const strip2Logos = allLogos.slice(12, 25);
 
