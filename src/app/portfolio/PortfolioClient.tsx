@@ -182,7 +182,7 @@ export default function PortfolioPage() {
           </p>
           <div className="header-stats">
             <div className="stat">
-              <div className="stat-n">{portfolioSamples.length}</div>
+              <div className="stat-n">{Object.values(portfolioSamples).length}</div>
               <div className="stat-l">Samples</div>
             </div>
             <div className="stat">
