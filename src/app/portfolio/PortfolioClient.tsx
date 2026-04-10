@@ -122,10 +122,10 @@ export default function PortfolioPage() {
   };
 
   const openContent = (id: string) => {
-    const sample = portfolioSamples.find(s => s.id === id);
+    const sample = Object.values(portfolioSamples).find(s => s.id === id);
     if (!sample) return;
     
-    setSelectedSample(sample.content);
+    setSelectedSample(sample.body);
     setContentModalOpen(true);
     document.body.style.overflow = "hidden";
   };
