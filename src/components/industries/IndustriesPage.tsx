@@ -33,8 +33,8 @@ export default function IndustriesPage() {
       <IndustriesHero />
       <IndustriesSelector />
       <IndustriesComparison />
-      <FooterSection />
       <FinalCTASection />
+      <FooterSection />
     </div>
   );
 }
