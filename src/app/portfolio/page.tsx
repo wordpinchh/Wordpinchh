@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import { portfolioSamples } from "@/data/portfolioSamples";
 import PortfolioHeader from "@/components/portfolio/PortfolioHeader";
 import LogoMarquee from "@/components/portfolio/LogoMarquee";
-import FilterBarNew from "@/components/portfolio/FilterBarNew";
+import FilterBarService from "@/components/portfolio/FilterBarService";
+import FilterBarIndustry from "@/components/portfolio/FilterBarIndustry";
 import PortfolioGridNew from "@/components/portfolio/PortfolioGridNew";
 import GateModalNew from "@/components/portfolio/GateModalNew";
 import ContentModalNew from "@/components/portfolio/ContentModalNew";
@@ -78,7 +79,8 @@ export default function PortfolioPage() {
       <LogoMarquee />
 
       {/* FILTER BAR */}
-      <FilterBarNew filter={filter} setFilter={setFilter} />
+      <FilterBarService filter={filter} setFilter={setFilter} />
+      <FilterBarIndustry filter={filter} setFilter={setFilter} />
 
       {/* GRID */}
       <PortfolioGridNew filter={filter} openGate={openGate} />

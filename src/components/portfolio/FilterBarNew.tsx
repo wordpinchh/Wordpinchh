@@ -117,12 +117,11 @@ export default function FilterBar({ filter, setFilter }: FilterBarProps) {
           opacity: 0.9;
         }
 
-        .filter-sep {
-          width: 1px;
-          height: 22px;
+        .filterbar-divider {
+          height: 1px;
           background: rgba(255,255,255,0.07);
-          margin: 0 16px;
-          flex-shrink: 0;
+          margin: 0 64px;
+          width: 100%;
         }
 
         /* ── Mobile only ── */
@@ -187,7 +186,7 @@ export default function FilterBar({ filter, setFilter }: FilterBarProps) {
           ))}
         </div>
         <div className="filter-sep" />
-        <div style={{ display: "flex", alignItems: "center", gap: "7px", flexShrink: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "7px", flexShrink: 0, rowGap: "16px" }}>
           <span className="filter-label">Industry —</span>
           {industryFilters.map((f) => (
             <Pill key={f.value} label={f.label} value={f.value} active={filter === f.value} onClick={setFilter} />
