@@ -11,6 +11,7 @@ export function FooterSection() {
 
   const footerLinks = [
     { name: 'Services', href: '/services' },
+    { name: 'Portfolio', href: '/portfolio' },
     { name: 'Industries', href: '/industries' },
     { name: 'About', href: '/about' },
     { name: 'Contact', href: '/contact' },
