@@ -26,11 +26,13 @@ export default function LogoMarquee() {
     { name: "TCAI", alt: "TCAI Logo", image: "/logos/TCAI-logo.png" },
   ];
 //marque section
-  const strip1Logos = allLogos.slice(0, 12);
-  const strip2Logos = allLogos.slice(12, 25);
-
   const darkBg  = ['Ahmed H','Lagu Bandhu','Seawest International','TCAI','HuntsJob','ICICI Lombard','Kwick','SL Agarbatti','4P Solutions','Shooting Starz New'];
   const lightBg = ['RC','BharatPe','Critic-Care','Mangal Vadhyam','Madhav Baug','MH Tourism','Revasa Farms'];
+
+  // White background logos - first strip
+  const strip1Logos = allLogos.filter(logo => lightBg.includes(logo.name));
+  // Black background logos - second strip  
+  const strip2Logos = allLogos.filter(logo => darkBg.includes(logo.name));
 
   const getImgClass = (name: string) =>
     name === 'Lagu Bandhu' ? 'w-50 h-40' :
@@ -38,7 +40,7 @@ export default function LogoMarquee() {
     'w-50 h-40';
 
   const getWrapClass = (name: string) =>
-    (name === 'Kwick' || name === 'HuntsJob' || name === 'ICICI Lombard') ? 'w-55 h-35' : 'w-45 h-35';
+    (name === 'Kwick' || name === 'HuntsJob' || name === 'ICICI Lombard') ? 'w-75 h-35' : 'w-65 h-35';
 
 const getWrapClassBottom = (name: string) =>
     (name === 'Kwick' || name === 'HuntsJob' || name === 'ICICI Lombard') ? 'w-75 h-35' : 'w-65 h-35';
