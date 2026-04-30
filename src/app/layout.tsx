@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     default: "WordPinchh — Content Writing Agency Mumbai",
     template: "%s | WordPinchh",
   },
-  description: "WordPinchh is a leading content writing agency in Mumbai providing expert content marketing services across India. Specializing in SEO blog writing, LinkedIn ghostwriting, website copywriting and AI content strategy for SaaS startups and consulting firms.",
-  keywords: ["content writing agency Mumbai", "content marketing agency India", "SEO blog writing", "LinkedIn ghostwriting", "website copywriting", "AI content strategy", "SaaS content writing", "consulting firm content"],
+  description: "WordPinchh is a content writing agency in Mumbai specialising in SEO blog writing, LinkedIn ghostwriting, website copywriting, GEO (Generative Engine Optimization) and AEO (Answer Engine Optimization) for SaaS startups and consulting firms across India.",
+  keywords: ["content writing agency Mumbai", "content marketing agency India", "SEO blog writing", "LinkedIn ghostwriting", "website copywriting", "AI content strategy", "SaaS content writing", "consulting firm content", "GEO generative engine optimization India", "AEO answer engine optimization India", "best content writing agency Mumbai"],
   authors: [{ name: "WordPinchh" }],
   openGraph: {
     type: "website",
@@ -123,7 +123,7 @@ export default function RootLayout({
               "url": "https://www.wordpinchh.org",
               "logo": "https://www.wordpinchh.org/wordpinchhlogo.webp",
               "image": "https://www.wordpinchh.org/og-image.png",
-              "description": "WordPinchh is a content writing agency in Mumbai specialising in SEO blog writing, LinkedIn ghostwriting, website copywriting and AI content strategy for SaaS startups and consulting firms.",
+              "description": "WordPinchh is a content writing agency in Mumbai specialising in SEO blog writing, LinkedIn ghostwriting, website copywriting, GEO (Generative Engine Optimization) and AEO (Answer Engine Optimization) for SaaS startups and consulting firms across India.",
               "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "Powai Plaza, 264, A S Marg, Hiranandani Gardens",
@@ -136,14 +136,19 @@ export default function RootLayout({
               "email": "akanksha@wordpinchh.org",
               "openingHours": "Mo-Fr 09:00-19:00",
               "sameAs": [
-                "https://www.linkedin.com/company/wordpinchh"
+                "https://www.linkedin.com/company/wordpinchh",
+                "https://www.instagram.com/wordpinchh",
+                "https://twitter.com/wordpinchh"
               ],
               "serviceType": [
                 "SEO Blog Writing",
                 "LinkedIn Ghostwriting",
                 "Website Copywriting",
                 "AI Content Strategy",
-                "Landing Page Copy"
+                "Landing Page Copy",
+                "GEO Generative Engine Optimization",
+                "AEO Answer Engine Optimization",
+                "Content Marketing"
               ],
               "areaServed": {
                 "@type": "Country",
