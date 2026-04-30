@@ -36,6 +36,9 @@ export const metadata: Metadata = {
     default: "WordPinchh — Content Writing Agency Mumbai",
     template: "%s | WordPinchh",
   },
+  alternates: {
+    canonical: "https://www.wordpinchh.org",
+  },
   description: "WordPinchh is a content writing agency in Mumbai specialising in SEO blog writing, LinkedIn ghostwriting, website copywriting, GEO (Generative Engine Optimization) and AEO (Answer Engine Optimization) for SaaS startups and consulting firms across India.",
   keywords: ["content writing agency Mumbai", "content marketing agency India", "SEO blog writing", "LinkedIn ghostwriting", "website copywriting", "AI content strategy", "SaaS content writing", "consulting firm content", "GEO generative engine optimization India", "AEO answer engine optimization India", "best content writing agency Mumbai"],
   authors: [{ name: "WordPinchh" }],
