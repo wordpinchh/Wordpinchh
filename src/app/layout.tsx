@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/navbar";
 import SmoothScroll from "@/components/SmoothScroll";
 import CustomCursor from "@/components/CustomCursor";
 import CookieBanner from "@/components/CookieBanner";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -222,6 +223,9 @@ export default function RootLayout({
             {children}
           </SmoothScroll>
         </main>
+
+        {/* ✅ WHATSAPP FLOAT */}
+        <WhatsAppFloat />
       </body>
     </html>
   );
