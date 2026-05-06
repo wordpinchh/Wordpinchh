@@ -11,6 +11,7 @@ import GateModalNew from "@/components/portfolio/GateModalNew";
 import ContentModalNew from "@/components/portfolio/ContentModalNew";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { FooterSection } from "@/components/home/FooterSection";
+import LinkedInReportViewer from "@/components/portfolio/LinkedInReportViewer";
 
 export default function PortfolioPage() {
   const [filter, setFilter] = useState("all");
@@ -84,6 +85,9 @@ export default function PortfolioPage() {
 
       {/* GRID */}
       <PortfolioGridNew filter={filter} openGate={openGate} />
+
+      {/* LINKEDIN REPORT VIEWER */}
+      <LinkedInReportViewer visible={filter === "li"} />
 
       {/* GATE MODAL */}
       <GateModalNew 

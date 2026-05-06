@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Fahkwang, Playfair_Display, DM_Sans } from "next/font/google";
+import { Inter, Fahkwang, Playfair_Display, DM_Sans, DM_Mono, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -30,6 +30,18 @@ const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
   weight: ["300", "400", "500"],
+});
+
+const dmMono = DM_Mono({
+  variable: "--font-dm-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+});
+
+const bebasNeue = Bebas_Neue({
+  variable: "--font-bebas-neue",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
@@ -209,7 +221,7 @@ export default function RootLayout({
         />
       </head>
       <body 
-        className={`${inter.variable} ${fahkwang.variable} ${playfairDisplay.variable} ${dmSans.variable} font-sans antialiased bg-black text-white overflow-x-hidden`}
+        className={`${inter.variable} ${fahkwang.variable} ${playfairDisplay.variable} ${dmSans.variable} ${dmMono.variable} ${bebasNeue.variable} font-sans antialiased bg-black text-white overflow-x-hidden`}
         suppressHydrationWarning
       >
         <CustomCursor />

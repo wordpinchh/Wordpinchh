@@ -9,6 +9,7 @@ const navItems = [
   { name: "Services", href: "/services" },
   { name: "Industries", href: "/industries" },
   { name: "Portfolio", href: "/portfolio" },
+  { name: "Blog", href: "/blog" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ];
@@ -17,7 +18,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-9999 bg-black/80 backdrop-blur-md">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md">
       <div className="max-w-[1400px] mx-auto flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4">
 
         {/* Logo */}
