@@ -56,6 +56,9 @@ export default function FilterBarService({ filter, setFilter }: FilterBarService
     { label: "LinkedIn",     value: "li"  },
     { label: "Website Copy", value: "wc"  },
     { label: "Landing Page", value: "lp"  },
+    { label: "AEO",          value: "aeo" },
+    { label: "GEO",          value: "geo" },
+    { label: "AIC",          value: "aic" },
   ];
 
   return (

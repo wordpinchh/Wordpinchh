@@ -79,7 +79,7 @@ export const portfolioSamples: Record<string, PortfolioSample> = {
     id: 'diabetes-insipidus-test',
     cat: 'SEO Blog',
     acl: 'seo',
-    title: 'Diabetes Insipidus Test — Diagnosis, Procedure & Results Explained',
+    title: 'Diabetes Insipidus Test - Diagnosis, Procedure & Results Explained',
     sub: 'Written for Livlong. Technical medical content for patient education.',
     meta: [
       { l: 'Client', v: 'Livlong' },
@@ -244,7 +244,7 @@ export const portfolioSamples: Record<string, PortfolioSample> = {
     id: 'shreya-mf',
     cat: 'Website Copy · Finance',
     acl: 'wc fin',
-    title: 'Shreya MF Services — Financial Services Website Copy',
+    title: 'Shreya MF Services - Financial Services Website Copy',
     sub: 'Full multi-page website copy for a mutual fund and investment advisory firm. Built to convert first-time and HNI investors.',
     meta: [
       { l: 'Client', v: 'Shreya MF Services' },
@@ -277,7 +277,7 @@ export const portfolioSamples: Record<string, PortfolioSample> = {
     id: 'mangala',
     cat: 'Website Copy · Lifestyle / Culture',
     acl: 'wc life',
-    title: 'Mangala Vadhyam — Traditional Indian Music Services Website',
+    title: 'Mangala Vadhyam - Traditional Indian Music Services Website',
     sub: 'Full website copy for an Indian classical music service in East Bay, CA. Blends cultural richness with conversion-focused copy.',
     meta: [
       { l: 'Client', v: 'Mangala Vadhyam' },
@@ -305,7 +305,7 @@ export const portfolioSamples: Record<string, PortfolioSample> = {
     id: 'dirt-demons',
     cat: 'Landing Page · Lifestyle / Culture',
     acl: 'lp life',
-    title: 'Dirt Demons 4×4 — Off-Road Adventure Community',
+    title: 'Dirt Demons 4×4 - Off-Road Adventure Community',
     sub: 'Landing page copy for off-road adventure community. High-energy, conversion-focused content.',
     meta: [
       { l: 'Client', v: 'Dirt Demons' },
@@ -1492,7 +1492,7 @@ export const portfolioSamples: Record<string, PortfolioSample> = {
     id: 'terrain-conquerors-website',
     cat: 'Website Copy',
     acl: 'wc',
-    title: 'Terrain Conquerors - Adventures. Trusted Members. Connections. Bonds — Unlimited',
+    title: 'Terrain Conquerors - Adventures. Trusted Members. Connections. Bonds - Unlimited',
     sub: 'Building a thriving adventure community platform for off-roaders, adventure seekers, and adrenaline lovers with comprehensive website content and community features.',
     meta: [
       { l: 'Client', v: 'Terrain Conquerors' },
@@ -1700,13 +1700,434 @@ export const portfolioSamples: Record<string, PortfolioSample> = {
 <p>CRITICARE ASIA HOSPITAL IS FIRMLY COMMITTED TOWARDS PROVIDING EXCELLENT HEALTHCARE WITH PASSION AND COMPASSION WHILE STRICTLY ADHERING TO PATIENT FIRST POLICY.</p>
 </div>`
   },
-  'placeholder': {
-    id: 'placeholder',
-    cat: 'Placeholder',
-    acl: 'placeholder',
-    title: 'GEO Content',
-    sub: 'Sample coming soon — available on request now',
-    meta: [],
-    body: ''
+  'how-to-get-brand-cited-chatgpt-google-ai': {
+    id: 'how-to-get-brand-cited-chatgpt-google-ai',
+    cat: 'AEO Content',
+    acl: 'aeo',
+    title: 'How to Get Your Brand Cited on ChatGPT and Google AI Overviews',
+    sub: 'Being cited by an AI isn\'t luck. It\'s the result of deliberate content decisions - the right structure, the right authority signals, the right formats. Here\'s the strategic framework Wordpinchh uses to help B2B brands get into AI-generated answers.',
+    meta: [
+      { l: 'Client', v: 'B2B SaaS Brands' },
+      { l: 'Service', v: 'AEO Content' },
+      { l: 'Industry', v: 'B2B/SaaS' },
+      { l: 'Subcategory', v: 'AI Optimization' },
+      { l: 'Words', v: '~2,800' },
+      { l: 'Structure', v: 'AEO Framework' }
+    ],
+    body: `<div class="art">
+<h1>How to Get Your Brand Cited on ChatGPT and Google AI Overviews</h1>
+<p>Being cited by an AI isn't luck. It's the result of deliberate content decisions — the right structure, the right authority signals, the right formats. Here's the strategic framework Wordpinchh uses to help B2B brands get into AI-generated answers.</p>
+
+<h2>Why AI citation is the new first-page ranking</h2>
+<p>Two years ago, the goal was page one of Google. Today, the goal has shifted further up the funnel — to appear inside the AI-generated answer that often sits above even the organic results. When a decision-maker at a funded SaaS company asks ChatGPT for recommendations on payroll software, or queries Perplexity about the best B2B content agencies in India, that AI-generated answer is where the shortlist gets formed.</p>
+
+<p>Getting cited in those answers requires a fundamentally different approach to content creation. It's not about keywords or links alone. It's about building content that AI systems recognise as trustworthy, structured, and directly useful as a source.</p>
+
+<h2>The four ingredients AI platforms look for when choosing what to cite</h2>
+
+<h3>1. Directness: answer the question in the first paragraph</h3>
+<p>AI models extract answers the way a researcher skims a paper — they look for the clearest, most direct statement of the key point. If your content buries the answer six paragraphs in, AI systems will move on to a competitor who leads with it.</p>
+
+<p>Every piece of AEO-ready content should have a clear answer to the implied question within the first 100–150 words. Think of it as writing for someone who will only read the first paragraph — and make that paragraph genuinely worth citing.</p>
+
+<h3>2. Structure: headings, bullets, and Q&A formats</h3>
+<p>AI systems are trained to read structured content efficiently. Well-formatted headings, clear bullet points, numbered steps, and dedicated FAQ sections all act as citation anchors. When an AI scans hundreds of documents to construct a response, it gravitates toward content that is cleanly organised and easy to extract.</p>
+
+<p>For B2B SaaS brands, this means revisiting your existing blog posts, service pages, and resource content with a structural audit. Most content written for 2020 SEO is paragraph-heavy and difficult for AI to parse efficiently.</p>
+
+<h3>3. Authority signals: data, attribution, and expert voice</h3>
+<p>Research from Princeton on AI citation behaviour found that content featuring expert quotes increases citation probability by roughly 41%, and content with original statistics improves it by around 30%. AI systems treat these signals the same way a human researcher would — as indicators that this source has done real work and can be trusted.</p>
+
+<p>For B2B brands, this means weaving founder perspective, industry data, and named expert opinions into your content — not as decoration, but as the actual substance of what you're saying. Wordpinchh integrates authority signals into every piece we write for AEO, because generic content simply doesn't get cited.</p>
+
+<h3>4. Consistency: brand mentions across multiple sources</h3>
+<p>AI models develop citation preferences based on how consistently a brand appears across their training data. A brand that shows up in guest posts, LinkedIn articles, PR mentions, industry directories, and its own blog builds citation momentum. A brand that exists only on its own website does not.</p>
+
+<p>This is why AEO is a content strategy, not a single content tactic. Building the citation presence that makes AI systems trust your brand requires a sustained, multi-format content effort — not a one-off article.</p>
+
+<h2>Quick AEO audit checklist</h2>
+<ul>
+<li><strong>Homepage clarity:</strong> Does your homepage answer "what does your company do" in one clear sentence within the first fold?</li>
+<li><strong>Service page FAQs:</strong> Do your service pages include an FAQ section with the questions your buyers actually ask?</li>
+<li><strong>Blog content structure:</strong> Does your blog content lead with the key insight, or bury it?</li>
+<li><strong>Publishing consistency:</strong> Are you publishing content consistently — at least twice a month — that targets real buyer questions?</li>
+<li><strong>Third-party mentions:</strong> Do you have third-party mentions (guest posts, PR, directories) linking your brand to your category?</li>
+<li><strong>Technical implementation:</strong> Is your structured data (schema markup) implemented correctly on key pages?</li>
+</ul>
+
+<h2>A practical starting point for B2B SaaS brands</h2>
+<p>If you're new to AEO, the highest-leverage starting point is your FAQ content. Most B2B SaaS companies have questions they get asked on every sales call — questions about pricing, integration, security, ROI, implementation timelines. These are precisely the queries your buyers are putting into AI platforms. Writing dedicated, well-structured content that answers each of these questions directly is the fastest route to initial AI visibility.</p>
+
+<p>Beyond FAQs, identify the five to ten category-defining questions in your space — the "what is X," "how does X work," "X vs Y" queries that any buyer in your market will research. Build authoritative, data-rich, structurally clean content around each one. That cluster becomes your AEO foundation.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>Do I need special technical tools to implement AEO?</h3>
+<p>Not to start. The most impactful AEO improvements are content-level — structure, directness, authority signals. Schema markup (structured data) adds a technical layer that helps, but well-written, structured content is the foundation. Start with content, then layer in technical implementation.</p>
+
+<h3>Should I write content specifically for ChatGPT, or is one strategy enough?</h3>
+<p>A unified strategy works across platforms. The same structural and authority signals that help you appear in Google AI Overviews also improve your chances of being cited in ChatGPT and Perplexity. Platform-specific tuning becomes relevant at a more advanced stage.</p>
+
+<h3>How do I know if my content is being cited by AI?</h3>
+<p>You can manually test by asking relevant questions to ChatGPT, Perplexity, and Google AI and checking if your brand or content appears. Tools like Perplexity Analytics, SE Ranking, and emerging AI visibility platforms also track this. Wordpinchh includes visibility tracking as part of our AEO strategy engagements.</p>
+
+</div>`
+  },
+  'why-competitor-showing-chatgpt-not': {
+    id: 'why-competitor-showing-chatgpt-not',
+    cat: 'AEO Content',
+    acl: 'aeo',
+    title: 'Why Your Competitor Is Showing Up in ChatGPT (And You\'re Not)',
+    sub: 'If you\'ve asked ChatGPT or Perplexity a question about your industry and watched a competitor\'s name appear in the answer - this one is for you. AI citation isn\'t random. It\'s the result of deliberate content choices your competitor has made that you haven\'t. Yet.',
+    meta: [
+      { l: 'Client', v: 'B2B SaaS Brands' },
+      { l: 'Service', v: 'AEO Content' },
+      { l: 'Industry', v: 'B2B/SaaS' },
+      { l: 'Subcategory', v: 'Competitive Analysis' },
+      { l: 'Words', v: '~2,200' },
+      { l: 'Structure', v: 'Problem-Solution' }
+    ],
+    body: `<div class="art">
+<h1>Why Your Competitor Is Showing Up in ChatGPT (And You're Not)</h1>
+<p>If you've asked ChatGPT or Perplexity a question about your industry and watched a competitor's name appear in the answer — this one is for you. AI citation isn't random. It's the result of deliberate content choices your competitor has made that you haven't. Yet.</p>
+
+<h2>The uncomfortable question to ask yourself</h2>
+<p>Pull up ChatGPT right now. Type in the question your ideal buyer would ask when researching a solution like yours. Something like: "What's the best [your category] software for [your target market]?" or "How do I choose a [your service type] provider in India?"</p>
+
+<p>If your brand name isn't in the answer — and your competitor's is — you're not dealing with bad luck. You're dealing with a content strategy gap that has a specific, fixable cause.</p>
+
+<h2>Five reasons your competitor is showing up and you're not</h2>
+
+<h3>1. Their content answers questions directly; yours makes claims</h3>
+<p>There is a fundamental difference between content that says "We are the market leader in XYZ" and content that says "Here is how to evaluate XYZ solutions, and here is what to look for." AI systems are trained on user intent. They cite content that serves the user's research need — not content that serves the brand's marketing agenda.</p>
+
+<p>If your competitor is showing up, check their content. It likely leads with answers, not assertions. It probably addresses the buyer's question before it addresses the brand's value proposition.</p>
+
+<h3>2. Their content is structured for extraction; yours is structured for humans</h3>
+<p>There is nothing wrong with writing for human readers — but AI systems also need to read your content, and they read differently. Clear headings, FAQ sections, numbered lists, and summary statements at the beginning of sections all help AI systems extract usable content efficiently. Flowing, narrative prose does not.</p>
+
+<p>Your competitor may simply have formatted their content in a way that makes AI extraction easier — even without deliberately optimising for AEO.</p>
+
+<h3>3. Their domain has more authority signals than yours</h3>
+<p>AI citation models weight authority. A brand mentioned across multiple credible external sources — industry publications, guest posts, PR coverage, LinkedIn, review platforms — builds a citation foundation that a brand existing only on its own website cannot match. If your competitor has been consistently publishing guest content, earning press mentions, and building a presence in industry directories, they have a citation advantage that compounds over time.</p>
+
+<h3>4. They've been publishing longer and more consistently</h3>
+<p>AI models favour content from brands that demonstrate a sustained, reliable publishing presence. A brand that has published quality content monthly for two years has a citation edge over a brand that published intermittently for the same period. Consistency signals credibility to AI systems — the same way it does to human readers.</p>
+
+<h3>5. Their content covers the full buyer journey, not just the bottom</h3>
+<p>Most B2B content is heavily weighted toward the bottom of the funnel — case studies, ROI calculators, competitor comparisons. But AI-generated answers often appear much earlier in the research process, when buyers are still learning about categories and options. The brands that show up in these early-stage AI answers are the ones who have invested in top-of-funnel educational content — the "what is X" and "how does X work" queries that attract buyers who are still formulating their requirements.</p>
+
+<blockquote><p>"The brands that win in AI search are the ones that become the answer for a buyer's question — not just a feature in their vendor comparison spreadsheet."</p></blockquote>
+
+<h2>What to do about it</h2>
+<p>Close the gap with a structured AEO content strategy. This means: auditing your existing content for AEO readiness, identifying the buyer questions you need to own, building a content calendar around those questions, and developing an authority-building plan that extends your brand presence beyond your own website.</p>
+
+<p>The window for early-mover advantage in AEO is still open. Most B2B companies — including many of your competitors — haven't moved on this yet. The brands investing in AI visibility now will own the citation landscape in their category within 12 to 18 months.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>What if my competitor has a much larger content budget than I do?</h3>
+<p>Budget matters less than strategy in AEO. AI systems don't favour the brand that publishes most — they favour the brand whose content is most useful, most structured, and most authoritative on specific questions. A smaller brand with a sharp, intentional AEO content plan can consistently out-cite a larger competitor with a generic content calendar.</p>
+
+<h3>How quickly can I close the AEO gap with a competitor who has a head start?</h3>
+<p>With focused effort on high-value buyer questions — particularly FAQ content, educational explainers, and structured service page content — initial citation improvements typically appear within six to ten weeks. Closing the gap on a competitor with a significant head start may take three to six months of consistent, strategic publishing.</p>
+
+<h3>Should I mention competitors in my AEO content?</h3>
+<p>Carefully. Comparison content — "X vs Y" articles that objectively cover both options — can be very effective in AEO because it directly matches the research intent of buyers comparing solutions. These pieces tend to be cited frequently in AI-generated answers. The key is genuine balance: AI systems (and buyers) recognise and dismiss content that pretends to be objective while being clearly promotional.</p>
+
+</div>`
+  },
+  'ai-powered-content-vs-random-publishing': {
+    id: 'ai-powered-content-vs-random-publishing',
+    cat: 'AI Content Strategy',
+    acl: 'aic',
+    title: 'AI-Powered Content vs Random Publishing: What Actually Drives Inbound Leads',
+    sub: 'Publishing content and having a content strategy are not the same thing. In the age of AI-assisted content production, the gap between them has widened dramatically - because AI makes it faster and cheaper than ever to publish content that does nothing.',
+    meta: [
+      { l: 'Client', v: 'B2B SaaS Brands' },
+      { l: 'Service', v: 'AI Content Strategy' },
+      { l: 'Industry', v: 'B2B/SaaS' },
+      { l: 'Subcategory', v: 'Content Strategy' },
+      { l: 'Words', v: '~1,000' },
+      { l: 'Structure', v: 'Strategy Framework' }
+    ],
+    body: `<div class="art">
+<h1>AI-Powered Content vs Random Publishing: What Actually Drives Inbound Leads</h1>
+<p>Publishing content and having a content strategy are not the same thing. In the age of AI-assisted content production, the gap between them has widened dramatically — because AI makes it faster and cheaper than ever to publish content that does nothing. Here's what the difference looks like in practice.</p>
+
+<h2>The illusion of content productivity</h2>
+<p>AI content tools have made it possible for a single person to publish four to six pieces of content a week with minimal effort. For many B2B companies, this feels like progress. The content calendar is full. The blog is active. The LinkedIn queue is loaded. Surely this is building the kind of presence that generates inbound leads?</p>
+
+<p>Often, it isn't. The companies that use AI to produce content without a strategic foundation — a clear buyer intent map, a defined content architecture, a brand voice that differentiates — are generating noise. They're publishing content that ranks briefly, attracts the wrong audience, and converts rarely. The companies that use AI within a well-defined content strategy are building an inbound engine.</p>
+
+<blockquote><p>"The question isn't how much content you're publishing. It's whether each piece you publish moves a specific buyer one step closer to a conversation with you."</p></blockquote>
+
+<h2>What random publishing looks like</h2>
+<p>Random publishing is characterised by a few consistent patterns:</p>
+
+<ul>
+<li><strong>Topics are chosen based on what's trending</strong> — not based on what buyers are actively researching</li>
+<li><strong>Content is written at the same depth regardless of buyer stage</strong> — no distinction between awareness content and decision-stage content</li>
+<li><strong>There is no internal linking or topical authority architecture</strong> — each piece stands alone rather than building a compounding library</li>
+<li><strong>CTAs are generic</strong> ("Contact us," "Learn more") rather than matched to the specific buyer intent the content addresses</li>
+<li><strong>Performance is measured in traffic</strong>, not in content-sourced leads or pipeline influence</li>
+</ul>
+
+<h2>What AI-powered content strategy looks like</h2>
+<p>An AI-powered content strategy starts from buyer intent, not from available tools. Every piece is mapped to a specific question a specific buyer segment is asking at a specific stage of their decision-making process. AI accelerates the research, structuring, and drafting — but the strategic framework determines what gets produced, for whom, and why.</p>
+
+<h2>Signals that a content strategy is working</h2>
+<ul>
+<li><strong>Organic leads that reference a specific piece of content</strong> in the first sales conversation</li>
+<li><strong>Content-sourced leads with shorter sales cycles</strong> than leads from other channels</li>
+<li><strong>Consistent growth in branded search volume</strong> as content builds authority</li>
+<li><strong>AI platforms citing your content</strong> in answers to category-relevant queries</li>
+<li><strong>Content pieces generating leads three to twelve months after publication</strong> — not just in the first week</li>
+<li><strong>Prospective clients who "already feel like they know us"</strong> before the first call</li>
+</ul>
+
+<h2>The lead generation architecture behind effective B2B content</h2>
+<p>Effective B2B content strategy for lead generation works in layers. Awareness content (SEO blogs, thought leadership, educational guides) brings the right audience to your orbit. Consideration content (case studies, methodology explainers, comparison pieces) builds trust and preference. Decision content (ROI frameworks, process FAQs, client testimonials) converts consideration into action.</p>
+
+<p>AI can produce competent content at all three layers — but without strategic mapping to determine which pieces are needed at each layer, and human editorial input to ensure they're genuinely useful and brand-accurate, the layers don't connect. And when the layers don't connect, content generates impressions but not leads.</p>
+
+<h2>The Wordpinchh approach</h2>
+<p>We build content strategies backwards from the lead. Starting from the question "what does a buyer need to see, read, and believe before they reach out to this company?" we map the complete content journey, identify the gaps, and build a system — using AI where it adds value, human expertise where it's essential — that closes those gaps systematically. The result is a content library that compounds over time, builds category authority, and generates leads from people who already understand and trust what you do.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>How do I attribute leads to specific content pieces?</h3>
+<p>The most reliable method is asking in your intake form or first discovery call: "How did you find us?" and "Was there a specific piece of content that influenced your decision to reach out?" For more systematic tracking, UTM parameters on content CTAs and content-specific landing pages enable cleaner attribution in your CRM. Even imperfect attribution data is valuable — it quickly reveals which content types and topics are driving actual business outcomes.</p>
+
+<h3>How much content do I need before the strategy starts generating leads?</h3>
+<p>There is no universal number, but a focused library of ten to fifteen strategically mapped pieces typically begins generating organic leads within three to five months. What matters more than volume is coverage: do you have content addressing the key questions at each stage of your buyer's journey? Filling those gaps — even with a small number of high-quality pieces — unlocks lead generation faster than publishing large volumes of unfocused content.</p>
+
+<h3>Can AI content generate B2B leads, or does it need to be entirely human-written?</h3>
+<p>AI-assisted content, when strategically directed and editorially refined by a human, absolutely generates B2B leads. The limiting factor is never whether AI was used in production — it's whether the content is genuinely useful to a specific buyer, clearly reflects the brand's expertise, and is structured to move the reader toward a defined action. Good content strategy achieves this regardless of the production method.</p>
+
+<p><strong>AI writes fast. Strategy makes it work.</strong> Wordpinchh builds content strategies that convert visitors into leads for B2B and SaaS brands. Let's talk about what yours should look like.</p>
+
+</div>`
+  },
+  'ai-content-indian-b2b-brands': {
+    id: 'ai-content-indian-b2b-brands',
+    cat: 'AI Content Strategy',
+    acl: 'aic',
+    title: 'AI Content for Indian B2B Brands: What Works, What Doesn\'t, and What\'s Next',
+    sub: 'India\'s B2B content landscape has been transformed by AI faster than most other markets. The opportunity is real - but so are the pitfalls. Here is an honest assessment of what\'s working for Indian B2B brands using AI in their content strategy, what isn\'t, and where this is heading.',
+    meta: [
+      { l: 'Client', v: 'Indian B2B Brands' },
+      { l: 'Service', v: 'AI Content Strategy' },
+      { l: 'Industry', v: 'India · B2B' },
+      { l: 'Subcategory', v: 'Market Analysis' },
+      { l: 'Words', v: '~1,000' },
+      { l: 'Structure', v: 'Market Assessment' }
+    ],
+    body: `<div class="art">
+<h1>AI Content for Indian B2B Brands: What Works, What Doesn't, and What's Next</h1>
+<p>India's B2B content landscape has been transformed by AI faster than most other markets. The opportunity is real — but so are the pitfalls. Here is an honest assessment of what's working for Indian B2B brands using AI in their content strategy, what isn't, and where this is heading.</p>
+
+<h2>The Indian B2B content context</h2>
+<p>India's B2B content market has several distinctive characteristics that shape how AI content strategy works — and where it fails.</p>
+
+<p>First, the buyer is increasingly sophisticated. Enterprise buyers at Indian tech companies, financial institutions, and manufacturing conglomerates have been exposed to high-quality international content and have developed corresponding expectations. Generic, superficial content doesn't impress them — regardless of how fast it was produced.</p>
+
+<p>Second, the market is competitive. The supply of B2B content in India has exploded with AI tools, and most of it is low-quality, undifferentiated output. Standing out in this environment requires genuine depth and brand distinctiveness — which AI alone cannot provide.</p>
+
+<p>Third, the buyer journey in Indian B2B markets often involves longer, more relationship-driven sales cycles. Content that supports these cycles — building trust and authority over months, not just driving a single visit — requires strategic thinking that goes well beyond content volume.</p>
+
+<h2>What's working: the AI content approaches that drive results for Indian B2B brands</h2>
+
+<h3>SEO blog content with genuine expertise.</h3>
+<p>AI-assisted blog content that combines high search intent topics with genuine industry expertise — founder perspective, specific client examples, original data — is consistently driving organic traffic and inbound leads for Indian B2B brands. The key differentiator is the expertise layer, not the AI production.</p>
+
+<h3>LinkedIn thought leadership at scale.</h3>
+<p>Indian B2B founders who use AI to maintain a consistent, high-frequency LinkedIn presence — three to five posts per week — while ensuring human editorial oversight on voice and perspective, are building substantial followings and generating warm leads from social. The combination of frequency (enabled by AI) and authenticity (ensured by human input) is the winning formula.</p>
+
+<h3>Email nurture sequences.</h3>
+<p>AI-assisted email sequences that are customised to specific audience segments — by industry, company size, or stage in the buyer journey — are showing strong open and conversion rates for Indian B2B brands. The personalisation architecture is human; the execution is AI-accelerated.</p>
+
+<h3>Case studies with AI-assisted structure.</h3>
+<p>Using AI to structure and draft case study frameworks — then filling them with genuine, specific client outcomes and human-written narrative — produces case studies faster without sacrificing the authenticity that makes them persuasive.</p>
+
+<h2>What isn't working: the AI content mistakes Indian B2B brands make</h2>
+
+<h3>Publishing AI output without editorial refinement.</h3>
+<p>The most common mistake: generating content and publishing it without a human editorial pass. The result is bland, generic content that ranks briefly and converts rarely. Indian buyers recognise this content quality and it damages brand credibility.</p>
+
+<h3>Ignoring local market context.</h3>
+<p>AI content tools default to global, US-centric perspectives. Indian B2B content needs to reflect Indian regulatory environments, market structures, and buyer concerns. Without human input to localise, AI content feels generic and disconnected.</p>
+
+<h3>Volume without strategy.</h3>
+<p>Many Indian B2B companies are publishing three to five AI-generated pieces a week with no coherent content architecture. This builds neither topical authority nor AI citation presence — it produces a large quantity of unfocused content that doesn't compound.</p>
+
+<h2>What's next: AI content strategy for Indian B2B brands in 2025–2026</h2>
+<p>The next phase of AI content strategy for Indian B2B brands will be defined by two shifts: a shift from AI content to AI content systems (strategy-led, architecture-driven, consistently high quality), and a shift from SEO-only content to multi-channel AI visibility that includes GEO and AEO alongside traditional search. The brands that make these shifts early will have a compounding advantage over those that continue to treat AI as a content volume tool.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>How should Indian B2B brands balance English and regional language content?</h3>
+<p>For most Indian B2B brands targeting enterprise or mid-market buyers, English-language content remains the primary channel — this is the language in which most B2B research and decision-making happens. Regional language content becomes relevant for B2B brands targeting SME markets or specific geographic segments. AI tools for regional language content are improving rapidly, but still require more significant human editorial input to ensure quality and cultural accuracy.</p>
+
+<h3>Which industries in India are seeing the strongest results from AI content strategy?</h3>
+<p>SaaS, fintech, HR technology, B2B professional services, and edtech are seeing the strongest early results from AI content strategy in India — sectors where buyer sophistication is high, decision cycles are long, and content-driven trust-building is a proven lead generation mechanism. Manufacturing and industrial sectors are earlier in the adoption curve, with significant opportunity for first-movers.</p>
+
+<p><strong>AI writes fast. Strategy makes it work.</strong> Wordpinchh helps Indian B2B brands build AI content strategies that actually drive organic growth and inbound leads. Let's talk.</p>
+
+</div>`
+  },
+  'geo-b2b-services-ai-first-reference': {
+    id: 'geo-b2b-services-ai-first-reference',
+    cat: 'GEO',
+    acl: 'geo',
+    title: 'GEO for B2B Services: How to Make Your Brand the AI\'s First Reference',
+    sub: 'Generative Engine Optimisation isn\'t a technical upgrade to your website. It\'s a fundamental rethinking of what your content is trying to do - and who it\'s trying to convince. When AI becomes your buyer\'s first researcher, your brand needs to be in the briefing it prepares.',
+    meta: [
+      { l: 'Client', v: 'B2B Services' },
+      { l: 'Service', v: 'GEO Strategy' },
+      { l: 'Industry', v: 'B2B Services' },
+      { l: 'Subcategory', v: 'AI Optimization' },
+      { l: 'Words', v: '~1,050' },
+      { l: 'Structure', v: 'GEO Framework' }
+    ],
+    body: `<div class="art">
+<h1>GEO for B2B Services: How to Make Your Brand the AI's First Reference</h1>
+<p>Generative Engine Optimisation isn't a technical upgrade to your website. It's a fundamental rethinking of what your content is trying to do — and who it's trying to convince. When AI becomes your buyer's first researcher, your brand needs to be in the briefing it prepares.</p>
+
+<h2>What generative engines do that search engines don't</h2>
+<p>When someone types a query into Google, they get a list of links. They evaluate titles and meta descriptions, click through to the most promising option, and decide what to read. Your website has the chance to win their attention through search signals, then win their trust through content.</p>
+
+<p>Generative engines work differently. When a buyer asks ChatGPT or Perplexity "what's the best approach to B2B content strategy" or "which agencies specialise in SaaS content marketing in India," the AI doesn't show them a list. It synthesises an answer from hundreds of sources — and references the ones it has learned to trust. Your content either makes it into that synthesis or it doesn't. There is no page two.</p>
+
+<p>This is what Generative Engine Optimisation (GEO) addresses: building the content infrastructure that earns your brand a seat in that synthesis.</p>
+
+<h2>The trust equation for generative AI</h2>
+<p>AI systems make citation decisions based on patterns across their training data. They ask — in essence — three questions about every source:</p>
+
+<ul>
+<li><strong>Is this content authoritative?</strong> (Does it cite sources, demonstrate expertise, and reflect genuine depth of knowledge?)</li>
+<li><strong>Is it consistent?</strong> (Does this brand appear reliably across multiple touchpoints and formats?)</li>
+<li><strong>Is it clearly structured?</strong> (Can the AI efficiently extract a usable answer from this content?)</li>
+</ul>
+
+<p>For B2B service brands, all three of these are achievable. But they require a deliberate shift from how most service businesses currently approach content — which is largely to produce thought leadership and blog posts without a unified strategy for how that content will be found, extracted, and cited by AI systems.</p>
+
+<blockquote><p>"AI doesn't rank you. It trusts you — or it doesn't. GEO is the practice of becoming a brand that generative AI has learned to trust."</p></blockquote>
+
+<h2>Why B2B service brands are particularly well positioned for GEO</h2>
+<p>There is a common misconception that GEO is primarily for product companies or large enterprises with significant content budgets. In practice, B2B service brands have structural advantages in GEO:</p>
+
+<h3>Expert-led content comes naturally.</h3>
+<p>Service businesses are built around human expertise. When that expertise is articulated clearly in content — case studies, founder perspectives, methodology pieces — it generates exactly the kind of authority signals that AI citation models favour.</p>
+
+<h3>Category specificity is an asset.</h3>
+<p>A consultancy that is clearly defined as specialising in, say, financial services content or SaaS go-to-market strategy will be cited more consistently than a generic agency. Narrow positioning, done right, is a GEO advantage.</p>
+
+<h3>Relationship-built credibility transfers online.</h3>
+<p>The trust that B2B service brands earn through client relationships and referrals can be reflected in testimonials, case studies, and third-party mentions — all of which contribute to AI citation authority.</p>
+
+<h2>The three-layer GEO content strategy</h2>
+<p>At Wordpinchh, we build GEO strategies for B2B service brands in three layers:</p>
+
+<h3>Foundation layer: owned content.</h3>
+<p>Your website, blog, and resource pages need to be restructured for AI extraction. This means clear question-and-answer architecture, expert attribution, and data-backed claims throughout.</p>
+
+<h3>Authority layer: earned content.</h3>
+<p>Guest articles on industry publications, PR mentions, directory listings, and LinkedIn thought leadership build the off-site citation presence that AI systems use as trust signals.</p>
+
+<h3>Visibility layer: consistent publishing.</h3>
+<p>AI citation models develop preferences over time. Brands that publish consistently — at a reliable cadence, across formats — build the kind of sustained presence that earns durable AI visibility.</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>How is GEO different from traditional PR or thought leadership?</h3>
+<p>Traditional thought leadership is designed for human readers — to build brand reputation and relationships. GEO shares those goals but adds a layer of structural and authority optimisation specifically aimed at AI citation. The same content can serve both purposes, but GEO requires intentional decisions about format, depth, and placement that traditional thought leadership doesn't always make.</p>
+
+<h3>Does GEO work differently for professional services than for SaaS?</h3>
+<p>The core principles are the same, but the execution differs. SaaS brands often optimise for product-specific queries and feature comparisons. Professional service brands optimise for methodology, expertise, and outcome-based queries. The question types differ, which means the content architecture and authority-building approach differ — but the underlying GEO framework applies equally well to both.</p>
+
+<h3>Is GEO a one-time project or an ongoing practice?</h3>
+<p>Ongoing. AI citation preferences evolve as platforms update their models and as the competitive content landscape shifts. An initial GEO audit and content restructure is an excellent starting point, but maintaining and growing AI visibility requires consistent content publishing and regular auditing. Wordpinchh offers both project-based GEO audits and ongoing GEO content retainers for this reason.</p>
+
+<p><strong>Is your content built to be cited — or just ranked?</strong> Wordpinchh creates GEO-optimised content for B2B brands that want to show up in AI-generated answers. Let's build yours.</p>
+
+</div>`
+  },
+  'geo-structure-website-content-ai-citation': {
+    id: 'geo-structure-website-content-ai-citation',
+    cat: 'GEO',
+    acl: 'geo',
+    title: 'How to Structure Your Website Content So AI Engines Cite You',
+    sub: 'Most websites are built to persuade humans. But AI systems read differently - they scan for structure, extract direct answers, and cite sources based on trust signals that have nothing to do with design, brand colour, or tone of voice. Here is what needs to change.',
+    meta: [
+      { l: 'Client', v: 'B2B / SaaS' },
+      { l: 'Service', v: 'GEO Strategy' },
+      { l: 'Industry', v: 'B2B / SaaS' },
+      { l: 'Subcategory', v: 'Content Structure' },
+      { l: 'Words', v: '~1,000' },
+      { l: 'Structure', v: 'Implementation Guide' }
+    ],
+    body: `<div class="art">
+<h1>How to Structure Your Website Content So AI Engines Cite You</h1>
+<p>Most websites are built to persuade humans. But AI systems read differently — they scan for structure, extract direct answers, and cite sources based on trust signals that have nothing to do with design, brand colour, or tone of voice. Here's what needs to change.</p>
+
+<h2>The architecture problem most B2B websites have</h2>
+<p>Walk through a typical B2B website and you'll find the same pattern: a homepage that announces a value proposition, service pages that describe features and benefits, a blog with a mix of industry commentary and keyword-targeted content, and a contact page with a form. This architecture made sense for the web of 2015. It is increasingly misaligned with how buyers discover and evaluate brands in 2025.</p>
+
+<p>AI engines approach this architecture with a specific set of parsing behaviours. They look for clear entity definitions ("what is this company, and what does it do?"), direct answers to implied questions ("how does this work?"), and evidence of authority ("why should I trust this source?"). The standard B2B website structure answers none of these questions efficiently.</p>
+
+<h2>Five structural changes that improve AI citation significantly</h2>
+
+<h3>1. Define your entity clearly on every key page</h3>
+<p>AI systems build entity models — structured understandings of what a brand is, what category it belongs to, and what problems it solves. If your homepage and About page don't state this explicitly, clearly, and consistently, the AI's entity model of your brand will be fuzzy — and fuzzy entities don't get cited.</p>
+
+<p>Every key page should include a clear, jargon-free statement of what your company does and who it serves. Not buried in the third paragraph — in the first fifty words.</p>
+
+<h3>2. Lead every section with the answer, not the context</h3>
+<p>Traditional content writing often builds context before making a point. AI extraction works in reverse — it looks for the point first, then the context. Restructure your service pages, blog posts, and resource content to lead with the direct answer or key insight in the opening sentence of each section, then support it with detail.</p>
+
+<p>This change alone — what content strategists sometimes call "inverted pyramid" writing — can dramatically improve how AI systems extract and use your content.</p>
+
+<h3>3. Add FAQ sections to every service and product page</h3>
+<p>FAQ sections are among the highest-value GEO assets a B2B website can have. They are explicitly structured as question-and-answer, which maps directly to how AI systems are trained to respond to queries. A well-built FAQ page — with questions derived from real buyer intent, answered with genuine depth and data — functions as a citation-ready knowledge resource.</p>
+
+<p>Add FAQ sections to your homepage, every service page, and every major product or solution page. Write the questions from the buyer's perspective, not the brand's.</p>
+
+<h3>4. Use headings that are questions or clear statements</h3>
+<p>Heading structure is one of the key signals AI systems use to navigate a page. Vague headings like "Our Approach" or "Why Choose Us" provide no navigational value to an AI system. Replace them with specific, question-based or statement-based headings: "How does our content strategy process work?" or "What makes Wordpinchh different from a traditional content agency?"</p>
+
+<p>Every H2 and H3 on a key page should be written as if it's the question an AI user just asked.</p>
+
+<h3>5. Implement structured data throughout</h3>
+<p>Schema markup (structured data) acts as a translation layer between your content and AI parsing systems. At minimum, B2B websites should implement: Organisation schema (defining your entity), FAQ schema (marking up your FAQ content), Article schema (marking up blog and resource content), and BreadcrumbList schema (helping AI systems understand your site structure).</p>
+
+<p>These aren't optional extras — they are foundational infrastructure for AI visibility.</p>
+
+<h2>GEO content structure checklist</h2>
+<ul>
+<li><strong>Homepage clearly states what company does and who it serves</strong> in first 50 words</li>
+<li><strong>All service pages have dedicated FAQ sections</strong> with buyer-intent questions</li>
+<li><strong>All H2/H3 headings are question-based</strong> or specific statement-based</li>
+<li><strong>Each section leads with the key point</strong>, not context</li>
+<li><strong>Organisation, FAQ, and Article schema implemented</strong> sitewide</li>
+<li><strong>About page clearly attributes content</strong> to named experts/founders</li>
+<li><strong>All data claims include citations</strong> to credible sources</li>
+<li><strong>Blog posts include a "Key Takeaways" summary</strong> near the top</li>
+</ul>
+
+<h2>Frequently Asked Questions</h2>
+
+<h3>How do I know which pages to prioritise for GEO restructuring?</h3>
+<p>Start with your highest-traffic pages and your most commercially important service pages. These have the most to gain from improved AI citation and will show results fastest. Then work outward to supporting content — blog posts targeting buyer questions, resource pages, and case studies.</p>
+
+<h3>Will changing my content structure hurt my existing SEO performance?</h3>
+<p>Done correctly, GEO-driven restructuring improves both AI citation performance and traditional SEO. Better structure, clearer entity definition, and stronger E-E-A-T signals benefit all search channels simultaneously. The risk is in making changes carelessly — which is why a structured audit before implementation is important.</p>
+
+<h3>How often should I update my content for GEO?</h3>
+<p>Update your most important pages every six to twelve months to ensure they reflect current information, recent data, and the latest buyer questions. For blog and resource content, an annual content audit to identify and update underperforming pieces is good practice. AI systems favour freshness alongside authority — regularly updated, accurate content performs better over time.</p>
+
+<p><strong>Is your content built to be cited — or just ranked?</strong> Wordpinchh creates GEO-optimised content for tech and SaaS brands that want to show up in AI-generated answers. Let's build yours.</p>
+
+</div>`
   }
 };

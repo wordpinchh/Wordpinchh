@@ -166,13 +166,19 @@ export default function PortfolioGrid({ filter, openGate }: PortfolioGridProps) 
               serviceTag === 'li'  ? 'bg-[#0D2B4A] text-[#7AB8E0]' :
               serviceTag === 'wc'  ? 'bg-[#3D1A08] text-[#E0956A]' :
               serviceTag === 'lp'  ? 'bg-[#2E1A3D] text-[#B87AE0]' :
+              serviceTag === 'aeo' ? 'bg-[#1A3D0A] text-[#9AE07A]' :
+              serviceTag === 'geo' ? 'bg-[#3D0A1A] text-[#E07A9A]' :
+              serviceTag === 'aic' ? 'bg-[#0A1A3D] text-[#7A9AE0]' :
               'bg-white/20 text-[#7A7268]';
 
             const serviceText =
               serviceTag === 'seo' ? 'SEO Blog' :
               serviceTag === 'li'  ? 'LinkedIn' :
               serviceTag === 'wc'  ? 'Website Copy' :
-              serviceTag === 'lp'  ? 'Landing Page' : 'Other';
+              serviceTag === 'lp'  ? 'Landing Page' :
+              serviceTag === 'aeo' ? 'AEO' :
+              serviceTag === 'geo' ? 'GEO' :
+              serviceTag === 'aic' ? 'AIC' : 'Other';
 
             const tags = [{ text: serviceText, class: serviceClass }];
             if (industry && industry !== 'General') tags.push({ text: industry, class: 'bg-[#0D2E2E] text-[#7AE0D4]' });
