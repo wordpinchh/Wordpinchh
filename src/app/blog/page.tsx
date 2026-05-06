@@ -154,7 +154,7 @@ const TagBadge = ({ tag, color }: { tag: string; color: string }) => (
 
 // ─── BLOG READER ──────────────────────────────────────────────────────────────
 const BlogReader = ({ post, onBack }: { post: Blog; onBack: () => void }) => (
-  <div style={{ maxWidth: "760px", margin: "0 auto", padding: "40px 24px 100px" }}>
+  <div className="blog-reader-mobile" style={{ maxWidth: "1200px", margin: "0 auto", padding: "40px 60px 100px" }}>
     <button onClick={onBack} style={{
       background: "transparent", border: "1px solid #2a2720", color: "floralwhite",
       fontFamily: "'DM Mono', monospace", fontSize: "11px", letterSpacing: "0.18em",
@@ -511,6 +511,11 @@ export default function BlogPage() {
 
         /* ── Horizontal padding: tighter on mobile ───────────────── */
         .page-pad { padding-left: clamp(20px, 5vw, 60px); padding-right: clamp(20px, 5vw, 60px); }
+
+        /* ── Mobile blog reader: reduce top spacing ────────────── */
+        @media (max-width: 767px) {
+          .blog-reader-mobile { padding-top: 20px !important; }
+        }
 
         /* ── Stats row: wrap nicely on mobile ────────────────────── */
         .stats-row { display: flex; align-items: center; flex-wrap: wrap; gap: 0; }
