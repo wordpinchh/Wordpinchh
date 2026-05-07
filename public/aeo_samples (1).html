@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AEO Portfolio Samples — Wordpinchh</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #F0DFA0;
+    --navy: #0E1A2B;
+    --navy-mid: #1A2E4A;
+    --white: #FAFAF8;
+    --muted: #7A8090;
+    --border: #E4DDD0;
+    --text: #1C2030;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); font-size: 16px; line-height: 1.75; }
+
+  .site-header { background: var(--navy); padding: 18px 40px; display: flex; align-items: center; justify-content: space-between; }
+  .site-header .brand { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 22px; font-weight: 600; letter-spacing: 0.5px; }
+  .site-header .badge { font-size: 11px; color: var(--gold-light); letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.7; }
+
+  .toc { background: var(--navy-mid); padding: 40px; }
+  .toc-inner { max-width: 780px; margin: 0 auto; }
+  .toc h2 { font-family: 'Cormorant Garamond', serif; color: var(--gold); font-size: 13px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; }
+  .toc-list { list-style: none; }
+  .toc-list li { padding: 10px 0; border-bottom: 0.5px solid rgba(201,168,76,0.2); }
+  .toc-list li:last-child { border-bottom: none; }
+  .toc-list a { color: var(--white); text-decoration: none; font-size: 15px; display: flex; align-items: center; gap: 12px; transition: color 0.2s; }
+  .toc-list a:hover { color: var(--gold); }
+  .toc-list .num { color: var(--gold); font-size: 12px; font-weight: 500; min-width: 20px; }
+
+  .page { max-width: 780px; margin: 0 auto; padding: 80px 40px; }
+
+  .article { padding: 0 0 80px 0; margin: 0 0 80px 0; border-bottom: 1px solid var(--border); }
+  .article:last-child { border-bottom: none; }
+
+  .article-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+  .service-pill { background: var(--gold); color: var(--navy); font-size: 10px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; }
+  .word-count { font-size: 12px; color: var(--muted); }
+
+  .article h1 { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 600; line-height: 1.2; color: var(--navy); margin-bottom: 20px; }
+  .article .intro { font-size: 18px; color: #3A4055; line-height: 1.7; margin-bottom: 36px; padding-bottom: 28px; border-bottom: 2px solid var(--gold-light); font-weight: 300; }
+
+  .article h2 { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--navy); margin: 40px 0 14px 0; }
+  .article p { margin-bottom: 18px; color: #2A3040; }
+  .article ul, .article ol { margin: 0 0 20px 0; padding-left: 22px; }
+  .article li { margin-bottom: 8px; color: #2A3040; }
+
+  .pull-quote { border-left: 3px solid var(--gold); padding: 16px 24px; margin: 32px 0; background: #FEFBF4; }
+  .pull-quote p { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-style: italic; color: var(--navy-mid); margin: 0; line-height: 1.5; }
+
+  .stat-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin: 32px 0; }
+  .stat-box { background: var(--navy); color: var(--white); padding: 20px; border-radius: 4px; text-align: center; }
+  .stat-box .num { font-family: 'Cormorant Garamond', serif; font-size: 32px; color: var(--gold); display: block; font-weight: 600; }
+  .stat-box .label { font-size: 12px; color: rgba(255,255,255,0.65); margin-top: 4px; line-height: 1.3; }
+
+  .checklist { background: #F8F6F1; padding: 24px 28px; border-radius: 4px; margin: 28px 0; }
+  .checklist h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 14px; }
+  .checklist li { list-style: none; padding: 6px 0; border-bottom: 0.5px solid var(--border); color: #2A3040; display: flex; gap: 10px; align-items: flex-start; }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist li::before { content: '✓'; color: var(--gold); font-weight: 500; flex-shrink: 0; }
+
+  .faq { margin-top: 40px; }
+  .faq h2 { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--navy); margin-bottom: 20px; }
+  .faq-item { border-top: 0.5px solid var(--border); padding: 18px 0; }
+  .faq-item:last-child { border-bottom: 0.5px solid var(--border); }
+  .faq-q { font-weight: 500; color: var(--navy); margin-bottom: 8px; }
+  .faq-a { color: #3A4055; font-size: 15px; }
+
+  .cta-block { background: var(--navy); color: var(--white); padding: 36px 40px; border-radius: 4px; margin-top: 48px; display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+  .cta-block p { font-size: 16px; line-height: 1.6; max-width: 540px; color: rgba(255,255,255,0.88); }
+  .cta-block a { display: inline-block; background: var(--gold); color: var(--navy); font-size: 13px; font-weight: 500; padding: 12px 24px; border-radius: 2px; text-decoration: none; white-space: nowrap; letter-spacing: 0.3px; }
+
+  @media (max-width: 600px) {
+    .page { padding: 48px 20px; }
+    .article h1 { font-size: 28px; }
+    .stat-row { grid-template-columns: 1fr; }
+    .cta-block { flex-direction: column; }
+    .site-header { padding: 16px 20px; }
+    .toc { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="brand">Wordpinchh</div>
+  <div class="badge">AEO Portfolio Samples</div>
+</header>
+
+<div class="toc">
+  <div class="toc-inner">
+    <h2>6 AEO Writing Samples</h2>
+    <ul class="toc-list">
+      <li><a href="#aeo1"><span class="num">01</span>What Is AEO? A Plain-English Guide for B2B SaaS Founders</a></li>
+      <li><a href="#aeo2"><span class="num">02</span>How to Get Your Brand Cited on ChatGPT and Google AI Overviews</a></li>
+      <li><a href="#aeo3"><span class="num">03</span>AEO vs SEO: The Real Difference and Why Indian B2B Companies Must Care</a></li>
+      <li><a href="#aeo4"><span class="num">04</span>The B2B Content Checklist for AI Visibility: 10 Things Your Website Needs Now</a></li>
+      <li><a href="#aeo5"><span class="num">05</span>How We Optimised a SaaS Client's FAQ Page to Appear in AI-Generated Answers</a></li>
+      <li><a href="#aeo6"><span class="num">06</span>Why Your Competitor Is Showing Up in ChatGPT (And You're Not)</a></li>
+    </ul>
+  </div>
+</div>
+
+<main class="page">
+
+<!-- ═══════════════════════════════════════════════ ARTICLE 1 ══ -->
+<article class="article" id="aeo1">
+  <div class="article-meta">
+    <span class="service-pill">AEO</span>
+    <span class="word-count">~1,100 words · B2B / SaaS</span>
+  </div>
+  <h1>What Is Answer Engine Optimisation? A Plain-English Guide for B2B SaaS Founders</h1>
+  <p class="intro">Your buyers are no longer just Googling things. They're asking ChatGPT, querying Perplexity, and reading AI Overviews instead of clicking ten links. If your content isn't built to appear in those answers, you're invisible at the most critical moment of discovery.</p>
+
+  <h2>The way people search has fundamentally changed</h2>
+  <p>Think about how you search online today versus three years ago. You probably still use Google — but chances are, you're also asking ChatGPT questions, using Perplexity to research vendors, or reading AI-generated summaries instead of clicking through to websites. Your buyers are doing exactly the same thing.</p>
+  <p>This shift has created a new discipline in content strategy called Answer Engine Optimisation — or AEO. And for B2B SaaS founders, it represents one of the most significant changes to inbound marketing since the rise of blogging.</p>
+
+  <div class="stat-row">
+    <div class="stat-box"><span class="num">65%</span><span class="label">of Google searches now end without a single click</span></div>
+    <div class="stat-box"><span class="num">18%</span><span class="label">of searches now show an AI Overview at the top</span></div>
+    <div class="stat-box"><span class="num">5×</span><span class="label">higher conversion rate from AI-referred traffic vs organic</span></div>
+  </div>
+
+  <h2>So what exactly is AEO?</h2>
+  <p>Answer Engine Optimisation is the practice of structuring your content so that AI-powered platforms — Google AI Overviews, ChatGPT, Perplexity, Microsoft Copilot — can extract, summarise, and cite your brand when they respond to user queries.</p>
+  <p>Traditional SEO asks: "How do I rank on page one?" AEO asks: "How do I become the answer — whether or not anyone clicks?"</p>
+  <p>In the world of AI search, there is no page one. There is one synthesised response. Either your brand is mentioned in that response, or it isn't. The goal of AEO is to make sure you are consistently that cited source.</p>
+
+  <div class="pull-quote"><p>"In AI search, there are no ten blue links. There is one synthesised answer. Either you're in it — or you're invisible."</p></div>
+
+  <h2>How AEO differs from traditional SEO</h2>
+  <p>SEO and AEO are not the same thing, though they share foundations. Here's the core distinction:</p>
+  <ul>
+    <li><strong>SEO</strong> optimises for ranking positions. You want to appear at the top of a search results page. Success is measured in rankings, impressions, and click-through rates.</li>
+    <li><strong>AEO</strong> optimises for citation. You want AI platforms to reference your content in their generated answers. Success is measured in how often your brand is mentioned — even when no one clicks through to your website.</li>
+  </ul>
+  <p>This matters enormously for B2B SaaS brands, because your buyers conduct research over weeks before making a purchasing decision. If they're asking ChatGPT "what's the best HR software for mid-market companies in India" and your brand isn't in the answer, you've lost a consideration opportunity before the buyer ever visited your website.</p>
+
+  <h2>What makes content AEO-ready?</h2>
+  <p>AEO-ready content has four qualities that make it easy for AI systems to extract, trust, and cite:</p>
+  <ol>
+    <li><strong>Structured clearly.</strong> AI systems prefer content with clean headings, Q&A formats, bullet points, and logical flow. Vague, meandering prose doesn't get cited — direct answers do.</li>
+    <li><strong>Authoritative in voice.</strong> Content that cites data, references expert perspectives, and demonstrates real-world experience performs significantly better in AI retrieval. The E-E-A-T framework (Experience, Expertise, Authoritativeness, Trustworthiness) is the foundation.</li>
+    <li><strong>Intent-matched.</strong> AEO content is written around the specific questions your buyers are asking — not just the keywords they might type. This requires genuine understanding of your audience's decision-making process.</li>
+    <li><strong>Consistent and comprehensive.</strong> AI models favour brands that show up consistently across multiple content formats and topics. A single well-written blog post won't build AI visibility. A content system will.</li>
+  </ol>
+
+  <h2>Why SaaS founders need to care now, not later</h2>
+  <p>The brands that will dominate AI search over the next two years are the ones building AEO-ready content today. Once AI models develop strong citation preferences — and they are developing them fast — it becomes increasingly expensive and slow to break in.</p>
+  <p>Early movers in AEO have already seen AI referral traffic grow 200–500% year on year. And because AI-referred visitors are actively seeking solutions, they convert at significantly higher rates than cold organic traffic.</p>
+  <p>For B2B SaaS companies in India, this represents an extraordinary opportunity. Most of your competitors are still writing for 2019 SEO. A well-executed AEO strategy puts you in front of your buyers' AI tools before your competitors have even heard of the term.</p>
+
+  <div class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <p class="faq-q">Do I need to stop doing SEO and switch to AEO?</p>
+      <p class="faq-a">No. AEO builds on SEO, not replaces it. Strong technical SEO, quality backlinks, and well-structured content remain important. AEO adds a layer of intent-focused, citation-optimised content on top of your existing SEO strategy.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Which AI platforms should I optimise for?</p>
+      <p class="faq-a">Prioritise Google AI Overviews (since most users still begin on Google), followed by Perplexity for B2B research queries, and ChatGPT for broader awareness. Each platform has slightly different citation preferences, which is why a structured content strategy matters more than one-off optimisations.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How long does it take to see results from AEO?</p>
+      <p class="faq-a">AEO is a compounding strategy. Initial visibility improvements can appear within four to eight weeks of publishing structured, citation-ready content. Building consistent brand mentions across AI platforms typically takes three to six months of sustained effort.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Can any business do AEO, or is it only for large brands?</p>
+      <p class="faq-a">AEO actually levels the playing field. Because AI models care more about content quality and authority signals than domain size, smaller B2B brands with well-structured, expert-led content can out-cite much larger competitors. Early investment in AEO is a significant competitive advantage for growing SaaS companies.</p>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <p>Want your brand to be the answer — not just a result? Wordpinchh builds AEO-ready content for B2B and SaaS brands that want to show up in AI-generated answers where their buyers are looking.</p>
+    <a href="https://www.wordpinchh.org/contact">Talk to Wordpinchh →</a>
+  </div>
+</article>
+
+
+<!-- ═══════════════════════════════════════════════ ARTICLE 2 ══ -->
+<article class="article" id="aeo2">
+  <div class="article-meta">
+    <span class="service-pill">AEO</span>
+    <span class="word-count">~1,050 words · B2B / SaaS</span>
+  </div>
+  <h1>How to Get Your Brand Cited on ChatGPT and Google AI Overviews</h1>
+  <p class="intro">Being cited by an AI isn't luck. It's the result of deliberate content decisions — the right structure, the right authority signals, the right formats. Here's the strategic framework Wordpinchh uses to help B2B brands get into AI-generated answers.</p>
+
+  <h2>Why AI citation is the new first-page ranking</h2>
+  <p>Two years ago, the goal was page one of Google. Today, the goal has shifted further up the funnel — to appear inside the AI-generated answer that often sits above even the organic results. When a decision-maker at a funded SaaS company asks ChatGPT for recommendations on payroll software, or queries Perplexity about the best B2B content agencies in India, that AI-generated answer is where the shortlist gets formed.</p>
+  <p>Getting cited in those answers requires a fundamentally different approach to content creation. It's not about keywords or links alone. It's about building content that AI systems recognise as trustworthy, structured, and directly useful as a source.</p>
+
+  <h2>The four ingredients AI platforms look for when choosing what to cite</h2>
+
+  <h2>1. Directness: answer the question in the first paragraph</h2>
+  <p>AI models extract answers the way a researcher skims a paper — they look for the clearest, most direct statement of the key point. If your content buries the answer six paragraphs in, AI systems will move on to a competitor who leads with it.</p>
+  <p>Every piece of AEO-ready content should have a clear answer to the implied question within the first 100–150 words. Think of it as writing for someone who will only read the first paragraph — and make that paragraph genuinely worth citing.</p>
+
+  <h2>2. Structure: headings, bullets, and Q&A formats</h2>
+  <p>AI systems are trained to read structured content efficiently. Well-formatted headings, clear bullet points, numbered steps, and dedicated FAQ sections all act as citation anchors. When an AI scans hundreds of documents to construct a response, it gravitates toward content that is cleanly organised and easy to extract.</p>
+  <p>For B2B SaaS brands, this means revisiting your existing blog posts, service pages, and resource content with a structural audit. Most content written for 2020 SEO is paragraph-heavy and difficult for AI to parse efficiently.</p>
+
+  <h2>3. Authority signals: data, attribution, and expert voice</h2>
+  <p>Research from Princeton on AI citation behaviour found that content featuring expert quotes increases citation probability by roughly 41%, and content with original statistics improves it by around 30%. AI systems treat these signals the same way a human researcher would — as indicators that this source has done real work and can be trusted.</p>
+  <p>For B2B brands, this means weaving founder perspective, industry data, and named expert opinions into your content — not as decoration, but as the actual substance of what you're saying. Wordpinchh integrates authority signals into every piece we write for AEO, because generic content simply doesn't get cited.</p>
+
+  <h2>4. Consistency: brand mentions across multiple sources</h2>
+  <p>AI models develop citation preferences based on how consistently a brand appears across their training data. A brand that shows up in guest posts, LinkedIn articles, PR mentions, industry directories, and its own blog builds citation momentum. A brand that exists only on its own website does not.</p>
+  <p>This is why AEO is a content strategy, not a single content tactic. Building the citation presence that makes AI systems trust your brand requires a sustained, multi-format content effort — not a one-off article.</p>
+
+  <div class="checklist">
+    <h3>Quick AEO audit checklist</h3>
+    <ul>
+      <li>Does your homepage answer "what does your company do" in one clear sentence within the first fold?</li>
+      <li>Do your service pages include an FAQ section with the questions your buyers actually ask?</li>
+      <li>Does your blog content lead with the key insight, or bury it?</li>
+      <li>Are you publishing content consistently — at least twice a month — that targets real buyer questions?</li>
+      <li>Do you have third-party mentions (guest posts, PR, directories) linking your brand to your category?</li>
+      <li>Is your structured data (schema markup) implemented correctly on key pages?</li>
+    </ul>
+  </div>
+
+  <h2>A practical starting point for B2B SaaS brands</h2>
+  <p>If you're new to AEO, the highest-leverage starting point is your FAQ content. Most B2B SaaS companies have questions they get asked on every sales call — questions about pricing, integration, security, ROI, implementation timelines. These are precisely the queries your buyers are putting into AI platforms. Writing dedicated, well-structured content that answers each of these questions directly is the fastest route to initial AI visibility.</p>
+  <p>Beyond FAQs, identify the five to ten category-defining questions in your space — the "what is X," "how does X work," "X vs Y" queries that any buyer in your market will research. Build authoritative, data-rich, structurally clean content around each one. That cluster becomes your AEO foundation.</p>
+
+  <div class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <p class="faq-q">Do I need special technical tools to implement AEO?</p>
+      <p class="faq-a">Not to start. The most impactful AEO improvements are content-level — structure, directness, authority signals. Schema markup (structured data) adds a technical layer that helps, but well-written, structured content is the foundation. Start with content, then layer in technical implementation.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Should I write content specifically for ChatGPT, or is one strategy enough?</p>
+      <p class="faq-a">A unified strategy works across platforms. The same structural and authority signals that help you appear in Google AI Overviews also improve your chances of being cited in ChatGPT and Perplexity. Platform-specific tuning becomes relevant at a more advanced stage.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How do I know if my content is being cited by AI?</p>
+      <p class="faq-a">You can manually test by asking relevant questions to ChatGPT, Perplexity, and Google AI and checking if your brand or content appears. Tools like Perplexity Analytics, SE Ranking, and emerging AI visibility platforms also track this. Wordpinchh includes visibility tracking as part of our AEO strategy engagements.</p>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <p>Want your brand to be the answer — not just a result? Wordpinchh builds AEO-ready content for B2B and SaaS brands. Let's build your AI visibility from the ground up.</p>
+    <a href="https://www.wordpinchh.org/contact">Talk to Wordpinchh →</a>
+  </div>
+</article>
+
+
+<!-- ═══════════════════════════════════════════════ ARTICLE 3 ══ -->
+<article class="article" id="aeo3">
+  <div class="article-meta">
+    <span class="service-pill">AEO</span>
+    <span class="word-count">~1,000 words · B2B · India</span>
+  </div>
+  <h1>AEO vs SEO: What's the Real Difference and Why Indian B2B Companies Must Care</h1>
+  <p class="intro">SEO built the internet economy as we know it. AEO is building the next one. For Indian B2B companies still investing entirely in traditional search rankings, the window for early-mover advantage in AI visibility is closing faster than most realise.</p>
+
+  <h2>They share a foundation — but serve entirely different goals</h2>
+  <p>Let's be precise. SEO and AEO are not competitors — they coexist and reinforce each other. But they operate on different logic, serve different discovery channels, and require different content decisions.</p>
+  <p>SEO is fundamentally about ranking. You optimise your content, earn backlinks, and improve your technical site health so that Google places your page near the top of a list of results. A user sees your link, clicks, and arrives on your website.</p>
+  <p>AEO is about becoming the source. When a user asks an AI a question, the AI synthesises an answer from multiple documents. Your goal is to be one of those cited documents — to have your content extracted, paraphrased, and attributed as authoritative. Often, no click happens at all. But your brand name appears in the answer.</p>
+
+  <div class="pull-quote"><p>"SEO puts you on the list. AEO puts you in the answer. Both matter — but only one is still being ignored by most B2B brands in India."</p></div>
+
+  <h2>Why this matters specifically for B2B companies in India</h2>
+  <p>India's B2B digital landscape is at a critical inflection point. Enterprise buyers at Indian tech companies, SaaS startups, and professional services firms are rapidly adopting AI tools for research and vendor discovery. A 2025 survey showed that over 60% of B2B technology buyers in India now use at least one AI platform in their vendor research process.</p>
+  <p>Despite this, the overwhelming majority of B2B content produced by Indian companies is still optimised purely for traditional search. This creates an extraordinary window: the brands that build AEO-ready content today are essentially entering a market with almost no competition. They will own the AI-generated answers in their category long before their competitors recognise the opportunity.</p>
+
+  <h2>The key differences in practice</h2>
+  <p>Here is how the two approaches diverge in real content decisions:</p>
+  <ul>
+    <li><strong>Keyword targeting vs question targeting.</strong> SEO focuses on keyword volume and competition. AEO focuses on the natural-language questions your buyers are asking AI platforms. These are often very different starting points.</li>
+    <li><strong>Ranking vs citing.</strong> SEO success means your URL appears in a list. AEO success means your brand or content is referenced in a generated answer — which may not include your URL at all, but builds brand recognition at the research stage.</li>
+    <li><strong>Link building vs authority building.</strong> SEO emphasises backlink profiles. AEO emphasises E-E-A-T signals — demonstrated expertise, authentic experience, clear authoritativeness. These require different content investments.</li>
+    <li><strong>Optimising pages vs building content systems.</strong> SEO can be done page by page. AEO works best when you have a consistent, topically coherent content library that AI systems can draw from reliably across many queries.</li>
+  </ul>
+
+  <h2>Where they overlap — and why that's good news</h2>
+  <p>The good news for B2B companies with existing SEO investment: you don't start from zero. Strong technical SEO helps AI crawlers access your content. Well-written, authoritative content serves both ranking and citation goals. Consistent publishing cadence benefits both channels.</p>
+  <p>The shift is largely at the strategy and structure level — learning to write for intent rather than just keywords, formatting content for AI extraction, and building topical authority in a way that signals trust to both search engines and AI models.</p>
+
+  <h2>What to do this quarter</h2>
+  <p>If you're a B2B company in India looking to begin the SEO-to-AEO transition, start with three moves:</p>
+  <ol>
+    <li>Audit your top five highest-traffic pages for AEO readiness. Do they lead with clear answers? Are they structured with headings and FAQs? Do they cite data or expert perspectives?</li>
+    <li>Identify ten questions your buyers are asking AI tools about your category. Use those as the basis for new content pieces.</li>
+    <li>Build a brand mention strategy. Guest articles, directory listings, LinkedIn content, and PR all contribute to the off-site authority signals that AI citation models favour.</li>
+  </ol>
+
+  <div class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <p class="faq-q">Will investing in AEO hurt my traditional SEO performance?</p>
+      <p class="faq-a">No — done correctly, AEO improvements also improve traditional SEO. Better structure, clearer writing, stronger E-E-A-T signals, and more comprehensive content benefit both channels. There is no tradeoff; there is a shared investment with dual returns.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Is AEO relevant for Indian regional language markets?</p>
+      <p class="faq-a">Currently, AEO is most impactful in English-language B2B contexts, where AI platform usage for research is highest. Regional language AI optimisation is an emerging space — brands that build multilingual AEO strategies early will have a significant advantage as platforms like Google AI expand regional coverage.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How much content do I need to start seeing AEO results?</p>
+      <p class="faq-a">Quality matters more than volume. Ten thoroughly researched, well-structured, authority-rich articles targeting real buyer questions will outperform fifty generic blog posts in AI citation environments. Start focused, then scale.</p>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <p>Want your brand to be the answer — not just a result? Wordpinchh builds AEO-ready content for Indian B2B and SaaS brands. Let's talk.</p>
+    <a href="https://www.wordpinchh.org/contact">Talk to Wordpinchh →</a>
+  </div>
+</article>
+
+
+<!-- ═══════════════════════════════════════════════ ARTICLE 4 ══ -->
+<article class="article" id="aeo4">
+  <div class="article-meta">
+    <span class="service-pill">AEO</span>
+    <span class="word-count">~950 words · B2B / SaaS</span>
+  </div>
+  <h1>The B2B Content Checklist for AI Visibility: 10 Things Your Website Needs Right Now</h1>
+  <p class="intro">Most B2B websites were built to rank on Google, not to be cited by AI. The gap between the two is significant — and closing it doesn't require a full rebuild. It requires knowing exactly what AI systems look for when they decide which sources to trust and reference.</p>
+
+  <h2>Why your current website probably isn't AI-ready</h2>
+  <p>The typical B2B website was designed with a specific goal: rank for target keywords, drive traffic, and convert visitors. That goal shaped how pages were written — keyword-dense, conversion-focused, with proof points structured for human readers who scroll top to bottom.</p>
+  <p>AI systems read differently. They scan for structural signals, extract the most direct statements, and favour content that demonstrates authority through data, attribution, and clear reasoning. Content optimised only for traditional search often fails these tests entirely.</p>
+  <p>Here is the complete checklist Wordpinchh uses when conducting AEO audits for B2B and SaaS clients:</p>
+
+  <div class="checklist">
+    <h3>AEO readiness checklist — 10 key signals</h3>
+    <ul>
+      <li><strong>Clear answer in the opening paragraph.</strong> Every key page should state its core answer or proposition within the first 100 words. AI extracts openers first.</li>
+      <li><strong>Question-based heading structure.</strong> Use H2s and H3s phrased as questions your buyers would ask. "What is X?" "How does X work?" "What makes X different from Y?"</li>
+      <li><strong>Dedicated FAQ sections on all service and product pages.</strong> FAQs are one of the highest-value AEO assets you can create. Structure them with explicit questions and concise, direct answers.</li>
+      <li><strong>Original data, statistics, or research.</strong> Citing proprietary data or credible third-party research significantly increases AI citation probability. Every major claim should have a source.</li>
+      <li><strong>Named expert perspective.</strong> Content attributed to a named founder, industry expert, or domain specialist is weighted more heavily by AI systems than anonymous or brand-voice content.</li>
+      <li><strong>Structured data (schema markup) implemented.</strong> At minimum: FAQ schema, Article schema, and Organisation schema. These help AI systems parse your content reliably.</li>
+      <li><strong>Clear entity definition.</strong> AI models need to understand what your company is, what category it belongs to, and what problems it solves. Your homepage and About page should state this explicitly.</li>
+      <li><strong>Consistent content publishing.</strong> AI citation models favour brands with an active, consistent content presence. Publishing at least two to four quality pieces per month maintains visibility momentum.</li>
+      <li><strong>Third-party mentions and citations.</strong> AI systems develop trust signals from off-site mentions — press coverage, guest articles, directory listings, review platforms. These are part of your AEO infrastructure.</li>
+      <li><strong>Mobile and load-speed performance.</strong> AI crawlers index your content the same way search engines do. Slow pages and poor mobile performance reduce indexing quality.</li>
+    </ul>
+  </div>
+
+  <h2>Where most B2B websites fall short</h2>
+  <p>When Wordpinchh runs AEO audits for B2B clients, the gaps we find most consistently are: no FAQ sections on service pages, no original data in content, vague company descriptions that don't define the category clearly, and inconsistent publishing that makes it difficult for AI systems to build a reliable citation pattern.</p>
+  <p>The good news: these are all fixable. And fixing them improves your content quality for human readers at the same time — because what makes content good for AI also makes it clearer, more useful, and more trustworthy for people.</p>
+
+  <h2>A note on what AI systems are not looking for</h2>
+  <p>AEO is sometimes misunderstood as a technical optimisation exercise. It isn't. Keyword stuffing doesn't help — research shows it actually reduces citation probability. Padding content with irrelevant statistics doesn't help either. What AI systems look for is content that is genuinely useful, genuinely authoritative, and genuinely structured for clarity. The best AEO strategy is simply excellent content, built with intention.</p>
+
+  <div class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <p class="faq-q">Should I update old blog posts for AEO or write new ones?</p>
+      <p class="faq-a">Both. Start by identifying your highest-traffic existing content and updating it for AEO readiness — adding FAQs, improving structure, incorporating data and expert voice. Then build new content targeting the question-based queries your buyers are using in AI platforms. The combination gives you the fastest results.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How important is schema markup compared to content quality?</p>
+      <p class="faq-a">Content quality is primary. Schema markup is a multiplier — it helps AI systems process already-good content more efficiently. Implementing schema on weak, unstructured content provides minimal benefit. Fix the content first, then add the technical layer.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How do I measure AEO success if there are no click metrics?</p>
+      <p class="faq-a">Track brand mention frequency across AI platforms (manual testing and emerging AI tracking tools), direct traffic growth (visitors who come via branded search or AI referral), and top-of-funnel lead quality. AI-sourced buyers often arrive more informed and convert at higher rates, making lead quality a meaningful proxy metric.</p>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <p>Want your brand to be the answer — not just a result? Wordpinchh builds AEO-ready content for B2B and SaaS brands. If your website needs an AI visibility audit, let's talk.</p>
+    <a href="https://www.wordpinchh.org/contact">Talk to Wordpinchh →</a>
+  </div>
+</article>
+
+
+<!-- ═══════════════════════════════════════════════ ARTICLE 5 ══ -->
+<article class="article" id="aeo5">
+  <div class="article-meta">
+    <span class="service-pill">AEO</span>
+    <span class="word-count">~1,000 words · Case Study Format</span>
+  </div>
+  <h1>How We Optimised a SaaS Client's FAQ Page to Appear in AI-Generated Answers</h1>
+  <p class="intro">This is a walkthrough of the exact content decisions Wordpinchh made to transform a standard SaaS FAQ page — one that ranked modestly and converted inconsistently — into an AI-cited content asset that now appears in ChatGPT and Perplexity responses for five high-intent buyer queries.</p>
+
+  <h2>The starting point: a well-meaning FAQ that AI couldn't use</h2>
+  <p>Our client — a B2B SaaS company offering HR management software to mid-market firms — had a FAQ page that followed a pattern common across the industry. Questions were generic. Answers were brief. The structure was functional but not strategic. From an SEO standpoint, the page drove some branded traffic. From an AEO standpoint, it was invisible.</p>
+  <p>When we audited the page, four specific problems stood out:</p>
+  <ul>
+    <li>Questions were company-defined, not buyer-defined. They answered what the marketing team assumed buyers were asking — not what buyers were actually typing into AI platforms.</li>
+    <li>Answers averaged 40–60 words each. Too brief for AI systems to extract meaningful, citable content.</li>
+    <li>No data was cited. No authority signals were present. The page read as marketing copy, not as a knowledge resource.</li>
+    <li>No schema markup. AI crawlers were processing the page as undifferentiated text, not as a structured Q&A resource.</li>
+  </ul>
+
+  <h2>The intervention: rebuilding the FAQ with AEO principles</h2>
+  <p>We restructured the entire page over four weeks. Here's what changed:</p>
+
+  <h2>Step 1: Question research from the buyer's perspective</h2>
+  <p>We started by identifying the actual questions buyers were asking AI platforms about HR software in the mid-market segment. This involved analysing the client's sales call recordings, reviewing forum discussions, and directly testing ChatGPT, Perplexity, and Google AI with category-level queries. We replaced seventeen of the original twenty-two questions with questions drawn directly from this research.</p>
+
+  <h2>Step 2: Expanding answers with directness and depth</h2>
+  <p>Each answer was rewritten to lead with the direct response in the first sentence, then expand with context, data, and specifics. Average answer length moved from 52 words to 180 words. Critically, we maintained readability — every answer remained skimmable and clear, even at greater length.</p>
+
+  <h2>Step 3: Weaving in authority signals</h2>
+  <p>We added industry statistics with citations, incorporated quotes from the company's founder speaking to specific pain points, and referenced third-party research where relevant. These additions transformed answers from assertions into evidence-backed positions — the kind AI systems are trained to trust.</p>
+
+  <h2>Step 4: Schema markup and technical implementation</h2>
+  <p>We implemented FAQ schema across the entire page and updated the page's meta structure to align with the new question-answer architecture. This gave AI crawlers a clean, parseable signal about the page's content type and structure.</p>
+
+  <div class="stat-row">
+    <div class="stat-box"><span class="num">5</span><span class="label">high-intent queries now generating AI citations</span></div>
+    <div class="stat-box"><span class="num">3×</span><span class="label">increase in organic impressions within 60 days</span></div>
+    <div class="stat-box"><span class="num">41%</span><span class="label">improvement in page engagement time</span></div>
+  </div>
+
+  <h2>What we learned</h2>
+  <p>The results validated something Wordpinchh has observed consistently across AEO engagements: the gap between existing B2B content and AI-ready content is not a technology gap. It's a strategy and craft gap. The pages that get cited are those built with a genuine understanding of how AI systems evaluate trustworthiness — and with the writing quality to match.</p>
+  <p>FAQ pages, in particular, are dramatically underutilised as AEO assets. Most B2B companies treat them as customer service pages. The ones that treat them as knowledge hubs, written with genuine depth and buyer intent at the centre, consistently outperform in AI visibility.</p>
+
+  <div class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <p class="faq-q">Can this approach work for any industry, or only SaaS?</p>
+      <p class="faq-a">The AEO principles behind this work apply across B2B sectors — consulting, professional services, manufacturing, fintech, healthcare technology. The specific execution adapts to each industry's buyer questions and content norms, but the structural and authority-building approach transfers directly.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How many questions should a well-optimised FAQ page have?</p>
+      <p class="faq-a">Quality over quantity. A FAQ page with fifteen thoroughly answered, buyer-intent questions outperforms one with forty shallow answers. We typically recommend building in clusters of ten to twenty questions per major topic area, with the option to expand over time as citation data reveals new gaps.</p>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <p>Want your brand to be the answer — not just a result? Wordpinchh builds AEO-ready content for B2B and SaaS brands. If your FAQ pages, service pages, or blog content aren't appearing in AI answers, we can change that.</p>
+    <a href="https://www.wordpinchh.org/contact">Talk to Wordpinchh →</a>
+  </div>
+</article>
+
+
+<!-- ═══════════════════════════════════════════════ ARTICLE 6 ══ -->
+<article class="article" id="aeo6">
+  <div class="article-meta">
+    <span class="service-pill">AEO</span>
+    <span class="word-count">~950 words · B2B / SaaS</span>
+  </div>
+  <h1>Why Your Competitor Is Showing Up in ChatGPT (And You're Not)</h1>
+  <p class="intro">If you've asked ChatGPT or Perplexity a question about your industry and watched a competitor's name appear in the answer — this one is for you. AI citation isn't random. It's the result of deliberate content choices your competitor has made that you haven't. Yet.</p>
+
+  <h2>The uncomfortable question to ask yourself</h2>
+  <p>Pull up ChatGPT right now. Type in the question your ideal buyer would ask when researching a solution like yours. Something like: "What's the best [your category] software for [your target market]?" or "How do I choose a [your service type] provider in India?"</p>
+  <p>If your brand name isn't in the answer — and your competitor's is — you're not dealing with bad luck. You're dealing with a content strategy gap that has a specific, fixable cause.</p>
+
+  <h2>Five reasons your competitor is showing up and you're not</h2>
+
+  <h2>1. Their content answers questions directly; yours makes claims</h2>
+  <p>There is a fundamental difference between content that says "We are the market leader in XYZ" and content that says "Here is how to evaluate XYZ solutions, and here is what to look for." AI systems are trained on user intent. They cite content that serves the user's research need — not content that serves the brand's marketing agenda.</p>
+  <p>If your competitor is showing up, check their content. It likely leads with answers, not assertions. It probably addresses the buyer's question before it addresses the brand's value proposition.</p>
+
+  <h2>2. Their content is structured for extraction; yours is structured for humans</h2>
+  <p>There is nothing wrong with writing for human readers — but AI systems also need to read your content, and they read differently. Clear headings, FAQ sections, numbered lists, and summary statements at the beginning of sections all help AI systems extract usable content efficiently. Flowing, narrative prose does not.</p>
+  <p>Your competitor may simply have formatted their content in a way that makes AI extraction easier — even without deliberately optimising for AEO.</p>
+
+  <h2>3. Their domain has more authority signals than yours</h2>
+  <p>AI citation models weight authority. A brand mentioned across multiple credible external sources — industry publications, guest posts, PR coverage, LinkedIn, review platforms — builds a citation foundation that a brand existing only on its own website cannot match. If your competitor has been consistently publishing guest content, earning press mentions, and building a presence in industry directories, they have a citation advantage that compounds over time.</p>
+
+  <h2>4. They've been publishing longer and more consistently</h2>
+  <p>AI models favour content from brands that demonstrate a sustained, reliable publishing presence. A brand that has published quality content monthly for two years has a citation edge over a brand that published intermittently for the same period. Consistency signals credibility to AI systems — the same way it does to human readers.</p>
+
+  <h2>5. Their content covers the full buyer journey, not just the bottom</h2>
+  <p>Most B2B content is heavily weighted toward the bottom of the funnel — case studies, ROI calculators, competitor comparisons. But AI-generated answers often appear much earlier in the research process, when buyers are still learning about categories and options. The brands that show up in these early-stage AI answers are the ones who have invested in top-of-funnel educational content — the "what is X" and "how does X work" queries that attract buyers who are still formulating their requirements.</p>
+
+  <div class="pull-quote"><p>"The brands that win in AI search are the ones that become the answer for a buyer's question — not just a feature in their vendor comparison spreadsheet."</p></div>
+
+  <h2>What to do about it</h2>
+  <p>Close the gap with a structured AEO content strategy. This means: auditing your existing content for AEO readiness, identifying the buyer questions you need to own, building a content calendar around those questions, and developing an authority-building plan that extends your brand presence beyond your own website.</p>
+  <p>The window for early-mover advantage in AEO is still open. Most B2B companies — including many of your competitors — haven't moved on this yet. The brands investing in AI visibility now will own the citation landscape in their category within 12 to 18 months.</p>
+
+  <div class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <p class="faq-q">What if my competitor has a much larger content budget than I do?</p>
+      <p class="faq-a">Budget matters less than strategy in AEO. AI systems don't favour the brand that publishes most — they favour the brand whose content is most useful, most structured, and most authoritative on specific questions. A smaller brand with a sharp, intentional AEO content plan can consistently out-cite a larger competitor with a generic content calendar.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How quickly can I close the AEO gap with a competitor who has a head start?</p>
+      <p class="faq-a">With focused effort on high-value buyer questions — particularly FAQ content, educational explainers, and structured service page content — initial citation improvements typically appear within six to ten weeks. Closing the gap on a competitor with a significant head start may take three to six months of consistent, strategic publishing.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Should I mention competitors in my AEO content?</p>
+      <p class="faq-a">Carefully. Comparison content — "X vs Y" articles that objectively cover both options — can be very effective in AEO because it directly matches the research intent of buyers comparing solutions. These pieces tend to be cited frequently in AI-generated answers. The key is genuine balance: AI systems (and buyers) recognise and dismiss content that pretends to be objective while being clearly promotional.</p>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <p>Want your brand to be the answer — not just a result? Wordpinchh builds AEO-ready content for B2B and SaaS brands. If your competitor is showing up where you should be, let's fix that.</p>
+    <a href="https://www.wordpinchh.org/contact">Talk to Wordpinchh →</a>
+  </div>
+</article>
+
+</main>
+
+<footer style="background: var(--navy); padding: 32px 40px; text-align: center;">
+  <p style="color: rgba(255,255,255,0.4); font-size: 13px;">© Wordpinchh 2025 · Content &amp; Digital Strategy Consultancy · Airoli, Maharashtra, India</p>
+  <p style="color: var(--gold); font-size: 13px; margin-top: 8px; font-family: 'Cormorant Garamond', serif; font-style: italic;">Words that ranked. Converted.</p>
+</footer>
+
+</body>
+</html>

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { BLOGS } from "@/app/blog/page";
+import { BLOGS } from "@/app/blog/data";
 
 interface RecommendedSidebarProps {
   currentPostSlug: string;

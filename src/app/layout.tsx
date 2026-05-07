@@ -47,7 +47,7 @@ const bebasNeue = Bebas_Neue({
 export const metadata: Metadata = {
   title: {
     default: "WordPinchh — Content Writing Agency Mumbai",
-    template: "%s | WordPinchh",
+    template: "%s",
   },
   alternates: {
     canonical: "https://www.wordpinchh.org",
