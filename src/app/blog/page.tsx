@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { FooterSection } from "@/components/home/FooterSection";
 import RecommendedSidebar from "@/components/blog/RecommendedSidebar";
 
@@ -385,22 +386,23 @@ const BlogReader = ({ post, onBack, onPostClick }: { post: Blog; onBack: () => v
 );
 
 // ─── FEATURED CARD ────────────────────────────────────────────────────────────
-const FeaturedCard = ({ post, onClick }: { post: Blog; onClick: () => void }) => {
+const FeaturedCard = ({ post }: { post: Blog }) => {
   const [hovered, setHovered] = useState(false);
   return (
-    <div onClick={onClick} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
-      className="featured-card-grid"
-      style={{
-        background: hovered ? "linear-gradient(135deg,#161410,#1A1A15)" : "#161410",
-        border: `1px solid ${hovered ? "#CAFF4A" : "#2a2720"}`,
-        borderRadius: "16px", padding: "clamp(20px,4vw,48px)",
-        cursor: "pointer", transition: "all 0.4s cubic-bezier(0.4,0,0.2,1)",
-        transform: hovered ? "translateY(-6px)" : "translateY(0)",
-        boxShadow: hovered ? "0 20px 40px rgba(202,255,74,0.12)" : "none",
-        display: "grid", gridTemplateColumns: "1fr", gap: "28px",
-        position: "relative" as const, overflow: "hidden",
-      }}
-    >
+    <Link href={`/blog/${post.slug}`} style={{ textDecoration: "none", display: "block" }}>
+      <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+        className="featured-card-grid"
+        style={{
+          background: hovered ? "linear-gradient(135deg,#161410,#1A1A15)" : "#161410",
+          border: `1px solid ${hovered ? "#CAFF4A" : "#2a2720"}`,
+          borderRadius: "16px", padding: "clamp(20px,4vw,48px)",
+          cursor: "pointer", transition: "all 0.4s cubic-bezier(0.4,0,0.2,1)",
+          transform: hovered ? "translateY(-6px)" : "translateY(0)",
+          boxShadow: hovered ? "0 20px 40px rgba(202,255,74,0.12)" : "none",
+          display: "grid", gridTemplateColumns: "1fr", gap: "28px",
+          position: "relative" as const, overflow: "hidden",
+        }}
+      >
       <div style={{ position: "absolute", top: 0, right: 0, width: "300px", height: "300px", background: "radial-gradient(circle,rgba(202,255,74,0.04) 0%,transparent 70%)", pointerEvents: "none" }} />
       <div style={{ minWidth: 0 }}>
         <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px", flexWrap: "wrap" as const }}>
@@ -435,25 +437,27 @@ const FeaturedCard = ({ post, onClick }: { post: Blog; onClick: () => void }) =>
         <div style={{ position: "absolute", top: "12px", left: "12px", width: "5px", height: "5px", borderRadius: "50%", background: hovered ? "#CAFF4A" : "#2a2720", transition: "background 0.3s ease" }} />
       </div>
     </div>
+    </Link>
   );
 };
 
 // ─── BLOG CARD ────────────────────────────────────────────────────────────────
-const BlogCard = ({ post, index, onClick }: { post: Blog; index: number; onClick: () => void }) => {
+const BlogCard = ({ post, index }: { post: Blog; index: number }) => {
   const [hovered, setHovered] = useState(false);
   return (
-    <div onClick={onClick} onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
-      style={{
-        background: hovered ? "linear-gradient(135deg,#161410,#1A1A15)" : "#161410",
-        border: `1px solid ${hovered ? "#CAFF4A" : "#2a2720"}`,
-        borderRadius: "12px", padding: "clamp(18px,3vw,28px)", cursor: "pointer",
-        transition: "all 0.4s cubic-bezier(0.4,0,0.2,1)",
-        transform: hovered ? "translateY(-5px)" : "translateY(0)",
-        boxShadow: hovered ? "0 12px 24px rgba(202,255,74,0.1)" : "none",
-        display: "flex", flexDirection: "column" as const, gap: "12px",
-        position: "relative" as const, overflow: "hidden",
-      }}
-    >
+    <Link href={`/blog/${post.slug}`} style={{ textDecoration: "none", display: "block" }}>
+      <div onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}
+        style={{
+          background: hovered ? "linear-gradient(135deg,#161410,#1A1A15)" : "#161410",
+          border: `1px solid ${hovered ? "#CAFF4A" : "#2a2720"}`,
+          borderRadius: "12px", padding: "clamp(18px,3vw,28px)", cursor: "pointer",
+          transition: "all 0.4s cubic-bezier(0.4,0,0.2,1)",
+          transform: hovered ? "translateY(-5px)" : "translateY(0)",
+          boxShadow: hovered ? "0 12px 24px rgba(202,255,74,0.1)" : "none",
+          display: "flex", flexDirection: "column" as const, gap: "12px",
+          position: "relative" as const, overflow: "hidden",
+        }}
+      >
       <div style={{ position: "absolute", top: "-6px", right: "12px", fontFamily: "'Bebas Neue', sans-serif", fontSize: "clamp(40px,6vw,80px)", color: "#1a1815", userSelect: "none" as const, lineHeight: 1 }}>
         0{index + 2}
       </div>
@@ -472,13 +476,13 @@ const BlogCard = ({ post, index, onClick }: { post: Blog; index: number; onClick
         <span style={{ color: hovered ? "#CAFF4A" : "#2a2720", fontSize: "16px", transition: "all 0.3s ease", display: "inline-block", transform: hovered ? "translateX(5px)" : "translateX(0)" }}>→</span>
       </div>
     </div>
+    </Link>
   );
 };
 
 // ─── MAIN PAGE ─────────────────────────────────────────────────────────────────
 export default function BlogPage() {
   const [activeCategory, setActiveCategory] = useState("ALL");
-  const [openPost, setOpenPost] = useState<Blog | null>(null);
 
   const filtered = activeCategory === "ALL" ? BLOGS : BLOGS.filter((p) => p.category === activeCategory);
   const featured = filtered.find((p) => p.featured) ?? filtered[0];
@@ -555,13 +559,7 @@ export default function BlogPage() {
 
       <div className="min-h-screen bg-[#0E0D0A] text-[#F0EDE6] overflow-x-hidden" style={{ paddingTop: "16px" }}>
 
-        {openPost ? (
-          <div style={{ paddingTop: "80px" }}>
-            <BlogReader post={openPost} onBack={() => setOpenPost(null)} onPostClick={setOpenPost} />
-          </div>
-        ) : (
-          <>
-            {/* ── TICKER ──────────────────────────────────────────── */}
+        {/* ── TICKER ──────────────────────────────────────────── */}
             <div style={{ paddingTop: "80px" }}>
               <div style={{ background: "#161410", borderBottom: "1px solid #2a2720", borderTop: "1px solid #2a2720", overflow: "hidden", padding: "10px 0" }}>
                 <div className="ticker-track">
@@ -633,12 +631,12 @@ export default function BlogPage() {
               )}
               {featured && (
                 <div style={{ marginBottom: "20px" }}>
-                  <FeaturedCard post={featured} onClick={() => setOpenPost(featured)} />
+                  <FeaturedCard post={featured} />
                 </div>
               )}
               {rest.length > 0 && (
                 <div className="blog-grid" style={{ marginBottom: "52px" }}>
-                  {rest.map((post, i) => <BlogCard key={post.id} post={post} index={i} onClick={() => setOpenPost(post)} />)}
+                  {rest.map((post, i) => <BlogCard key={post.id} post={post} index={i} />)}
                 </div>
               )}
 
@@ -660,8 +658,6 @@ export default function BlogPage() {
                 </button>
               </div>
             </div>
-          </>
-        )}
       </div>
       <FooterSection />
     </>
