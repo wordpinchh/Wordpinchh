@@ -367,7 +367,9 @@ export interface ContentBlock {
   type: string; 
   text?: string; 
   heading?: string; 
-  items?: string[]; 
+  items?: string[];
+  question?: string;
+  answer?: string;
 }
 
 export interface Blog {

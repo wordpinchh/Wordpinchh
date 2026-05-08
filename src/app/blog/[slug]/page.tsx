@@ -58,6 +58,7 @@ export default async function BlogPostPage(
   
   return (
     <>
+      {/* BlogPosting Schema — all posts */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -84,6 +85,29 @@ export default async function BlogPostPage(
           }),
         }}
       />
+
+      {/* FAQ Schema — only for posts that have faq blocks */}
+      {post.content.some((b: any) => b.type === "faq") && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: post.content
+                .filter((b: any) => b.type === "faq")
+                .map((b: any) => ({
+                  "@type": "Question",
+                  name: b.question,
+                  acceptedAnswer: {
+                    "@type": "Answer",
+                    text: b.answer,
+                  },
+                })),
+            }),
+          }}
+        />
+      )}
       <BlogPostClient post={post} />
     </>
   );
