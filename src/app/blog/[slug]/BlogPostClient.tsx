@@ -134,6 +134,15 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
                       <p style={{ fontFamily: "'Libre Baskerville', serif", fontSize: "clamp(14px, 2vw, 20px)", color: "#CAFF4A", lineHeight: 1.8, fontStyle: "italic", margin: 0, position: "relative", zIndex: 1 }}>{block.text}</p>
                     </div>
                   );
+                  if (block.type === "faq_heading") return (
+                    <h2 key={i} style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: "clamp(1.2rem, 2.5vw, 2rem)", fontWeight: 900, letterSpacing: "-0.01em", color: "#F0EDE6", textTransform: "uppercase", lineHeight: 1, paddingTop: "8px", borderTop: "1px solid #2a2720" }}>{block.text}</h2>
+                  );
+                  if (block.type === "faq") return (
+                    <div key={i} style={{ borderBottom: "1px solid #2a2720", paddingBottom: "20px" }}>
+                      <h3 style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: "clamp(1rem, 2vw, 1.4rem)", fontWeight: 700, color: "#CAFF4A", textTransform: "uppercase", marginBottom: "10px", letterSpacing: "0.02em" }}>{(block as any).question}</h3>
+                      <p style={{ fontFamily: "'Libre Baskerville', serif", fontSize: "clamp(13px, 1.8vw, 16px)", color: "lightgray", lineHeight: 1.85, margin: 0 }}>{(block as any).answer}</p>
+                    </div>
+                  );
                   if (block.type === "closing") return (
                     <div key={i} style={{ background: "#161410", border: "1px solid #2a2720", borderLeft: "3px solid #CAFF4A", borderRadius: "0 8px 8px 0", padding: "24px" }}>
                       <p style={{ fontFamily: "'Libre Baskerville', serif", fontSize: "clamp(14px, 2vw, 17px)", color: "#F0EDE6", lineHeight: 1.8, fontStyle: "italic", margin: 0 }}>{block.text}</p>
