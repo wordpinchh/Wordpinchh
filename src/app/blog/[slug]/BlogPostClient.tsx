@@ -115,6 +115,13 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
                   if (block.type === "text") return (
                     <p key={i} style={{ fontFamily: "'Libre Baskerville', serif", fontSize: "clamp(14px, 2vw, 17px)", color: "lightgray", lineHeight: 1.85 }}>{block.text}</p>
                   );
+                  if (block.type === "text_with_link") return (
+                    <p key={i} style={{ fontFamily: "'Libre Baskerville', serif", fontSize: "clamp(14px, 2vw, 17px)", color: "lightgray", lineHeight: 1.85 }}>
+                      {block.before}
+                      <a href={block.linkHref} style={{ color: "#CAFF4A", textDecoration: "underline", textUnderlineOffset: "3px" }}>{block.linkText}</a>
+                      {block.after}
+                    </p>
+                  );
                   if (block.type === "list") return (
                     <div key={i}>
                       {block.heading && <p style={{ fontFamily: "'DM Mono', monospace", fontSize: "10px", letterSpacing: "0.18em", color: "#CAFF4A", textTransform: "uppercase", marginBottom: "14px" }}>{block.heading}</p>}

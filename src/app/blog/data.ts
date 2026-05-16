@@ -91,6 +91,7 @@ export const BLOGS = [
       { type: "heading", text: "What Is Answer Engine Optimisation?" },
       { type: "text", text: "Answer Engine Optimisation (AEO) is the practice of creating content that AI systems can easily understand, cite, and recommend when users ask questions. Unlike SEO, which optimizes for search engine rankings, AEO optimizes for AI citations and recommendations." },
       { type: "list", heading: "AEO vs SEO:", items: ["SEO: Optimizes for search engine rankings", "AEO: Optimizes for AI citations and answers", "SEO: Focuses on keywords and backlinks", "AEO: Focuses on clarity, expertise, and direct answers", "SEO: Users click through to your site", "AEO: AI cites your content directly"] },
+      { type: "text_with_link", before: "New to the concept? Read our full guide on ", linkText: "what is answer engine optimisation", linkHref: "/blog/what-is-answer-engine-optimisation", after: " for a plain-English breakdown." },
       { type: "closing", text: "The future of search isn't ten blue links. It's direct answers from AI systems. If your content isn't built to be cited, you're building for a past that's already gone." },
     ],
   },
@@ -133,6 +134,7 @@ export const BLOGS = [
       { type: "intro", text: "Most B2B websites were built to rank on Google, not to be cited by AI. The gap between the two is significant — and closing it doesn't require a full rebuild." },
       { type: "heading", text: "AI-Ready Content Checklist" },
       { type: "list", heading: "Essential elements:", items: ["Clear problem-solution framework", "Specific data points and statistics", "Unique methodologies or frameworks", "Expert quotes and insights", "Case studies with measurable results", "Step-by-step processes", "Comparison tables and frameworks", "Industry-specific terminology", "Original research or surveys", "Clear attribution and sources"] },
+      { type: "text_with_link", before: "If you're still getting up to speed, our primer on ", linkText: "answer engine optimisation", linkHref: "/blog/what-is-answer-engine-optimisation", after: " explains the fundamentals before you tackle this checklist." },
       { type: "closing", text: "AI visibility isn't about gaming the system. It's about being the most citable, most helpful resource in your category. Start with these 10 elements, then build from there." },
     ],
   },
@@ -279,6 +281,7 @@ export const BLOGS = [
       { type: "faq", question: "Why should Indian SaaS companies care about GEO?", answer: "India has over 100 million weekly ChatGPT users and is the platform's second largest market globally. Indian SaaS buyers are actively using AI platforms to research solutions — GEO ensures your brand appears in those answers." },
       { type: "faq", question: "Which AI platforms should Indian SaaS companies target first?", answer: "Prioritise Google AI Overviews for Indian enterprise buyers, Perplexity for research-focused CTOs and procurement teams, and ChatGPT and Microsoft Copilot for enterprise buyers in the Microsoft 365 ecosystem." },
       { type: "faq", question: "What is the ROI of GEO for Indian SaaS brands?", answer: "AI-referred traffic converts at 4.4x the rate of traditional organic search. Indian SaaS brands that establish GEO authority now gain a compounding advantage as AI search usage grows at 4.5x the global average in India." },
+      { type: "text_with_link", before: "For the research-backed tactics behind this, see our deep dive on the ", linkText: "GEO content framework", linkHref: "/blog/ai-search-engines-want-geo-framework-tech-brands", after: " that AI search engines consistently reward." },
       { type: "closing", text: "Is your content built to be cited — or just ranked? Wordpinchh creates GEO-optimised content for Indian SaaS companies that want to show up in AI-generated answers. Let's build your strategy." },
     ],
   },
@@ -303,6 +306,7 @@ export const BLOGS = [
       { type: "heading", text: "The five dimensions of a GEO content audit" },
       { type: "list", heading: "Audit dimensions:", items: ["Entity clarity - Clear definition of what your brand does and who it serves", "Structural readiness - Content organisation and formatting for AI extraction", "Authority signals - Expertise demonstration and data-backed claims", "Coverage gaps - Buyer questions your content doesn't address", "Off-site presence - Brand mentions across third-party sources"] },
       { type: "quote", text: "The GEO gap isn't about having bad content. It's about having content that was built for the old internet and hasn't been adapted for the one buyers are using today." },
+      { type: "text_with_link", before: "Before running an audit, it helps to understand the broader ", linkText: "GEO strategy for Indian brands", linkHref: "/blog/geo-strategy-indian-saas-companies", after: " — the context makes audit findings far more actionable." },
       { type: "closing", text: "Is your content built to be cited — or just ranked? Wordpinchh offers GEO content audits for B2B service businesses. We'll tell you exactly what's limiting your AI visibility — and how to fix it." },
     ],
   },
@@ -370,6 +374,10 @@ export interface ContentBlock {
   items?: string[];
   question?: string;
   answer?: string;
+  before?: string;
+  linkText?: string;
+  linkHref?: string;
+  after?: string;
 }
 
 export interface Blog {
