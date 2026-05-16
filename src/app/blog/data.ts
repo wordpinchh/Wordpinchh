@@ -347,7 +347,7 @@ export const BLOGS = [
     readTime: "4 min read",
     featured: false,
     seoTitle: "What AI Search Engines Want: GEO Framework for Tech Brands",
-    metaDesc: "The research-backed GEO content framework for tech brands — based on peer-reviewed studies showing which content characteristics AI systems consistently cite.",
+    metaDesc: "The research-backed GEO content framework for tech brands — peer-reviewed studies reveal which content characteristics AI systems consistently cite.",
     content: [
       { type: "intro", text: "Optimising for AI search isn't guesswork. Peer-reviewed research, platform documentation, and citation pattern analysis have revealed a clear set of content characteristics that AI systems consistently favour." },
       { type: "heading", text: "The research foundation behind GEO" },
