@@ -24,7 +24,7 @@ export async function generateMetadata(
     openGraph: {
       title: post.seoTitle,
       description: post.metaDesc,
-      url: `https://wordpinchh.org/blog/${post.slug}`,
+      url: `https://www.wordpinchh.org/blog/${post.slug}`,
       siteName: "Wordpinchh",
       type: "article",
       publishedTime: post.date,
@@ -36,7 +36,7 @@ export async function generateMetadata(
       description: post.metaDesc,
     },
     alternates: {
-      canonical: `https://wordpinchh.org/blog/${post.slug}`,
+      canonical: `https://www.wordpinchh.org/blog/${post.slug}`,
     },
   };
 }
@@ -62,7 +62,7 @@ export default async function BlogPostPage(
   const post = BLOGS.find((b) => b.slug === slug);
   if (!post) return notFound();
 
-  const postUrl = `https://wordpinchh.org/blog/${post.slug}`;
+  const postUrl = `https://www.wordpinchh.org/blog/${post.slug}`;
   
   return (
     <>
@@ -75,7 +75,7 @@ export default async function BlogPostPage(
             "@type": "BlogPosting",
             headline: post.title,
             description: post.metaDesc,
-            image: "https://wordpinchh.org/og-image.png",
+            image: "https://www.wordpinchh.org/og-image.png",
             author: {
               "@type": "Person",
               name: post.author,
@@ -83,10 +83,10 @@ export default async function BlogPostPage(
             publisher: {
               "@type": "Organization",
               name: "Wordpinchh",
-              url: "https://wordpinchh.org",
+              url: "https://www.wordpinchh.org",
               logo: {
                 "@type": "ImageObject",
-                url: "https://wordpinchh.org/wordpinchhlogo.webp",
+                url: "https://www.wordpinchh.org/wordpinchhlogo.webp",
               },
             },
             datePublished: toISODate(post.date),
