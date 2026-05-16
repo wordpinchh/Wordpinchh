@@ -48,6 +48,12 @@ export async function generateStaticParams() {
   }));
 }
 
+// Convert human-readable date to ISO 8601 for schema
+function toISODate(dateStr: string): string {
+  const d = new Date(dateStr);
+  return isNaN(d.getTime()) ? dateStr : d.toISOString().split("T")[0];
+}
+
 // Server component — passes post data to client component
 export default async function BlogPostPage(
   { params }: { params: Promise<{ slug: string }> }
@@ -55,6 +61,8 @@ export default async function BlogPostPage(
   const { slug } = await params;
   const post = BLOGS.find((b) => b.slug === slug);
   if (!post) return notFound();
+
+  const postUrl = `https://wordpinchh.org/blog/${post.slug}`;
   
   return (
     <>
@@ -67,20 +75,26 @@ export default async function BlogPostPage(
             "@type": "BlogPosting",
             headline: post.title,
             description: post.metaDesc,
+            image: "https://wordpinchh.org/og-image.png",
             author: {
-              "@type": "Organization",
+              "@type": "Person",
               name: post.author,
             },
             publisher: {
               "@type": "Organization",
               name: "Wordpinchh",
               url: "https://wordpinchh.org",
+              logo: {
+                "@type": "ImageObject",
+                url: "https://wordpinchh.org/wordpinchhlogo.webp",
+              },
             },
-            datePublished: post.date,
-            url: `https://wordpinchh.org/blog/${post.slug}`,
+            datePublished: toISODate(post.date),
+            dateModified: toISODate(post.date),
+            url: postUrl,
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": `https://wordpinchh.org/blog/${post.slug}`,
+              "@id": postUrl,
             },
           }),
         }}

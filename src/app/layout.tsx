@@ -156,16 +156,18 @@ export default function RootLayout({
                 "https://www.instagram.com/wordpinchh",
                 "https://twitter.com/wordpinchh"
               ],
-              "serviceType": [
-                "SEO Blog Writing",
-                "LinkedIn Ghostwriting",
-                "Website Copywriting",
-                "AI Content Strategy",
-                "Landing Page Copy",
-                "GEO Generative Engine Optimization",
-                "AEO Answer Engine Optimization",
-                "Content Marketing"
-              ],
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Content Writing Services",
+                "itemListElement": [
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Blog Writing" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "LinkedIn Ghostwriting" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Copywriting" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Content Strategy" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "GEO Generative Engine Optimization" } },
+                  { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AEO Answer Engine Optimization" } }
+                ]
+              },
               "areaServed": {
                 "@type": "Country",
                 "name": "India"
