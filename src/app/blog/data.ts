@@ -12,7 +12,7 @@ export const BLOGS = [
     readTime: "6 min read",
     featured: true,
     seoTitle: "Website Not Getting Leads? Here's Why | Wordpinchh",
-    metaDesc: "Is your website getting traffic but no leads? Discover the real reasons your site isn't converting — poor messaging, weak CTAs, and misaligned structure — and how to fix it.",
+    metaDesc: "Getting traffic but no leads? Discover the real reasons your site isn't converting — poor messaging, weak CTAs, and misaligned structure.",
     content: [
       { type: "intro", text: "Your website probably isn't broken. It's just not clear enough. Many websites look polished on the track — clean layout, good design, maybe even decent traffic — but still fail to generate leads. The problem almost always comes down to one thing: the message doesn't land." },
       { type: "heading", text: "Why Your Website Isn't Converting" },
@@ -39,7 +39,7 @@ export const BLOGS = [
     readTime: "7 min read",
     featured: false,
     seoTitle: "Content Marketing vs Strategy: What Founders Get Wrong | Wordpinchh",
-    metaDesc: "Content marketing and content strategy are not the same thing — and confusing them is why most founders' content never gains traction. Here's the difference and how to get it right.",
+    metaDesc: "Content marketing and content strategy aren't the same thing. Confusing them is why most founders' content never gains traction — here's the fix.",
     content: [
       { type: "intro", text: "Most businesses don't have a content problem. They have a strategy problem. Here's the difference — and why getting the order wrong costs you everything." },
       { type: "heading", text: "Content Marketing vs Content Strategy" },
@@ -63,7 +63,7 @@ export const BLOGS = [
     readTime: "8 min read",
     featured: false,
     seoTitle: "Why Your Blog Isn't Ranking on Google | Wordpinchh",
-    metaDesc: "Your blog isn't ranking because it's missing what Google actually values. Learn the real reasons blogs fail to rank and the exact fixes that move content up the results page.",
+    metaDesc: "Your blog isn't ranking because it's missing what Google values. Learn the real reasons blogs fail to rank and the exact fixes to move up the results.",
     content: [
       { type: "intro", text: "Many blogs fail to rank not because of lack of effort, but because they miss what search engines are actually looking for. The fix is almost always diagnosable." },
       { type: "heading", text: "Why Blogs Don't Rank" },
@@ -85,7 +85,7 @@ export const BLOGS = [
     readTime: "5 min read",
     featured: false,
     seoTitle: "What Is Answer Engine Optimisation? AEO for B2B SaaS",
-    metaDesc: "Answer Engine Optimisation (AEO) is the new SEO. Learn how B2B SaaS companies can optimize content to appear in ChatGPT, Perplexity, and AI Overviews — before competitors do.",
+    metaDesc: "AEO is the new SEO. Learn how B2B SaaS companies can optimize content to appear in ChatGPT, Perplexity, and AI Overviews before competitors do.",
     content: [
       { type: "intro", text: "Your buyers are no longer just Googling things. They're asking ChatGPT, querying Perplexity, and reading AI Overviews instead of clicking ten links. If your content isn't built to appear in those answers, you're invisible at the most critical moment of discovery." },
       { type: "heading", text: "What Is Answer Engine Optimisation?" },
@@ -108,7 +108,7 @@ export const BLOGS = [
     readTime: "4 min read",
     featured: false,
     seoTitle: "AEO vs SEO: Key Differences for Indian B2B Companies",
-    metaDesc: "Discover the key differences between AEO and SEO, and why Indian B2B companies need to invest in Answer Engine Optimisation now before the early-mover window closes.",
+    metaDesc: "Discover the key differences between AEO and SEO, and why Indian B2B companies must invest in Answer Engine Optimisation before the window closes.",
     content: [
       { type: "intro", text: "SEO built the internet economy as we know it. AEO is building the next one. For Indian B2B companies still investing entirely in traditional search rankings, the window for early-mover advantage in AI visibility is closing faster than most realise." },
       { type: "heading", text: "The Fundamental Shift" },
@@ -129,7 +129,7 @@ export const BLOGS = [
     readTime: "4 min read",
     featured: false,
     seoTitle: "B2B AI Visibility Checklist: 10 Website Must-Haves | Wordpinchh",
-    metaDesc: "Most B2B websites were built for Google, not AI. Use this 10-point checklist to identify exactly what your website needs to get cited by ChatGPT, Perplexity, and AI Overviews.",
+    metaDesc: "Most B2B websites were built for Google, not AI. Use this 10-point checklist to get your site cited by ChatGPT, Perplexity, and AI Overviews.",
     content: [
       { type: "intro", text: "Most B2B websites were built to rank on Google, not to be cited by AI. The gap between the two is significant — and closing it doesn't require a full rebuild." },
       { type: "heading", text: "AI-Ready Content Checklist" },
@@ -151,7 +151,7 @@ export const BLOGS = [
     readTime: "4 min read",
     featured: false,
     seoTitle: "SaaS FAQ Page Optimised for AI Search: Case Study | Wordpinchh",
-    metaDesc: "Case study: How Wordpinchh transformed a SaaS FAQ page to appear in ChatGPT and Perplexity responses — increasing AI platform traffic by 300% in 6 weeks.",
+    metaDesc: "How Wordpinchh transformed a SaaS FAQ page to appear in ChatGPT and Perplexity responses — increasing AI platform traffic by 300% in 6 weeks.",
     content: [
       { type: "intro", text: "This is a walkthrough of the exact content decisions Wordpinchh made to transform a standard SaaS FAQ page into an AI-cited content asset." },
       { type: "heading", text: "The Challenge" },
@@ -172,7 +172,7 @@ export const BLOGS = [
     readTime: "5 min read",
     featured: false,
     seoTitle: "Build an AI-Ready Content System for SaaS | Wordpinchh",
-    metaDesc: "Learn how to build an AI-ready content system for your SaaS or tech business — combining AI speed with human strategy to produce content that ranks, converts, and gets cited.",
+    metaDesc: "Learn how to build an AI-ready content system for SaaS — combining AI speed with human strategy to produce content that ranks, converts, and gets cited.",
     content: [
       { type: "intro", text: "AI has changed how content gets produced. But the companies seeing real results aren't the ones generating the most AI content — they're the ones with the clearest strategy behind it." },
       { type: "heading", text: "The AI Content System Framework" },
@@ -193,7 +193,7 @@ export const BLOGS = [
     readTime: "4 min read",
     featured: false,
     seoTitle: "Why AI Content Still Needs Human Writers | Wordpinchh",
-    metaDesc: "AI can produce content fast, but it can't replicate your brand voice, client stories, or contrarian perspective. Discover why human writers remain essential in an AI content workflow.",
+    metaDesc: "AI produces content fast but can't replicate your brand voice or client stories. Discover why human writers remain essential in any AI content workflow.",
     content: [
       { type: "intro", text: "AI can write faster than any human. What it cannot do is sound like you — not the real you, the one with specific opinions, client war stories, and the perspective that makes your brand worth following." },
       { type: "heading", text: "What AI Can't Replicate" },
@@ -242,7 +242,7 @@ export const BLOGS = [
     readTime: "4 min read",
     featured: false,
     seoTitle: "Blog to Brand Authority: AI Content Roadmap for SaaS",
-    metaDesc: "Discover a step-by-step AI content roadmap for SaaS startups to build brand authority. Go from zero content presence to category authority in 12 to 18 months.",
+    metaDesc: "A step-by-step AI content roadmap for SaaS startups. Go from zero content presence to category authority in 12 to 18 months with the right strategy.",
     content: [
       { type: "intro", text: "Most SaaS startups begin their content journey the same way: a blog, a LinkedIn page, and a vague intention to 'do content marketing.' A year later, the blog has thirty posts, the LinkedIn has decent follower counts, and inbound leads are still not materialising at scale. The problem is almost always the same — no roadmap. Here's one." },
       { type: "heading", text: "What brand authority actually means for a SaaS startup" },
@@ -267,7 +267,7 @@ export const BLOGS = [
     readTime: "4 min read",
     featured: false,
     seoTitle: "GEO Strategy for Indian SaaS: ChatGPT & Perplexity Visibility",
-    metaDesc: "Learn how Indian SaaS companies can build GEO strategies to get visible on Perplexity, Copilot, and ChatGPT — where enterprise buyers now begin their research.",
+    metaDesc: "How Indian SaaS companies can build GEO strategies to get visible on Perplexity, Copilot, and ChatGPT — where enterprise buyers begin their research.",
     content: [
       { type: "intro", text: "India's SaaS ecosystem is maturing fast. Buyers are more sophisticated, research is more rigorous, and AI platforms are increasingly part of how enterprise buyers shortlist solutions. Indian SaaS companies that build GEO strategies now will have a decisive advantage by 2026." },
       { type: "heading", text: "The Indian SaaS buyer is already using AI for research" },
@@ -298,7 +298,7 @@ export const BLOGS = [
     readTime: "4 min read",
     featured: false,
     seoTitle: "GEO Content Audit for Service Businesses | Wordpinchh",
-    metaDesc: "Discover how a GEO content audit helps service businesses identify and fix AI visibility gaps — so your content gets cited by ChatGPT, Perplexity, and Google AI Overviews.",
+    metaDesc: "A GEO content audit helps service businesses fix AI visibility gaps so your content gets cited by ChatGPT, Perplexity, and Google AI Overviews.",
     content: [
       { type: "intro", text: "Most service businesses have more content than they realise — and less AI-ready content than they need. A GEO content audit is the process of finding that gap and closing it, systematically, starting with the pages and pieces that will drive the most citation impact." },
       { type: "heading", text: "What a GEO audit looks for" },
@@ -323,7 +323,7 @@ export const BLOGS = [
     readTime: "4 min read",
     featured: false,
     seoTitle: "E-E-A-T and GEO for B2B Consultants | Wordpinchh",
-    metaDesc: "Learn how the E-E-A-T framework impacts Generative Engine Optimisation for B2B consultants — and why professional service firms are uniquely positioned to win in AI search.",
+    metaDesc: "How the E-E-A-T framework impacts GEO for B2B consultants — and why professional service firms are uniquely positioned to win in AI search.",
     content: [
       { type: "intro", text: "Google's E-E-A-T framework was designed to help search engines evaluate content quality. In the era of GEO, it has become something more fundamental — the primary trust model that generative AI uses to decide which sources are worth citing." },
       { type: "heading", text: "What E-E-A-T actually means for AI citation" },
@@ -347,7 +347,7 @@ export const BLOGS = [
     readTime: "4 min read",
     featured: false,
     seoTitle: "What AI Search Engines Want: GEO Framework for Tech Brands",
-    metaDesc: "Discover the research-backed GEO content framework for tech brands — based on peer-reviewed studies showing exactly what content characteristics AI systems consistently cite.",
+    metaDesc: "The research-backed GEO content framework for tech brands — based on peer-reviewed studies showing which content characteristics AI systems consistently cite.",
     content: [
       { type: "intro", text: "Optimising for AI search isn't guesswork. Peer-reviewed research, platform documentation, and citation pattern analysis have revealed a clear set of content characteristics that AI systems consistently favour." },
       { type: "heading", text: "The research foundation behind GEO" },
