@@ -341,7 +341,7 @@ export const BLOGS = [
     readTime: "4 min read",
     featured: false,
     seoTitle: "How We Use AI to Scale B2B Content Without Losing Quality",
-    metaDesc: "Learn how Wordpinchh uses AI to research, plan and scale B2B content while maintaining quality — with 100% human editorial review on every published piece.",
+    metaDesc: "How Wordpinchh uses AI to research, plan, and scale B2B content while maintaining quality — with 100% human editorial review on every piece.",
     content: [
       { type: "intro", text: "At Wordpinchh, we are transparent about how we work: AI is part of our content process. We use it for research, for structuring, and for accelerating draft production. Here is exactly how we do it — and where human expertise remains non-negotiable." },
       { type: "heading", text: "Why we're sharing this" },
