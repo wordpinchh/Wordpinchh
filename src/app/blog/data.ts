@@ -11,8 +11,8 @@ export const BLOGS = [
     date: "Apr 28, 2026",
     readTime: "6 min read",
     featured: true,
-    seoTitle: "Website Not Getting Leads? Here's Why | Wordpinchh",
-    metaDesc: "Getting traffic but no leads? Discover the real reasons your site isn't converting — poor messaging, weak CTAs, and misaligned structure.",
+    seoTitle: "Why Your Website Isn't Getting Leads (Fix This First)",
+    metaDesc: "Your website gets traffic but zero leads? The problem is almost never SEO — it is messaging and structure. Here is exactly what to fix. Free audit at wordpinchh.org.",
     content: [
       { type: "intro", text: "Your website probably isn't broken. It's just not clear enough. Many websites look polished on the track — clean layout, good design, maybe even decent traffic — but still fail to generate leads. The problem almost always comes down to one thing: the message doesn't land." },
       { type: "heading", text: "Why Your Website Isn't Converting" },
@@ -112,8 +112,8 @@ export const BLOGS = [
     date: "May 6, 2026",
     readTime: "5 min read",
     featured: false,
-    seoTitle: "What Is Answer Engine Optimisation? AEO for B2B SaaS",
-    metaDesc: "AEO is the new SEO. Learn how B2B SaaS companies can optimize content to appear in ChatGPT, Perplexity, and AI Overviews before competitors do.",
+    seoTitle: "What Is Answer Engine Optimisation? (AEO Guide 2026)",
+    metaDesc: "Answer Engine Optimisation (AEO) helps your content appear in ChatGPT, Perplexity and Google AI answers. Plain-English guide for B2B SaaS founders. Read now.",
     content: [
       { type: "intro", text: "Answer Engine Optimisation (AEO) is the practice of structuring your content so that AI systems — ChatGPT, Perplexity, Google AI Overviews, Microsoft Copilot — choose to extract, trust, and cite it when answering questions relevant to your business. It is the fastest-growing discipline in B2B content marketing in 2026, and it is particularly urgent for Indian SaaS and professional services companies whose buyers have begun using AI tools to research vendors before ever visiting a website." },
       { type: "heading", text: "Why AEO Exists — and Why It Matters Now" },
@@ -150,8 +150,8 @@ export const BLOGS = [
     date: "May 6, 2026",
     readTime: "4 min read",
     featured: false,
-    seoTitle: "AEO vs SEO: Key Differences for Indian B2B Companies",
-    metaDesc: "Discover the key differences between AEO and SEO, and why Indian B2B companies must invest in Answer Engine Optimisation before the window closes.",
+    seoTitle: "AEO vs SEO: Key Differences Indian B2B Must Know",
+    metaDesc: "AEO and SEO are not the same thing. Indian B2B companies still investing only in traditional rankings are losing AI search visibility fast. Here is why it matters.",
     content: [
       { type: "intro", text: "AEO and SEO are not the same thing — and treating them as interchangeable is one of the most expensive mistakes Indian B2B companies are making right now. SEO gets your content onto Google's results page. AEO gets your content spoken aloud by ChatGPT, cited by Perplexity, and surfaced in AI Overviews. The window to get this right is open. It will not stay open." },
       { type: "heading", text: "What SEO Actually Does" },
