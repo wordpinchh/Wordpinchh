@@ -7,6 +7,7 @@ import { ServicesSection } from "@/components/home/ServicesSection";
 import { ProcessSection } from "@/components/home/ProcessSection";
 import { WhySection } from "@/components/home/WhySection";
 import { LeadMagnetSection } from "@/components/home/LeadMagnetSection";
+import { ConsultationSection } from "@/components/home/ConsultationSection";
 import { FinalCTASection } from "@/components/home/FinalCTASection";
 import { FooterSection } from "@/components/home/FooterSection";  
 import { useEffect, useState } from "react";
@@ -29,6 +30,7 @@ export default function HomePage() {
       <ProcessSection />
       <WhySection />
       <LeadMagnetSection />
+      <ConsultationSection />
       <FinalCTASection />
       <FooterSection />
 

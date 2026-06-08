@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { ConsultationSection } from "./ConsultationSection";
 
 export function FinalCTASection() {
   const [mounted, setMounted] = useState(false);

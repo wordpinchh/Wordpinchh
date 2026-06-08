@@ -1,6 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import HeroSection from "./HeroSection";
+import { ConsultationSection } from "@/components/home/ConsultationSection";
 
 const services = [
   {
@@ -420,6 +421,9 @@ export default function ServicesNew() {
           ))}
         </div>
       </div>
+
+      {/* Consultation Section */}
+      <ConsultationSection />
     </div>
   </div>
   );
