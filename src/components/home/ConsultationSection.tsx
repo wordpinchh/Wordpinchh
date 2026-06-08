@@ -7,6 +7,7 @@ export function ConsultationSection() {
   const [callType, setCallType] = useState<'video' | 'voice' | null>(null);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
+  const [calendarMonthOffset, setCalendarMonthOffset] = useState(0);
 
   // Left panel form
   const [leftFormData, setLeftFormData] = useState({
@@ -122,7 +123,10 @@ export function ConsultationSection() {
   const generateDateOptions = () => {
     const dates = [];
     const today = new Date();
-    for (let i = 1; i <= 30; i++) {
+    today.setHours(0, 0, 0, 0);
+    
+    // Generate dates for the next 365 days (covers all remaining months)
+    for (let i = 1; i <= 365; i++) {
       const date = new Date(today);
       date.setDate(date.getDate() + i);
       dates.push(date);
@@ -132,7 +136,8 @@ export function ConsultationSection() {
 
   const generateTimeOptions = () => {
     const times = [];
-    for (let i = 9; i <= 17; i++) {
+    // Generate 24-hour format times (00:00 to 23:30) in 30-minute increments
+    for (let i = 0; i < 24; i++) {
       times.push(`${i.toString().padStart(2, '0')}:00`);
       times.push(`${i.toString().padStart(2, '0')}:30`);
     }
@@ -504,27 +509,79 @@ export function ConsultationSection() {
                   >
                     Select Date
                   </label>
-                  <div className="grid grid-cols-7 gap-2 mb-3">
-                    {dateOptions.slice(0, 28).map((date) => {
-                      const dateStr = date.toISOString().split('T')[0];
-                      const dayNum = date.getDate();
-                      const isSelected = selectedDate === dateStr;
+                  
+                  {/* Navigation Buttons */}
+                  <div className="flex justify-between items-center mb-3 gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setCalendarMonthOffset(prev => Math.max(0, prev - 1))}
+                      disabled={calendarMonthOffset === 0}
+                      className="px-3 py-2 rounded bg-[rgba(202,255,74,0.2)] text-[#CAFF4A] text-[12px] font-bold hover:bg-[rgba(202,255,74,0.3)] disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                    >
+                      ← Previous
+                    </button>
+                    <span className="text-[12px] text-white font-bold">
+                      {(() => {
+                        const today = new Date();
+                        const displayDate = new Date(today);
+                        displayDate.setMonth(displayDate.getMonth() + calendarMonthOffset);
+                        return displayDate.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+                      })()}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setCalendarMonthOffset(prev => prev + 1)}
+                      className="px-3 py-2 rounded bg-[rgba(202,255,74,0.2)] text-[#CAFF4A] text-[12px] font-bold hover:bg-[rgba(202,255,74,0.3)] transition-all"
+                    >
+                      Next →
+                    </button>
+                  </div>
+
+                  <div className="border border-[rgba(255,255,255,0.1)] rounded-lg p-3 bg-[rgba(255,255,255,0.02)]">
+                    {(() => {
+                      const grouped: { [key: string]: Date[] } = {};
+                      dateOptions.forEach(date => {
+                        const monthKey = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+                        if (!grouped[monthKey]) grouped[monthKey] = [];
+                        grouped[monthKey].push(date);
+                      });
+
+                      const monthKeys = Object.keys(grouped);
+                      const displayMonthIndex = calendarMonthOffset;
+                      const displayMonth = monthKeys[displayMonthIndex];
+
+                      if (!displayMonth) {
+                        return <p className="text-[12px] text-[var(--home-muted)]">No dates available</p>;
+                      }
 
                       return (
-                        <button
-                          key={dateStr}
-                          type="button"
-                          onClick={() => setSelectedDate(dateStr)}
-                          className={`p-2 rounded text-center text-[11px] font-bold transition-all duration-200 ${
-                            isSelected
-                              ? 'bg-[#CAFF4A] text-[#000]'
-                              : 'bg-[rgba(255,255,255,0.05)] text-[var(--home-muted)] hover:bg-[rgba(202,255,74,0.1)]'
-                          }`}
-                        >
-                          {dayNum}
-                        </button>
+                        <div>
+                          <p className="text-[12px] font-bold text-[#CAFF4A] mb-3 uppercase">{displayMonth}</p>
+                          <div className="grid grid-cols-7 gap-2">
+                            {grouped[displayMonth].map((date) => {
+                              const dateStr = date.toISOString().split('T')[0];
+                              const dayNum = date.getDate();
+                              const isSelected = selectedDate === dateStr;
+
+                              return (
+                                <button
+                                  key={dateStr}
+                                  type="button"
+                                  onClick={() => setSelectedDate(dateStr)}
+                                  className={`p-2 rounded text-center text-[11px] font-bold transition-all duration-200 ${
+                                    isSelected
+                                      ? 'bg-[#CAFF4A] text-[#000]'
+                                      : 'bg-[rgba(255,255,255,0.05)] text-[var(--home-muted)] hover:bg-[rgba(202,255,74,0.1)]'
+                                  }`}
+                                >
+                                  {dayNum}
+                                </button>
+                              );
+                            })}
+                          </div>
+                        </div>
                       );
-                    })}
+                    })()}
                   </div>
                   {selectedDate && (
                     <p style={{ fontSize: '12px', color: '#CAFF4A' }}>
