@@ -46,13 +46,13 @@ const bebasNeue = Bebas_Neue({
 
 export const metadata: Metadata = {
   title: {
-    default: "WordPinchh — Content Writing Agency Mumbai",
+    default: "B2B Content Writing & AEO Strategy | Wordpinchh",
     template: "%s",
   },
   alternates: {
     canonical: "https://www.wordpinchh.org",
   },
-  description: "WordPinchh is a content writing agency in Mumbai specialising in SEO blog writing, LinkedIn ghostwriting, website copywriting, GEO (Generative Engine Optimization) and AEO (Answer Engine Optimization) for SaaS startups and consulting firms across India.",
+  description: "Wordpinchh helps B2B brands grow with content writing, SEO, AEO, and AI search optimization strategies that drive visibility, traffic, and leads.",
   keywords: ["content writing agency Mumbai", "content marketing agency India", "SEO blog writing", "LinkedIn ghostwriting", "website copywriting", "AI content strategy", "SaaS content writing", "consulting firm content", "GEO generative engine optimization India", "AEO answer engine optimization India", "best content writing agency Mumbai"],
   authors: [{ name: "WordPinchh" }],
   openGraph: {

@@ -149,6 +149,7 @@ export function ConsultationSection() {
 
   return (
     <section
+      id="consultation"
       className="px-5 sm:px-8 lg:px-16 py-16 sm:py-20 lg:py-25 relative overflow-hidden"
       style={{ background: '#020202' }}
     >

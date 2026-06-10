@@ -75,10 +75,9 @@ export function HeroSection() {
               color: 'var(--home-text)',
             }}
           >
-            Your Competitors<br />
-            Are Already<br />
-            <span className="outline">Publishing.</span><br />
-            <span className="red">Are You?</span>
+            Your website is<br />
+            getting visitors.<br />
+            <span className="red">But is it getting leads?</span>
           </h1>
 
           {/* Description */}
@@ -93,13 +92,13 @@ export function HeroSection() {
               maxWidth: '600px'
             }}
           >
-            Wordpinchh writes <strong>SEO blogs, LinkedIn thought leadership,</strong> and <strong>website copy</strong> for founders, SaaS startups, and consulting firms — so you show up where your buyers are already looking. In Google search, in AI-generated answers, and in the minds of every decision-maker in your space.
+            Wordpinchh helps Founders SaaS startups & Consulting Firms turn their content into a consistent lead channel — through SEO writing, AEO, GEO, and AI content strategy built for how buyers search in 2026.
           </p>
 
           {/* Actions */}
           <div className="flex flex-col sm:flex-row gap-3">
             <a
-              href="#audit"
+              href="#consultation"
               className="btn-primary inline-flex items-center justify-center gap-2.5 bg-(--home-lime) text-(--home-bg) no-underline rounded-lg transition-all duration-200 hover:opacity-90 hover:-translate-y-px"
               style={{
                 fontFamily: 'Barlow Condensed, sans-serif',
@@ -111,7 +110,7 @@ export function HeroSection() {
                 borderRadius: '8px'
               }}
             >
-              Get Your Free Content Audit →
+              Book a free 20-min strategy call →
             </a>
             
             <a
