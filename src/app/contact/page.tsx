@@ -8,5 +8,43 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ContactPage />;
+  return (
+    <>
+      {/* Schema Markup for Contact */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact WordPinchh",
+            "description": "Contact WordPinchh content writing agency for a free content audit and expert content strategy consultation.",
+            "url": "https://www.wordpinchh.org/contact",
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "WordPinchh",
+              "url": "https://www.wordpinchh.org",
+              "logo": "https://www.wordpinchh.org/wordpinchhlogo.webp",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+91-XXXXXXXXXX",
+                "contactType": "Customer Service",
+                "email": "wordpinchh001@gmail.com",
+                "areaServed": "IN"
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Powai Plaza, 264, A S Marg, Hiranandani Gardens",
+                "addressLocality": "Mumbai",
+                "addressRegion": "MH",
+                "postalCode": "400076",
+                "addressCountry": "IN"
+              }
+            }
+          })
+        }}
+      />
+      <ContactPage />
+    </>
+  );
 }

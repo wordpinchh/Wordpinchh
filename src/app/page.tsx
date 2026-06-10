@@ -23,6 +23,32 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen home-page" style={{ background: 'var(--home-bg)', color: 'var(--home-text)' }}>
+      {/* Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "WordPinchh",
+            "url": "https://www.wordpinchh.org",
+            "logo": "https://www.wordpinchh.org/wordpinchhlogo.webp",
+            "description": "WordPinchh is a content writing agency in Mumbai specialising in SEO blog writing, LinkedIn ghostwriting, website copywriting, GEO and AEO for SaaS startups and consulting firms.",
+            "sameAs": [
+              "https://www.linkedin.com/company/wordpinchh",
+              "https://twitter.com/wordpinchh",
+              "https://www.instagram.com/wordpinchh"
+            ],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": "+91-XXXXXXXXXX",
+              "contactType": "Customer Service",
+              "email": "wordpinchh001@gmail.com"
+            }
+          })
+        }}
+      />
+
       <HeroSection />
       <TickerSection />
       <ProblemSection />
