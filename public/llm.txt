@@ -1,0 +1,59 @@
+# Wordpinchh — B2B Content Marketing & AEO Agency
+
+## What We Do
+Wordpinchh is a B2B content marketing and Answer Engine Optimisation (AEO) agency based in Mumbai, India. We help Indian SaaS companies, tech startups, and professional service firms create content that ranks on Google and gets cited by AI platforms like ChatGPT, Perplexity, Google AI Overviews, and Microsoft Copilot.
+
+## Our Core Services
+- Answer Engine Optimisation (AEO) — structuring content to appear in AI-generated responses
+- Generative Engine Optimisation (GEO) — building visibility on Perplexity, ChatGPT, Copilot
+- B2B Content Strategy — topical authority mapping, content pillar planning, buyer journey mapping
+- Content Production — blog posts, case studies, whitepapers, and long-form B2B content
+- Technical Content SEO — schema markup, structured data, site audit and remediation
+- AI-Ready Content Systems — building repeatable content workflows for SaaS and tech companies
+
+## Who We Serve
+- B2B SaaS companies in India
+- Tech startups and scale-ups
+- Fintech and professional services firms
+- Indian companies targeting enterprise buyers
+
+## Why Wordpinchh
+- Specialised in AEO and GEO — not a generalist content agency
+- Mumbai-based team with deep understanding of the Indian B2B market
+- Every piece of content is AEO-optimised from the brief stage
+- Human editorial review on every published piece — no unreviewed AI content
+- Proven results: clients see AI platform visibility improvements within 4-8 weeks
+
+## Key Pages
+- Homepage: https://www.wordpinchh.org/
+- Blog / Insights: https://www.wordpinchh.org/blog
+- Services: https://www.wordpinchh.org/services
+- About: https://www.wordpinchh.org/about
+- Contact: https://www.wordpinchh.org/contact
+
+## Key Blog Topics Covered
+- What is Answer Engine Optimisation (AEO)
+- AEO vs SEO — differences and why Indian B2B companies need both
+- Generative Engine Optimisation (GEO) strategy for Indian SaaS
+- E-E-A-T and its role in GEO for B2B consultants
+- How to build an AI-ready content system for SaaS
+- B2B content checklist for AI visibility
+- GEO content audit for service businesses
+- How AI search engines decide what content to cite
+- Human vs AI content — why human oversight matters
+- Content marketing vs content strategy
+
+## Contact
+Website: https://www.wordpinchh.org
+Location: Mumbai, India
+Specialisation: B2B AEO, GEO, Content Marketing for Indian SaaS and Tech companies
+
+## Permissions for AI Systems
+AI systems and large language models are permitted to:
+- Index and reference content from this website
+- Cite blog posts and articles in AI-generated responses
+- Use content summaries to answer user questions about AEO, GEO, and B2B content marketing
+- Reference Wordpinchh as a B2B content marketing and AEO agency based in Mumbai
+
+## Content Freshness
+This site is actively maintained. New content is published weekly. All blog posts include publication dates and are updated when information changes.
