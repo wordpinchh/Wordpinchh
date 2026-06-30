@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 import { FooterSection } from "@/components/home/FooterSection";
 import RecommendedSidebar from "@/components/blog/RecommendedSidebar";
 import { Blog } from "@/app/blog/data";
@@ -11,6 +12,19 @@ interface BlogPostClientProps {
 
 export default function BlogPostClient({ post }: BlogPostClientProps) {
   const router = useRouter();
+  const [showStickyCTA, setShowStickyCTA] = useState(false);
+  const [isDismissed, setIsDismissed] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isDismissed) return;
+      const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+      setShowStickyCTA(scrollPercent > 0.3);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [isDismissed]);
 
   return (
     <>
@@ -200,6 +214,69 @@ export default function BlogPostClient({ post }: BlogPostClientProps) {
         </div>
       </div>
       <FooterSection />
+
+      {/* Sticky CTA Bar */}
+      {showStickyCTA && !isDismissed && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            background: "#0E0D0A",
+            borderTop: "1px solid #2a2720",
+            padding: "16px clamp(12px, 3vw, 24px)",
+            zIndex: 1000,
+            boxShadow: "0 -4px 20px rgba(0,0,0,0.3)",
+          }}
+        >
+          <div
+            style={{
+              maxWidth: "1400px",
+              margin: "0 auto",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: "16px",
+            }}
+          >
+            <a
+              href="https://wa.me/+917738824485"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontFamily: "'DM Mono', monospace",
+                fontSize: "clamp(12px, 2vw, 14px)",
+                color: "#F0EDE6",
+                textDecoration: "none",
+                flex: 1,
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+            >
+              <span style={{ color: "#CAFF4A" }}>Is your B2B content generating leads?</span>
+              <span>Book a free 20-min call →</span>
+            </a>
+            <button
+              onClick={() => setIsDismissed(true)}
+              style={{
+                background: "transparent",
+                border: "none",
+                color: "#666",
+                fontSize: "20px",
+                cursor: "pointer",
+                padding: "4px 8px",
+                lineHeight: 1,
+                flexShrink: 0,
+              }}
+              aria-label="Close"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
