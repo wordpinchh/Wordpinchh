@@ -129,6 +129,20 @@ export function HeroSection() {
               See How It Works
             </a>
           </div>
+
+          {/* Trust Line */}
+          <p
+            className="text-center mt-4 lg:mt-5"
+            style={{
+              fontSize: 'clamp(12px, 2vw, 14px)',
+              lineHeight: 1.5,
+              color: 'var(--home-muted)',
+              fontFamily: 'var(--font-inter)',
+              opacity: 0.7
+            }}
+          >
+            Helped a B2B SaaS client increase AI platform traffic by 300% in 6 weeks
+          </p>
         </div>
 
         {/* Sidebar */}

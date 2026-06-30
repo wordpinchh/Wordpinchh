@@ -94,6 +94,11 @@ export const metadata: Metadata = {
       { rel: 'manifest', url: '/site.webmanifest' },
     ],
   },
+  verification: {
+    other: {
+      'msvalidate.01': '988D95FB8BFC52EA166A449AE6C13870'
+    }
+  },
 };
 
 export default function RootLayout({
